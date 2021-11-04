@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Red Teaming Assessment Scoring System</title>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="stylesheet"
+      href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+      integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
+      crossorigin="anonymous"
+    />
+  </head>
+
+  <body>
+    <div class="container">
+      <div id="pane1">
+        <h1>
+          {{RTACSS[lang+'Title']}}
+        </h1>
+        <div class="row">
+          <div class="col-md-6" v-for="(factorTypeVal, factorTypeKey) in RTACSS.factorTypes" :key="factorTypeKey">
+            <h2>{{factorTypeVal[lang+'Name']}}</h2>
+            <div class="row factorType">
+              <div class="col-md-4" v-for="factorGroupKey in factorTypeVal.factorGroups" :key="factorGroupKey">
+                <h5>{{RTACSS.factorGroups[factorGroupKey][lang+'Name']}}</h5>
+                <div class="factorGroup">
+                  <div class="factor" v-for="factorKey in RTACSS.factorGroups[factorGroupKey].factors" :key="factorKey">
+                    <h6>{{RTACSS.factors[factorKey][lang+'Name']}}</h6>
+                    <select
+                      class="custom-select custom-select-sm"
+                      :class="'text-'+factorVal[factorKey]"
+                      v-model="factorVal[factorKey]"
+                      @change="calcScore()"
+                      :title="RTACSS.factors[factorKey][lang+'Desc']"
+                    >
+                      <option 
+                      v-for="(factorLabel, factorVal) in RTACSS.factors[factorKey][lang+'Options']" 
+                      :value="factorVal"
+                      >{{factorLabel}}</option>
+                    </select>
+                  </div>
+                </div>
+                <div 
+                  class="alert" 
+                  role="alert"
+                  :class="'text-'+risks[factorGroupKey]['className']"
+                >
+                  {{RTACSS.factorGroups[factorGroupKey][lang+'Name']}}:<br />
+                  {{risks[factorGroupKey][lang+'Name']}}
+                  <div>{{scores[factorGroupKey]}}</div>
+                </div>
+              </div>
+            </div> 
+          </div>
+        </div>
+
+        <div class="row">
+          <div 
+            class="col-md-3" 
+            v-for="(scoringItem, scoringKey) in RTACSS.scoring" 
+            :key="scoringKey"
+          >
+            <div :class="'alert scoring text-'+risks[scoringKey]['className']">
+              {{scoringItem[lang+'Name']}}: <br />
+              <span>{{scores[scoringKey]}}</span>
+              <br />
+              {{risks[scoringKey][lang+'Name']}}
+            </div>
+          </div>
+        </div>
+
+      </div>
+      <div id="pane"></div>
+      <script src="main.js"></script>
+    </div>
+  </body>
+</html>

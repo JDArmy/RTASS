@@ -1,5 +1,5 @@
 {
-  "name": "ba2cs2",
+  "name": "rtacss",
   "version": "1.0.0",
   "description": "Red Teaming Assessment Common Scoring System",
   "private": true,
@@ -12,8 +12,8 @@
   "author": "Monyer",
   "license": "ISC",
   "devDependencies": {
+    "copy-webpack-plugin": "^9.0.1",
     "css-loader": "^6.5.0",
-    "html-webpack-plugin": "^5.5.0",
     "style-loader": "^3.3.1",
     "vue": "^2.6.14",
     "webpack": "^5.61.0",
