@@ -19,7 +19,7 @@ new Vue({
           RTASS.factorGroups[factorGroupKey].factors.map((factorKey) => {
             let modulus = RTASS.factorGroups[factorGroupKey].weight[factorKey];
             if (modulus < 0) {
-              score += 9 - Math.abs(modulus) * this.factorVal[factorKey];
+              score += 9 + modulus * this.factorVal[factorKey];
             } else {
               score += modulus * this.factorVal[factorKey];
             }
@@ -37,7 +37,7 @@ new Vue({
         RTASS.scoring[scoringKey].factorGroups.map((factorGroupKey) => {
           let modulus = RTASS.scoring[scoringKey].weight[factorGroupKey];
           if (modulus < 0) {
-            score += 9 - Math.abs(modulus) * this.scores[factorGroupKey];
+            score += 9 + modulus * this.scores[factorGroupKey];
           } else {
             score += modulus * this.scores[factorGroupKey];
           }

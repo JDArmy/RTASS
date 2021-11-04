@@ -638,12 +638,12 @@
     "factorGroups": {
         "AS": {
             "enName": "Attack Strength",
-            "cnName": "攻击强度",
+            "cnName": "攻击实力",
             "factors": [
                 "TL",
                 "AD",
-                "TR",
-                "AC"
+                "AC",
+                "TR"
             ],
             "notice": "The sum of all weight absolute values must be 4",
             "weight":{
@@ -655,7 +655,7 @@
         },
         "DS": {
             "enName": "Defense Strength",
-            "cnName": "防守强度",
+            "cnName": "防守实力",
             "factors": [
                 "PL",
                 "DL",
@@ -672,7 +672,7 @@
         },
         "VF": {
             "enName": "Vulneribility Factor",
-            "cnName": "漏洞因素",
+            "cnName": "漏洞水平",
             "factors": [
                 "ED",
                 "EE",
@@ -754,24 +754,26 @@
         }
     },
     "scoring": {
-        "ASS":{
-            "enName": "Attack Strength Score",
-            "cnName": "攻击力量分值",
+        "AES":{
+            "enName": "Attack Energy Score",
+            "cnName": "攻击能量分值",
             "factorGroups":["AS","VF"],
             "notice": "The sum of all weight absolute values must be 2",
             "weight": {
                 "AS": 1,
-                "VF": -1
+                "VF": -1,
+                "EI": 1
             }
         },
-        "DSS":{
-            "enName": "Defense Strength Score",
-            "cnName": "防守力量分值",
+        "DES":{
+            "enName": "Defense Energy Score",
+            "cnName": "防守能量分值",
             "factorGroups":["DS","VF"],
             "notice": "The sum of all weight absolute values must be 2",
             "weight": {
                 "DS": 1,
-                "VF": -1
+                "VF": -1,
+                "EI": -1
             }
         },
         "BSS":{
