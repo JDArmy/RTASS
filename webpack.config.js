@@ -23,5 +23,5 @@ module.exports = {
         { from: path.resolve(__dirname, "src/index.html"), to: path.resolve(__dirname, "docs/index.html") },
       ],
     }),
-  ],
+  ]
 };

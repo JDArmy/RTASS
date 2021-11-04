@@ -1,37 +1,37 @@
-import RTACSS from "./RTACSS.json";
+import RTASS from "./RTASS.json";
 import Vue from "vue/dist/vue.esm.js";
 import "style-loader!css-loader!./main.css";
 
 new Vue({
   el: "#pane1",
   data: {
-    RTACSS: RTACSS,
-    lang: RTACSS.defaultLang,
+    RTASS: RTASS,
+    lang: RTASS.defaultLang,
     factorVal: {},
     scores: {},
     risks: {},
   },
   methods: {
     calcScore: function () {
-      Object.keys(RTACSS.factorTypes).map((factorTypeKey) => {
-        RTACSS.factorTypes[factorTypeKey].factorGroups.map((factorGroupKey) => {
+      Object.keys(RTASS.factorTypes).map((factorTypeKey) => {
+        RTASS.factorTypes[factorTypeKey].factorGroups.map((factorGroupKey) => {
           let score = 0;
-          RTACSS.factorGroups[factorGroupKey].factors.map((factorKey) => {
-            let modulus = RTACSS.factorGroups[factorGroupKey].weight[factorKey];
+          RTASS.factorGroups[factorGroupKey].factors.map((factorKey) => {
+            let modulus = RTASS.factorGroups[factorGroupKey].weight[factorKey];
             score += modulus * this.factorVal[factorKey];
           });
           let finalScore = (
-            score / RTACSS.factorGroups[factorGroupKey].factors.length
+            score / RTASS.factorGroups[factorGroupKey].factors.length
           ).toFixed(2);
           this.scores[factorGroupKey] = finalScore;
-          this.risks[factorGroupKey] = RTACSS.risks[Math.ceil(finalScore)];
+          this.risks[factorGroupKey] = RTASS.risks[Math.ceil(finalScore)];
         });
       });
 
-      Object.keys(RTACSS.scoring).map((scoringKey) => {
+      Object.keys(RTASS.scoring).map((scoringKey) => {
         let score = 0;
-        RTACSS.scoring[scoringKey].factorGroups.map((factorGroupKey) => {
-          let modulus = RTACSS.scoring[scoringKey].weight[factorGroupKey];
+        RTASS.scoring[scoringKey].factorGroups.map((factorGroupKey) => {
+          let modulus = RTASS.scoring[scoringKey].weight[factorGroupKey];
           if (modulus < 0) {
             score += 9 - Math.abs(modulus) * this.scores[factorGroupKey];
           } else {
@@ -39,10 +39,10 @@ new Vue({
           }
         });
         let finalScore = (
-          score / RTACSS.scoring[scoringKey].factorGroups.length
+          score / RTASS.scoring[scoringKey].factorGroups.length
         ).toFixed(2);
         this.scores[scoringKey] = finalScore;
-        this.risks[scoringKey] = RTACSS.risks[Math.ceil(finalScore)];
+        this.risks[scoringKey] = RTASS.risks[Math.ceil(finalScore)];
       });
       this.$forceUpdate();
     },
@@ -59,15 +59,15 @@ new Vue({
     this.calcScore();
   },
   created() {
-    Object.keys(RTACSS.factors).map((factorKey) => {
+    Object.keys(RTASS.factors).map((factorKey) => {
       this.factorVal[factorKey] = Math.floor(Math.random() * 10);
     });
-    Object.keys(RTACSS.factorGroups).map((factorGroupKey) => {
+    Object.keys(RTASS.factorGroups).map((factorGroupKey) => {
       this.scores[factorGroupKey] = 0;
-      this.risks[factorGroupKey] = RTACSS.risks[0];
+      this.risks[factorGroupKey] = RTASS.risks[0];
     });
-    Object.keys(RTACSS.scoring).map((scoringKey) => {
-      this.risks[scoringKey] = RTACSS.risks[0];
+    Object.keys(RTASS.scoring).map((scoringKey) => {
+      this.risks[scoringKey] = RTASS.risks[0];
     });
 
     let lang = this.getUrlParameter('lang');

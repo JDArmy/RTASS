@@ -1,5 +1,5 @@
 {
-  "name": "rtacss",
+  "name": "RTASS",
   "version": "1.0.0",
   "description": "Red Teaming Assessment Common Scoring System",
   "private": true,
@@ -23,10 +23,10 @@
   "main": "webpack.config.js",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/JDArmy/RTACSS.git"
+    "url": "git+https://github.com/JDArmy/RTASS.git"
   },
   "bugs": {
-    "url": "https://github.com/JDArmy/RTACSS/issues"
+    "url": "https://github.com/JDArmy/RTASS/issues"
   },
-  "homepage": "https://github.com/JDArmy/RTACSS#readme"
+  "homepage": "https://github.com/JDArmy/RTASS#readme"
 }

@@ -16,26 +16,26 @@
     <div class="container">
       <div id="pane1">
         <h1>
-          {{RTACSS[lang+'Title']}}
+          {{RTASS[lang+'Title']}}
         </h1>
         <div class="row">
-          <div class="col-md-6" v-for="(factorTypeVal, factorTypeKey) in RTACSS.factorTypes" :key="factorTypeKey">
+          <div class="col-md-6" v-for="(factorTypeVal, factorTypeKey) in RTASS.factorTypes" :key="factorTypeKey">
             <h2>{{factorTypeVal[lang+'Name']}}</h2>
             <div class="row factorType">
               <div class="col-md-4" v-for="factorGroupKey in factorTypeVal.factorGroups" :key="factorGroupKey">
-                <h5>{{RTACSS.factorGroups[factorGroupKey][lang+'Name']}}</h5>
+                <h5>{{RTASS.factorGroups[factorGroupKey][lang+'Name']}}</h5>
                 <div class="factorGroup">
-                  <div class="factor" v-for="factorKey in RTACSS.factorGroups[factorGroupKey].factors" :key="factorKey">
-                    <h6>{{RTACSS.factors[factorKey][lang+'Name']}}</h6>
+                  <div class="factor" v-for="factorKey in RTASS.factorGroups[factorGroupKey].factors" :key="factorKey">
+                    <h6>{{RTASS.factors[factorKey][lang+'Name']}}</h6>
                     <select
                       class="custom-select custom-select-sm"
                       :class="'text-'+factorVal[factorKey]"
                       v-model="factorVal[factorKey]"
                       @change="calcScore()"
-                      :title="RTACSS.factors[factorKey][lang+'Desc']"
+                      :title="RTASS.factors[factorKey][lang+'Desc']"
                     >
                       <option 
-                      v-for="(factorLabel, factorVal) in RTACSS.factors[factorKey][lang+'Options']" 
+                      v-for="(factorLabel, factorVal) in RTASS.factors[factorKey][lang+'Options']" 
                       :value="factorVal"
                       >{{factorLabel}}</option>
                     </select>
@@ -46,7 +46,7 @@
                   role="alert"
                   :class="'text-'+risks[factorGroupKey]['className']"
                 >
-                  {{RTACSS.factorGroups[factorGroupKey][lang+'Name']}}:<br />
+                  {{RTASS.factorGroups[factorGroupKey][lang+'Name']}}:<br />
                   {{risks[factorGroupKey][lang+'Name']}}
                   <div>{{scores[factorGroupKey]}}</div>
                 </div>
@@ -58,7 +58,7 @@
         <div class="row">
           <div 
             class="col-md-3" 
-            v-for="(scoringItem, scoringKey) in RTACSS.scoring" 
+            v-for="(scoringItem, scoringKey) in RTASS.scoring" 
             :key="scoringKey"
           >
             <div :class="'alert scoring text-'+risks[scoringKey]['className']">
