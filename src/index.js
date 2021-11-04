@@ -18,7 +18,11 @@ new Vue({
           let score = 0;
           RTASS.factorGroups[factorGroupKey].factors.map((factorKey) => {
             let modulus = RTASS.factorGroups[factorGroupKey].weight[factorKey];
-            score += modulus * this.factorVal[factorKey];
+            if (modulus < 0) {
+              score += 9 - Math.abs(modulus) * this.factorVal[factorKey];
+            } else {
+              score += modulus * this.factorVal[factorKey];
+            }
           });
           let finalScore = (
             score / RTASS.factorGroups[factorGroupKey].factors.length
@@ -70,8 +74,8 @@ new Vue({
       this.risks[scoringKey] = RTASS.risks[0];
     });
 
-    let lang = this.getUrlParameter('lang');
-    if(lang != ""){
+    let lang = this.getUrlParameter("lang");
+    if (lang != "") {
       this.lang = lang;
     }
   },

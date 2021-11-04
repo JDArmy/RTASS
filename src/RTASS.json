@@ -2,6 +2,7 @@
     "defaultLang": "cn",
     "cnTitle": "红队评估评分系统（RTASS）",
     "enTitle": "Red Teaming Assessment Scoring System (RTASS)",
+    "version": "v0.1",
     "factors": {
         "TL": {
             "enName": "Technique Level",
@@ -305,9 +306,9 @@
         },
         "VH": {
             "enName": "Vulnerability Harmfulness",
-            "cnName": "漏洞危害",
+            "cnName": "漏洞杀伤力",
             "enDesc": "",
-            "cnDesc": "渗透路径中的关键漏洞的最大危害性",
+            "cnDesc": "渗透路径中的关键漏洞的最大杀伤力",
             "cnOptions": [
                 "0 - N/A",
                 "1 - 几乎没啥危害",
