@@ -1,0 +1,100 @@
+
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>蓝军评估通用评分系统</title>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="stylesheet"
+      href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+      integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
+      crossorigin="anonymous"
+    />
+    <script
+      src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+      integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
+      integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
+      integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+      crossorigin="anonymous"
+    ></script>
+  </head>
+
+  <body>
+    <div class="container">
+      <h1>
+        蓝军评估通用评分系统
+        <span style="font-size: 16px">
+          （Blue Army Assessment Common Scoring System，BA2CS2）
+        </span>
+      </h1>
+      <div id="pane1">
+        <div class="row">
+          <div class="col-md-6" v-for="(factorTypeVal, factorTypeKey) in BA2CS2.factorTypes" :key="factorTypeKey">
+            <h2>{{factorTypeVal[lang+'Name']}}</h2>
+            <div class="row factorType">
+              <div class="col-md-4" v-for="factorGroupKey in factorTypeVal.factorGroups" :key="factorGroupKey">
+                <h5>{{BA2CS2.factorGroups[factorGroupKey][lang+'Name']}}</h5>
+                <div class="factorGroup">
+                  <div class="factor" v-for="factorKey in BA2CS2.factorGroups[factorGroupKey].factors" :key="factorKey">
+                    <h6>{{BA2CS2.factors[factorKey][lang+'Name']}}</h6>
+                    <select
+                      class="custom-select custom-select-sm"
+                      :class="'text-'+factorVal[factorKey]"
+                      v-model="factorVal[factorKey]"
+                      data-toggle="tooltip"
+                      data-placement="top"
+                      @change="calcScore()"
+                      title=""
+                      :data-original-title="BA2CS2.factors[factorKey][lang+'Desc']"
+                    >
+                      <option 
+                      v-for="(factorLabel, factorVal) in BA2CS2.factors[factorKey][lang+'Options']" 
+                      :value="factorVal"
+                      >{{factorLabel}}</option>
+                    </select>
+                  </div>
+                </div>
+                <div 
+                  class="alert" 
+                  role="alert"
+                  :class="'text-'+risks[factorGroupKey]['className']"
+                >
+                  {{BA2CS2.factorGroups[factorGroupKey][lang+'Name']}}:<br />
+                  {{risks[factorGroupKey][lang+'Name']}}
+                  <div>{{scores[factorGroupKey]}}</div>
+                </div>
+              </div>
+            </div> 
+          </div>
+        </div>
+
+        <div class="row">
+          <div 
+            class="col-md-3" 
+            v-for="(scoringItem, scoringKey) in BA2CS2.scoring" 
+            :key="scoringKey"
+          >
+            <div :class="'alert scoring text-'+risks[scoringKey]['className']">
+              {{scoringItem[lang+'Name']}}: <br />
+              <span>{{scores[scoringKey]}}</span>
+              <br />
+              {{risks[scoringKey][lang+'Name']}}
+            </div>
+          </div>
+        </div>
+
+      </div>
+      <div id="pane"></div>
+      <script src="main.js"></script>
+    </div>
+  </body>
+</html>
