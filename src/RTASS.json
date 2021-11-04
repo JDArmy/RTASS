@@ -1,12 +1,12 @@
 {
-    "defaultLang": "en",
+    "defaultLang": "cn",
     "cnTitle": "红队评估评分系统（RTASS）",
     "enTitle": "Red Teaming Assessment Scoring System (RTASS)",
     "version": "v0.1",
     "factors": {
-        "TL": {
-            "enName": "Technique Level",
-            "cnName": "技术水平",
+        "AL": {
+            "enName": "Attacker Level",
+            "cnName": "攻击者水平",
             "enDesc": "The highest level of technology used in the assessment path?",
             "cnDesc": "评估路径中使用的最高技术水平？",
             "cnOptions": [
@@ -214,9 +214,9 @@
                 "9 - Real-time response (within 30 minutes)"
             ]
         },
-        "TA": {
-            "enName": "Trace Ability",
-            "cnName": "溯源能力",
+        "TL": {
+            "enName": "Trace Level",
+            "cnName": "溯源水平",
             "enDesc": "Whether the attacker can be traced effectively",
             "cnDesc": "是否能够对攻击者进行有效溯源",
             "cnOptions": [
@@ -551,27 +551,27 @@
             "cnDesc": "是否在软件开发生命周期中存在安全问题？",
             "cnOptions": [
                 "0 - N/A",
-                "1 - 几乎没有安全流程问题",
+                "1 - 基本上在开发过程中没有考虑安全问题",
                 "2",
-                "3 - 有一定的安全流程问题",
+                "3 - 有较多的安全流程问题",
                 "4",
                 "5",
                 "6",
-                "7 - 有较多的安全流程问题",
+                "7 - 有一定的安全流程问题",
                 "8",
-                "9 - 基本上在开发过程中没有考虑安全问题"
+                "9 - 几乎没有安全流程问题"
             ],
             "enOptions": [
                 "0 - N/A",
-                "1 - Few security process issues",
+                "1 - Basically did not consider security issues",
                 "2",
-                "3 - There are certain security process issues",
+                "3 - There are more security process issues",
                 "4",
                 "5",
                 "6",
-                "7 - There are more security process issues",
+                "7 - There are certain security process issues",
                 "8",
-                "9 - Basically did not consider security issues"
+                "9 - Almost no security process issues"
             ]
         },
         "OLC": {
@@ -581,27 +581,27 @@
             "cnDesc": "是否在运维生命周期中存在安全问题？",
             "cnOptions": [
                 "0 - N/A",
-                "1 - 几乎没有安全流程问题",
+                "1 - 基本上在运维过程中没有考虑安全问题",
                 "2",
-                "3 - 有一定的安全流程问题",
+                "3 - 有较多的安全流程问题",
                 "4",
                 "5",
                 "6",
-                "7 - 有较多的安全流程问题",
+                "7 - 有一定的安全流程问题",
                 "8",
-                "9 - 基本上在运维过程中没有考虑安全问题"
+                "9 - 几乎没有安全流程问题"
             ],
             "enOptions": [
                 "0 - N/A",
-                "1 - Few security process issues",
+                "1 - Basically did not consider security issues",
                 "2",
-                "3 - There are certain security process issues",
+                "3 - There are more security process issues",
                 "4",
                 "5",
                 "6",
-                "7 - There are more security process issues",
+                "7 - There are certain security process issues",
                 "8",
-                "9 - Basically did not consider security issues"
+                "9 - Almost no security process issues"
             ]
         },
         "ESA": {
@@ -611,27 +611,27 @@
             "cnDesc": "在评估过程中大部分员工是否有安全意识问题？",
             "cnOptions": [
                 "0 - N/A",
-                "1 - 全部员工基本上都有极高的安全意识",
-                "2",
-                "3 - 少部分员工安全意识较弱",
-                "4",
+                "1 - 几乎全员没有任何安全意识",
+                "2 - 大部分关键岗位员工安全意识较弱",
+                "3 - 大部分员工安全意识较弱",
+                "4 - 少部分关键岗位员工安全意识较弱",
                 "5",
-                "6 - 少部分关键岗位员工安全意识较弱",
-                "7 - 大部分员工安全意识较弱",
-                "8 - 大部分关键岗位员工安全意识较弱",
-                "9 - 几乎全员没有任何安全意识"
+                "6",
+                "7 - 少部分员工安全意识较弱",
+                "8",
+                "9 - 全部员工基本上都有极高的安全意识"
             ],
             "enOptions": [
                 "0 - N/A",
-                "1 - Basically all employees have a high level of safety awareness",
-                "2",
-                "3 - A small number of employees have weak safety awareness",
-                "4",
+                "1 - Almost all staff have no safety awareness",
+                "2 - Most of the employees in key positions have weak safety awareness",
+                "3 - Most employees have weak safety awareness",
+                "4 - A small number of employees in key positions have weak safety awareness",
                 "5",
-                "6 - A small number of employees in key positions have weak safety awareness",
-                "7 - Most employees have weak safety awareness",
-                "8 - Most of the employees in key positions have weak safety awareness",
-                "9 - Almost all staff have no safety awareness"
+                "6",
+                "7 - A small number of employees have weak safety awareness",
+                "8",
+                "9 - Basically all employees have a high level of safety awareness"
             ]
         }
     },
@@ -640,14 +640,14 @@
             "enName": "Attack Strength",
             "cnName": "攻击实力",
             "factors": [
-                "TL",
+                "AL",
                 "AD",
                 "AC",
                 "TR"
             ],
             "notice": "The sum of all weight absolute values must be 4",
             "weight":{
-                "TL":1,
+                "AL":1,
                 "AD":1,
                 "TR":1,
                 "AC":1
@@ -660,19 +660,19 @@
                 "PL",
                 "DL",
                 "RL",
-                "TA"
+                "TL"
             ],
             "notice": "The sum of all weight absolute values must be 4",
             "weight":{
                 "PL":1,
                 "DL":1,
                 "RL":1,
-                "TA":1
+                "TL":1
             }
         },
-        "VL": {
-            "enName": "Vulneribility Level",
-            "cnName": "漏洞水平",
+        "VR": {
+            "enName": "Vulneribility Risk",
+            "cnName": "漏洞风险",
             "factors": [
                 "ED",
                 "EE",
@@ -717,9 +717,9 @@
                 "OI":1
             }
         },
-        "BI": {
-            "enName": "Business Impact",
-            "cnName": "业务影响",
+        "BA": {
+            "enName": "Business Ability",
+            "cnName": "业务能力",
             "factors": [
                 "DLC",
                 "OLC",
@@ -740,7 +740,7 @@
             "factorGroups": [
                 "AS",
                 "DS",
-                "VL"
+                "VR"
             ]
         },
         "BF": {
@@ -749,7 +749,7 @@
             "factorGroups": [
                 "TI",
                 "EI",
-                "BI"
+                "BA"
             ]
         }
     },
@@ -757,34 +757,34 @@
         "AES":{
             "enName": "Attack Energy Score",
             "cnName": "攻击能量分值",
-            "factorGroups":["AS","VL"],
+            "factorGroups":["AS"],
             "notice": "The sum of all weight absolute values must be 2",
             "weight": {
                 "AS": 1,
-                "VL": -1,
+                "VR": -1,
                 "EI": 1
             }
         },
         "DES":{
             "enName": "Defense Energy Score",
             "cnName": "防守能量分值",
-            "factorGroups":["DS","VL"],
+            "factorGroups":["DS","VR"],
             "notice": "The sum of all weight absolute values must be 2",
             "weight": {
                 "DS": 1,
-                "VL": -1,
+                "VR": -1,
                 "EI": -1
             }
         },
         "BSS":{
             "enName": "Business Risk Score",
             "cnName": "业务风险分值",
-            "factorGroups":["TI","EI","BI"],
+            "factorGroups":["TI","EI","BA"],
             "notice": "The sum of all weight absolute values must be 3",
             "weight": {
                 "TI": 1,
                 "EI": 1,
-                "BI": 1
+                "BA": -1
             }
         },
         "ERS":{

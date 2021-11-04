@@ -15,20 +15,21 @@
   <body>
     <div class="container-fluid">
       <div id="pane1">
-        <h2>
+        <h2 class="text-center">
           {{RTASS[lang+'Title']}} {{RTASS.version}}
         </h2>
         <div class="row">
           <div class="col-md-6" v-for="(factorTypeVal, factorTypeKey) in RTASS.factorTypes" :key="factorTypeKey">
-            <h4>{{factorTypeVal[lang+'Name']}}</h4>
+            <h4 class="text-center">{{factorTypeVal[lang+'Name']}}</h4>
             <div class="row factorType">
               <div class="col-md-4" v-for="factorGroupKey in factorTypeVal.factorGroups" :key="factorGroupKey">
-                <h5>{{RTASS.factorGroups[factorGroupKey][lang+'Name']}}</h5>
+                <h5 class="text-center">{{RTASS.factorGroups[factorGroupKey][lang+'Name']}}</h5>
                 <div class="factorGroup">
                   <div class="factor" v-for="factorKey in RTASS.factorGroups[factorGroupKey].factors" :key="factorKey">
                     <h6
+                      class="text-center"
                       :title="RTASS.factors[factorKey][lang+'Desc']"
-                    >{{RTASS.factors[factorKey][lang+'Name']}}</h6>
+                    >{{RTASS.factors[factorKey][lang+'Name']}}[{{factorKey}}]</h6>
                     <select
                       class="custom-select custom-select-sm"
                       :class="'text-'+factorVal[factorKey]"
@@ -44,11 +45,11 @@
                   </div>
                 </div>
                 <div 
-                  class="alert" 
+                  class="alert text-center" 
                   role="alert"
                   :class="'text-'+levels[factorGroupKey]['className']"
                 >
-                  {{RTASS.factorGroups[factorGroupKey][lang+'Name']}}:<br />
+                  {{RTASS.factorGroups[factorGroupKey][lang+'Name']}}[{{factorGroupKey}}]:<br />
                   {{levels[factorGroupKey][lang+'Name']}}
                   <div>{{scores[factorGroupKey]}}</div>
                 </div>
@@ -59,12 +60,12 @@
 
         <div class="row">
           <div 
-            class="col-md-3" 
+            class="col-md-3 text-center" 
             v-for="(scoringItem, scoringKey) in RTASS.scoring" 
             :key="scoringKey"
           >
             <div :class="'alert scoring text-'+levels[scoringKey]['className']">
-              {{scoringItem[lang+'Name']}}: <br />
+              {{scoringItem[lang+'Name']}}[{{scoringKey}}]: <br />
               <span>{{scores[scoringKey]}}</span>
             </div>
           </div>
