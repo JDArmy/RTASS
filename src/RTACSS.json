@@ -1,6 +1,6 @@
 {
     "defaultLang": "cn",
-    "cnTitle": "蓝军评估通用评分系统（RTACSS）",
+    "cnTitle": "红队评估通用评分系统（RTACSS）",
     "enTitle": "Red Teaming Assessment Common Scoring System (RTACSS)",
     "factors": {
         "TL": {

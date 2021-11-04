@@ -13,7 +13,6 @@ new Vue({
   },
   methods: {
     calcScore: function () {
-
       Object.keys(RTACSS.factorTypes).map((factorTypeKey) => {
         RTACSS.factorTypes[factorTypeKey].factorGroups.map((factorGroupKey) => {
           let score = 0;
@@ -33,9 +32,9 @@ new Vue({
         let score = 0;
         RTACSS.scoring[scoringKey].factorGroups.map((factorGroupKey) => {
           let modulus = RTACSS.scoring[scoringKey].weight[factorGroupKey];
-          if(modulus<0){
+          if (modulus < 0) {
             score += 9 - Math.abs(modulus) * this.scores[factorGroupKey];
-          }else{
+          } else {
             score += modulus * this.scores[factorGroupKey];
           }
         });
@@ -46,6 +45,14 @@ new Vue({
         this.risks[scoringKey] = RTACSS.risks[Math.ceil(finalScore)];
       });
       this.$forceUpdate();
+    },
+    getUrlParameter: function (name) {
+      name = name.replace(/[\[]/, "\\[").replace(/[\]]/, "\\]");
+      var regex = new RegExp("[\\?&]" + name + "=([^&#]*)");
+      var results = regex.exec(location.search);
+      return results === null
+        ? ""
+        : decodeURIComponent(results[1].replace(/\+/g, " "));
     },
   },
   mounted() {
@@ -62,5 +69,10 @@ new Vue({
     Object.keys(RTACSS.scoring).map((scoringKey) => {
       this.risks[scoringKey] = RTACSS.risks[0];
     });
+
+    let lang = this.getUrlParameter('lang');
+    if(lang != ""){
+      this.lang = lang;
+    }
   },
 });
