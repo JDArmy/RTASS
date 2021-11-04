@@ -743,7 +743,7 @@
         },
         "BSS":{
             "enName": "Business Strength Score",
-            "cnName": "业务能力分值",
+            "cnName": "业务风险分值",
             "factorGroups":["TI","EI","BI"],
             "notice": "The sum of all weight absolute values must be 3",
             "weight": {
