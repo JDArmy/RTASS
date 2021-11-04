@@ -303,6 +303,36 @@
                 "9"
             ]
         },
+        "VH": {
+            "enName": "Vulnerability Harmfulness",
+            "cnName": "漏洞危害",
+            "enDesc": "",
+            "cnDesc": "渗透路径中的关键漏洞的最大危害性",
+            "cnOptions": [
+                "0 - N/A",
+                "1 - 几乎没啥危害",
+                "2",
+                "3 - 低危",
+                "4",
+                "5 - 中危",
+                "6",
+                "7 - 高危",
+                "8",
+                "9 - 严重"
+            ],
+            "enOptions": [
+                "0",
+                "1",
+                "2",
+                "3",
+                "4",
+                "5",
+                "6",
+                "7",
+                "8",
+                "9"
+            ]
+        },
         "LC": {
             "enName": "Loss of Confidentiality",
             "cnName": "失去保密性",
@@ -644,12 +674,14 @@
             "cnName": "漏洞因素",
             "factors": [
                 "ED",
-                "EE"
+                "EE",
+                "VH"
             ],
             "notice": "The sum of all weight absolute values must be 2",
             "weight":{
                 "ED":1,
-                "EE":1
+                "EE":1,
+                "VH":1
             }
         },
         "TI": {
