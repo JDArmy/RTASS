@@ -14,13 +14,13 @@ module.exports = {
   },
   output: {
     filename: "main.js",
-    path: path.resolve(__dirname, "dist"),
+    path: path.resolve(__dirname, "docs"),
     clean: true,
   },
   plugins: [
     new CopyPlugin({
       patterns: [
-        { from: path.resolve(__dirname, "src/index.html"), to: path.resolve(__dirname, "dist/index.html") },
+        { from: path.resolve(__dirname, "src/index.html"), to: path.resolve(__dirname, "docs/index.html") },
       ],
     }),
   ],
