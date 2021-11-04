@@ -13,14 +13,14 @@
   </head>
 
   <body>
-    <div class="container">
+    <div class="container-fluid">
       <div id="pane1">
-        <h1>
+        <h2>
           {{RTASS[lang+'Title']}} {{RTASS.version}}
-        </h1>
+        </h2>
         <div class="row">
           <div class="col-md-6" v-for="(factorTypeVal, factorTypeKey) in RTASS.factorTypes" :key="factorTypeKey">
-            <h2>{{factorTypeVal[lang+'Name']}}</h2>
+            <h4>{{factorTypeVal[lang+'Name']}}</h4>
             <div class="row factorType">
               <div class="col-md-4" v-for="factorGroupKey in factorTypeVal.factorGroups" :key="factorGroupKey">
                 <h5>{{RTASS.factorGroups[factorGroupKey][lang+'Name']}}</h5>
@@ -46,10 +46,10 @@
                 <div 
                   class="alert" 
                   role="alert"
-                  :class="'text-'+risks[factorGroupKey]['className']"
+                  :class="'text-'+levels[factorGroupKey]['className']"
                 >
                   {{RTASS.factorGroups[factorGroupKey][lang+'Name']}}:<br />
-                  {{risks[factorGroupKey][lang+'Name']}}
+                  {{levels[factorGroupKey][lang+'Name']}}
                   <div>{{scores[factorGroupKey]}}</div>
                 </div>
               </div>
@@ -63,7 +63,7 @@
             v-for="(scoringItem, scoringKey) in RTASS.scoring" 
             :key="scoringKey"
           >
-            <div :class="'alert scoring text-'+risks[scoringKey]['className']">
+            <div :class="'alert scoring text-'+levels[scoringKey]['className']">
               {{scoringItem[lang+'Name']}}: <br />
               <span>{{scores[scoringKey]}}</span>
             </div>

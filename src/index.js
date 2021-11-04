@@ -9,7 +9,7 @@ new Vue({
     lang: RTASS.defaultLang,
     factorVal: {},
     scores: {},
-    risks: {},
+    levels: {},
   },
   methods: {
     calcScore: function () {
@@ -28,7 +28,7 @@ new Vue({
             score / RTASS.factorGroups[factorGroupKey].factors.length
           ).toFixed(2);
           this.scores[factorGroupKey] = finalScore;
-          this.risks[factorGroupKey] = RTASS.risks[Math.ceil(finalScore)];
+          this.levels[factorGroupKey] = RTASS.levels[Math.ceil(finalScore)];
         });
       });
 
@@ -46,7 +46,7 @@ new Vue({
           score / RTASS.scoring[scoringKey].factorGroups.length
         ).toFixed(2);
         this.scores[scoringKey] = finalScore;
-        this.risks[scoringKey] = RTASS.risks[Math.ceil(finalScore)];
+        this.levels[scoringKey] = RTASS.levels[Math.ceil(finalScore)];
       });
       this.$forceUpdate();
     },
@@ -68,10 +68,10 @@ new Vue({
     });
     Object.keys(RTASS.factorGroups).map((factorGroupKey) => {
       this.scores[factorGroupKey] = 0;
-      this.risks[factorGroupKey] = RTASS.risks[0];
+      this.levels[factorGroupKey] = RTASS.levels[0];
     });
     Object.keys(RTASS.scoring).map((scoringKey) => {
-      this.risks[scoringKey] = RTASS.risks[0];
+      this.levels[scoringKey] = RTASS.levels[0];
     });
 
     let lang = this.getUrlParameter("lang");

@@ -68,7 +68,7 @@
   background-color: #f09426;
 }
 
-.text-Critical {
+.text-Extreme {
   color: #ffffff;
   background-color: #d63e34;
 }
@@ -80,7 +80,7 @@
 }
 
 .factorGroup {
-  height: 250px;
+  height: 320px;
   background-color: floralwhite;
   padding: 5px;
   margin-bottom: 20px;
