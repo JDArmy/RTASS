@@ -2,7 +2,7 @@
     "defaultLang": "cn",
     "cnTitle": "红队评估评分系统（RTASS）",
     "enTitle": "Red Teaming Assessment Scoring System (RTASS)",
-    "version": "v0.1",
+    "version": "v0.1.2",
     "factors": {
         "AL": {
             "enName": "Attacker Level",
@@ -42,26 +42,26 @@
             "cnOptions": [
                 "0 - N/A",
                 "1 - 几乎没有难度",
-                "2 - 对非专业团队有点难度",
-                "3 - 对专业团队有点难度",
-                "4 - 对非专业团队较大难度",
-                "5",
-                "6 - 对专业团队较大难度",
-                "7",
-                "8 - 专业团队很难搞定",
-                "9 - 专业团队几乎不能搞定"
+                "2",
+                "3 - 有点难度",
+                "4",
+                "5 - 较大难度",
+                "6 ",
+                "7 - 很难搞定",
+                "8",
+                "9 - 几乎不能搞定"
             ],
             "enOptions": [
                 "0 - N/A",
                 "1 - Almost no difficulty",
-                "2 - It's a bit difficult for non-professional teams",
-                "3 - It's a bit difficult for professional teams",
-                "4 - It's difficult for non-professional teams",
-                "5",
-                "6 - It's difficult for professional teams",
-                "7",
-                "8 - Very harder for professional teams",
-                "9 - The professional team can hardly handle"
+                "2",
+                "3 - A bit difficult",
+                "4",
+                "5 - Difficult",
+                "6",
+                "7 - Very Difficult",
+                "8",
+                "9 - Hardly handle"
             ]
         },
         "TR": {
@@ -96,7 +96,7 @@
         },
         "AC": {
             "enName": "Attack Complexity",
-            "cnName": "攻击复杂度",
+            "cnName": "路径曲折度",
             "enDesc": "The complexity or twists of the entire attack path",
             "cnDesc": "整条攻击路径的复杂度或曲折程度",
             "cnOptions": [
@@ -437,7 +437,7 @@
                 "4",
                 "5",
                 "6",
-                "7 - 对年度利润的显着影响",
+                "7 - 对年度利润的显著影响",
                 "8",
                 "9 - 破产"
             ],
@@ -639,97 +639,63 @@
         "AS": {
             "enName": "Attack Strength",
             "cnName": "攻击实力",
-            "factors": [
-                "AL",
-                "AD",
-                "AC",
-                "TR"
-            ],
-            "notice": "The sum of all weight absolute values must be 4",
-            "weight":{
-                "AL":1,
-                "AD":1,
-                "TR":1,
-                "AC":1
+            "notice": "The sum of all weight absolute values must be 3",
+            "weight": {
+                "AL": 1,
+                "AD": 1,
+                "TR": 1
             }
         },
         "DS": {
             "enName": "Defense Strength",
             "cnName": "防守实力",
-            "factors": [
-                "PL",
-                "DL",
-                "RL",
-                "TL"
-            ],
             "notice": "The sum of all weight absolute values must be 4",
-            "weight":{
-                "PL":1,
-                "DL":1,
-                "RL":1,
-                "TL":1
+            "weight": {
+                "PL": 1,
+                "DL": 1,
+                "RL": 1,
+                "TL": 1
             }
         },
         "VR": {
             "enName": "Vulneribility Risk",
             "cnName": "漏洞风险",
-            "factors": [
-                "ED",
-                "EE",
-                "VH"
-            ],
-            "notice": "The sum of all weight absolute values must be 2",
-            "weight":{
-                "ED":1,
-                "EE":1,
-                "VH":1
+            "notice": "The sum of all weight absolute values must be 3",
+            "weight": {
+                "ED": 1,
+                "EE": 1,
+                "VH": 1
             }
         },
         "TI": {
             "enName": "Technique Impact",
             "cnName": "技术影响",
-            "factors": [
-                "LC",
-                "LI",
-                "LA"
-            ],
             "notice": "The sum of all weight absolute values must be 3",
-            "weight":{
-                "LC":1,
-                "LI":1,
-                "LA":1
+            "weight": {
+                "LC": 1,
+                "LI": 1,
+                "LA": 1
             }
         },
         "EI": {
             "enName": "Emterprise Impact",
             "cnName": "企业影响",
-            "factors": [
-                "FD",
-                "RD",
-                "CI",
-                "OI"
-            ],
             "notice": "The sum of all weight absolute values must be 4",
-            "weight":{
-                "FD":1,
-                "RD":1,
-                "CI":1,
-                "OI":1
+            "weight": {
+                "FD": 1,
+                "RD": 1,
+                "CI": 1,
+                "OI": 1
             }
         },
         "BA": {
             "enName": "Business Ability",
-            "cnName": "业务能力",
-            "factors": [
-                "DLC",
-                "OLC",
-                "ESA"
-            ],
+            "cnName": "业务安全能力",
             "notice": "The sum of all weight absolute values must be 3",
-            "weight":{
-                "DLC":1,
-                "OLC":1,
-                "ESA":1
+            "weight": {
+                "DLC": 1,
+                "OLC": 1,
+                "ESA": 1
             }
         }
     },
@@ -754,32 +720,29 @@
         }
     },
     "scoring": {
-        "AES":{
+        "AES": {
             "enName": "Attack Energy Score",
             "cnName": "攻击能量分值",
-            "factorGroups":["AS"],
             "notice": "The sum of all weight absolute values must be 2",
             "weight": {
                 "AS": 1,
-                "VR": -1,
+                "DS": 1,
                 "EI": 1
             }
         },
-        "DES":{
+        "DES": {
             "enName": "Defense Energy Score",
             "cnName": "防守能量分值",
-            "factorGroups":["DS","VR"],
-            "notice": "The sum of all weight absolute values must be 2",
+            "notice": "The sum of all weight absolute values must be 3",
             "weight": {
                 "DS": 1,
                 "VR": -1,
                 "EI": -1
             }
         },
-        "BSS":{
+        "BSS": {
             "enName": "Business Risk Score",
             "cnName": "业务风险分值",
-            "factorGroups":["TI","EI","BA"],
             "notice": "The sum of all weight absolute values must be 3",
             "weight": {
                 "TI": 1,
@@ -787,18 +750,18 @@
                 "BA": -1
             }
         },
-        "ERS":{
+        "ERS": {
             "enName": "Enterprise Risk Score",
             "cnName": "企业风险分值",
-            "factorGroups":["DS","EI"],
             "notice": "The sum of all weight absolute values must be 2",
             "weight": {
-                "DS": 1,
+                "DS": -1,
+                "VR": 1,
                 "EI": 1
             }
         }
     },
-    "levels":[
+    "levels": [
         {
             "index": 0,
             "enName": "None",

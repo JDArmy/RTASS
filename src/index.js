@@ -12,43 +12,31 @@ new Vue({
     levels: {},
   },
   methods: {
-    calcScore: function () {
-      Object.keys(RTASS.factorTypes).map((factorTypeKey) => {
-        RTASS.factorTypes[factorTypeKey].factorGroups.map((factorGroupKey) => {
-          let score = 0;
-          RTASS.factorGroups[factorGroupKey].factors.map((factorKey) => {
-            let modulus = RTASS.factorGroups[factorGroupKey].weight[factorKey];
-            if (modulus < 0) {
-              score += 9 + modulus * this.factorVal[factorKey];
-            } else {
-              score += modulus * this.factorVal[factorKey];
-            }
-          });
-          let finalScore = (
-            score / RTASS.factorGroups[factorGroupKey].factors.length
-          ).toFixed(2);
-          this.scores[factorGroupKey] = finalScore;
-          this.levels[factorGroupKey] = RTASS.levels[Math.ceil(finalScore)];
-        });
-      });
-
-      Object.keys(RTASS.scoring).map((scoringKey) => {
+    caclFinally: function () {
+      //FactorGroup的值从factorVal计算
+      this.calcScores(RTASS.factorGroups, this.factorVal);
+      //Scoring的值从scores获取
+      this.calcScores(RTASS.scoring, this.scores);
+      //刷新界面
+      this.$forceUpdate();
+    },
+    calcScores: function (Dimension, Scores) {
+      Object.keys(Dimension).map((key) => {
         let score = 0;
-        RTASS.scoring[scoringKey].factorGroups.map((factorGroupKey) => {
-          let modulus = RTASS.scoring[scoringKey].weight[factorGroupKey];
+        Object.keys(Dimension[key].weight).map((factorKey) => {
+          let modulus = Dimension[key].weight[factorKey];
           if (modulus < 0) {
-            score += 9 + modulus * this.scores[factorGroupKey];
+            score += 9 + modulus * Scores[factorKey];
           } else {
-            score += modulus * this.scores[factorGroupKey];
+            score += modulus * Scores[factorKey];
           }
         });
         let finalScore = (
-          score / RTASS.scoring[scoringKey].factorGroups.length
+          score / Object.keys(Dimension[key].weight).length
         ).toFixed(2);
-        this.scores[scoringKey] = finalScore;
-        this.levels[scoringKey] = RTASS.levels[Math.ceil(finalScore)];
+        this.scores[key] = finalScore;
+        this.levels[key] = RTASS.levels[Math.ceil(finalScore)];
       });
-      this.$forceUpdate();
     },
     getUrlParameter: function (name) {
       name = name.replace(/[\[]/, "\\[").replace(/[\]]/, "\\]");
@@ -60,11 +48,11 @@ new Vue({
     },
   },
   mounted() {
-    this.calcScore();
+    this.caclFinally();
   },
   created() {
     Object.keys(RTASS.factors).map((factorKey) => {
-      this.factorVal[factorKey] = Math.floor(Math.random() * 10);
+      this.factorVal[factorKey] = 9;//Math.floor(Math.random() * 10);
     });
     Object.keys(RTASS.factorGroups).map((factorGroupKey) => {
       this.scores[factorGroupKey] = 0;
