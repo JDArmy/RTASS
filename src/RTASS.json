@@ -1,6 +1,6 @@
 {
     "defaultLang": "cn",
-    "cnTitle": "红队评估评分系统（RTASS）",
+    "cnTitle": "红蓝对抗演练评分系统（RTASS）",
     "enTitle": "Red Teaming Assessment Scoring System (RTASS)",
     "version": "v0.1.2",
     "factors": {
