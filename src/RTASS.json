@@ -13,25 +13,27 @@
                 "0 - N/A",
                 "1 - 相当于入门级黑客",
                 "2 - 相当于能够熟练使用一些工具的黑客",
-                "3 - 相当于普通技术水平的黑客",
-                "4 - 相当于可以写一些利用程序的黑客",
-                "5 - 等同精通渗透技术黑客",
-                "6 - ",
+                "3 - 相当于能够简单写一些小脚本的黑客",
+                "4 - 相当于普通技术水平的黑客",
+                "5 - 相当于可以自写利用程序或挖掘漏洞的黑客",
+                "6 - 等同精通渗透技术黑客",
                 "7 - 需要一定的团队配合",
                 "8 - 较为专业的技术团队",
-                "9 - 专业的APT级黑客团队"
+                "9 - 专业的APT级黑客团队",
+                "10 - 国家级APT黑客团队"
             ],
             "enOptions": [
                 "0 - N/A",
                 "1 - Equivalent to an entry-level hacker",
                 "2 - Equivalent to a hacker who can use some tools proficiently",
-                "3 - Hackers equivalent to ordinary technical level",
-                "4 - equivalent to a hacker who can write some exploits",
-                "5 - The equivalent of a hacker who is proficient in penetration technology",
-                "6",
+                "3 - It is equivalent to a hacker who can simply write some small scripts",
+                "4 - Hackers equivalent to ordinary technical level",
+                "5 - Equivalent to hackers who can write their own programs or dig out vulnerabilities",
+                "6 - The equivalent of a hacker who is proficient in penetration technology",
                 "7 - Need a certain amount of teamwork",
                 "8 - More professional technical team",
-                "9 - Professional APT-level hacker team"
+                "9 - Professional APT-level hacker team",
+                "10 - National APT hacker team"
             ]
         },
         "AD": {
@@ -47,9 +49,10 @@
                 "4",
                 "5 - 较大难度",
                 "6 ",
-                "7 - 很难搞定",
-                "8",
-                "9 - 几乎不能搞定"
+                "7 - ",
+                "8 - 很难搞定",
+                "9 - ",
+                "10 - 几乎不能搞定"
             ],
             "enOptions": [
                 "0 - N/A",
@@ -59,9 +62,10 @@
                 "4",
                 "5 - Difficult",
                 "6",
-                "7 - Very Difficult",
-                "8",
-                "9 - Hardly handle"
+                "7 - ",
+                "8 - Very Difficult",
+                "9 - ",
+                "10 - Hardly handle"
             ]
         },
         "TR": {
@@ -79,7 +83,8 @@
                 "6",
                 "7 - 大量达成",
                 "8",
-                "9 - 完全达成"
+                "9 - 完全达成",
+                "10 - 超额达成"
             ],
             "enOptions": [
                 "0 - N/A",
@@ -91,7 +96,8 @@
                 "6",
                 "7 - Mass reached",
                 "8",
-                "9 - Fully achieved"
+                "9 - Fully achieved",
+                "10 - Overreach"
             ]
         },
         "AC": {
@@ -106,11 +112,12 @@
                 "2",
                 "3 - 略有曲折",
                 "4",
-                "5 - 相当曲折",
-                "6",
-                "7 - 非常曲折",
-                "8",
-                "9 - 几乎难以复制"
+                "5",
+                "6 - 相当曲折",
+                "7",
+                "8 - 非常曲折",
+                "9 - ",
+                "10 - 几乎难以复制"
             ],
             "enOptions": [
                 "0 - N/A",
@@ -118,11 +125,12 @@
                 "2",
                 "3 - Slightly tortuous",
                 "4",
-                "5 - Quite tortuous",
-                "6",
-                "7 - Very tortuous",
-                "8",
-                "9 - Almost hard to reproduce"
+                "5",
+                "6 - Quite tortuous",
+                "7",
+                "8 - Very tortuous",
+                "9 - ",
+                "10 - Almost hard to reproduce"
             ]
         },
         "PL": {
@@ -140,7 +148,8 @@
                 "6",
                 "7 - 较强的拦截",
                 "8",
-                "9 - 几乎难以突破"
+                "9 - ",
+                "10 - 几乎难以突破"
             ],
             "enOptions": [
                 "0 - N/A",
@@ -152,7 +161,8 @@
                 "6",
                 "7 - Strong interception",
                 "8",
-                "9 - Almost hard to break through"
+                "9 - ",
+                "10 - Almost hard to break through"
             ]
         },
         "DL": {
@@ -170,7 +180,8 @@
                 "6",
                 "7 - 监测到大量关键路径威胁",
                 "8",
-                "9 - 几乎监测到全部威胁"
+                "9 - ",
+                "10 - 几乎监测到全部威胁"
             ],
             "enOptions": [
                 "0 - N/A",
@@ -182,7 +193,8 @@
                 "6",
                 "7 - A large number of critical path threats detected",
                 "8",
-                "9 - Almost all threats detected"
+                "9 - ",
+                "10 - Almost all threats detected"
             ]
         },
         "RL": {
@@ -200,7 +212,8 @@
                 "6 - 响应较为及时（24小时内）",
                 "7",
                 "8 - 响应接近实时（2小时内）",
-                "9 - 实时响应（30分钟内）"
+                "9 - ",
+                "10 - 实时响应（30分钟内）"
             ],
             "enOptions": [
                 "0 - N/A",
@@ -212,7 +225,8 @@
                 "6 - Response is relatively timely (within 24 hours)",
                 "7",
                 "8 - Response is close to real time (within 2 hours)",
-                "9 - Real-time response (within 30 minutes)"
+                "9 - ",
+                "10 - Real-time response (within 30 minutes)"
             ]
         },
         "TL": {
@@ -230,7 +244,8 @@
                 "6",
                 "7 - 可以找到攻击者的部分真实IP或境内虚拟身份",
                 "8 - 可以直接找到攻击者的真实身份",
-                "9 - 可以对攻击者进行成功反制"
+                "9 - ",
+                "10 - 可以对攻击者进行成功反制"
             ],
             "enOptions": [
                 "0 - N/A",
@@ -242,7 +257,8 @@
                 "6",
                 "7 - Part of the real IP or virtual identity of the attacker can be found",
                 "8 - Can directly find the true identity of the attacker",
-                "9 - Can successfully counter attackers"
+                "9 - ",
+                "10 - Can successfully counter attackers"
             ]
         },
         "ED": {
@@ -258,9 +274,10 @@
                 "4",
                 "5 - 中等",
                 "6",
-                "7 - 简单",
-                "8",
-                "9 - 可用的自动化工具"
+                "7",
+                "8 - 简单",
+                "9 - ",
+                "10 - 可用的自动化工具"
             ],
             "enOptions": [
                 "0 - N/A",
@@ -272,7 +289,8 @@
                 "6",
                 "7 - Easy",
                 "8",
-                "9 - Automated tools available"
+                "9 - ",
+                "10 - Automated tools available"
             ]
         },
         "EE": {
@@ -290,7 +308,8 @@
                 "6",
                 "7 - 简单",
                 "8",
-                "9 - 可用的自动化工具"
+                "9 - ",
+                "10 - 可用的自动化工具"
             ],
             "enOptions": [
                 "0 - N/A",
@@ -302,7 +321,8 @@
                 "6",
                 "7 - Easy",
                 "8",
-                "9 -  Automated tools available"
+                "9 - ",
+                "10 - Automated tools available"
             ]
         },
         "VH": {
@@ -320,7 +340,8 @@
                 "6",
                 "7 - 高危",
                 "8",
-                "9 - 严重"
+                "9 - 严重",
+                "10 - 极其严重"
             ],
             "enOptions": [
                 "0 - N/A",
@@ -332,7 +353,8 @@
                 "6",
                 "7 - High",
                 "8",
-                "9 - Critical"
+                "9 - Critical",
+                "10 - Extremely serious"
             ]
         },
         "LC": {
@@ -350,7 +372,8 @@
                 "6 - 获取最少的敏感数据或大量非敏感数据",
                 "7 - 获取大量关键数据",
                 "8",
-                "9 - 获取全部敏感数据"
+                "9 - ",
+                "10 - 获取全部敏感数据"
             ],
             "enOptions": [
                 "0 - N/A",
@@ -362,7 +385,8 @@
                 "6 - Minimal critical data or extensive non-sensitive data disclosed",
                 "7 - Extensive critical data disclosed",
                 "8",
-                "9 - All data disclosed"
+                "9 - ",
+                "10 - All data disclosed"
             ]
         },
         "LI": {
@@ -379,8 +403,9 @@
                 "5 - 广泛的轻微损坏的数据",
                 "6",
                 "7 - 大量严重损坏的数据",
-                "8",
-                "9 - 所有数据完全损坏"
+                "8 - ",
+                "9 - ",
+                "10 - 所有数据完全损坏"
             ],
             "enOptions": [
                 "0 - N/A",
@@ -391,8 +416,9 @@
                 "5 - Extensive slightly corrupt data",
                 "6",
                 "7 - Extensive seriously corrupt data",
-                "8",
-                "9 - All data totally corrupt"
+                "8 - ",
+                "9 - ",
+                "10 - All data totally corrupt"
             ]
         },
         "LA": {
@@ -410,7 +436,8 @@
                 "6",
                 "7 - 广泛的主要服务中断",
                 "8",
-                "9 - 所有服务完全丢失"
+                "9 - ",
+                "10 - 所有服务完全丢失"
             ],
             "enOptions": [
                 "0 - N/A",
@@ -422,7 +449,8 @@
                 "6",
                 "7 - Extensive primary services interrupted",
                 "8",
-                "9 - All services completely lost"
+                "9 - ",
+                "10 - All services completely lost"
             ]
         },
         "FD": {
@@ -440,7 +468,8 @@
                 "6",
                 "7 - 对年度利润的显著影响",
                 "8",
-                "9 - 破产"
+                "9 - ",
+                "10 - 破产"
             ],
             "enOptions": [
                 "0 - N/A",
@@ -452,7 +481,8 @@
                 "6",
                 "7 - Significant effect on annual profit",
                 "8",
-                "9 - Bankruptcy"
+                "9 - ",
+                "10 - Bankruptcy"
             ]
         },
         "RD": {
@@ -470,7 +500,8 @@
                 "6",
                 "7",
                 "8",
-                "9 - 品牌损害"
+                "9 - 品牌损害",
+                "10 - 品牌不可逆损害"
             ],
             "enOptions": [
                 "0 - N/A",
@@ -482,7 +513,8 @@
                 "6",
                 "7",
                 "8",
-                "9 - Brand damage"
+                "9 - Brand damage",
+                "10 - Irreversible brand damage"
             ]
         },
         "CI": {
@@ -500,7 +532,8 @@
                 "6",
                 "7 - 高调违规",
                 "8",
-                "9 - 严重违法"
+                "9 - ",
+                "10 - 严重违法"
             ],
             "enOptions": [
                 "0 - N/A",
@@ -512,7 +545,8 @@
                 "6",
                 "7 - High profile violation",
                 "8",
-                "9 - Seriously illegal"
+                "9 - ",
+                "10 - Seriously illegal"
             ]
         },
         "OI": {
@@ -530,7 +564,8 @@
                 "6",
                 "7 - 影响大量核心系统正常运营",
                 "8",
-                "9 - 企业运营基本停止"
+                "9 - ",
+                "10 - 企业运营基本停止"
             ],
             "enOptions": [
                 "0 - N/A",
@@ -542,7 +577,8 @@
                 "6",
                 "7 - Affect a large number of core system operations",
                 "8",
-                "9 - Basically cease operations"
+                "9 - ",
+                "10 - Basically cease operations"
             ]
         },
         "DLC": {
@@ -560,7 +596,8 @@
                 "6",
                 "7 - 有一定的安全流程问题",
                 "8",
-                "9 - 几乎没有安全流程问题"
+                "9 - ",
+                "10 - 几乎没有安全流程问题"
             ],
             "enOptions": [
                 "0 - N/A",
@@ -572,7 +609,8 @@
                 "6",
                 "7 - There are certain security process issues",
                 "8",
-                "9 - Almost no security process issues"
+                "9 - ",
+                "10 - Almost no security process issues"
             ]
         },
         "OLC": {
@@ -590,7 +628,8 @@
                 "6",
                 "7 - 有一定的安全流程问题",
                 "8",
-                "9 - 几乎没有安全流程问题"
+                "9 - ",
+                "10 - 几乎没有安全流程问题"
             ],
             "enOptions": [
                 "0 - N/A",
@@ -602,7 +641,8 @@
                 "6",
                 "7 - There are certain security process issues",
                 "8",
-                "9 - Almost no security process issues"
+                "9 - ",
+                "10 - Almost no security process issues"
             ]
         },
         "ESA": {
@@ -620,7 +660,8 @@
                 "6",
                 "7 - 少部分员工安全意识较弱",
                 "8",
-                "9 - 全部员工基本上都有极高的安全意识"
+                "9 - ",
+                "10 - 全部员工基本上都有极高的安全意识"
             ],
             "enOptions": [
                 "0 - N/A",
@@ -632,7 +673,8 @@
                 "6",
                 "7 - A small number of employees have weak safety awareness",
                 "8",
-                "9 - Basically all employees have a high level of safety awareness"
+                "9 - ",
+                "10 - Basically all employees have a high level of safety awareness"
             ]
         }
     },
@@ -721,8 +763,8 @@
         }
     },
     "scoring": {
-        "AES": {
-            "enName": "Attack Energy Score",
+        "AE": {
+            "enName": "Attack Energy",
             "cnName": "攻击能量分值",
             "notice": "The sum of all weight absolute values must be 2",
             "weight": {
@@ -731,8 +773,8 @@
                 "EI": 1
             }
         },
-        "DES": {
-            "enName": "Defense Energy Score",
+        "DE": {
+            "enName": "Defense Energy",
             "cnName": "防守能量分值",
             "notice": "The sum of all weight absolute values must be 3",
             "weight": {
@@ -741,8 +783,8 @@
                 "EI": -1
             }
         },
-        "BSS": {
-            "enName": "Business Risk Score",
+        "BR": {
+            "enName": "Business Risk",
             "cnName": "业务风险分值",
             "notice": "The sum of all weight absolute values must be 3",
             "weight": {
@@ -751,8 +793,8 @@
                 "BA": -1
             }
         },
-        "ERS": {
-            "enName": "Enterprise Risk Score",
+        "ER": {
+            "enName": "Enterprise Risk",
             "cnName": "企业风险分值",
             "notice": "The sum of all weight absolute values must be 2",
             "weight": {
@@ -783,9 +825,9 @@
         },
         {
             "index": 3,
-            "enName": "Medium",
-            "cnName": "中",
-            "className": "Medium"
+            "enName": "Low",
+            "cnName": "低",
+            "className": "Low"
         },
         {
             "index": 4,
@@ -801,9 +843,9 @@
         },
         {
             "index": 6,
-            "enName": "High",
-            "cnName": "高",
-            "className": "High"
+            "enName": "Medium",
+            "cnName": "中",
+            "className": "Medium"
         },
         {
             "index": 7,
@@ -819,6 +861,12 @@
         },
         {
             "index": 9,
+            "enName": "Extreme",
+            "cnName": "极",
+            "className": "Extreme"
+        },
+        {
+            "index": 10,
             "enName": "Extreme",
             "cnName": "极",
             "className": "Extreme"

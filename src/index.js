@@ -2,6 +2,17 @@ import RTASS from "./RTASS.json";
 import Vue from "vue/dist/vue.esm.js";
 import "style-loader!css-loader!./main.css";
 
+// let doc = "";
+// Object.keys(RTASS.factors).map(factorKey => {
+//     doc += "##### **"+RTASS.factors[factorKey].cnName + "**\n\n";
+//     doc += "主要评估本次演练，" + RTASS.factors[factorKey].cnDesc + "\n"
+//     RTASS.factors[factorKey].cnOptions.map(cnOptions=>{
+//         doc += "- "+cnOptions + "\n";
+//     });
+//     doc += "\n";
+// });
+// console.log(doc);
+
 new Vue({
   el: "#pane1",
   data: {
@@ -26,7 +37,7 @@ new Vue({
         Object.keys(Dimension[key].weight).map((factorKey) => {
           let modulus = Dimension[key].weight[factorKey];
           if (modulus < 0) {
-            score += 9 + modulus * Scores[factorKey];
+            score += 10 + modulus * Scores[factorKey];
           } else {
             score += modulus * Scores[factorKey];
           }
@@ -52,7 +63,7 @@ new Vue({
   },
   created() {
     Object.keys(RTASS.factors).map((factorKey) => {
-      this.factorVal[factorKey] = Math.floor(Math.random() * 10);
+      this.factorVal[factorKey] = 0;//Math.floor(Math.random() * 11);
     });
     Object.keys(RTASS.factorGroups).map((factorGroupKey) => {
       this.scores[factorGroupKey] = 0;
