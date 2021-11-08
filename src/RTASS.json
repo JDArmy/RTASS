@@ -95,6 +95,7 @@
             ]
         },
         "AC": {
+            "notice": "待废弃。本框架的参与者们认为本选项与攻击难度描述因素类似。",
             "enName": "Attack Complexity",
             "cnName": "路径曲折度",
             "enDesc": "The complexity or twists of the entire attack path",
