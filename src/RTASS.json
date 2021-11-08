@@ -8,7 +8,7 @@
             "enName": "Attacker Level",
             "cnName": "攻击者水平",
             "enDesc": "The highest level of technology used in the assessment path?",
-            "cnDesc": "评估路径中使用的最高技术水平？",
+            "cnDesc": "攻击者在评估路径中使用的最高技术水平？",
             "cnOptions": [
                 "0 - N/A",
                 "1 - 相当于入门级黑客",
@@ -38,7 +38,7 @@
             "enName": "Attack Difficulty",
             "cnName": "攻击难度",
             "enDesc": "The highest difficulty in solving the problem in the entire evaluation path?",
-            "cnDesc": "在整个评估路径中搞定难题的最高难度？",
+            "cnDesc": "攻击者在整个评估路径中搞定难题的最高难度？",
             "cnOptions": [
                 "0 - N/A",
                 "1 - 几乎没有难度",
@@ -68,7 +68,7 @@
             "enName": "Target Reach",
             "cnName": "目标达成",
             "enDesc": "Has the expected goal been achieved?",
-            "cnDesc": "是否达成预期目标？",
+            "cnDesc": "攻击者是否达成预期目标？",
             "cnOptions": [
                 "0 - N/A",
                 "1 - 基本没达成",
@@ -129,7 +129,7 @@
             "enName": "Protection Level",
             "cnName": "防护水平",
             "enDesc": "Ability to intercept critical paths in the assessment process",
-            "cnDesc": "对评估过程中关键路径的拦截能力",
+            "cnDesc": "防守者对关键渗透路径的拦截能力？",
             "cnOptions": [
                 "0 - N/A",
                 "1 - 几乎没有拦截",
@@ -159,7 +159,7 @@
             "enName": "Detection Level",
             "cnName": "监测水平",
             "enDesc": "The ability to detect cyber threats on critical paths in the assessment process",
-            "cnDesc": "对评估过程中关键路径的网络威胁发现能力",
+            "cnDesc": "防守者对关键渗透路径的网络威胁发现能力？",
             "cnOptions": [
                 "0 - N/A",
                 "1 - 几乎难以监测到威胁",
@@ -189,7 +189,7 @@
             "enName": "Response Level",
             "cnName": "响应水平",
             "enDesc": "Resilience, repair and emergency response to the occupied system",
-            "cnDesc": "对沦陷系统的恢复能力、修复能力和应急响应能力",
+            "cnDesc": "防守者对沦陷系统的恢复能力、修复能力和应急响应能力？",
             "cnOptions": [
                 "0 - N/A",
                 "1 - 几乎难以推进（一周以上）",
@@ -219,7 +219,7 @@
             "enName": "Trace Level",
             "cnName": "溯源水平",
             "enDesc": "Whether the attacker can be traced effectively",
-            "cnDesc": "是否能够对攻击者进行有效溯源",
+            "cnDesc": "防守者是否能够对攻击者进行有效溯源？",
             "cnOptions": [
                 "0 - N/A",
                 "1 - 几乎不能有效溯源",
@@ -249,7 +249,7 @@
             "enName": "Easy of Discovery",
             "cnName": "易于发现",
             "enDesc": "Discoverability of critical vulnerabilities in the penetration path",
-            "cnDesc": "渗透路径中的关键漏洞的可发现性",
+            "cnDesc": "渗透路径中的关键漏洞的可发现性？",
             "cnOptions": [
                 "0 - N/A",
                 "1 - 几乎难以发现",
@@ -279,7 +279,7 @@
             "enName": "Easy of Exploit",
             "cnName": "易于利用",
             "enDesc": "Exploitability of critical vulnerabilities in the penetration path",
-            "cnDesc": "渗透路径中的关键漏洞的可利用性",
+            "cnDesc": "渗透路径中的关键漏洞的可利用性？",
             "cnOptions": [
                 "0 - N/A",
                 "1 - 几乎难以利用",
@@ -309,7 +309,7 @@
             "enName": "Vulnerability Harmfulness",
             "cnName": "漏洞杀伤力",
             "enDesc": "Maximum lethality of critical vulnerabilities in the penetration path",
-            "cnDesc": "渗透路径中的关键漏洞的最大杀伤力",
+            "cnDesc": "渗透路径中的关键漏洞的最大杀伤力？",
             "cnOptions": [
                 "0 - N/A",
                 "1 - 几乎没啥危害",
@@ -429,7 +429,7 @@
             "enName": "Financial Damage",
             "cnName": "经济损失",
             "enDesc": "How much financial damage will result from an exploit?",
-            "cnDesc": "可对经济造成的最大影响",
+            "cnDesc": "可对企业经济造成的最大影响？",
             "cnOptions": [
                 "0 - N/A",
                 "1 - 低于修复漏洞的成本",
@@ -458,8 +458,8 @@
         "RD": {
             "enName": "Reputation Damage",
             "cnName": "商誉损失",
-            "enDesc": "Would an exploit result in reputation damage that would harm the business?",
-            "cnDesc": "漏洞利用是否会导致声誉受损从而损害业务？",
+            "enDesc": "Will it cause damage to the corporate reputation and damage the business??",
+            "cnDesc": "是否会导致企业声誉受损从而损害业务？",
             "cnOptions": [
                 "0 - N/A",
                 "1 - 最小的伤害",
@@ -488,8 +488,8 @@
         "CI": {
             "enName": "Compliance Impact",
             "cnName": "合规影响",
-            "enDesc": "How much exposure does non-compliance introduce?",
-            "cnDesc": "违规会带来多少风险？",
+            "enDesc": "What is the risk of violations that arise from problems or malicious actions by an attacker?",
+            "cnDesc": "出现的问题或攻击者进行恶意行动会带来多少违规风险？",
             "cnOptions": [
                 "0 - N/A",
                 "1",
@@ -519,7 +519,7 @@
             "enName": "Operation Impact",
             "cnName": "运营影响",
             "enDesc": "Does it affect the basic operations of the company?",
-            "cnDesc": "是否影响企业的正常运营？",
+            "cnDesc": "攻击者进行恶意行动是否影响企业的正常运营？",
             "cnOptions": [
                 "0 - N/A",
                 "1",
@@ -549,7 +549,7 @@
             "enName": "Development Life Circle",
             "cnName": "开发生命周期",
             "enDesc": "Are there security issues in the software development life cycle?",
-            "cnDesc": "是否在软件开发生命周期中存在安全问题？",
+            "cnDesc": "是否发现在软件开发生命周期中存在安全问题？",
             "cnOptions": [
                 "0 - N/A",
                 "1 - 基本上在开发过程中没有考虑安全问题",
@@ -579,7 +579,7 @@
             "enName": "Operation Life Circle",
             "cnName": "运维生命周期",
             "enDesc": "Are there any security issues in the O&M life cycle?",
-            "cnDesc": "是否在运维生命周期中存在安全问题？",
+            "cnDesc": "是否发现在运维生命周期中存在安全问题？",
             "cnOptions": [
                 "0 - N/A",
                 "1 - 基本上在运维过程中没有考虑安全问题",
