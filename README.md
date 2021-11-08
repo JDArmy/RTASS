@@ -2,6 +2,7 @@
 > Red Teaming Assessment Scoring System ( RTASS )
 > 
 > 作者: Monyer@JD.Army
+> 协作者：Members@JD.Army
 > 
 > RTASS在线计算器: https://jd.army/RTASS/?lang=cn
 ## **更新日志**
@@ -436,6 +437,16 @@ RTASS（Red Teaming Assessment Scoring System）是一套针对网络实战攻�
 ## **参考链接**
 - https://owasp.org/www-community/OWASP_Risk_Rating_Methodology
 - https://www.first.org/cvss/specification-document#i5
+
+## **协作 & 贡献**
+
+本框架采用JSON格式进行了系统描述，详见“/src/RTASS.json”文件，其中：
+- 20个评分因子放于“factors”对象中，包括每个因子的0到9的分值描述
+- 6个评分因素通过“factorGroups”进行描述，其中“weight”对象存储评分系数，系数为位于0-1之间的小数，并且系数的绝对值之和要等于评分因子的数量。当系数为正数时，为正相关；系数为负数时为负相关。
+- 4个最终得分通过“scoring”进行描述，其中“weight”对象存储评分系数，具体方式与上相同
+- “levels”对象存储分值与高中低之前的对应关系。
+
+各协作者可以通过修改RTASS.json文件对各评分因子的描述以及评分权值来与我们进行该系统框架的协作开发。
 
 # **RTASS在线计算器系统截图**
 
