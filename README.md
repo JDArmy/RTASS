@@ -492,5 +492,5 @@ RTASS适用于网络红蓝对抗演练、网络实战攻防演习、红队评估
 
 # **RTASS在线计算器系统截图**
 
-![calculator-cn](./docs/img/)
+![calculator-cn](./docs/img/calculator-cn.jpg)
 
