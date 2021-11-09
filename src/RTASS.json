@@ -2,7 +2,7 @@
     "defaultLang": "cn",
     "cnTitle": "红蓝对抗演练评分系统（RTASS）",
     "enTitle": "Red Teaming Assessment Scoring System (RTASS)",
-    "version": "0.1.2",
+    "version": "0.1.4",
     "factors": {
         "AL": {
             "enName": "Attacker Level",
