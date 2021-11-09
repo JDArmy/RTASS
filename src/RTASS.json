@@ -701,7 +701,7 @@
             }
         },
         "VR": {
-            "enName": "Vulneribility Risk",
+            "enName": "Vulnerability Risk",
             "cnName": "漏洞风险",
             "notice": "The sum of all weight absolute values must be 3",
             "weight": {
@@ -721,7 +721,7 @@
             }
         },
         "EI": {
-            "enName": "Emterprise Impact",
+            "enName": "Enterprise Impact",
             "cnName": "企业影响",
             "notice": "The sum of all weight absolute values must be 4",
             "weight": {
