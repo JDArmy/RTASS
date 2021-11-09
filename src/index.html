@@ -16,7 +16,7 @@
     <div class="container-fluid">
       <div id="pane1">
         <h2 class="text-center">
-          {{RTASS[lang+'Title']}} {{RTASS.version}}
+          {{RTASS[lang+'Title']}} v{{RTASS.version}}
         </h2>
         <div class="row">
           <div class="col-md-6" v-for="(factorTypeVal, factorTypeKey) in RTASS.factorTypes" :key="factorTypeKey">
@@ -69,6 +69,11 @@
               {{scores[scoringKey]}}<br />
               {{levels[scoringKey][lang+'Name']}} 
             </div>
+          </div>
+          <div class="col-md-12 score-vector">
+            <a 
+            :href="'?lang='+lang+'&vector='+scoreVector"
+            >{{scoreVector}}</a>
           </div>
         </div>
 

@@ -2,16 +2,17 @@ import RTASS from "./RTASS.json";
 import Vue from "vue/dist/vue.esm.js";
 import "style-loader!css-loader!./main.css";
 
-// let doc = "";
-// Object.keys(RTASS.factors).map(factorKey => {
-//     doc += "##### **"+RTASS.factors[factorKey].cnName + "**\n\n";
-//     doc += "主要评估本次演练，" + RTASS.factors[factorKey].cnDesc + "\n"
-//     RTASS.factors[factorKey].cnOptions.map(cnOptions=>{
-//         doc += "- "+cnOptions + "\n";
-//     });
-//     doc += "\n";
-// });
-// console.log(doc);
+//Gen For Docs
+let doc = "";
+Object.keys(RTASS.factors).map(factorKey => {
+    doc += "##### **"+RTASS.factors[factorKey].cnName + "[" + factorKey + "]" + "**\n\n";
+    doc += "主要评估本次演练，" + RTASS.factors[factorKey].cnDesc + "\n"
+    RTASS.factors[factorKey].cnOptions.map(cnOptions=>{
+        doc += "- "+cnOptions + "\n";
+    });
+    doc += "\n";
+});
+console.log(doc);
 
 new Vue({
   el: "#pane1",
@@ -21,6 +22,7 @@ new Vue({
     factorVal: {},
     scores: {},
     levels: {},
+    scoreVector: "",
   },
   methods: {
     caclFinally: function () {
@@ -28,6 +30,8 @@ new Vue({
       this.calcScores(RTASS.factorGroups, this.factorVal);
       //Scoring的值从scores获取
       this.calcScores(RTASS.scoring, this.scores);
+      //计算分数矢量
+      this.genScoreVector();
       //刷新界面
       this.$forceUpdate();
     },
@@ -57,14 +61,23 @@ new Vue({
         ? ""
         : decodeURIComponent(results[1].replace(/\+/g, " "));
     },
+    genScoreVector: function(){
+      let vectorStr = "RTASS:"+RTASS.version;
+      Object.keys(RTASS.factors).map(factorKey=>{
+        vectorStr += `/${factorKey}:${this.factorVal[factorKey]}`;
+      });
+      this.scoreVector = vectorStr;
+    }
   },
   mounted() {
     this.caclFinally();
   },
   created() {
+    
     Object.keys(RTASS.factors).map((factorKey) => {
-      this.factorVal[factorKey] = 0;//Math.floor(Math.random() * 11);
+      this.factorVal[factorKey] = Math.floor(Math.random() * 11);
     });
+
     Object.keys(RTASS.factorGroups).map((factorGroupKey) => {
       this.scores[factorGroupKey] = 0;
       this.levels[factorGroupKey] = RTASS.levels[0];
@@ -77,5 +90,13 @@ new Vue({
     if (lang != "") {
       this.lang = lang;
     }
+
+    let vectors = this.getUrlParameter("vector");
+    if(vectors != "" && /^RTASS:/.test(vectors)){
+      vectors.split("/").map(vector=>{
+        this.factorVal[vector.split(":")[0]] = vector.split(":")[1];
+      })
+    }
+
   },
 });
