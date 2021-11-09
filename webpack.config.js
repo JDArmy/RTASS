@@ -15,7 +15,7 @@ module.exports = {
   output: {
     filename: "main.js",
     path: path.resolve(__dirname, "docs"),
-    clean: true,
+    clean: false,
   },
   plugins: [
     new CopyPlugin({

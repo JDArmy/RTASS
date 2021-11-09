@@ -230,7 +230,7 @@
             ]
         },
         "TL": {
-            "enName": "Trace Level",
+            "enName": "Traceability Level",
             "cnName": "溯源水平",
             "enDesc": "Whether the attacker can be traced effectively",
             "cnDesc": "防守者是否能够对攻击者进行有效溯源？",
@@ -261,9 +261,9 @@
                 "10 - Can successfully counter attackers"
             ]
         },
-        "ED": {
-            "enName": "Easy of Discovery",
-            "cnName": "易于发现",
+        "VD": {
+            "enName": "Vulnerability Discoverability",
+            "cnName": "漏洞可发现性",
             "enDesc": "Discoverability of critical vulnerabilities in the penetration path",
             "cnDesc": "渗透路径中的关键漏洞的可发现性？",
             "cnOptions": [
@@ -293,9 +293,9 @@
                 "10 - Automated tools available"
             ]
         },
-        "EE": {
-            "enName": "Easy of Exploit",
-            "cnName": "易于利用",
+        "VE": {
+            "enName": "Vulnerability Exploitability",
+            "cnName": "漏洞可利用性",
             "enDesc": "Exploitability of critical vulnerabilities in the penetration path",
             "cnDesc": "渗透路径中的关键漏洞的可利用性？",
             "cnOptions": [
@@ -325,8 +325,8 @@
                 "10 - Automated tools available"
             ]
         },
-        "VH": {
-            "enName": "Vulnerability Harmfulness",
+        "VL": {
+            "enName": "Vulnerability Lethality",
             "cnName": "漏洞杀伤力",
             "enDesc": "Maximum lethality of critical vulnerabilities in the penetration path",
             "cnDesc": "渗透路径中的关键漏洞的最大杀伤力？",
@@ -334,27 +334,27 @@
                 "0 - N/A",
                 "1 - 几乎没啥危害",
                 "2",
-                "3 - 低危",
+                "3 - 较低的杀伤力",
                 "4",
-                "5 - 中危",
+                "5 - 一定规模的杀伤力",
                 "6",
-                "7 - 高危",
+                "7 - 较高的杀伤力",
                 "8",
-                "9 - 严重",
-                "10 - 极其严重"
+                "9 - 大范围的杀伤力",
+                "10 - 极其广泛的杀伤力"
             ],
             "enOptions": [
                 "0 - N/A",
                 "1 - Basically no harm",
                 "2",
-                "3 - Low",
+                "3 - Lower lethality",
                 "4",
-                "5 - Medium",
+                "5 - A certain degree of lethality",
                 "6",
-                "7 - High",
+                "7 - Higher lethality",
                 "8",
-                "9 - Critical",
-                "10 - Extremely serious"
+                "9 - Wide range of lethality",
+                "10 - Extremely wide lethality"
             ]
         },
         "LC": {
@@ -705,9 +705,9 @@
             "cnName": "漏洞风险",
             "notice": "The sum of all weight absolute values must be 3",
             "weight": {
-                "ED": 1,
-                "EE": 1,
-                "VH": 1
+                "VD": 1,
+                "VE": 1,
+                "VL": 1
             }
         },
         "TI": {
@@ -731,9 +731,9 @@
                 "OI": 1
             }
         },
-        "BA": {
-            "enName": "Business Ability",
-            "cnName": "业务安全能力",
+        "BS": {
+            "enName": "Business Strength",
+            "cnName": "业务实力",
             "notice": "The sum of all weight absolute values must be 3",
             "weight": {
                 "DLC": 1,
@@ -758,7 +758,7 @@
             "factorGroups": [
                 "TI",
                 "EI",
-                "BA"
+                "BS"
             ]
         }
     },
@@ -790,7 +790,7 @@
             "weight": {
                 "TI": 1,
                 "EI": 1,
-                "BA": -1
+                "BS": -1
             }
         },
         "ER": {
