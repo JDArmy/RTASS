@@ -91,7 +91,15 @@
   margin-bottom: 20px;
 }
 
-.scoring, .score-vector{
+.scoring,
+.score-vector,
+.score-description {
   padding: 10px;
   margin: 10px;
+}
+
+.lang-switcher {
+  position: absolute;
+  right: 20px;
+  top: 10px;
 }

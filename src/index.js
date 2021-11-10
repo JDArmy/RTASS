@@ -16,7 +16,7 @@ Object.keys(RTASS.factors).map(factorKey => {
 console.log(doc);
 
 new Vue({
-  el: "#pane1",
+  el: "#pane",
   data: {
     RTASS: RTASS,
     lang: RTASS.defaultLang,
@@ -31,7 +31,7 @@ new Vue({
       this.calcScores(RTASS.factorGroups, this.factorVal);
       //Scoring的值从scores获取
       this.calcScores(RTASS.scoring, this.scores);
-      //计算分数矢量
+      //根据因子分数生成矢量分数
       this.genScoreVector();
       //刷新界面
       this.$forceUpdate();
@@ -84,7 +84,7 @@ new Vue({
     let vectors = this.getUrlParameter("vector");
     if(vectors != "" && /^RTASS:/.test(vectors)){
       vectors.split("/").map(vector=>{
-        this.factorVal[vector.split(":")[0]] = vector.split(":")[1];
+        this.factorVal[vector.split(":")[0]] = parseInt(vector.split(":")[1]);
       })
     }
 

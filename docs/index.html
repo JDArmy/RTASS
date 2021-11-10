@@ -14,22 +14,41 @@
 
   <body>
     <div class="container-fluid">
-      <div id="pane1">
-        <h2 class="text-center">
-          {{RTASS[lang+'Title']}} v{{RTASS.version}}
-        </h2>
+      <div id="pane">
+        <h2 class="text-center">{{RTASS[lang+'Title']}} v{{RTASS.version}}</h2>
+        <div class="lang-switcher">
+          <a v-if="lang=='en'" :href="'?lang=cn&vector='+scoreVector">中文</a>
+          <a v-if="lang=='cn'" :href="'?lang=en&vector='+scoreVector">English</a>
+        </div>
+
         <div class="row">
-          <div class="col-md-6" v-for="(factorTypeVal, factorTypeKey) in RTASS.factorTypes" :key="factorTypeKey">
+          <div
+            class="col-md-6"
+            v-for="(factorTypeVal, factorTypeKey) in RTASS.factorTypes"
+            :key="factorTypeKey"
+          >
             <h4 class="text-center">{{factorTypeVal[lang+'Name']}}</h4>
             <div class="row factorType">
-              <div class="col-md-4" v-for="factorGroupKey in factorTypeVal.factorGroups" :key="factorGroupKey">
-                <h5 class="text-center">{{RTASS.factorGroups[factorGroupKey][lang+'Name']}}</h5>
+              <div
+                class="col-md-4"
+                v-for="factorGroupKey in factorTypeVal.factorGroups"
+                :key="factorGroupKey"
+              >
+                <h5 class="text-center">
+                  {{RTASS.factorGroups[factorGroupKey][lang+'Name']}}
+                </h5>
                 <div class="factorGroup">
-                  <div class="factor" v-for="factorKey in RTASS.factorGroups[factorGroupKey].vectors" :key="factorKey">
+                  <div
+                    class="factor"
+                    v-for="factorKey in RTASS.factorGroups[factorGroupKey].vectors"
+                    :key="factorKey"
+                  >
                     <h6
                       class="text-center"
                       :title="RTASS.factors[factorKey][lang+'Desc']"
-                    >{{RTASS.factors[factorKey][lang+'Name']}}[{{factorKey}}]</h6>
+                    >
+                      {{RTASS.factors[factorKey][lang+'Name']}}[{{factorKey}}]
+                    </h6>
                     <select
                       class="custom-select custom-select-sm"
                       :class="'text-'+factorVal[factorKey]"
@@ -37,15 +56,17 @@
                       @change="caclFinally()"
                       :title="RTASS.factors[factorKey][lang+'Desc']"
                     >
-                      <option 
-                      v-for="(factorLabel, factorVal) in RTASS.factors[factorKey][lang+'Options']" 
-                      :value="factorVal"
-                      >{{factorLabel}}</option>
+                      <option
+                        v-for="(factorLabel, factorVal) in RTASS.factors[factorKey][lang+'Options']"
+                        :value="factorVal"
+                      >
+                        {{factorLabel}}
+                      </option>
                     </select>
                   </div>
                 </div>
-                <div 
-                  class="alert text-center" 
+                <div
+                  class="alert text-center"
                   role="alert"
                   :class="'text-'+levels[factorGroupKey]['className']"
                 >
@@ -54,31 +75,73 @@
                   <div>{{scores[factorGroupKey]}}</div>
                 </div>
               </div>
-            </div> 
+            </div>
           </div>
         </div>
 
         <div class="row">
-          <div 
-            class="col-md-3 text-center" 
-            v-for="(scoringItem, scoringKey) in RTASS.scoring" 
+          <div
+            class="col-md-3 text-center"
+            v-for="(scoringItem, scoringKey) in RTASS.scoring"
             :key="scoringKey"
           >
             <div :class="'alert scoring text-'+levels[scoringKey]['className']">
               {{scoringItem[lang+'Name']}}[{{scoringKey}}]: <br />
               {{scores[scoringKey]}}<br />
-              {{levels[scoringKey][lang+'Name']}} 
+              {{levels[scoringKey][lang+'Name']}}
             </div>
-          </div>
-          <div class="col-md-12 score-vector">
-            <a 
-            :href="'?lang='+lang+'&vector='+scoreVector"
-            >{{scoreVector}}</a>
           </div>
         </div>
 
+        <div class="row">
+          <div class="col-md-12 score-vector">
+            <a :href="'?lang='+lang+'&vector='+scoreVector">{{scoreVector}}</a>
+          </div>
+  
+          <div class="col-md-12 score-description">
+            <span v-if="lang=='cn'">本次红蓝对抗演练中：</span>
+            <span v-if="lang=='en'">During this Red Teaming Assessment: </span>
+            <span
+              v-for="(scoringItem, scoringKey) in RTASS.scoring"
+              :key="scoringKey"
+            >
+              <strong>{{scoringItem[lang+'Name']}}</strong>
+              <span v-if="lang=='cn'">
+                为“{{levels[scoringKey][lang+'Name']}}”（{{scores[scoringKey]}}）； 
+              </span>
+              <span v-if="lang=='en'">
+                is "{{levels[scoringKey][lang+'Name']}}"({{scores[scoringKey]}});
+              </span>
+              
+            </span>
+            <div v-if="lang=='cn'">过程分值如下：</div>
+            <div v-if="lang=='en'">Processing score: </div>
+            <div
+              v-for="factorGroupKey in Object.keys(RTASS.factorGroups)"
+              :key="factorGroupKey"
+            >
+              <strong>{{RTASS.factorGroups[factorGroupKey][lang+'Name']}}</strong>
+              <span v-if="lang=='cn'">
+                为“{{levels[factorGroupKey][lang+'Name']}}”（{{scores[factorGroupKey]}}），其中
+              </span>
+              <span v-if="lang=='en'">
+                is "{{levels[factorGroupKey][lang+'Name']}}"({{scores[factorGroupKey]}}), in this processing score, 
+              </span>
+              
+              <span
+                v-for="factorKey in RTASS.factorGroups[factorGroupKey].vectors"
+                :key="factorKey"
+              >
+                <strong>{{RTASS.factors[factorKey][lang+'Name']}}</strong>: 
+                {{RTASS.factors[factorKey][lang+'Options'][factorVal[factorKey]].replace(/\d+\s?\-?\s?/,'') || factorVal[factorKey]}}; 
+              </span>
+            </div>
+          </div>
+        </div>
+
+        
       </div>
-      <div id="pane"></div>
+      
       <script src="main.js"></script>
     </div>
   </body>

@@ -2,7 +2,7 @@
     "defaultLang": "cn",
     "cnTitle": "红蓝对抗演练评分系统（RTASS）",
     "enTitle": "Red Teaming Assessment Scoring System (RTASS)",
-    "version": "0.1.4",
+    "version": "0.1.5",
     "factors": {
         "AL": {
             "enName": "Attacker Level",
@@ -18,9 +18,9 @@
                 "5 - 相当于可以自写利用程序或挖掘漏洞的黑客",
                 "6 - 等同精通渗透技术黑客",
                 "7 - 需要一定的团队配合",
-                "8 - 较为专业的技术团队",
-                "9 - 专业的APT级黑客团队",
-                "10 - 国家级APT黑客团队"
+                "8 - 相当于较为专业的技术团队",
+                "9 - 相当于专业的APT级黑客团队",
+                "10 - 相当于国家级APT黑客团队"
             ],
             "enOptions": [
                 "0 - N/A",
