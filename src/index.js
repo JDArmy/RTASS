@@ -1,6 +1,7 @@
 import RTASS from "./RTASS.json";
 import Vue from "vue/dist/vue.esm.js";
 import "style-loader!css-loader!./main.css";
+import vm from "vm-browserify";
 
 //Gen For Docs
 let doc = "";
@@ -37,20 +38,9 @@ new Vue({
     },
     calcScores: function (Dimension, Scores) {
       Object.keys(Dimension).map((key) => {
-        let score = 0;
-        Object.keys(Dimension[key].weight).map((factorKey) => {
-          let modulus = Dimension[key].weight[factorKey];
-          if (modulus < 0) {
-            score += 10 + modulus * Scores[factorKey];
-          } else {
-            score += modulus * Scores[factorKey];
-          }
-        });
-        let finalScore = (
-          score / Object.keys(Dimension[key].weight).length
-        ).toFixed(2);
-        this.scores[key] = finalScore;
-        this.levels[key] = RTASS.levels[Math.ceil(finalScore)];
+        let score = vm.runInNewContext(Dimension[key].algorithm, Scores).toFixed(2);
+        this.scores[key] = parseFloat(score);
+        this.levels[key] = RTASS.levels[Math.ceil(score)];
       });
     },
     getUrlParameter: function (name) {

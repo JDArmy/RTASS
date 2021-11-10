@@ -682,64 +682,64 @@
         "AS": {
             "enName": "Attack Strength",
             "cnName": "攻击实力",
-            "notice": "The sum of all weight absolute values must be 3",
-            "weight": {
-                "AL": 1,
-                "AD": 1,
-                "TR": 1
-            }
+            "vectors": [
+                "AL",
+                "AD",
+                "TR"
+            ],
+            "algorithm": "(AL+AD+TR)/3"
         },
         "DS": {
             "enName": "Defense Strength",
             "cnName": "防守实力",
-            "notice": "The sum of all weight absolute values must be 4",
-            "weight": {
-                "PL": 1,
-                "DL": 1,
-                "RL": 1,
-                "TL": 1
-            }
+            "vectors": [
+                "PL",
+                "DL",
+                "RL",
+                "TL"
+            ],
+            "algorithm": "(PL+DL+RL+TL)/4"
         },
         "VR": {
             "enName": "Vulnerability Risk",
             "cnName": "漏洞风险",
-            "notice": "The sum of all weight absolute values must be 3",
-            "weight": {
-                "VD": 1,
-                "VE": 1,
-                "VL": 1
-            }
+            "vectors": [
+                "VD",
+                "VE",
+                "VL"
+            ],
+            "algorithm": "(VD+VE+VL)/3"
         },
         "TI": {
             "enName": "Technique Impact",
             "cnName": "技术影响",
-            "notice": "The sum of all weight absolute values must be 3",
-            "weight": {
-                "LC": 1,
-                "LI": 1,
-                "LA": 1
-            }
+            "vectors": [
+                "LC",
+                "LI",
+                "LA"
+            ],
+            "algorithm": "(LC+LI+LA)/3"
         },
         "EI": {
             "enName": "Enterprise Impact",
             "cnName": "企业影响",
-            "notice": "The sum of all weight absolute values must be 4",
-            "weight": {
-                "FD": 1,
-                "RD": 1,
-                "CI": 1,
-                "OI": 1
-            }
+            "vectors": [
+                "FD",
+                "RD",
+                "CI",
+                "OI"
+            ],
+            "algorithm": "(FD+RD+CI+OI)/4"
         },
         "BS": {
             "enName": "Business Strength",
             "cnName": "业务实力",
-            "notice": "The sum of all weight absolute values must be 3",
-            "weight": {
-                "DLC": 1,
-                "OLC": 1,
-                "ESA": 1
-            }
+            "vectors": [
+                "DLC",
+                "OLC",
+                "ESA"
+            ],
+            "algorithm": "(DLC+OLC+ESA)/3"
         }
     },
     "factorTypes": {
@@ -766,42 +766,42 @@
         "AE": {
             "enName": "Attack Energy",
             "cnName": "攻击能量分值",
-            "notice": "The sum of all weight absolute values must be 2",
-            "weight": {
-                "AS": 1,
-                "DS": 1,
-                "EI": 1
-            }
+            "vectors": [
+                "AS",
+                "DS",
+                "EI"
+            ],
+            "algorithm": "(AS+DS+EI)/3"
         },
         "DE": {
             "enName": "Defense Energy",
             "cnName": "防守能量分值",
-            "notice": "The sum of all weight absolute values must be 3",
-            "weight": {
-                "DS": 1,
-                "VR": -1,
-                "EI": -1
-            }
+            "vectors": [
+                "DS",
+                "VR",
+                "EI"
+            ],
+            "algorithm": "(DS+(10-VR)+(10-EI))/3"
         },
         "BR": {
             "enName": "Business Risk",
             "cnName": "业务风险分值",
-            "notice": "The sum of all weight absolute values must be 3",
-            "weight": {
-                "TI": 1,
-                "EI": 1,
-                "BS": -1
-            }
+            "vectors": [
+                "TI",
+                "EI",
+                "BS"
+            ],
+            "algorithm": "(TI+EI+(10-BS))/3"
         },
         "ER": {
             "enName": "Enterprise Risk",
             "cnName": "企业风险分值",
-            "notice": "The sum of all weight absolute values must be 2",
-            "weight": {
-                "DS": -1,
-                "VR": 1,
-                "EI": 1
-            }
+            "vectors": [
+                "DS",
+                "VR",
+                "EI"
+            ],
+            "algorithm": "((10-DS)+VR+EI)/3"
         }
     },
     "levels": [

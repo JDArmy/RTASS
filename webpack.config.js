@@ -17,6 +17,10 @@ module.exports = {
     path: path.resolve(__dirname, "docs"),
     clean: false,
   },
+  resolve: {
+    fallback: {
+    },
+  },
   plugins: [
     new CopyPlugin({
       patterns: [

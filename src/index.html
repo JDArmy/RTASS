@@ -25,7 +25,7 @@
               <div class="col-md-4" v-for="factorGroupKey in factorTypeVal.factorGroups" :key="factorGroupKey">
                 <h5 class="text-center">{{RTASS.factorGroups[factorGroupKey][lang+'Name']}}</h5>
                 <div class="factorGroup">
-                  <div class="factor" v-for="factorKey in Object.keys(RTASS.factorGroups[factorGroupKey].weight)" :key="factorKey">
+                  <div class="factor" v-for="factorKey in RTASS.factorGroups[factorGroupKey].vectors" :key="factorKey">
                     <h6
                       class="text-center"
                       :title="RTASS.factors[factorKey][lang+'Desc']"
