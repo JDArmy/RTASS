@@ -2,7 +2,7 @@
     "defaultLang": "cn",
     "cnTitle": "红蓝对抗演练评分系统（RTASS）",
     "enTitle": "Red Teaming Assessment Scoring System (RTASS)",
-    "version": "0.1.5",
+    "version": "0.1.6",
     "factors": {
         "AL": {
             "enName": "Attacker Level",
@@ -98,39 +98,6 @@
                 "8",
                 "9 - Fully achieved",
                 "10 - Overreach"
-            ]
-        },
-        "AC": {
-            "notice": "待废弃。本框架的参与者们认为本选项与攻击难度描述因素类似。",
-            "enName": "Attack Complexity",
-            "cnName": "路径曲折度",
-            "enDesc": "The complexity or twists of the entire attack path",
-            "cnDesc": "整条攻击路径的复杂度或曲折程度",
-            "cnOptions": [
-                "0 - N/A",
-                "1 - 简单",
-                "2",
-                "3 - 略有曲折",
-                "4",
-                "5",
-                "6 - 相当曲折",
-                "7",
-                "8 - 非常曲折",
-                "9 - ",
-                "10 - 几乎难以复制"
-            ],
-            "enOptions": [
-                "0 - N/A",
-                "1 - Not complicated",
-                "2",
-                "3 - Slightly tortuous",
-                "4",
-                "5",
-                "6 - Quite tortuous",
-                "7",
-                "8 - Very tortuous",
-                "9 - ",
-                "10 - Almost hard to reproduce"
             ]
         },
         "PL": {

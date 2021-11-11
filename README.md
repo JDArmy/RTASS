@@ -12,6 +12,7 @@
 RTASS由京东蓝军创建、拥有和进行管理。京东蓝军是京东集团成立的专注于挖掘和解决企业安全运行风险隐患的专业型APT团队。京东蓝军保留自行决定定期更新RTASS和本文档的权利。虽然京东蓝军拥有RTASS的所有权利和利益，但它许可公众自由使用，遵循Apache开源协议。
 
 ## **更新日志**
+- v0.1.6, 2021-11-11, 更新了RTASS评分因子描述
 - v0.1.5, 2021-11-10, 将评分权值weight调整成自定义算法，更新框架白皮书
 - v0.1.4, 2021-11-09, 更新了RTASS因子描述以及框架白皮书
 - v0.1.3, 2021-11-08, 更新了评分描述以及框架白皮书
@@ -78,9 +79,9 @@ RTASS评分框架整体上由“攻防因素”与“业务（影响）因素”
 | 分值            | 等级 |
 | ---            | --- |
 | 0.00分          | 无 |
-| 0.01 - 2.99分   | 低 |
-| 3.00 - 5.99分   | 中 |
-| 6.00 - 7.99分   | 高 |
+| 0.01 - 3.99分   | 低 |
+| 4.00 - 6.99分   | 中 |
+| 7.00 - 8.99分   | 高 |
 | 9.00 - 10.00分  | 极 |
 
 分数向上取整。
@@ -534,7 +535,7 @@ CVSS在解决此问题上，采取的方式是通过CVSS特别兴趣小组(SIG)�
 
 ## **参考链接**
 - https://owasp.org/www-community/OWASP_Risk_Rating_Methodology
-- https://www.first.org/cvss/specification-document#i5
+- https://www.first.org/cvss/v3.1/specification-document
 - https://en.wikipedia.org/wiki/Common_Vulnerability_Scoring_System
 
 
