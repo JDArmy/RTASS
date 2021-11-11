@@ -40,16 +40,8 @@ new Vue({
       Object.keys(Dimension).map((key) => {
         let score = vm.runInNewContext(Dimension[key].algorithm, Scores).toFixed(2);
         this.scores[key] = parseFloat(score);
-
-        let levelScore;
-        if(score < 0.01){
-          levelScore = 0;
-        }else if(score > 0 && score < 1){
-          levelScore = 1;
-        }else{
-          levelScore = Math.floor(score);
-        }
-        this.levels[key] = RTASS.levels[levelScore];
+        let levelScore = (score > 0 && score < 1) ? 1 : score;
+        this.levels[key] = RTASS.levels[Math.floor(levelScore)];
       });
     },
     getUrlParameter: function (name) {
