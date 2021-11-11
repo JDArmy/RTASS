@@ -40,7 +40,7 @@ new Vue({
       Object.keys(Dimension).map((key) => {
         let score = vm.runInNewContext(Dimension[key].algorithm, Scores).toFixed(2);
         this.scores[key] = parseFloat(score);
-        this.levels[key] = RTASS.levels[Math.ceil(score)];
+        this.levels[key] = RTASS.levels[Math.floor(score)];
       });
     },
     getUrlParameter: function (name) {
