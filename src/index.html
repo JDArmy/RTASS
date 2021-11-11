@@ -20,8 +20,10 @@
           <a v-if="lang=='en'" :href="'?lang=cn&vector='+scoreVector">中文</a>
           <a v-if="lang=='cn'" :href="'?lang=en&vector='+scoreVector">English</a> | 
 
-          <a v-if="lang=='cn'" :href="'?lang='+lang">清空</a>
-          <a v-if="lang=='en'" :href="'?lang='+lang">Clear</a>
+          <a v-if="lang=='cn'" :href="'?lang='+lang">重置分值</a>
+          <a v-if="lang=='en'" :href="'?lang='+lang">Clear Score</a> | 
+
+          <a href="https://github.com/JDArmy/RTASS">Github</a>
         </div>
 
         <div class="row">
