@@ -51,7 +51,7 @@
                     </h6>
                     <select
                       class="custom-select custom-select-sm"
-                      :class="'text-'+factorVal[factorKey]"
+                      :class="'text-'+ parseInt(factorVal[factorKey]) * 2"
                       v-model="factorVal[factorKey]"
                       @change="caclFinally()"
                       :title="RTASS.factors[factorKey][lang+'Desc']"

@@ -2,38 +2,28 @@
     "defaultLang": "cn",
     "cnTitle": "红蓝对抗演练评分系统（RTASS）",
     "enTitle": "Red Teaming Assessment Scoring System (RTASS)",
-    "version": "0.1.6",
+    "version": "0.2.0",
     "factors": {
         "AL": {
-            "enName": "Attacker Level",
-            "cnName": "攻击者水平",
+            "enName": "Attack Level",
+            "cnName": "攻击水平",
             "enDesc": "The highest level of technology used in the assessment path?",
             "cnDesc": "攻击者在评估路径中使用的最高技术水平？",
             "cnOptions": [
                 "0 - N/A",
                 "1 - 相当于入门级黑客",
-                "2 - 相当于能够熟练使用一些工具的黑客",
-                "3 - 相当于能够简单写一些小脚本的黑客",
-                "4 - 相当于普通技术水平的黑客",
-                "5 - 相当于可以自写利用程序或挖掘漏洞的黑客",
-                "6 - 等同精通渗透技术黑客",
-                "7 - 需要一定的团队配合",
-                "8 - 相当于较为专业的技术团队",
-                "9 - 相当于专业的APT级黑客团队",
-                "10 - 相当于国家级APT黑客团队"
+                "2 - 相当于普通水平黑客或工具、脚本黑客",
+                "3 - 等同精通渗透技术的黑客",
+                "4 - 需要较为专业的团队配合",
+                "5 - 相当于国家级APT黑客团队"
             ],
             "enOptions": [
                 "0 - N/A",
-                "1 - Equivalent to an entry-level hacker",
-                "2 - Equivalent to a hacker who can use some tools proficiently",
-                "3 - It is equivalent to a hacker who can simply write some small scripts",
-                "4 - Hackers equivalent to ordinary technical level",
-                "5 - Equivalent to hackers who can write their own programs or dig out vulnerabilities",
-                "6 - The equivalent of a hacker who is proficient in penetration technology",
-                "7 - Need a certain amount of teamwork",
-                "8 - More professional technical team",
-                "9 - Professional APT-level hacker team",
-                "10 - National APT hacker team"
+                "1 - Equivalent to entry-level hackers",
+                "2 - Equivalent to ordinary level hackers or tools, script hackers",
+                "3 - Equivalent to hackers proficient in penetration technology",
+                "4 - Need more professional team cooperation",
+                "5 - Equivalent to a national APT hacker team"
             ]
         },
         "AD": {
@@ -44,28 +34,18 @@
             "cnOptions": [
                 "0 - N/A",
                 "1 - 几乎没有难度",
-                "2",
-                "3 - 有点难度",
-                "4",
-                "5 - 较大难度",
-                "6 ",
-                "7 - ",
-                "8 - 很难搞定",
-                "9 - ",
-                "10 - 几乎不能搞定"
+                "2 - 有点难度",
+                "3 - 较大难度",
+                "4 - 很难搞定",
+                "5 - 几乎不能搞定"
             ],
             "enOptions": [
                 "0 - N/A",
                 "1 - Almost no difficulty",
-                "2",
-                "3 - A bit difficult",
-                "4",
-                "5 - Difficult",
-                "6",
-                "7 - ",
-                "8 - Very Difficult",
-                "9 - ",
-                "10 - Hardly handle"
+                "2 - A bit difficult",
+                "3 - More difficult",
+                "4 - Very Difficult",
+                "5 - Hardly handle"
             ]
         },
         "TR": {
@@ -76,28 +56,18 @@
             "cnOptions": [
                 "0 - N/A",
                 "1 - 基本没达成",
-                "2",
-                "3 - 少量达成",
-                "4",
-                "5",
-                "6",
-                "7 - 大量达成",
-                "8",
-                "9 - 完全达成",
-                "10 - 超额达成"
+                "2 - 少量达成",
+                "3 - 中量达成",
+                "4 - 大量达成",
+                "5 - 完全达成"
             ],
             "enOptions": [
                 "0 - N/A",
                 "1 - Basically not reached",
-                "2",
-                "3 - A small amount",
-                "4",
-                "5",
-                "6",
-                "7 - Mass reached",
-                "8",
-                "9 - Fully achieved",
-                "10 - Overreach"
+                "2 - A small amount",
+                "3 - Medium amount",
+                "4 - Mass reached",
+                "5 - Fully achieved"
             ]
         },
         "PL": {
@@ -108,28 +78,18 @@
             "cnOptions": [
                 "0 - N/A",
                 "1 - 几乎没有拦截",
-                "2",
-                "3 - 轻微的拦截",
-                "4",
-                "5",
-                "6",
-                "7 - 较强的拦截",
-                "8",
-                "9 - ",
-                "10 - 几乎难以突破"
+                "2 - 轻微的拦截",
+                "3 - 较强的拦截",
+                "4 - 非常强的拦截",
+                "5 - 几乎难以突破"
             ],
             "enOptions": [
                 "0 - N/A",
                 "1 - Almost no interception",
-                "2",
-                "3 - Slightly intercepted",
-                "4",
-                "5",
-                "6",
-                "7 - Strong interception",
-                "8",
-                "9 - ",
-                "10 - Almost hard to break through"
+                "2 - Slightly intercepted",
+                "3 - Strong interception",
+                "4 - Very strong interception",
+                "5 - Almost hard to break through"
             ]
         },
         "DL": {
@@ -139,29 +99,19 @@
             "cnDesc": "防守者对关键渗透路径的网络威胁发现能力？",
             "cnOptions": [
                 "0 - N/A",
-                "1 - 几乎难以监测到威胁",
-                "2",
-                "3 - 监测到周边攻击威胁",
-                "4",
-                "5 - 监测到少量关键路径威胁",
-                "6",
-                "7 - 监测到大量关键路径威胁",
-                "8",
-                "9 - ",
-                "10 - 几乎监测到全部威胁"
+                "1 - 几乎监测不到威胁",
+                "2 - 监测到周边攻击威胁",
+                "3 - 监测到少量关键路径威胁",
+                "4 - 监测到大量关键路径威胁",
+                "5 - 几乎监测到全部威胁"
             ],
             "enOptions": [
                 "0 - N/A",
                 "1 - Hardly detect threats",
-                "2",
-                "3 - Peripheral attack threat detected",
-                "4",
-                "5 - A small number of critical path threats detected",
-                "6",
-                "7 - A large number of critical path threats detected",
-                "8",
-                "9 - ",
-                "10 - Almost all threats detected"
+                "2 - Peripheral attack threat detected",
+                "3 - A small number of critical path threats detected",
+                "4 - A large number of critical path threats detected",
+                "5 - Almost all threats detected"
             ]
         },
         "RL": {
@@ -172,28 +122,18 @@
             "cnOptions": [
                 "0 - N/A",
                 "1 - 几乎难以推进（一周以上）",
-                "2",
-                "3 - 响应较为缓慢（24小时以上）",
-                "4",
-                "5",
-                "6 - 响应较为及时（24小时内）",
-                "7",
-                "8 - 响应接近实时（2小时内）",
-                "9 - ",
-                "10 - 实时响应（30分钟内）"
+                "2 - 响应较为缓慢（24小时以上）",
+                "3 - 响应较为及时（24小时内）",
+                "4 - 响应接近实时（2小时内）",
+                "5 - 实时响应（30分钟内）"
             ],
             "enOptions": [
                 "0 - N/A",
                 "1 - Basically unable to move (More than one week)",
-                "2",
-                "3 - Slow response (more than 24 hours)",
-                "4",
-                "5",
-                "6 - Response is relatively timely (within 24 hours)",
-                "7",
-                "8 - Response is close to real time (within 2 hours)",
-                "9 - ",
-                "10 - Real-time response (within 30 minutes)"
+                "2 - Slow response (more than 24 hours)",
+                "3 - Response is relatively timely (within 24 hours)",
+                "4 - Response is close to real time (within 2 hours)",
+                "5 - Real-time response (within 30 minutes)"
             ]
         },
         "TL": {
@@ -204,28 +144,18 @@
             "cnOptions": [
                 "0 - N/A",
                 "1 - 几乎不能有效溯源",
-                "2",
-                "3 - 可以找到攻击者使用的DNS、C2等信息",
-                "4",
-                "5 - 可以找到攻击者的横向移动路径",
-                "6",
-                "7 - 可以找到攻击者的部分真实IP或境内虚拟身份",
-                "8 - 可以直接找到攻击者的真实身份",
-                "9 - ",
-                "10 - 可以对攻击者进行成功反制"
+                "2 - 可以找到攻击者使用的DNS、C2等信息",
+                "3 - 可以溯源到攻击者横向移动路径",
+                "4 - 可以找到攻击者的部分真实IP或虚拟身份",
+                "5 - 可以对攻击者进行成功溯源反制"
             ],
             "enOptions": [
                 "0 - N/A",
                 "1 - Basically cannot be traced effectively",
-                "2",
-                "3 - The DNS, C2 and other information used by the attacker can be found",
-                "4",
-                "5 - Can find the attacker's lateral movement path information",
-                "6",
-                "7 - Part of the real IP or virtual identity of the attacker can be found",
-                "8 - Can directly find the true identity of the attacker",
-                "9 - ",
-                "10 - Can successfully counter attackers"
+                "2 - The DNS, C2 and other information used by the attacker can be found",
+                "3 - Can find the attacker's lateral movement path information",
+                "4 - Part of the real IP or virtual identity of the attacker can be found",
+                "5 - The attacker can be successfully traced and countered"
             ]
         },
         "VD": {
@@ -236,28 +166,18 @@
             "cnOptions": [
                 "0 - N/A",
                 "1 - 几乎难以发现",
-                "2",
-                "3 - 困难",
-                "4",
-                "5 - 中等",
-                "6",
-                "7",
-                "8 - 简单",
-                "9 - ",
-                "10 - 可用的自动化工具"
+                "2 - 困难",
+                "3 - 中等",
+                "4 - 简单",
+                "5 - 可用的自动化工具"
             ],
             "enOptions": [
                 "0 - N/A",
-                "1 - Basically can't find out",
-                "2",
-                "3 - Difficulty",
-                "4",
-                "5 - Medium",
-                "6",
-                "7 - Easy",
-                "8",
-                "9 - ",
-                "10 - Automated tools available"
+                "1 - Almost hard to find out",
+                "2 - Difficulty",
+                "3 - Medium",
+                "4 - Easy",
+                "5 - Automated tools available"
             ]
         },
         "VE": {
@@ -268,28 +188,18 @@
             "cnOptions": [
                 "0 - N/A",
                 "1 - 几乎难以利用",
-                "2",
-                "3 - 困难",
-                "4",
-                "5 - 中等",
-                "6",
-                "7 - 简单",
-                "8",
-                "9 - ",
-                "10 - 可用的自动化工具"
+                "2 - 困难",
+                "3 - 中等",
+                "4 - 简单",
+                "5 - 可用的自动化工具"
             ],
             "enOptions": [
                 "0 - N/A",
-                "1 - Basically can't find out",
-                "2",
-                "3 - Difficulty",
-                "4",
-                "5 - Medium",
-                "6",
-                "7 - Easy",
-                "8",
-                "9 - ",
-                "10 - Automated tools available"
+                "1 - Almost hard to use",
+                "2 - Difficulty",
+                "3 - Medium",
+                "4 - Easy",
+                "5 - Automated tools available"
             ]
         },
         "VL": {
@@ -299,61 +209,41 @@
             "cnDesc": "渗透路径中的关键漏洞的最大杀伤力？",
             "cnOptions": [
                 "0 - N/A",
-                "1 - 几乎没啥危害",
-                "2",
-                "3 - 较低的杀伤力",
-                "4",
-                "5 - 一定规模的杀伤力",
-                "6",
-                "7 - 较高的杀伤力",
-                "8",
-                "9 - 大范围的杀伤力",
-                "10 - 极其广泛的杀伤力"
+                "1 - 几乎没有危害",
+                "2 - 较低的杀伤力",
+                "3 - 中等规模的杀伤力",
+                "4 - 大范围的杀伤力",
+                "5 - 极其广泛的杀伤力"
             ],
             "enOptions": [
                 "0 - N/A",
                 "1 - Basically no harm",
-                "2",
-                "3 - Lower lethality",
-                "4",
-                "5 - A certain degree of lethality",
-                "6",
-                "7 - Higher lethality",
-                "8",
-                "9 - Wide range of lethality",
-                "10 - Extremely wide lethality"
+                "2 - Lower lethality",
+                "3 - A certain degree of lethality",
+                "4 - Wide range of lethality",
+                "5 - Extremely wide lethality"
             ]
         },
         "LC": {
             "enName": "Loss of Confidentiality",
             "cnName": "失去保密性",
             "enDesc": "How much data could be disclosed and how sensitive is it?",
-            "cnDesc": "可以披露多少数据以及它的敏感度如何？",
+            "cnDesc": "可以泄露多少数据以及它的敏感度如何？",
             "cnOptions": [
                 "0 - N/A",
-                "1",
-                "2 - 获取最少的非敏感数据",
-                "3 - 获取少量数据",
-                "4",
-                "5",
-                "6 - 获取最少的敏感数据或大量非敏感数据",
-                "7 - 获取大量关键数据",
-                "8",
-                "9 - ",
-                "10 - 获取全部敏感数据"
+                "1 - 可泄露少量的非敏感数据",
+                "2 - 可泄露少量的敏感数据",
+                "3 - 可泄露中量的敏感数据",
+                "4 - 可泄露大量的敏感数据",
+                "5 - 可泄露全部的敏感数据"
             ],
             "enOptions": [
                 "0 - N/A",
-                "1",
-                "2 - Minimal non-sensitive data disclosed",
-                "3",
-                "4",
-                "5",
-                "6 - Minimal critical data or extensive non-sensitive data disclosed",
-                "7 - Extensive critical data disclosed",
-                "8",
-                "9 - ",
-                "10 - All data disclosed"
+                "1 - A small amount of non-sensitive data can be disclosed",
+                "2 - A small amount of sensitive data can be disclosed",
+                "3 - A medium amount of sensitive data can be disclosed",
+                "4 - A large amount of sensitive data can be disclosed",
+                "5 - All sensitive data can be disclosed"
             ]
         },
         "LI": {
@@ -363,29 +253,19 @@
             "cnDesc": "有多少数据可能被损坏，损坏程度如何？",
             "cnOptions": [
                 "0 - N/A",
-                "1 - 最小的轻微损坏数据",
-                "2",
-                "3 - 最少的严重损坏数据",
-                "4",
-                "5 - 广泛的轻微损坏的数据",
-                "6",
-                "7 - 大量严重损坏的数据",
-                "8 - ",
-                "9 - ",
-                "10 - 所有数据完全损坏"
+                "1 - 可损坏少量非核心数据",
+                "2 - 可损坏少量的核心数据",
+                "3 - 可损坏大量非核心数据",
+                "4 - 可损坏大量核心数据",
+                "5 - 可损坏全部数据"
             ],
             "enOptions": [
                 "0 - N/A",
-                "1 - Minimal slightly corrupt data",
-                "2",
-                "3 - Minimal seriously corrupt data",
-                "4",
-                "5 - Extensive slightly corrupt data",
-                "6",
-                "7 - Extensive seriously corrupt data",
-                "8 - ",
-                "9 - ",
-                "10 - All data totally corrupt"
+                "1 - A small amount of non-core data can be damaged",
+                "2 - A small amount of core data can be damaged",
+                "3 - A large amounts of non-core data can be damaged",
+                "4 - A large amount of core data can be damaged",
+                "5 - All data can be damaged can be damaged"
             ]
         },
         "LA": {
@@ -395,29 +275,19 @@
             "cnDesc": "可能会丢失多少服务，它有多重要？",
             "cnOptions": [
                 "0 - N/A",
-                "1 - 最少的二级服务中断",
-                "2",
-                "3",
-                "4",
-                "5 - 最少的主要或广泛的次要服务中断",
-                "6",
-                "7 - 广泛的主要服务中断",
-                "8",
-                "9 - ",
-                "10 - 所有服务完全丢失"
+                "1 - 可导致企业少量的非核心业务中断",
+                "2 - 可导致企业少量的核心业务中断",
+                "3 - 可导致企业中量的核心业务中断",
+                "4 - 可导致企业大量核心业务中断",
+                "5 - 可中断企业几乎所有重要业务"
             ],
             "enOptions": [
                 "0 - N/A",
-                "1 - Minimal secondary services interrupted",
-                "2",
-                "3",
-                "4",
-                "5 - Minimal primary or extensive secondary services interrupted",
-                "6",
-                "7 - Extensive primary services interrupted",
-                "8",
-                "9 - ",
-                "10 - All services completely lost"
+                "1 - Can interrupt a small amount of non-core business",
+                "2 - Can interrupt a amount of core business",
+                "3 - Can interrupt medium amount of the core business",
+                "4 - Can interrupt a large amount of core business",
+                "5 - Can interrupt almost All important business"
             ]
         },
         "FD": {
@@ -428,28 +298,18 @@
             "cnOptions": [
                 "0 - N/A",
                 "1 - 低于修复漏洞的成本",
-                "2",
-                "3 - 对年利润影响不大",
-                "4",
-                "5",
-                "6",
-                "7 - 对年度利润的显著影响",
-                "8",
-                "9 - ",
-                "10 - 破产"
+                "2 - 不会对企业年利润有明显影响",
+                "3 - 可以影响一定的企业年利润",
+                "4 - 对企业年度利润有显著影响",
+                "5 - 对企业年利润影响重大"
             ],
             "enOptions": [
                 "0 - N/A",
                 "1 - Less than the cost to fix the vulnerability",
-                "2",
-                "3 - Minor effect on annual profit",
-                "4",
-                "5",
-                "6",
-                "7 - Significant effect on annual profit",
-                "8",
-                "9 - ",
-                "10 - Bankruptcy"
+                "2 - No effect on annual profit",
+                "3 - A certain effect on annual profit",
+                "4 - Significant effect on annual profit",
+                "5 - Huge effect on annual profit"
             ]
         },
         "RD": {
@@ -459,29 +319,19 @@
             "cnDesc": "是否会导致企业声誉受损从而损害业务？",
             "cnOptions": [
                 "0 - N/A",
-                "1 - 最小的伤害",
-                "2",
-                "3",
-                "4 - 大客户或大量客户流失",
-                "5 - 商誉损失",
-                "6",
-                "7",
-                "8",
-                "9 - 品牌损害",
-                "10 - 品牌不可逆损害"
+                "1 - 轻微的伤害",
+                "2 - 大客户或大量客户流失",
+                "3 - 商誉损失",
+                "4 - 品牌损害",
+                "5 - 品牌重大损害"
             ],
             "enOptions": [
                 "0 - N/A",
                 "1 - Minimal damage",
-                "2",
-                "3",
-                "4 - Loss of major accounts",
-                "5 - Loss of goodwill",
-                "6",
-                "7",
-                "8",
-                "9 - Brand damage",
-                "10 - Irreversible brand damage"
+                "2 - Loss of large customers or a large number of customers",
+                "3 - Loss of goodwill",
+                "4 - Brand damage",
+                "5 - Major brand damage"
             ]
         },
         "CI": {
@@ -491,61 +341,19 @@
             "cnDesc": "出现的问题或攻击者进行恶意行动会带来多少违规风险？",
             "cnOptions": [
                 "0 - N/A",
-                "1",
+                "1 - 几乎不违规",
                 "2 - 轻微违规",
-                "3",
-                "4",
-                "5 - 明显违规",
-                "6",
-                "7 - 高调违规",
-                "8",
-                "9 - ",
-                "10 - 严重违法"
+                "3 - 明显违规",
+                "4 - 高调违规",
+                "5 - 严重违规或违法"
             ],
             "enOptions": [
                 "0 - N/A",
-                "1",
+                "1 - Almost no violation",
                 "2 - Minor violation",
-                "3",
-                "4",
-                "5 - Clear violation",
-                "6",
-                "7 - High profile violation",
-                "8",
-                "9 - ",
-                "10 - Seriously illegal"
-            ]
-        },
-        "OI": {
-            "enName": "Operation Impact",
-            "cnName": "运营影响",
-            "enDesc": "Does it affect the basic operations of the company?",
-            "cnDesc": "攻击者进行恶意行动是否影响企业的正常运营？",
-            "cnOptions": [
-                "0 - N/A",
-                "1",
-                "2",
-                "3 - 影响少量非核心系统运营",
-                "4",
-                "5 - 影响部分重要系统运营",
-                "6",
-                "7 - 影响大量核心系统正常运营",
-                "8",
-                "9 - ",
-                "10 - 企业运营基本停止"
-            ],
-            "enOptions": [
-                "0 - N/A",
-                "1",
-                "2",
-                "3 - Affect a small number of non-core system operations",
-                "4",
-                "5 - Affect some important system operations",
-                "6",
-                "7 - Affect a large number of core system operations",
-                "8",
-                "9 - ",
-                "10 - Basically cease operations"
+                "3 - Clear violation",
+                "4 - High profile violation",
+                "5 - Serious violation or illegality"
             ]
         },
         "DLC": {
@@ -555,29 +363,19 @@
             "cnDesc": "是否发现在软件开发生命周期中存在安全问题？",
             "cnOptions": [
                 "0 - N/A",
-                "1 - 基本上在开发过程中没有考虑安全问题",
-                "2",
-                "3 - 有较多的安全流程问题",
-                "4",
-                "5",
-                "6",
-                "7 - 有一定的安全流程问题",
-                "8",
-                "9 - ",
-                "10 - 几乎没有安全流程问题"
+                "1 - 基本没有考虑安全问题",
+                "2 - 有大量的安全流程问题",
+                "3 - 有中量的安全流程问题",
+                "4 - 有少量的安全流程问题",
+                "5 - 几乎没有安全流程问题"
             ],
             "enOptions": [
                 "0 - N/A",
                 "1 - Basically did not consider security issues",
-                "2",
-                "3 - There are more security process issues",
-                "4",
-                "5",
-                "6",
-                "7 - There are certain security process issues",
-                "8",
-                "9 - ",
-                "10 - Almost no security process issues"
+                "2 - There are more security process issues",
+                "3 - There are certain security process issues",
+                "4 - There are a small number of security process issues",
+                "5 - Almost no security process issues"
             ]
         },
         "OLC": {
@@ -587,29 +385,19 @@
             "cnDesc": "是否发现在运维生命周期中存在安全问题？",
             "cnOptions": [
                 "0 - N/A",
-                "1 - 基本上在运维过程中没有考虑安全问题",
-                "2",
-                "3 - 有较多的安全流程问题",
-                "4",
-                "5",
-                "6",
-                "7 - 有一定的安全流程问题",
-                "8",
-                "9 - ",
-                "10 - 几乎没有安全流程问题"
+                "1 - 基本没有考虑安全问题",
+                "2 - 有大量的安全流程问题",
+                "3 - 有中量的安全流程问题",
+                "4 - 有少量的安全流程问题",
+                "5 - 几乎没有安全流程问题"
             ],
             "enOptions": [
                 "0 - N/A",
                 "1 - Basically did not consider security issues",
-                "2",
-                "3 - There are more security process issues",
-                "4",
-                "5",
-                "6",
-                "7 - There are certain security process issues",
-                "8",
-                "9 - ",
-                "10 - Almost no security process issues"
+                "2 - There are more security process issues",
+                "3 - There are certain security process issues",
+                "4 - There are a small number of security process issues",
+                "5 - Almost no security process issues"
             ]
         },
         "ESA": {
@@ -619,29 +407,19 @@
             "cnDesc": "在评估过程中大部分员工是否有安全意识问题？",
             "cnOptions": [
                 "0 - N/A",
-                "1 - 几乎全员没有任何安全意识",
+                "1 - 几乎全员没有安全意识",
                 "2 - 大部分关键岗位员工安全意识较弱",
-                "3 - 大部分员工安全意识较弱",
-                "4 - 少部分关键岗位员工安全意识较弱",
-                "5",
-                "6",
-                "7 - 少部分员工安全意识较弱",
-                "8",
-                "9 - ",
-                "10 - 全部员工基本上都有极高的安全意识"
+                "3 - 少部分关键岗位员工安全意识较弱",
+                "5 - 大部分关键岗位员工安全意识较高",
+                "6 - 全部员工都有极高的安全意识"
             ],
             "enOptions": [
                 "0 - N/A",
-                "1 - Almost all staff have no safety awareness",
-                "2 - Most of the employees in key positions have weak safety awareness",
-                "3 - Most employees have weak safety awareness",
-                "4 - A small number of employees in key positions have weak safety awareness",
-                "5",
-                "6",
-                "7 - A small number of employees have weak safety awareness",
-                "8",
-                "9 - ",
-                "10 - Basically all employees have a high level of safety awareness"
+                "1 - Almost all staff have no security awareness",
+                "2 - Most of the employees in key positions have weak security awareness",
+                "3 - A small number of employees in key positions have weak security awareness",
+                "4 - Most of the employees in key positions have high security awareness",
+                "5 - Basically all employees have a high level of security awareness"
             ]
         }
     },
@@ -654,7 +432,7 @@
                 "AD",
                 "TR"
             ],
-            "algorithm": "(AL+AD+TR)/3"
+            "algorithm": "(AL+AD+TR)*2/3"
         },
         "DS": {
             "enName": "Defense Strength",
@@ -665,7 +443,7 @@
                 "RL",
                 "TL"
             ],
-            "algorithm": "(PL+DL+RL+TL)/4"
+            "algorithm": "(PL+DL+RL+TL)*2/4"
         },
         "VR": {
             "enName": "Vulnerability Risk",
@@ -675,7 +453,7 @@
                 "VE",
                 "VL"
             ],
-            "algorithm": "(VD+VE+VL)/3"
+            "algorithm": "(VD+VE+VL)*2/3"
         },
         "TI": {
             "enName": "Technique Impact",
@@ -685,7 +463,7 @@
                 "LI",
                 "LA"
             ],
-            "algorithm": "(LC+LI+LA)/3"
+            "algorithm": "(LC+LI+LA)*2/3"
         },
         "EI": {
             "enName": "Enterprise Impact",
@@ -693,10 +471,9 @@
             "vectors": [
                 "FD",
                 "RD",
-                "CI",
-                "OI"
+                "CI"
             ],
-            "algorithm": "(FD+RD+CI+OI)/4"
+            "algorithm": "(FD+RD+CI)*2/3"
         },
         "BS": {
             "enName": "Business Strength",
@@ -706,7 +483,7 @@
                 "OLC",
                 "ESA"
             ],
-            "algorithm": "(DLC+OLC+ESA)/3"
+            "algorithm": "(DLC+OLC+ESA)*2/3"
         }
     },
     "factorTypes": {

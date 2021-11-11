@@ -66,7 +66,7 @@ new Vue({
   created() {
     
     Object.keys(RTASS.factors).map((factorKey) => {
-      this.factorVal[factorKey] = Math.floor(Math.random() * 11);
+      this.factorVal[factorKey] = Math.ceil(Math.random() * 5);
     });
 
     Object.keys(RTASS.factorGroups).map((factorGroupKey) => {

@@ -18,7 +18,10 @@
         <h2 class="text-center">{{RTASS[lang+'Title']}} v{{RTASS.version}}</h2>
         <div class="lang-switcher">
           <a v-if="lang=='en'" :href="'?lang=cn&vector='+scoreVector">中文</a>
-          <a v-if="lang=='cn'" :href="'?lang=en&vector='+scoreVector">English</a>
+          <a v-if="lang=='cn'" :href="'?lang=en&vector='+scoreVector">English</a> | 
+
+          <a v-if="lang=='cn'" :href="'?lang='+lang">清空</a>
+          <a v-if="lang=='en'" :href="'?lang='+lang">Clear</a>
         </div>
 
         <div class="row">
@@ -51,7 +54,7 @@
                     </h6>
                     <select
                       class="custom-select custom-select-sm"
-                      :class="'text-'+factorVal[factorKey]"
+                      :class="'text-'+factorVal[factorKey] * 2"
                       v-model="factorVal[factorKey]"
                       @change="caclFinally()"
                       :title="RTASS.factors[factorKey][lang+'Desc']"
