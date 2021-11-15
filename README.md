@@ -1,7 +1,8 @@
 # **红蓝对抗演练评分系统 - RTASS**
 
 > Red Teaming Assessment Scoring System ( RTASS )
-> English doc <README_en.md>
+> 
+> [English doc](README_en.md)
 > 
 > 维护者: Monyer@JD.Army
 > 协作者: Members@JD.Army, vf3ng@JD
