@@ -28,9 +28,9 @@ new Vue({
   methods: {
     caclFinally: function () {
       //FactorGroup的值从factorVal计算
-      this.calcScores(RTASS.factorGroups, this.factorVal);
+      this.calcScores(RTASS.processScores, this.factorVal);
       //Scoring的值从scores获取
-      this.calcScores(RTASS.scoring, this.scores);
+      this.calcScores(RTASS.finalScores, this.scores);
       //根据因子分数生成矢量分数
       this.genScoreVector();
       //刷新界面
@@ -69,11 +69,11 @@ new Vue({
       this.factorVal[factorKey] = Math.ceil(Math.random() * 5);
     });
 
-    Object.keys(RTASS.factorGroups).map((factorGroupKey) => {
+    Object.keys(RTASS.processScores).map((factorGroupKey) => {
       this.scores[factorGroupKey] = 0;
       this.levels[factorGroupKey] = RTASS.levels[0];
     });
-    Object.keys(RTASS.scoring).map((scoringKey) => {
+    Object.keys(RTASS.finalScores).map((scoringKey) => {
       this.levels[scoringKey] = RTASS.levels[0];
     });
 

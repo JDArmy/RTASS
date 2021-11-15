@@ -29,23 +29,23 @@
         <div class="row">
           <div
             class="col-md-6"
-            v-for="(factorTypeVal, factorTypeKey) in RTASS.factorTypes"
+            v-for="(factorTypeVal, factorTypeKey) in RTASS.factorCategories"
             :key="factorTypeKey"
           >
             <h4 class="text-center">{{factorTypeVal[lang+'Name']}}</h4>
             <div class="row factorType">
               <div
                 class="col-md-4"
-                v-for="factorGroupKey in factorTypeVal.factorGroups"
+                v-for="factorGroupKey in factorTypeVal.processScores"
                 :key="factorGroupKey"
               >
                 <h5 class="text-center">
-                  {{RTASS.factorGroups[factorGroupKey][lang+'Name']}}
+                  {{RTASS.processScores[factorGroupKey][lang+'Name']}}
                 </h5>
                 <div class="factorGroup">
                   <div
                     class="factor"
-                    v-for="factorKey in RTASS.factorGroups[factorGroupKey].vectors"
+                    v-for="factorKey in RTASS.processScores[factorGroupKey].vectors"
                     :key="factorKey"
                   >
                     <h6
@@ -75,7 +75,7 @@
                   role="alert"
                   :class="'text-'+levels[factorGroupKey]['className']"
                 >
-                  {{RTASS.factorGroups[factorGroupKey][lang+'Name']}}[{{factorGroupKey}}]:<br />
+                  {{RTASS.processScores[factorGroupKey][lang+'Name']}}[{{factorGroupKey}}]:<br />
                   {{levels[factorGroupKey][lang+'Name']}}
                   <div>{{scores[factorGroupKey]}}</div>
                 </div>
@@ -87,10 +87,10 @@
         <div class="row">
           <div
             class="col-md-3 text-center"
-            v-for="(scoringItem, scoringKey) in RTASS.scoring"
+            v-for="(scoringItem, scoringKey) in RTASS.finalScores"
             :key="scoringKey"
           >
-            <div :class="'alert scoring text-'+levels[scoringKey]['className']">
+            <div :class="'alert finalScores text-'+levels[scoringKey]['className']">
               {{scoringItem[lang+'Name']}}[{{scoringKey}}]: <br />
               {{scores[scoringKey]}}<br />
               {{levels[scoringKey][lang+'Name']}}
@@ -107,7 +107,7 @@
             <span v-if="lang=='cn'">本次红蓝对抗演练中：</span>
             <span v-if="lang=='en'">During this Red Teaming Assessment: </span>
             <span
-              v-for="(scoringItem, scoringKey) in RTASS.scoring"
+              v-for="(scoringItem, scoringKey) in RTASS.finalScores"
               :key="scoringKey"
             >
               <strong>{{scoringItem[lang+'Name']}}</strong>
@@ -122,10 +122,10 @@
             <div v-if="lang=='cn'">过程分值如下：</div>
             <div v-if="lang=='en'">Processing score: </div>
             <div
-              v-for="factorGroupKey in Object.keys(RTASS.factorGroups)"
+              v-for="factorGroupKey in Object.keys(RTASS.processScores)"
               :key="factorGroupKey"
             >
-              <strong>{{RTASS.factorGroups[factorGroupKey][lang+'Name']}}</strong>
+              <strong>{{RTASS.processScores[factorGroupKey][lang+'Name']}}</strong>
               <span v-if="lang=='cn'">
                 为“{{levels[factorGroupKey][lang+'Name']}}”（{{scores[factorGroupKey]}}），其中
               </span>
@@ -134,7 +134,7 @@
               </span>
               
               <span
-                v-for="factorKey in RTASS.factorGroups[factorGroupKey].vectors"
+                v-for="factorKey in RTASS.processScores[factorGroupKey].vectors"
                 :key="factorKey"
               >
                 <strong>{{RTASS.factors[factorKey][lang+'Name']}}</strong>: 

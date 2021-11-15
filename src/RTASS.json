@@ -2,11 +2,11 @@
     "defaultLang": "cn",
     "cnTitle": "红蓝对抗演练评分系统（RTASS）",
     "enTitle": "Red Teaming Assessment Scoring System (RTASS)",
-    "version": "0.2.0",
+    "version": "0.2.2",
     "factors": {
-        "AL": {
-            "enName": "Attack Level",
-            "cnName": "攻击水平",
+        "OL": {
+            "enName": "Offensive Level",
+            "cnName": "进攻水平",
             "enDesc": "The highest level of technology used in the assessment path?",
             "cnDesc": "攻击者在评估路径中使用的最高技术水平？",
             "cnOptions": [
@@ -26,9 +26,9 @@
                 "5 - Equivalent to a national APT hacker team"
             ]
         },
-        "AD": {
+        "OD": {
             "enName": "Attack Difficulty",
-            "cnName": "攻击难度",
+            "cnName": "进攻难度",
             "enDesc": "The highest difficulty in solving the problem in the entire evaluation path?",
             "cnDesc": "攻击者在整个评估路径中搞定难题的最高难度？",
             "cnOptions": [
@@ -71,7 +71,7 @@
             ]
         },
         "PL": {
-            "enName": "Protection Level",
+            "enName": "Prevention Level",
             "cnName": "防护水平",
             "enDesc": "Ability to intercept critical paths in the assessment process",
             "cnDesc": "防守者对关键渗透路径的拦截能力？",
@@ -285,7 +285,7 @@
                 "0 - N/A",
                 "1 - Can interrupt a small amount of non-core business",
                 "2 - Can interrupt a amount of core business",
-                "3 - Can interrupt medium amount of the core business",
+                "3 - Can interrupt a medium amount of the core business",
                 "4 - Can interrupt a large amount of core business",
                 "5 - Can interrupt almost All important business"
             ]
@@ -416,26 +416,46 @@
             "enOptions": [
                 "0 - N/A",
                 "1 - Almost all staff have no security awareness",
-                "2 - Most of the employees in key positions have weak security awareness",
+                "2 - Most of the employees in key positions have weak-security awareness",
                 "3 - A small number of employees in key positions have weak security awareness",
-                "4 - Most of the employees in key positions have high security awareness",
-                "5 - Basically all employees have a high level of security awareness"
+                "4 - Most of the employees in key positions have high-security awareness",
+                "5 - All employees have a high level of security awareness"
             ]
         }
     },
-    "factorGroups": {
-        "AS": {
-            "enName": "Attack Strength",
-            "cnName": "攻击实力",
+    "factorCategories": {
+        "CF": {
+            "enName": "Confrontation Factors",
+            "cnName": "攻防因素",
+            "processScores": [
+                "OS",
+                "DS",
+                "VR"
+            ]
+        },
+        "BF": {
+            "enName": "Business Factors",
+            "cnName": "业务因素",
+            "processScores": [
+                "TI",
+                "EI",
+                "BS"
+            ]
+        }
+    },
+    "processScores": {
+        "OS": {
+            "enName": "Offensive Strength",
+            "cnName": "进攻实力",
             "vectors": [
-                "AL",
-                "AD",
+                "OL",
+                "OD",
                 "TR"
             ],
-            "algorithm": "(AL+AD+TR)*2/3"
+            "algorithm": "(OL+OD+TR)*2/3"
         },
         "DS": {
-            "enName": "Defense Strength",
+            "enName": "Defensive Strength",
             "cnName": "防守实力",
             "vectors": [
                 "PL",
@@ -456,7 +476,7 @@
             "algorithm": "(VD+VE+VL)*2/3"
         },
         "TI": {
-            "enName": "Technique Impact",
+            "enName": "Technical Impact",
             "cnName": "技术影响",
             "vectors": [
                 "LC",
@@ -486,39 +506,19 @@
             "algorithm": "(DLC+OLC+ESA)*2/3"
         }
     },
-    "factorTypes": {
-        "CF": {
-            "enName": "Confrontation Factor",
-            "cnName": "攻防因素",
-            "factorGroups": [
-                "AS",
-                "DS",
-                "VR"
-            ]
-        },
-        "BF": {
-            "enName": "Business Factor",
-            "cnName": "业务因素",
-            "factorGroups": [
-                "TI",
-                "EI",
-                "BS"
-            ]
-        }
-    },
-    "scoring": {
-        "AE": {
-            "enName": "Attack Energy",
-            "cnName": "攻击能量分值",
+    "finalScores": {
+        "OE": {
+            "enName": "Offensive Energy",
+            "cnName": "进攻能量分值",
             "vectors": [
-                "AS",
+                "OS",
                 "DS",
                 "EI"
             ],
-            "algorithm": "(AS+DS+EI)/3"
+            "algorithm": "(OS+DS+EI)/3"
         },
         "DE": {
-            "enName": "Defense Energy",
+            "enName": "Defensive Energy",
             "cnName": "防守能量分值",
             "vectors": [
                 "DS",
