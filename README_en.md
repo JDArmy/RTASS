@@ -1,4 +1,4 @@
-# ** Red Teaming Assessment Scoring System - RTASS**
+# **Red Teaming Assessment Scoring System - RTASS**
 
 > Red Teaming Assessment Scoring System ( RTASS )
 > 
