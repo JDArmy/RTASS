@@ -9,7 +9,7 @@
 
 Red Teaming Assessment Scoring System (RTASS) is an open framework, for scoring the capability input on both sides of attack and defense in a single cyber actual combat confrontation exercise, as well as the degree of risk faced by the business and the enterprise. 
  
-RTASS is founded, owned, and managed by the JD.Army team of JD.Com, inc. JD.Army is a professional APT team established by JD.com Group, which focuses on excavating and solving the hidden security risks of enterprise safe operation. JD.Army reserves the right to update RTASS and this document regularly at its sole discretion. Although JD.Army owns all the rights and interests in RTASS, it permits the public to use it freely and follows the Apache open source agreement.
+RTASS is founded, owned, and managed by the JD.Army team. .Army is a professional red team which focuses on excavating and solving the hidden security risks of enterprise safe operation. JD.Army reserves the right to update RTASS and this document regularly at its sole discretion. Although JD.Army owns all the rights and interests in RTASS, it permits the public to use it freely and follows the Apache open source agreement.
 
 ## **Change Log**
 - v0.2.2, 2021-11-15, RTASS key modified, wrote English doc
