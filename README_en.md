@@ -3,7 +3,7 @@
 > Red Teaming Assessment Scoring System ( RTASS )
 > 
 > Maintainer: Monyer@JD.Army
-> Contributors: Members@JD.Army, vf3ng@JD
+> Contributors: Members@JD.Army, vf3ng
 > 
 > RTASS online calculator tool: <https://jd.army/RTASS/?lang=cn>
 

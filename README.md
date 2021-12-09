@@ -5,7 +5,7 @@
 > [English doc](README_en.md)
 > 
 > 维护者: Monyer@JD.Army
-> 协作者: Members@JD.Army, vf3ng@JD
+> 协作者: Members@JD.Army, vf3ng
 > 
 > RTASS在线评分工具: <https://jd.army/RTASS/?lang=cn>
 
