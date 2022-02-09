@@ -1,5 +1,5 @@
 import RTASS from "./RTASS.json";
-import Vue from "vue/dist/vue.esm.js";
+import { createApp } from "vue/dist/vue.esm-browser.js";
 import "style-loader!css-loader!./main.css";
 import vm from "vm-browserify";
 
@@ -15,56 +15,56 @@ Object.keys(RTASS.factors).map(factorKey => {
 });
 console.log(doc);
 
-new Vue({
-  el: "#pane",
-  data: {
-    RTASS: RTASS,
-    lang: RTASS.defaultLang,
-    factorVal: {},
-    scores: {},
-    levels: {},
-    scoreVector: "",
+var AppOptions = {
+  data() {
+    return {
+      RTASS: RTASS,
+      lang: RTASS.defaultLang,
+      factorVal: {},
+      scores: {},
+      levels: {},
+      scoreVector: "",
+    }
   },
   methods: {
-    caclFinally: function () {
-      //FactorGroup的值从factorVal计算
-      this.calcScores(RTASS.processScores, this.factorVal);
-      //Scoring的值从scores获取
-      this.calcScores(RTASS.finalScores, this.scores);
-      //根据因子分数生成矢量分数
-      this.genScoreVector();
-      //刷新界面
-      this.$forceUpdate();
-    },
-    calcScores: function (Dimension, Scores) {
-      Object.keys(Dimension).map((key) => {
-        let score = vm.runInNewContext(Dimension[key].algorithm, Scores).toFixed(2);
-        this.scores[key] = parseFloat(score);
-        let levelScore = (score > 0 && score < 1) ? 1 : score;
-        this.levels[key] = RTASS.levels[Math.floor(levelScore)];
-      });
-    },
-    getUrlParameter: function (name) {
-      name = name.replace(/[\[]/, "\\[").replace(/[\]]/, "\\]");
-      var regex = new RegExp("[\\?&]" + name + "=([^&#]*)");
-      var results = regex.exec(location.search);
-      return results === null
-        ? ""
-        : decodeURIComponent(results[1].replace(/\+/g, " "));
-    },
-    genScoreVector: function(){
-      let vectorStr = "RTASS:"+RTASS.version;
-      Object.keys(RTASS.factors).map(factorKey=>{
-        vectorStr += `/${factorKey}:${this.factorVal[factorKey]}`;
-      });
-      this.scoreVector = vectorStr;
-    }
+      caclFinally: function () {
+        //FactorGroup的值从factorVal计算
+        this.calcScores(RTASS.processScores, this.factorVal);
+        //Scoring的值从scores获取
+        this.calcScores(RTASS.finalScores, this.scores);
+        //根据因子分数生成矢量分数
+        this.genScoreVector();
+        //刷新界面
+        this.$forceUpdate();
+      },
+      calcScores: function (Dimension, Scores) {
+        Object.keys(Dimension).map((key) => {
+          let score = vm.runInNewContext(Dimension[key].algorithm, Scores).toFixed(2);
+          this.scores[key] = parseFloat(score);
+          let levelScore = (score > 0 && score < 1) ? 1 : score;
+          this.levels[key] = RTASS.levels[Math.floor(levelScore)];
+        });
+      },
+      getUrlParameter: function (name) {
+        name = name.replace(/[\[]/, "\\[").replace(/[\]]/, "\\]");
+        var regex = new RegExp("[\\?&]" + name + "=([^&#]*)");
+        var results = regex.exec(location.search);
+        return results === null
+          ? ""
+          : decodeURIComponent(results[1].replace(/\+/g, " "));
+      },
+      genScoreVector: function(){
+        let vectorStr = "RTASS:"+RTASS.version;
+        Object.keys(RTASS.factors).map(factorKey=>{
+          vectorStr += `/${factorKey}:${this.factorVal[factorKey]}`;
+        });
+        this.scoreVector = vectorStr;
+      }
   },
   mounted() {
     this.caclFinally();
   },
   created() {
-    
     Object.keys(RTASS.factors).map((factorKey) => {
       this.factorVal[factorKey] = Math.ceil(Math.random() * 5);
     });
@@ -88,6 +88,7 @@ new Vue({
         this.factorVal[vector.split(":")[0]] = parseInt(vector.split(":")[1]);
       })
     }
+  }
+};
 
-  },
-});
+createApp(AppOptions).mount("#pane");
