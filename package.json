@@ -1,6 +1,6 @@
 {
-  "name": "RTASS",
-  "version": "1.0.0",
+  "name": "rtass",
+  "version": "0.2.3",
   "description": "Red Teaming Assessment Scoring System",
   "private": true,
   "scripts": {
