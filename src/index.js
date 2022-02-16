@@ -24,6 +24,7 @@ var AppOptions = {
       scores: {},
       levels: {},
       scoreVector: "",
+      scoreVectorInit: "",
     }
   },
   methods: {
@@ -34,6 +35,7 @@ var AppOptions = {
         this.calcScores(RTASS.finalScores, this.scores);
         //根据因子分数生成矢量分数
         this.genScoreVector();
+        this.initScoreVector();
         //刷新界面
         this.$forceUpdate();
       },
@@ -59,6 +61,13 @@ var AppOptions = {
           vectorStr += `/${factorKey}:${this.factorVal[factorKey]}`;
         });
         this.scoreVector = vectorStr;
+      },
+      initScoreVector: function(){
+        let vectorStr = "RTASS:"+RTASS.version;
+        Object.keys(RTASS.factors).map(factorKey=>{
+          vectorStr += `/${factorKey}:0`;
+        });
+        this.initScoreVector = vectorStr;
       }
   },
   mounted() {
