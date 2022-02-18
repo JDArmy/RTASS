@@ -1,13 +1,13 @@
-# **Red Teaming Assessment Scoring System - RTASS**
+# **Red Team Assessment Scoring System - RTASS**
 
-> Red Teaming Assessment Scoring System ( RTASS )
+> Red Team Assessment Scoring System ( RTASS )
 > 
 > Maintainer: Monyer@JD.Army
 > Contributors: Members@JD.Army, vf3ng
 > 
 > RTASS online calculator tool: <https://jd.army/RTASS/?lang=cn>
 
-Red Teaming Assessment Scoring System (RTASS) is an open framework, for scoring the capability input on both sides of attack and defense in a single cyber actual combat confrontation exercise, as well as the degree of risk faced by the business and the enterprise. 
+Red Team Assessment Scoring System (RTASS) is an open framework, for scoring the capability input on both sides of attack and defense in a single cyber actual combat confrontation exercise, as well as the degree of risk faced by the business and the enterprise. 
  
 RTASS is founded, owned, and managed by the JD.Army team. .Army is a professional red team which focuses on excavating and solving the hidden security risks of enterprise safe operation. JD.Army reserves the right to update RTASS and this document regularly at its sole discretion. Although JD.Army owns all the rights and interests in RTASS, it permits the public to use it freely and follows the Apache open source agreement.
 
@@ -19,12 +19,12 @@ RTASS is founded, owned, and managed by the JD.Army team. .Army is a professiona
 ## **Background**
 Many years ago, the enterprise usually used "penetration testing" to explore each single application system's vulnerabilities to evaluate their own security. In order to evaluate the harmfulness of the vulnerability, the National Infrastructure Advisory Council (NIAC) developed the Common Vulnerability Scoring System (CVSS) framework and selected the Forum of Incident Response and Security Teams (FIRST) to become the custodian of CVSS for future development. On the basis of the previous version, FIRST continues to iterate over v2 and v3 versions, evaluating and scoring for vulnerability is gradually improved, and is also widely used by major security organizations and vulnerability collection platforms.
 
-With the development of network security, network threats are increasing day by day. By simulating the means and behavior of hackers' APT attacks, the red-blue confrontation exercises for comprehensive security assessment of enterprises have been widely used. In order to evaluate between attackers and defenders, some organizational units have also developed some scoring systems. However, this scoring system can only measure the difference between the attacking teams, and the difference between the defender teams. The scientificity is also open to question, and it is impossible to make a comparison of the ability between the attacking team and the defensive team. When there is only one attacking team and one defensive team, the problem is even more prominent: if the core system is breached, does it mean that the attacking team is stronger, or that the defensive team is weaker? If the core system is not breached, is the attacking team weaker or the defensive team stronger? This is very difficult to measure, and the industry does not have a mature system to evaluate. Therefore, the JD.Army develop this Red Teaming Assessment Scoring System (RTASS) framework for actual combat exercise scenarios based on years of cyber actual offensive and defensive exercises and red-blue confrontation experience, with reference to the CVSS and OWASP risk rating methods.
+With the development of network security, network threats are increasing day by day. By simulating the means and behavior of hackers' APT attacks, the red-blue confrontation exercises for comprehensive security assessment of enterprises have been widely used. In order to evaluate between attackers and defenders, some organizational units have also developed some scoring systems. However, this scoring system can only measure the difference between the attacking teams, and the difference between the defender teams. The scientificity is also open to question, and it is impossible to make a comparison of the ability between the attacking team and the defensive team. When there is only one attacking team and one defensive team, the problem is even more prominent: if the core system is breached, does it mean that the attacking team is stronger, or that the defensive team is weaker? If the core system is not breached, is the attacking team weaker or the defensive team stronger? This is very difficult to measure, and the industry does not have a mature system to evaluate. Therefore, the JD.Army develop this Red Team Assessment Scoring System (RTASS) framework for actual combat exercise scenarios based on years of cyber actual offensive and defensive exercises and red-blue confrontation experience, with reference to the CVSS and OWASP risk rating methods.
 
 ## **Introduction**
-RTASS is a framework for scoring the attacker and defender's output, business and enterprise risk during the red teaming assessment. Which work be presented by simulating the means and behavior of hackers' APT attacks.
+RTASS is a framework for scoring the attacker and defender's output, business and enterprise risk during the Red Team assessment. Which work be presented by simulating the means and behavior of hackers' APT attacks.
 
-RTASS is suitable for red teaming assessment, red-blue confrontation exercises, cyber actual offensive, defensive exercises, and blue army assessment, etc. Which 
+RTASS is suitable for Red Team assessment, red-blue confrontation exercises, cyber actual offensive, defensive exercises, and blue army assessment, etc. Which 
 
 In the current version, RTASS forms 6 process scores through evaluation factors. The process scores are then combined through different combinations to form 4 final scores for different roles such as the attacker, the defender, the business, and the enterprise: **offensive energy**, **defense energy**, **business risk** and **enterprise risk**.
 
