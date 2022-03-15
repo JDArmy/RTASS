@@ -5,7 +5,7 @@
 > Maintainer: Monyer@JD.Army
 > Contributors: Members@JD.Army, vf3ng
 > 
-> RTASS online calculator tool: <https://jd.army/RTASS/?lang=cn>
+> RTASS online calculator tool: <https://jd.army/RTASS/?lang=en>
 
 Red Team Assessment Scoring System (RTASS) is an open framework, for scoring the capability input on both sides of attack and defense in a single cyber actual combat confrontation exercise, as well as the degree of risk faced by the business and the enterprise. 
  
