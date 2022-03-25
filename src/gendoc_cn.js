@@ -12,9 +12,13 @@ let doc = `
 # **${RTASS.title} ${RTASS.version}**
 
 > ${RTASS.keyword}
+>
 > Github: <${RTASS.github}>
+>
 > ${LANG.license}: ${RTASS.license}
+>
 > ${LANG.contributors}: ${RTASS.maintainer}, ${LANG.collaborators}: ${Object.values(RTASS.thanks).map(t => t.name).join(", ")}
+>
 > ${LANG.onlineCalculator} <${RTASS.calculator}>
 
 ## **${LANG.changelog}**
@@ -188,7 +192,7 @@ ${LANG.vectorStringExamplePS}
 
 ## **${LANG.oneThingAbout}**
 
-${LANG.oneThingAboutDesc}
+${LANG.ontThingAboutDesc}
 
 ## **${LANG.collaborateAndContribute}**
 

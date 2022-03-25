@@ -2,9 +2,13 @@
 # **红蓝对抗评分系统 (RTASS) 0.3.1**
 
 > Red Team Assessment Scoring System
+>
 > Github: <https://github.com/JDArmy/RTASS>
+>
 > 开源许可证: Apache
+>
 > 维护者: Monyer, 贡献者: devils, makato, vf3ng
+>
 > 在线计算器 <https://jd.army/RTASS/>
 
 ## **更新日志**
@@ -793,16 +797,20 @@ RTASS通过评估因子形成6个过程分值，过程分值再通过不同组�
 | 欺骗诱捕能力[DEC]    | 0-4     |
 
 RTASS Base模式向量字符串示例如下：
-RTASS:0.3.1/OL:2/OD:0/TR:4/AL:1/PL:1/DL:3/RL:1/TL:0/VD:2/VE:1/VL:4/VDW:4/LC:4/LI:4/LA:3/FD:2/RD:4/CI:3/DLC:4/OLC:4/ESA:4
+RTASS:0.3.1/OL:1/OD:1/TR:2/AL:0/PL:1/DL:3/RL:4/TL:3/VD:3/VE:0/VL:0/VDW:1/LC:1/LI:3/LA:4/FD:3/RD:2/CI:2/DLC:2/OLC:0/ESA:2
 
 RTASS Plus模式向量字符串示例如下：
-RTASS:0.3.1/OL:3/OD:1/TR:2/AL:4/PL:0/DL:3/RL:4/TL:2/VD:1/VE:3/VL:4/VDW:0/LC:1/LI:2/LA:0/FD:3/RD:1/CI:2/DLC:1/OLC:3/ESA:0/IRC:0/WC:3/VMEC:2/ATDC:3/SEC:4/PPC:3/TCC:1/LMC:3/GAT:4/GAC:1/GAA:3/IEMC:1/SUMC:0/TIBC:4/BSMC:0/ASMC:3/PSMC:3/NACC:0/ETTA:3/EHAA:2/PPAA:0/ITTA:0/EMA:3/EABA:1/TDR:3/TITR:4/THC:3/TDTR:4/TAC:2/IPTC:2/ATCC:2/DEC:2
+RTASS:0.3.1/OL:0/OD:4/TR:2/AL:3/PL:3/DL:2/RL:1/TL:2/VD:0/VE:0/VL:3/VDW:1/LC:2/LI:1/LA:4/FD:1/RD:1/CI:0/DLC:2/OLC:3/ESA:0/IRC:2/WC:1/VMEC:1/ATDC:0/SEC:1/PPC:4/TCC:4/LMC:4/GAT:4/GAC:2/GAA:2/IEMC:3/SUMC:0/TIBC:2/BSMC:1/ASMC:4/PSMC:4/NACC:4/ETTA:2/EHAA:2/PPAA:4/ITTA:3/EMA:3/EABA:0/TDR:3/TITR:1/THC:0/TDTR:0/TAC:4/IPTC:3/ATCC:3/DEC:2
 
 向量字符串应包含表中所示全部指标，接受任何顺序的度量。如果向量字符串多次包含相同度量，则以最后一次度量为准。
 
 ## **关于RTASS的一句话**
 
-undefined
+RTASS框架在设计上通过各基本因子计算生成过程分值，再通过过程分值生成最终分值。算法为未来的扩展预留了空间，但在现阶段数据还不太充足的情况下，因子的系数基本还是为1。
+
+CVSS在解决此问题上，采取的方式是通过CVSS特别兴趣小组(SIG)人工构建了一套真实漏洞对应严重性的查找表，再反过来调整参数。最终保证人工评估漏洞分值与CVSS框架评估分值的偏差值小于0.5.
+
+由于红蓝对抗演练与漏洞的不同，目前无法通过大量现成的样本来调整参数。但我们会不断收集新样本，通过人工评定以及参考更新的方法论，来使得RTASS的分值更加精确。这也需要阅读本规范的您的多加参与和大力支持。
 
 ## **协作 & 贡献**
 
