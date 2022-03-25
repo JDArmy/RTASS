@@ -210,7 +210,7 @@ ${Object.values(RTASS.references).map(r=>"- "+r.url+", "+r.name+", "+r.descripti
 
 ![calculator-cn](./docs/img/calculator-cn.jpg)
 
-<${RTASS.calculator}>
+${LANG.onlineCalculator}: <${RTASS.calculator}>
 
 `;
 
