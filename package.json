@@ -5,8 +5,8 @@
   "private": true,
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "build": "webpack",
-    "dev": "webpack-dev-server --progress"
+    "build": "webpack --mode=production",
+    "dev": "webpack-dev-server --mode=development --devtool inline-source-map --progress"
   },
   "keywords": [],
   "author": "Monyer",
@@ -20,8 +20,10 @@
     "webpack-dev-server": "^4.7.4"
   },
   "dependencies": {
+    "chart.js": "^3.7.1",
     "vm-browserify": "^1.1.2",
-    "vue": "^3.2.31"
+    "vue": "^3.2.31",
+    "vue3-i18n": "^1.1.5"
   },
   "main": "webpack.config.js",
   "repository": {

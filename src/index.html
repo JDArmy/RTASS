@@ -4,149 +4,220 @@
     <title>Red Team Assessment Scoring System</title>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link
-      rel="stylesheet"
-      href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
-      integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
-      crossorigin="anonymous"
-    />
+    <link href="https://cdn.bootcdn.net/ajax/libs/twitter-bootstrap/4.6.1/css/bootstrap.min.css" rel="stylesheet">
   </head>
 
   <body>
     <div class="container-fluid">
-      <div id="pane" >
-        <h2 class="text-center">{{RTASS[lang+'Title']}} v{{RTASS.version}}</h2>
-        <div class="lang-switcher">
-          <a v-if="lang=='en'" :href="'?lang=cn&vector='+scoreVector">中文</a>
-          <a v-if="lang=='cn'" :href="'?lang=en&vector='+scoreVector">English</a> | 
-
-          <a v-if="lang=='cn'" :href="'?lang='+lang+'&vector='+ initScoreVector">重置分值</a>
-          <a v-if="lang=='en'" :href="'?lang='+lang+'&vector='+ initScoreVector">Reset Score</a> | 
-
-          <a href="https://github.com/JDArmy/RTASS">Github</a>
-        </div>
-
-        <div class="row">
-          <div
-            class="col-md-6"
-            v-for="(factorTypeVal, factorTypeKey) in RTASS.factorCategories"
-            :key="factorTypeKey"
-          >
-            <h4 class="text-center">{{factorTypeVal[lang+'Name']}}</h4>
-            <div class="row factorType">
-              <div
-                class="col-md-4"
-                v-for="factorGroupKey in factorTypeVal.processScores"
-                :key="factorGroupKey"
+      <div id="pane" class="row">
+        <!-- title menu start -->
+        <div class="col-12">
+          <h2 class="text-center">
+            {{$t("RTASS.title")}} v{{$t("RTASS.version")}}
+          </h2>
+          <div class="menu">
+            <select v-model="lang" @change="calcFinally()">
+              <option
+                v-for="(languageDesc, languageKey) in languages"
+                :value="languageKey"
               >
-                <h5 class="text-center">
-                  {{RTASS.processScores[factorGroupKey][lang+'Name']}}
-                </h5>
-                <div class="factorGroup">
-                  <div
-                    class="factor"
-                    v-for="factorKey in RTASS.processScores[factorGroupKey].vectors"
-                    :key="factorKey"
-                  >
-                    <h6
-                      class="text-center"
-                      :title="RTASS.factors[factorKey][lang+'Desc']"
-                    >
-                      {{RTASS.factors[factorKey][lang+'Name']}}[{{factorKey}}]
-                    </h6>
-                    <select
-                      class="custom-select custom-select-sm"
-                      :class="'text-'+factorVal[factorKey] * 2"
-                      v-model="factorVal[factorKey]"
-                      @change="caclFinally()"
-                      :title="RTASS.factors[factorKey][lang+'Desc']"
-                    >
-                      <option
-                        v-for="(factorLabel, factorVal) in RTASS.factors[factorKey][lang+'Options']"
-                        :value="factorVal"
-                      >
-                        {{factorLabel}}
-                      </option>
-                    </select>
-                  </div>
-                </div>
-                <div
-                  class="alert text-center"
-                  role="alert"
-                  :class="'text-'+levels[factorGroupKey]['className']"
-                >
-                  {{RTASS.processScores[factorGroupKey][lang+'Name']}}[{{factorGroupKey}}]:<br />
-                  {{levels[factorGroupKey][lang+'Name']}}
-                  <div>{{scores[factorGroupKey]}}</div>
-                </div>
-              </div>
-            </div>
+                {{languageDesc}}
+              </option>
+            </select>
+            |
+            <button
+              type="button"
+              class="btn btn-primary btn-sm"
+              @click="resetVector()"
+            >
+              {{$t("reset")}}
+            </button>
+            |
+            <button
+              type="button"
+              class="btn btn-primary btn-sm"
+              :class="plusmode===true?'active':''"
+              @click="plusmode=!plusmode;calcFinally()"
+            >
+              RTASS+
+            </button>
+            |
+            <a href="https://github.com/JDArmy/RTASS">Github</a>
           </div>
         </div>
-
-        <div class="row">
+        <!-- title menu end -->
+        <!-- scoring pane start -->
+        <div
+          class="col-md-6"
+          v-for="(factorTypeVal, factorTypeKey) in RTASS.factorCategories"
+          :key="factorTypeKey"
+        >
+          <h3 class="text-center">{{$t(`RTASS.factorCategories.${factorTypeKey}.name`)}}</h3>
+          <div class="row factorType">
+            <!-- process scoring start -->
+            <div
+              class="col-md-4"
+              v-for="factorGroupKey in factorTypeVal.processScores"
+              :key="factorGroupKey"
+            >
+              <h4 class="text-center">
+                {{$t(`RTASS.processScores.${factorGroupKey}.name`)}}
+              </h4>
+              <div class="factorGroup">
+                <div
+                  class="factor"
+                  v-for="factorKey in Object.keys(RTASS.processScores[factorGroupKey].vectors)"
+                  :key="factorKey"
+                >
+                  <h5
+                    class="text-center"
+                    :title="RTASS.factors[factorKey]['description']"
+                  >
+                    {{$t(`RTASS.factors.${factorKey}.name`)}}[{{factorKey}}]
+                  </h5>
+                  <select
+                    class="custom-select custom-select-sm"
+                    :class="'text-'+vectorVal[factorKey]"
+                    v-model="vectorVal[factorKey]"
+                    @change="calcFinally()"
+                    :title="RTASS.factors[factorKey]['description']"
+                    :disabled="plusmode===true && RTASS.factors[factorKey]['vectors'] !== undefined"
+                  >
+                    <option
+                      v-for="(factorLabel, vectorVal) in RTASS.factors[factorKey]['options']"
+                      :value="vectorVal"
+                      :title="factorLabel"
+                    >
+                      {{$t(`RTASS.factors.${factorKey}.options[${vectorVal}]`)}}
+                    </option>
+                  </select>
+                  <!--abilities start-->
+                  <div
+                    v-if="plusmode===true && RTASS.factors[factorKey]['vectors'] !== undefined"
+                  >
+                    <div
+                      class="abilities"
+                      v-for="abilityKey in Object.keys(RTASS.factors[factorKey]['vectors'])"
+                      :key="abilityKey"
+                    >
+                      <h6 class="text-center">
+                        {{$t(`RTASS.abilities.${abilityKey}.name`)}}[{{abilityKey}}]
+                      </h6>
+                      <select
+                        class="custom-select custom-select-sm"
+                        :class="'text-'+vectorVal[abilityKey]"
+                        v-model="vectorVal[abilityKey]"
+                        @change="calcFinally()"
+                        :title="RTASS.abilities[abilityKey]['description']"
+                      >
+                        <option
+                          v-for="(abilityLabel, abilityVal) in RTASS.abilities[abilityKey]['options']"
+                          :value="abilityVal"
+                          :title="abilityLabel"
+                        >
+                          {{$t(`RTASS.abilities.${abilityKey}.options[${abilityVal}]`)}}
+                        </option>
+                      </select>
+                    </div>
+                  </div>
+                  <!--abilities end-->
+                </div>
+              </div>
+              <div
+                class="alert text-center"
+                role="alert"
+                :class="'text-'+RTASS.levels[levels[factorGroupKey]]['keyword']"
+              >
+                <h5>
+                  {{$t(`RTASS.processScores.${factorGroupKey}.name`)}}[{{factorGroupKey}}]:<br />
+                  {{$t(`RTASS.levels.${levels[factorGroupKey]}.name`)}}<br />
+                  {{scores[factorGroupKey]}}
+                </h5>
+              </div>
+            </div>
+            <!-- process scoring end -->
+          </div>
+        </div>
+        <!-- scoring pane end -->
+        <!-- final score start -->
+        <div
+          class="col-md-3"
+          v-for="(scoringItem, scoringKey) in RTASS.finalScores"
+          :key="scoringKey"
+        >
           <div
-            class="col-md-3 text-center"
+            role="alert"
+            class="alert text-center finalScores"
+            :class="'text-'+RTASS.levels[levels[scoringKey]]['keyword']"
+          >
+            <h4>
+              {{$t(`RTASS.finalScores.${scoringKey}.name`)}}[{{scoringKey}}]:<br />
+              {{$t(`RTASS.levels.${levels[scoringKey]}.name`)}}<br />
+              {{scores[scoringKey]}}
+            </h4>
+          </div>
+        </div>
+        <!-- final score end -->
+        <!-- vector uri start -->
+        <div class="col-md-12 score-vector">
+          <a :href="'?lang='+lang+'&plusmode='+plusmode+'&vector='+scoreVector"
+            >{{scoreVector}}</a
+          >
+        </div>
+        <!-- vector uri end -->
+        <!-- ription start -->
+        <div class="col-md-12 score-ription">
+          <span>{{$t('inThisAssessment')}}</span>
+          <span
             v-for="(scoringItem, scoringKey) in RTASS.finalScores"
             :key="scoringKey"
           >
-            <div :class="'alert finalScores text-'+levels[scoringKey]['className']">
-              {{scoringItem[lang+'Name']}}[{{scoringKey}}]: <br />
-              {{scores[scoringKey]}}<br />
-              {{levels[scoringKey][lang+'Name']}}
-            </div>
-          </div>
-        </div>
-
-        <div class="row">
-          <div class="col-md-12 score-vector">
-            <a :href="'?lang='+lang+'&vector='+scoreVector">{{scoreVector}}</a>
-          </div>
-  
-          <div class="col-md-12 score-description">
-            <span v-if="lang=='cn'">本次红蓝对抗演练中：</span>
-            <span v-if="lang=='en'">During this Red Team Assessment: </span>
-            <span
-              v-for="(scoringItem, scoringKey) in RTASS.finalScores"
-              :key="scoringKey"
-            >
-              <strong>{{scoringItem[lang+'Name']}}</strong>
-              <span v-if="lang=='cn'">
-                为“{{levels[scoringKey][lang+'Name']}}”（{{scores[scoringKey]}}）； 
-              </span>
-              <span v-if="lang=='en'">
-                is "{{levels[scoringKey][lang+'Name']}}"({{scores[scoringKey]}});
-              </span>
-              
+            <strong>
+              {{$t(`RTASS.finalScores.${scoringKey}.name`)}}
+            </strong>
+            <span>
+              :
+              "{{$t(`RTASS.levels.${levels[scoringKey]}.name`)}}"({{scores[scoringKey]}});&nbsp;
             </span>
-            <div v-if="lang=='cn'">过程分值如下：</div>
-            <div v-if="lang=='en'">Processing score: </div>
-            <div
-              v-for="factorGroupKey in Object.keys(RTASS.processScores)"
-              :key="factorGroupKey"
+          </span>
+          <div>{{$t("processingScore")}}</div>
+          <div
+            v-for="factorGroupKey in Object.keys(RTASS.processScores)"
+            :key="factorGroupKey"
+          >
+            <strong>
+              {{$t(`RTASS.processScores.${factorGroupKey}.name`)}}</strong>
+            <span>
+              :
+              "{{$t(`RTASS.levels.${levels[factorGroupKey]}.name`)}}"({{scores[factorGroupKey]}});&nbsp;
+              {{$t("inProcessingScore")}}
+            </span>
+
+            <span
+              v-for="factorKey in Object.keys(RTASS.processScores[factorGroupKey].vectors)"
+              :key="factorKey"
             >
-              <strong>{{RTASS.processScores[factorGroupKey][lang+'Name']}}</strong>
-              <span v-if="lang=='cn'">
-                为“{{levels[factorGroupKey][lang+'Name']}}”（{{scores[factorGroupKey]}}），其中
-              </span>
-              <span v-if="lang=='en'">
-                is "{{levels[factorGroupKey][lang+'Name']}}"({{scores[factorGroupKey]}}), in this processing score, 
-              </span>
-              
-              <span
-                v-for="factorKey in RTASS.processScores[factorGroupKey].vectors"
-                :key="factorKey"
-              >
-                <strong>{{RTASS.factors[factorKey][lang+'Name']}}</strong>: 
-                {{RTASS.factors[factorKey][lang+'Options'][factorVal[factorKey]].replace(/\d+\s?\-?\s?/,'') || factorVal[factorKey]}}; 
-              </span>
-            </div>
+              <strong>
+                {{$t(`RTASS.factors.${factorKey}.name`)}}
+              </strong>:&nbsp;
+              {{$t(`RTASS.factors.${factorKey}.options[${vectorVal[factorKey]}]`).replace(/\d+\s?\-?\s?/,'')}};&nbsp;
+            </span>
           </div>
         </div>
-
-        
+        <!-- description end -->
+        <!-- charts start -->
+        <div
+          class="col-6 col-sm-12 col-md-12 col-lg-6 chart-pane"
+          v-for="(_, chartKey) in RTASS.charts.data"
+          :class="plusmode!==true && RTASS.charts.data[chartKey].plusmode===true ? 'd-none' : ''"
+        >
+          <h5 class="text-center">
+            {{$t(`RTASS.charts.data.${chartKey}.name`)}}
+          </h5>
+          <canvas :id="'chart-'+chartKey"></canvas>
+        </div>
+        <!-- charts end -->
       </div>
-      
       <script src="main.js?ver=0.2.3"></script>
     </div>
   </body>

@@ -1,12 +1,7 @@
 {
     "title": "红蓝对抗评分系统 (RTASS)",
     "keyword": "Red Team Assessment Scoring System",
-    "description": "红蓝对抗评分系统（RTASS，Red Team Assessment Scoring System）是一个开放式框架，用来评估单次网络红蓝对抗或实战演习中的攻防双方能力投入情况，以及涉及业务及所在企业所面临的风险程度。通过RTASS可以对红蓝对抗式网络实战攻防演练中，攻击方、防守方、业务方以及企业风险状况进行量化评分。本框架适用于网络红蓝对抗演练、网络实战攻防演习、红队评估、蓝军评估等通过模拟黑客APT手段对企业开展实网攻击的安全评估场景。",
-    "maintainer": "Monyer",
-    "license": "Apache",
-    "rights": "RTASS由JD.Army创建、拥有和进行管理。JD.Army是专注于挖掘和解决企业安全运行风险隐患的专业型红队。JD.Army保留自行决定定期更新RTASS和本文档的权利。虽然JD.Army拥有RTASS的所有权利和利益，但它许可公众自由使用，遵循相关开源协议。",
-    "calculator": "https://jd.army/RTASS/",
-    "github": "https://github.com/JDArmy/RTASS",
+    "description": "RTASS是一套针对红蓝对抗式网络实战攻防演练中的攻击方、防守方、业务方以及企业风险进行量化评分的框架。本框架适用于网络红蓝对抗演练、网络实战攻防演习、红队评估、蓝军评估等通过模拟黑客APT手段对企业开展实网攻击的安全评估场景。",
     "version": "0.3.1",
     "abilities": {
         "IRC": {
@@ -100,8 +95,8 @@
             "options": [
                 "0 - 据点即终点，无继续网络拓展能力",
                 "1 - 能够通过信息采集确认据点身份、位置，获得有用情报信息",
-                "2 - 前者基础上，能够进行无感知内网刺探，找到横向移动路径或靶标进行移动",
-                "3 - 前者基础上，能够获取访问凭证并成功实现凭证利用进行横向移动",
+                "2 - 前者基础上，能够进行无感知内网刺探，找到横向移动路径或靶标",
+                "3 - 前者基础上，能够获取访问凭证并成功实现凭证利用",
                 "4 - 前者基础上，通过水坑、社工、供应链等多种复杂技术手段实现无感知横向移动"
             ]
         },
@@ -398,7 +393,7 @@
         "OL": {
             "keyword": "Offensive Level",
             "name": "进攻水平",
-            "description": "攻击者在评估路径中使用的最高技术水平。",
+            "description": "攻击者在评估路径中使用的最高技术水平？",
             "options": [
                 "0 - 相当于入门级黑客",
                 "1 - 相当于普通水平黑客或工具、脚本黑客",
@@ -407,44 +402,20 @@
                 "4 - 相当于国家级APT黑客团队"
             ],
             "vectors": {
-                "IRC": {
-                    "algorithm": " IRC * 1 ",
-                    "description": ""
-                },
-                "WC": {
-                    "algorithm": " WC * 1 ",
-                    "description": ""
-                },
-                "VMEC": {
-                    "algorithm": " VMEC * 1 ",
-                    "description": ""
-                },
-                "ATDC": {
-                    "algorithm": " ATDC * 1 ",
-                    "description": ""
-                },
-                "SEC": {
-                    "algorithm": " SEC * 1 ",
-                    "description": ""
-                },
-                "PPC": {
-                    "algorithm": " PPC * 1 ",
-                    "description": ""
-                },
-                "TCC": {
-                    "algorithm": " TCC * 1 ",
-                    "description": ""
-                },
-                "LMC": {
-                    "algorithm": " LMC * 1 ",
-                    "description": ""
-                }
+                "IRC": " IRC * 1 ",
+                "WC": " WC * 1 ",
+                "VMEC": " VMEC * 1 ",
+                "ATDC": " ATDC * 1 ",
+                "SEC": " SEC * 1 ",
+                "PPC": " PPC * 1 ",
+                "TCC": " TCC * 1 ",
+                "LMC": " LMC * 1 "
             }
         },
         "OD": {
             "keyword": "Offensive Difficulty",
             "name": "进攻难度",
-            "description": "攻击者在整个评估路径中搞定难题的最高难度。",
+            "description": "攻击者在整个评估路径中搞定难题的最高难度？",
             "options": [
                 "0 - 对于专业黑客来说，几乎没有难度",
                 "1 - 对于专业黑客来说，有点难度",
@@ -456,7 +427,7 @@
         "TR": {
             "keyword": "Target Reach",
             "name": "目标达成",
-            "description": "攻击者是否达成预期目标。",
+            "description": "攻击者是否达成预期目标？",
             "options": [
                 "0 - 基本没达成",
                 "1 - 少量达成",
@@ -465,24 +436,15 @@
                 "4 - 完全达成"
             ],
             "vectors": {
-                "GAT": {
-                    "algorithm": " GAT * 1 ",
-                    "description": ""
-                },
-                "GAC": {
-                    "algorithm": " GAC * 1 ",
-                    "description": ""
-                },
-                "GAA": {
-                    "algorithm": " GAA * 1 ",
-                    "description": ""
-                }
+                "GAT": " GAT * 1 ",
+                "GAC": " GAC * 1 ",
+                "GAA": " GAA * 1 "
             }
         },
         "AL": {
             "keyword": "Anti-traceability Level",
             "name": "对抗溯源能力",
-            "description": "攻击者的对抗溯源能力如何。",
+            "description": "攻击者的对抗溯源能力如何？",
             "options": [
                 "0 - 攻击者真实身份信息被溯源，或者攻击资产或计算机被反向控制",
                 "1 - 攻击者虚拟身份特征或境内真实IP被溯源",
@@ -494,7 +456,7 @@
         "PL": {
             "keyword": "Prevention Level",
             "name": "防护水平",
-            "description": "防守者对关键渗透路径的拦截能力。",
+            "description": "防守者对关键渗透路径的拦截能力？",
             "options": [
                 "0 - 几乎没有拦截",
                 "1 - 轻微的拦截",
@@ -503,40 +465,19 @@
                 "4 - 几乎难以突破"
             ],
             "vectors": {
-                "IEMC": {
-                    "algorithm": " IEMC * 1 ",
-                    "description": ""
-                },
-                "SUMC": {
-                    "algorithm": " SUMC * 1 ",
-                    "description": ""
-                },
-                "TIBC": {
-                    "algorithm": " TIBC * 1 ",
-                    "description": ""
-                },
-                "BSMC": {
-                    "algorithm": " BSMC * 1 ",
-                    "description": ""
-                },
-                "ASMC": {
-                    "algorithm": " ASMC * 1 ",
-                    "description": ""
-                },
-                "PSMC": {
-                    "algorithm": " PSMC * 1 ",
-                    "description": ""
-                },
-                "NACC": {
-                    "algorithm": " NACC * 1 ",
-                    "description": ""
-                }
+                "IEMC": " IEMC * 1 ",
+                "SUMC": " SUMC * 1 ",
+                "TIBC": " TIBC * 1 ",
+                "BSMC": " BSMC * 1 ",
+                "ASMC": " ASMC * 1 ",
+                "PSMC": " PSMC * 1 ",
+                "NACC": " NACC * 1 "
             }
         },
         "DL": {
             "keyword": "Detection Level",
             "name": "监测水平",
-            "description": "防守者对关键渗透路径的网络威胁发现能力。",
+            "description": "防守者对关键渗透路径的网络威胁发现能力？",
             "options": [
                 "0 - 几乎监测不到威胁",
                 "1 - 监测到非重要资产的零星攻击威胁",
@@ -545,44 +486,20 @@
                 "4 - 几乎监测到全部威胁"
             ],
             "vectors": {
-                "ETTA": {
-                    "algorithm": " ETTA * 1 ",
-                    "description": ""
-                },
-                "EHAA": {
-                    "algorithm": " EHAA * 1 ",
-                    "description": ""
-                },
-                "PPAA": {
-                    "algorithm": " PPAA * 1 ",
-                    "description": ""
-                },
-                "ITTA": {
-                    "algorithm": " ITTA * 1 ",
-                    "description": ""
-                },
-                "EMA": {
-                    "algorithm": " EMA * 1 ",
-                    "description": ""
-                },
-                "EABA": {
-                    "algorithm": " EABA * 1 ",
-                    "description": ""
-                },
-                "TDR": {
-                    "algorithm": " TDR * 1 ",
-                    "description": ""
-                },
-                "TITR": {
-                    "algorithm": " TITR * 1 ",
-                    "description": ""
-                }
+                "ETTA": " ETTA * 1 ",
+                "EHAA": " EHAA * 1 ",
+                "PPAA": " PPAA * 1 ",
+                "ITTA": " ITTA * 1 ",
+                "EMA": " EMA * 1 ",
+                "EABA": " EABA * 1 ",
+                "TDR": " TDR * 1 ",
+                "TITR": " TITR * 1 "
             }
         },
         "RL": {
             "keyword": "Response Level",
             "name": "响应水平",
-            "description": "防守者对沦陷系统的恢复能力、修复能力和应急响应能力。",
+            "description": "防守者对沦陷系统的恢复能力、修复能力和应急响应能力？",
             "options": [
                 "0 - 几乎难以推进（3天以上）",
                 "1 - 响应较为缓慢（12小时以上）",
@@ -591,24 +508,15 @@
                 "4 - 实时响应（30分钟内）"
             ],
             "vectors": {
-                "THC": {
-                    "algorithm": " THC * 1 ",
-                    "description": ""
-                },
-                "TDTR": {
-                    "algorithm": " TDTR * 1 ",
-                    "description": ""
-                },
-                "TAC": {
-                    "algorithm": " TAC * 1 ",
-                    "description": ""
-                }
+                "THC": " THC * 1 ",
+                "TDTR": " TDTR * 1 ",
+                "TAC": " TAC * 1 "
             }
         },
         "TL": {
             "keyword": "Traceability Level",
             "name": "溯源水平",
-            "description": "防守者是否能够对攻击者进行有效溯源。",
+            "description": "防守者是否能够对攻击者进行有效溯源？",
             "options": [
                 "0 - 几乎溯源不到任何有用的信息",
                 "1 - 攻击者的固定C2服务器IP或固定隧道回连IP被溯源",
@@ -617,24 +525,15 @@
                 "4 - 攻击者真实身份信息被溯源，或者攻击资产或计算机被反向控制"
             ],
             "vectors": {
-                "IPTC": {
-                    "algorithm": " IPTC * 1 ",
-                    "description": ""
-                },
-                "ATCC": {
-                    "algorithm": " ATCC * 1 ",
-                    "description": ""
-                },
-                "DEC": {
-                    "algorithm": " DEC * 1 ",
-                    "description": ""
-                }
+                "IPTC": " IPTC * 1 ",
+                "ATCC": " ATCC * 1 ",
+                "DEC": " DEC * 1 "
             }
         },
         "VD": {
             "keyword": "Vulnerability Discoverability",
             "name": "漏洞可发现性",
-            "description": "渗透路径中的关键漏洞的可发现性。",
+            "description": "渗透路径中的关键漏洞的可发现性？",
             "options": [
                 "0 - 几乎难以发现",
                 "1 - 对于专业黑客来说，发现比较困难",
@@ -646,7 +545,7 @@
         "VE": {
             "keyword": "Vulnerability Exploitability",
             "name": "漏洞可利用性",
-            "description": "渗透路径中的关键漏洞的可利用性。",
+            "description": "渗透路径中的关键漏洞的可利用性？",
             "options": [
                 "0 - 几乎难以利用",
                 "1 - 对于专业黑客来说，利用比较困难",
@@ -658,7 +557,7 @@
         "VL": {
             "keyword": "Vulnerability Lethality",
             "name": "漏洞杀伤力",
-            "description": "渗透路径中的关键漏洞的最大杀伤力。",
+            "description": "渗透路径中的关键漏洞的最大杀伤力？",
             "options": [
                 "0 - 几乎没有危害",
                 "1 - 较低的杀伤力，影响个别非核心资产",
@@ -670,7 +569,7 @@
         "VDW": {
             "keyword": "Vulnerability Disclosure Window",
             "name": "漏洞暴露窗口",
-            "description": "渗透路径中的关键漏洞的最大暴露时间窗口。",
+            "description": "渗透路径中的关键漏洞的最大暴露时间窗口？",
             "options": [
                 "0 - 几乎没有对外披露",
                 "1 - 黑客圈小范围的非公开传播披露",
@@ -682,7 +581,7 @@
         "LC": {
             "keyword": "Loss of Confidentiality",
             "name": "失去保密性",
-            "description": "可以泄露多少数据以及它的敏感度如何。",
+            "description": "可以泄露多少数据以及它的敏感度如何？",
             "options": [
                 "0 - 不能造成数据泄露",
                 "1 - 可泄露少量的非敏感数据",
@@ -694,7 +593,7 @@
         "LI": {
             "keyword": "Loss of Integrity",
             "name": "失去完整性",
-            "description": "有多少数据可能被损坏，损坏程度如何。",
+            "description": "有多少数据可能被损坏，损坏程度如何？",
             "options": [
                 "0 - 不能造成数据损坏",
                 "1 - 可损坏少量非核心数据",
@@ -706,7 +605,7 @@
         "LA": {
             "keyword": "Loss of Availability",
             "name": "失去可用性",
-            "description": "可能会丢失多少服务，它有多重要。",
+            "description": "可能会丢失多少服务，它有多重要？",
             "options": [
                 "0 - 不能造成业务中断",
                 "1 - 可导致企业少量的非核心业务中断",
@@ -718,7 +617,7 @@
         "FD": {
             "keyword": "Financial Damage",
             "name": "经济损失",
-            "description": "可对企业经济造成的最大影响。",
+            "description": "可对企业经济造成的最大影响？",
             "options": [
                 "0 - 低于修复漏洞的成本",
                 "1 - 不会对企业年利润有明显影响",
@@ -730,7 +629,7 @@
         "RD": {
             "keyword": "Reputation Damage",
             "name": "商誉损失",
-            "description": "是否会导致企业声誉受损从而损害业务。",
+            "description": "是否会导致企业声誉受损从而损害业务？",
             "options": [
                 "0 - 不能造成商誉损失",
                 "1 - 可造成轻微的商誉损害",
@@ -742,7 +641,7 @@
         "CI": {
             "keyword": "Compliance Impact",
             "name": "合规影响",
-            "description": "出现的问题或攻击者进行恶意行动会带来多少违规风险。",
+            "description": "出现的问题或攻击者进行恶意行动会带来多少违规风险？",
             "options": [
                 "0 - 不能造成违规风险",
                 "1 - 能造成轻微的违规风险",
@@ -754,7 +653,7 @@
         "DLC": {
             "keyword": "Development Life Circle",
             "name": "开发生命周期",
-            "description": "是否发现在软件开发生命周期中存在安全问题。",
+            "description": "是否发现在软件开发生命周期中存在安全问题？",
             "options": [
                 "0 - 几乎没有考虑安全问题",
                 "1 - 有大量的安全流程问题",
@@ -766,7 +665,7 @@
         "OLC": {
             "keyword": "Operation Life Circle",
             "name": "运维生命周期",
-            "description": "是否发现在运维生命周期中存在安全问题。",
+            "description": "是否发现在运维生命周期中存在安全问题？",
             "options": [
                 "0 - 几乎没有考虑安全问题",
                 "1 - 有大量的安全流程问题",
@@ -778,7 +677,7 @@
         "ESA": {
             "keyword": "Employment Security Awareness",
             "name": "员工安全意识",
-            "description": "在评估过程中大部分员工是否有安全意识问题。",
+            "description": "在评估过程中大部分员工是否有安全意识问题？",
             "options": [
                 "0 - 几乎全员没有安全意识",
                 "1 - 大部分关键岗位员工安全意识较弱",
@@ -814,127 +713,64 @@
         "OS": {
             "keyword": "Offensive Strength",
             "name": "进攻实力",
-            "description": "指攻击方在单场次红蓝对抗演练中，在关键渗透路径上使用攻击技术的最高水平。",
+            "description": "指攻击方在单场次红蓝对抗演练中，在关键渗透路径上使用攻击技术的最高水平",
             "vectors": {
-                "OL": {
-                    "algorithm": " OL * 1 * 2.5 ",
-                    "description": ""
-                },
-                "OD": {
-                    "algorithm": " OD * 1 * 2.5 ",
-                    "description": ""
-                },
-                "TR": {
-                    "algorithm": " TR * 1 * 2.5 ",
-                    "description": ""
-                },
-                "AL": {
-                    "algorithm": " AL * 1 * 2.5 ",
-                    "description": ""
-                }
+                "OL": " OL * 1 * 2.5 ",
+                "OD": " OD * 1 * 2.5 ",
+                "TR": " TR * 1 * 2.5 ",
+                "AL": " AL * 1 * 2.5 "
             }
         },
         "DS": {
             "keyword": "Defensive Strength",
             "name": "防守实力",
-            "description": "指防守方在单场次红蓝对抗演练中，在关键渗透路径上使用防守技术的最低水平。",
+            "description": "指防守方在单场次红蓝对抗演练中，在关键渗透路径上使用防守技术的最低水平",
             "vectors": {
-                "PL": {
-                    "algorithm": " PL * 1 * 2.5 ",
-                    "description": ""
-                },
-                "DL": {
-                    "algorithm": " DL * 1 * 2.5 ",
-                    "description": ""
-                },
-                "RL": {
-                    "algorithm": " RL * 1 * 2.5 ",
-                    "description": ""
-                },
-                "TL": {
-                    "algorithm": " TL * 1 * 2.5 ",
-                    "description": ""
-                }
+                "PL": " PL * 1 * 2.5 ",
+                "DL": " DL * 1 * 2.5 ",
+                "RL": " RL * 1 * 2.5 ",
+                "TL": " TL * 1 * 2.5 "
             }
         },
         "VR": {
             "keyword": "Vulnerability Risk",
             "name": "漏洞风险",
-            "description": "指在单场次红蓝对抗演练中，在演练的关键渗透路径上对最关键漏洞的风险性评价。",
+            "description": "指在单场次红蓝对抗演练中，在演练的关键渗透路径上对最关键漏洞的风险性评价",
             "vectors": {
-                "VD": {
-                    "algorithm": " VD * 1 * 2.5 ",
-                    "description": ""
-                },
-                "VE": {
-                    "algorithm": " VE * 1 * 2.5 ",
-                    "description": ""
-                },
-                "VL": {
-                    "algorithm": " VL * 1 * 2.5 ",
-                    "description": ""
-                },
-                "VDW": {
-                    "algorithm": " VDW * 1 * 2.5 ",
-                    "description": ""
-                }
+                "VD": " VD * 1 * 2.5 ",
+                "VE": " VE * 1 * 2.5 ",
+                "VL": " VL * 1 * 2.5 ",
+                "VDW": " VDW * 1 * 2.5 "
             }
         },
         "TI": {
             "keyword": "Technical Impact",
             "name": "技术影响",
-            "description": "指攻击方所拿下的权限或数据有可能造成的保密性、完整性和可用性最大影响。",
+            "description": "指攻击方所拿下的权限或数据有可能造成的保密性、完整性和可用性最大影响",
             "vectors": {
-                "LC": {
-                    "algorithm": " LC * 1 * 2.5 ",
-                    "description": ""
-                },
-                "LI": {
-                    "algorithm": " LI * 1 * 2.5 ",
-                    "description": ""
-                },
-                "LA": {
-                    "algorithm": " LA * 1 * 2.5 ",
-                    "description": ""
-                }
+                "LC": " LC * 1 * 2.5 ",
+                "LI": " LI * 1 * 2.5 ",
+                "LA": " LA * 1 * 2.5 "
             }
         },
         "EI": {
             "keyword": "Enterprise Impact",
             "name": "企业影响",
-            "description": "指攻击方所拿下的权限或数据有可能造成对企业商誉、经济以及合规上的最大影响。",
+            "description": "指攻击方所拿下的权限或数据有可能造成对企业商誉、经济以及合规上的最大影响",
             "vectors": {
-                "FD": {
-                    "algorithm": " FD * 1 * 2.5 ",
-                    "description": ""
-                },
-                "RD": {
-                    "algorithm": " RD * 1 * 2.5 ",
-                    "description": ""
-                },
-                "CI": {
-                    "algorithm": " CI * 1 * 2.5 ",
-                    "description": ""
-                }
+                "FD": " FD * 1 * 2.5 ",
+                "RD": " RD * 1 * 2.5 ",
+                "CI": " CI * 1 * 2.5 "
             }
         },
         "BS": {
             "keyword": "Business Strength",
             "name": "业务实力",
-            "description": "指在攻击过程中，业务人员或系统及运营所体现的最低专业性。",
+            "description": "指在攻击过程中，业务人员或系统及运营所体现的最低专业性",
             "vectors": {
-                "DLC": {
-                    "algorithm": " DLC * 1 * 2.5 ",
-                    "description": ""
-                },
-                "OLC": {
-                    "algorithm": " OLC * 1 * 2.5 ",
-                    "description": ""
-                },
-                "ESA": {
-                    "algorithm": " ESA * 1 * 2.5 ",
-                    "description": ""
-                }
+                "DLC": " DLC * 1 * 2.5 ",
+                "OLC": " OLC * 1 * 2.5 ",
+                "ESA": " ESA * 1 * 2.5 "
             }
         }
     },
@@ -942,77 +778,41 @@
         "OE": {
             "keyword": "Offensive Energy",
             "name": "进攻能量分值",
-            "description": "是攻击方在单次演练中做的有效输出，可代表攻击方之于本次演练的水平。",
+            "description": "是攻击方在单次演练中做的有效输出，可代表攻击方之于本次演练的水平",
             "vectors": {
-                "OS": {
-                    "algorithm": " OS * 1 ",
-                    "description": "进攻实力代表攻击者在本次红蓝对抗中的攻击输出的最高水平。但还需要其他因子分值来校正：如果使用了很高级的技术，费了很大力气，但是没有取得功效，那么相当于在本次演练中做了无用功，就意味着进攻能量很低。"
-                },
-                "DS": {
-                    "algorithm": " DS * 1 ",
-                    "description": "引入“防守实力”因素是为了校正“进攻实力”在能力上的有效展现。一般来讲，防守的实力越强，在达成同等目标的前提下，说明攻击的实力越强；反之，如果防守者的实力越弱，那么为了达成目标，攻击者通常可以有更少的投入，进攻能量则没那么大。"
-                },
-                "EI": {
-                    "algorithm": " EI * 1 ",
-                    "description": "“企业影响”是用于衡量攻击者“做功”上的有效性。在单次演练中暴露的企业风险越多，说明攻击者的能量越强；反制，暴露的企业风险越少，说明攻击者在演练中的能量越小。"
-                }
+                "OS": " OS * 1 ",
+                "DS": " DS * 1 ",
+                "EI": " EI * 1 "
             }
         },
         "DE": {
             "keyword": "Defensive Energy",
             "name": "防守能量分值",
-            "description": "是防守方在单次演练中的有效输出，可代表防守方之于本次演练的水平。",
+            "description": "是防守方在单次演练中的有效输出，可代表防守方之于本次演练的水平",
             "vectors": {
-                "DS": {
-                    "algorithm": " DS * 1 ",
-                    "description": "防守实力一般是防守者在本次红蓝对抗中的防守能力输出的较低水平。但不能简单认为“防守实力”就是防守的能量体现。因为不管防守实力再强，靶标最终被攻击者拿下，还是说明防守能力较低。"
-                },
-                "VR": {
-                    "algorithm": " ( 10 - VR ) * 1 ",
-                    "description": "漏洞风险的引入是为了校正“防守实力”在能力上的有效展现，与防守能量呈负相关。漏洞风险越高，防守能量越低。即便防守实力很强，但在进攻关键路径上暴露了严重的漏洞风险，那么说明防守的实力并没有落在实处，应该予以减分。"
-                },
-                "EI": {
-                    "algorithm": " ( 10 - EI ) * 1 ",
-                    "description": "企业影响与防守能量呈负相关，企业影响越大，防守能量越低。即便防守实力很强，漏洞面也很小，但是依然能给企业带来重大的影响，说明防守产生的有效能量是不够的，要予以减分。"
-                }
+                "DS": " DS * 1 ",
+                "VR": " ( 10 - VR ) * 1 ",
+                "EI": " ( 10 - EI ) * 1 "
             }
         },
         "BR": {
             "keyword": "Business Risk",
             "name": "业务风险分值",
-            "description": "指业务在安全上暴露的风险程度，可代表参演业务方在本次演练中的安全水平。",
+            "description": "指业务在安全上暴露的风险程度，可代表参演业务方在本次演练中的安全水平",
             "vectors": {
-                "TI": {
-                    "algorithm": " TI * 1 ",
-                    "description": "技术影响主要从安全三要素：保密性、完整性和可用性衡量对业务造成的影响。业务的技术影响越大，说明业务的风险性越高。"
-                },
-                "EI": {
-                    "algorithm": " EI * 1 ",
-                    "description": "企业影响与业务风险息息相关，如果能给企业带来较大的影响，不管是经济损失、商誉损失还是合规影响，那么都会较大程度上影响企业的发展，进而影响业务的发展。"
-                },
-                "BS": {
-                    "algorithm": " ( 10 - BS ) * 1 ",
-                    "description": "业务实力主要体现在SDL或者是DevSecOps的落实上，如果出现了问题，那么将会在安全的推进以及风险的消除上带来较大的阻碍，进而会给业务造成重大风险。因此业务实力与业务风险分值呈现负相关，实力越低风险越大。"
-                }
+                "TI": " TI * 1 ",
+                "EI": " EI * 1 ",
+                "BS": " ( 10 - BS ) * 1 "
             }
         },
         "ER": {
             "keyword": "Enterprise Risk",
             "name": "企业风险分值",
-            "description": "指企业在安全上暴露的风险程度，可代表企业整体上在本次演练中表现出的安全水平。",
+            "description": "指企业在安全上暴露的风险程度，可代表企业整体上在本次演练中表现出的安全水平",
             "vectors": {
-                "DS": {
-                    "algorithm": " ( 10 - DS ) * 1 ",
-                    "description": "防守实力与企业风险呈现负相关。一个企业如果在安全建设上的投入不大，一般会直接作用在防护能力、检测能力和响应能力上，即防守实力上。反之，如果企业防守实力弱，那么说明企业在安全建设或者防守团队建设上面临问题，将使企业面临更多的风险。"
-                },
-                "VR": {
-                    "algorithm": " VR * 1 ",
-                    "description": "如果渗透路径上的关键漏洞是非常容易被发现、被利用，且杀伤力极大的，一般说明防守在日常的安全运营、SDL或DevSecOps的安全流程落地上出现了比较大的问题，企业的风险性会增加。"
-                },
-                "EI": {
-                    "algorithm": " EI * 1 ",
-                    "description": "而“企业影响”更是关系到企业的正常运营、营收甚至是生死存亡，因此与企业风险相关。"
-                }
+                "DS": " ( 10 - DS ) * 1 ",
+                "VR": " VR * 1 ",
+                "EI": " EI * 1 "
             }
         }
     },
@@ -1112,51 +912,14 @@
                 "name": "业内平均水平",
                 "backgroundColor": "rgba(132, 255, 99, 0.5)",
                 "borderColor": "rgba(132, 255, 99, 0.5)",
-                "vectorStr": "RTASS:0.3.1/OL:2/OD:2/TR:3/AL:3/PL:1/DL:2/RL:2/TL:1/VD:2/VE:2/VL:2/VDW:2/LC:1/LI:1/LA:1/FD:1/RD:1/CI:1/DLC:3/OLC:3/ESA:3/IRC:2/WC:2/VMEC:2/ATDC:2/SEC:2/PPC:2/TCC:2/LMC:2/GAT:3/GAC:3/GAA:3/IEMC:2/SUMC:1/TIBC:1/BSMC:1/ASMC:1/PSMC:1/NACC:1/ETTA:1/EHAA:1/PPAA:1/ITTA:1/EMA:2/EABA:1/TDR:3/TITR:3/THC:3/TDTR:2/TAC:1/IPTC:2/ATCC:1/DEC:1"
+                "vectors": "RTASS:0.3.1/OL:2/OD:2/TR:3/AL:3/PL:1/DL:2/RL:2/TL:1/VD:2/VE:2/VL:2/VDW:2/LC:1/LI:1/LA:1/FD:1/RD:1/CI:1/DLC:3/OLC:3/ESA:3/IRC:2/WC:2/VMEC:2/ATDC:2/SEC:2/PPC:2/TCC:2/LMC:2/GAT:3/GAC:3/GAA:3/IEMC:2/SUMC:1/TIBC:1/BSMC:1/ASMC:1/PSMC:1/NACC:1/ETTA:1/EHAA:1/PPAA:1/ITTA:1/EMA:2/EABA:1/TDR:3/TITR:3/THC:3/TDTR:2/TAC:1/IPTC:2/ATCC:1/DEC:1"
             },
             "highLevel": {
                 "name": "业内高水平",
                 "backgroundColor": "rgba(99, 132, 255, 0.5)",
                 "borderColor": "rgba(99, 132, 255, 0.5)",
-                "vectorStr": "RTASS:0.3.1/OL:3/OD:3/TR:3/AL:4/PL:3/DL:3/RL:3/TL:3/VD:1/VE:1/VL:1/VDW:1/LC:0/LI:0/LA:0/FD:1/RD:0/CI:0/DLC:4/OLC:4/ESA:4/IRC:3/WC:3/VMEC:3/ATDC:3/SEC:3/PPC:3/TCC:4/LMC:4/GAT:3/GAC:3/GAA:4/IEMC:3/SUMC:3/TIBC:3/BSMC:3/ASMC:3/PSMC:2/NACC:3/ETTA:3/EHAA:3/PPAA:2/ITTA:3/EMA:3/EABA:3/TDR:4/TITR:4/THC:4/TDTR:3/TAC:3/IPTC:3/ATCC:2/DEC:3"
+                "vectors": "RTASS:0.3.1/OL:3/OD:3/TR:3/AL:4/PL:3/DL:3/RL:3/TL:3/VD:1/VE:1/VL:1/VDW:1/LC:0/LI:0/LA:0/FD:1/RD:0/CI:0/DLC:4/OLC:4/ESA:4/IRC:3/WC:3/VMEC:3/ATDC:3/SEC:3/PPC:3/TCC:4/LMC:4/GAT:3/GAC:3/GAA:4/IEMC:3/SUMC:3/TIBC:3/BSMC:3/ASMC:3/PSMC:2/NACC:3/ETTA:3/EHAA:3/PPAA:2/ITTA:3/EMA:3/EABA:3/TDR:4/TITR:4/THC:4/TDTR:3/TAC:3/IPTC:3/ATCC:2/DEC:3"
             }
         }
-    },
-    "thanks": [
-        {
-            "name": "devils",
-            "url": "",
-            "email": "",
-            "description": "感谢 devils 在能力评价模型中的贡献。"
-        },
-        {
-            "name": "makato",
-            "url": "",
-            "email": "",
-            "description": "感谢 makato 在对各评分项的意见。"
-        },
-        {
-            "name": "vf3ng",
-            "url": "",
-            "email": "",
-            "description": "感谢 vf3ng 对框架评估准确性的度量和意见。"
-        }
-    ],
-    "references": [
-        {
-            "name": "OWASP",
-            "url": "https://owasp.org/www-community/OWASP_Risk_Rating_Methodology",
-            "description": "OWASP风险评级理论"
-        },
-        {
-            "name": "FIRST CVSSv3",
-            "url": "https://www.first.org/cvss/v3.1/specification-document",
-            "description": "CVSSv3规范文档"
-        },
-        {
-            "name": "维基百科",
-            "url": "https://en.wikipedia.org/wiki/Common_Vulnerability_Scoring_System",
-            "description": "维基百科关于CVSS的解释"
-        }
-    ]
+    }
 }
