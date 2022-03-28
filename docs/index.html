@@ -16,6 +16,7 @@
             {{$t("RTASS.title")}} v{{$t("RTASS.version")}}
           </h2>
           <div class="menu">
+            <label for="lang">Language:&nbsp;</label>
             <select v-model="lang" @change="calcFinally()">
               <option
                 v-for="(languageDesc, languageKey) in languages"

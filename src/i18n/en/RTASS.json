@@ -1,697 +1,798 @@
 {
-    "title": "红蓝对抗评分系统 (RTASS)",
+    "title": "Red Team Assessment Scoring System (RTASS)",
     "keyword": "Red Team Assessment Scoring System",
-    "description": "RTASS是一套针对红蓝对抗式网络实战攻防演练中的攻击方、防守方、业务方以及企业风险进行量化评分的框架。本框架适用于网络红蓝对抗演练、网络实战攻防演习、红队评估、蓝军评估等通过模拟黑客APT手段对企业开展实网攻击的安全评估场景。",
+    "description": "The Red Team Assessment Scoring System (RTASS) is an open framework used to assess the capability investment of both offensive and defensive sides in a single cyber red-blue confrontation or actual combat exercise, as well as the degree of risk faced by the business and the enterprise involved. Through RTASS, it is possible to quantify the risk status of attackers, defenders, business parties and enterprises in the red-blue adversarial network attack and defense drills. This framework is suitable for security assessment scenarios that conduct real network attacks on enterprises by simulating hacker APT methods, such as network red-blue confrontation drills, network actual offensive and defensive exercises, red team assessments, and blue army assessments.",
+    "maintainer": "Monyer",
+    "license": "Apache",
+    "rights": "RTASS is founded, owned, and managed by the JD.Army team. JD.Army is a professional red team which focuses on excavating and solving the hidden security risks of enterprise safe operation. JD.Army reserves the right to update RTASS and this document regularly at its sole discretion. Although JD.Army owns all the rights and interests in RTASS, it permits the public to use it freely and follows the Apache open source agreement.",
+    "calculator": "https://jd.army/RTASS/",
+    "github": "https://github.com/JDArmy/RTASS",
     "version": "0.3.1",
     "abilities": {
         "IRC": {
             "keyword": "Intelligence Reconnaissance Capability",
-            "name": "情报侦察能力",
-            "description": "攻击者在信息收集、情报侦察阶段的能力",
+            "name": "Intelligence Reconnaissance Capability",
+            "description": "The attacker's capabilities in the information gathering, intelligence reconnaissance phase",
             "options": [
-                "0 - 不能获得有效的情报信息",
-                "1 - 有基本的IT资产与网络信息收集能力",
-                "2 - 有较强的资产收集能力，能够找到偏僻脆弱资产；有较强的组织人员侦察能力，能够找到关键社工目标",
-                "3 - 能够通过主被动多种手段全面掌握目标组织、运营、协同、人员、资产、安全、网络架构等情报，并制定针对性攻击方案",
-                "4 - 能够在目标无感知前提下，掌握目标企业线上线下运营全貌以及靶标细节，准确绘制攻击路径，快速精准找到据点建立方案"
+                "0 - Could not obtain valid intelligence information",
+                 "1 - Basic IT asset and network information collection capabilities",
+                 "2 - Strong asset collection ability, able to find remote and vulnerable assets; strong organizational personnel reconnaissance ability, able to find key social work targets",
+                 "3 - Ability to fully grasp the intelligence of the target organization, operations, collaboration, personnel, assets, security, network architecture, etc. through active and passive means, and formulate targeted attack plans",
+                 "4 - Under the premise that the target is not aware of the target, it can grasp the overall picture of the online and offline operations of the target enterprise and the details of the target, accurately draw the attack path, and quickly and accurately find the stronghold establishment plan"
             ]
         },
         "WC": {
             "keyword": "Weaponization Capability",
-            "name": "武器化能力",
-            "description": "攻击者在武器化、资源开发阶段的能力",
+            "name": "Weaponization Capability",
+            "description": "Attacker capabilities during the weaponization, resource development phase",
             "options": [
-                "0 - 无编程或程序设计能力",
-                "1 - 具备简单的脚本EXP编写能力",
-                "2 - 能够编写较为复杂的渗透工具",
-                "3 - 能够自研C2、自动化渗透平台",
-                "4 - 能够设计实现高级复杂的核弹级武器（如Stuxnet、Bvp47、Wannacry等）"
+                "0 - no programming or programming ability",
+                 "1 - Ability to write simple script EXP",
+                 "2 - Ability to write more complex penetration tools",
+                 "3 - Able to develop C2, automated penetration platform",
+                 "4 - Ability to design and implement advanced complex nuclear bomb-level weapons (eg Stuxnet, Bvp47, Wannacry, etc.)"
             ]
         },
         "VMEC": {
             "keyword": "Vulnerability Mining and Exploitation Capability",
-            "name": "漏洞挖掘利用能力",
-            "description": "攻击者的黑白盒漏洞挖掘能力和实战化漏洞利用能力",
+            "name": "Vulnerability Mining and Exploitation Capability",
+            "description": "Attacker's black and white box vulnerability mining ability and actual combat vulnerability exploitation ability",
             "options": [
-                "0 - 不能挖掘出有利用价值的漏洞或不能成功利用漏洞",
-                "1 - 能够挖掘应用常规漏洞并成功利用",
-                "2 - 能够挖掘应用高复杂漏洞并成功利用",
-                "3 - 能够挖掘通用组件或中间件漏洞并成功利用",
-                "4 - 能够挖掘操作系统及通用系统组件级漏洞并成功利用"
+                "0 - Unable to find valuable exploits or exploited exploits successfully",
+                 "1 - Able to exploit general vulnerabilities in applications and exploit them successfully",
+                 "2 - Ability to mine and exploit highly complex vulnerabilities in applications",
+                 "3 - Ability to mine common component or middleware vulnerabilities and exploit them successfully",
+                 "4 - Ability to mine operating system and common system component-level vulnerabilities and exploit them successfully"
             ]
         },
         "ATDC": {
             "keyword": "Anti Threat Detection Capability",
-            "name": "抗威胁检测能力",
-            "description": "攻击者绕过WAF、防火墙、杀软，以及威胁检测设备的能力",
+            "name": "Anti Threat Detection Capability",
+            "description": "Attacker's ability to bypass WAFs, firewalls, antivirus, and threat detection devices",
             "options": [
-                "0 - 基本没有对抗威胁检测系统的手段或能力",
-                "1 - 能够绕过WAF、NGFW等防御手段实现漏洞利用",
-                "2 - 能够绕过杀软、HIDPS等防御手段实现C2无告警上线",
-                "3 - 在打点及内网横向移动过程中有较低的威胁感知",
-                "4 - 防守实力极强情况下，在靶标突破后可实现无感知、长期、稳定目标行动"
+                "0 - Little means or ability to counter threat detection systems",
+                 "1 - Able to bypass WAF, NGFW and other defenses to achieve vulnerability exploitation",
+                 "2 - It can bypass anti-virus, HIDPS and other defense methods to achieve C2 online without alarm",
+                 "3 - Low threat perception during RBI and intranet lateral movement",
+                 "4 - In the case of extremely strong defensive strength, non-perceptual, long-term, and stable target action can be achieved after target breakthrough"
             ]
         },
         "SEC": {
             "keyword": "Social Engineering Capability",
-            "name": "社会工程能力",
-            "description": "攻击者在网络或地面的社工能力以及成功率",
+            "name": "Social Engineering Capability",
+            "description": "The attacker's social engineering capabilities on the network or on the ground and the success rate",
             "options": [
-                "0 - 不能实施成功的社工",
-                "1 - 对一般人员成功社工且取得权限",
-                "2 - 对经过安全意识培训过的非安全从业人员成功社工且取得权限",
-                "3 - 对从事安全岗位人员成功社工并取得权限",
-                "4 - 能够对最专业的安全工程师成功社工且取得权限"
+                "0 - cannot implement successful social work",
+                 "1 - Successful social worker with access to general staff",
+                 "2 - Successful social work and access to security awareness trained non-security practitioners",
+                 "3 - Successful social work and authorization for those who are engaged in security positions",
+                 "4 - Able to successfully social work and gain access to the most professional security engineers"
             ]
         },
         "PPC": {
             "keyword": "Permission Persistence Capability",
-            "name": "权限维持能力",
-            "description": "攻击者在获得初始访问后，对立足点的权限维持能力",
+            "name": "Permission Persistence Capability",
+            "description": "The attacker's ability to maintain permissions on the foothold after gaining initial access",
             "options": [
-                "0 - 无法维持据点权限的稳定性与持续性",
-                "1 - 能够在据点上实现长期稳定的基本命令执行",
-                "2 - 在重启的情况下实现无感知权限维持",
-                "3 - 能够无感知提升据点权限执行更多命令",
-                "4 - 在经过应急响应后依然实现可权限维持"
+                "0 - Unable to maintain stability and continuity of stronghold authority",
+                 "1 - Enables long-term stable execution of basic orders at the base",
+                 "2 - Invisible permission maintenance in case of reboot",
+                 "3 - Ability to execute more commands without perceptually elevating the base's privileges",
+                 "4 - Privilege Sustainability After Emergency Response"
             ]
         },
         "TCC": {
             "keyword": "Tunnel Construction Capability",
-            "name": "隧道搭建能力",
-            "description": "攻击者在获得初始访问后的隧道搭建能力",
+            "name": "Tunnel Construction Capability",
+            "description": "Attacker's ability to build tunnels after gaining initial access",
             "options": [
-                "0 - 无法搭建畅通稳定隧道",
-                "1 - 能够搭建简单跳板，实现C2上线和内网漫游",
-                "2 - 能够根据环境所需搭建多层级跳板隧道",
-                "3 - 能够将跳板流量隐匿到正常网络流量中，实现威胁无感知",
-                "4 - 在前者基础上，能够穿透目标多层内网、采用多种不同协议搭建长期、稳定隧道链路"
+                "0 - Unable to build a smooth and stable tunnel",
+                 "1 - Able to build a simple springboard to achieve C2 online and intranet roaming",
+                 "2 - Ability to build multi-level springboard tunnels according to the needs of the environment",
+                 "3 - Ability to hide springboard traffic into normal network traffic to achieve threat insensitivity",
+                 "4 - On the basis of the former, it can penetrate the target multi-layer intranet and use a variety of different protocols to build long-term and stable tunnel links"
             ]
         },
         "LMC": {
             "keyword": "Lateral Movement Capability",
-            "name": "横向移动能力",
-            "description": "攻击者在获得初始访问后，获取更多权限，扩大战果的网络拓展能力",
+            "name": "Lateral Movement Capability",
+            "description": "After gaining initial access, the attacker gains more permissions and expands the network expansion capabilities of the results",
             "options": [
-                "0 - 据点即终点，无继续网络拓展能力",
-                "1 - 能够通过信息采集确认据点身份、位置，获得有用情报信息",
-                "2 - 前者基础上，能够进行无感知内网刺探，找到横向移动路径或靶标",
-                "3 - 前者基础上，能够获取访问凭证并成功实现凭证利用",
-                "4 - 前者基础上，通过水坑、社工、供应链等多种复杂技术手段实现无感知横向移动"
+                "0 - The base is the end point, no continuous network expansion capability",
+                 "1 - The identity and location of the base can be confirmed through information collection, and useful intelligence information can be obtained",
+                 "2 - On the basis of the former, it can conduct non-perceptual intranet spying, find a lateral movement path or target to move",
+                 "3 - On the basis of the former, access credentials can be obtained and the credentials can be successfully used for lateral movement",
+                 "4 - On the basis of the former, non-perceptual lateral movement is realized through various complex technical means such as puddles, social work, and supply chains."
             ]
         },
         "GAT": {
             "keyword": "Goal Achievement Time",
-            "name": "目标达成时间",
-            "description": "攻击者对靶标进行突破控制的最小达成时间。",
+            "name": "Goal Achievement Time",
+            "description": "The minimum time to achieve breakthrough control of the target by an attacker.",
             "options": [
-                "0 - 设定时间内未完成对目标系统的突破控制",
-                "1 - 设定时间内未完成靶标突破，但对多个核心系统突破控制",
-                "2 - 设定时间内完成对部分靶标的突破控制",
-                "3 - 1-3周内完成主要核心靶标突破控制",
-                "4 - 1-3天内完成主要核心靶标突破控制"
+                "0 - The breakout control of the target system has not been completed within the set time",
+                 "1 - The target breakthrough was not completed within the set time, but the breakthrough control of multiple core systems",
+                 "2 - Complete the breakthrough control of some targets within the set time",
+                 "3 - Complete the main core target breakthrough control within 1-3 weeks",
+                 "4 - Complete the main core target breakthrough control within 1-3 days"
             ]
         },
         "GAC": {
             "keyword": "Goal Achievement Cost",
-            "name": "目标达成成本",
-            "description": "攻击者为了达成目标所需要付出的武器、人力、漏洞等的工作成本",
+            "name": "Goal Achievement Cost",
+            "description": "The work cost of weapons, manpower, vulnerabilities, etc. that the attacker needs to pay in order to achieve the goal",
             "options": [
-                "0 - 严重入不敷出",
-                "1 - 很大成本(核弹级0day等)",
-                "2 - 较大成本(通用级0day等)",
-                "3 - 较低的成本",
-                "4 - 几乎没有成本"
+                "0 - Severely making ends meet",
+                 "1 - great cost (nuclear 0day, etc.)",
+                 "2 - Larger cost (generic 0day, etc.)",
+                 "3 - lower cost",
+                 "4 - almost no cost"
             ]
         },
         "GAA": {
             "keyword": "Goal Action Ability",
-            "name": "目标行动能力",
-            "description": "攻击者在获得对靶标访问权限后，所能够最大程度达成最终目标的能力",
+            "name": "Goal Action Ability",
+            "description": "The attacker's ability to maximize the ability to achieve the ultimate goal after gaining access to the target",
             "options": [
-                "0 - 无法在靶标上达成目标行动",
-                "1 - 可实现对靶标的部分数据渗漏",
-                "2 - 可实现对靶标的部分操作影响",
-                "3 - 可实现对靶标的全部数据渗漏",
-                "4 - 可在无感知情况下完成全部数据渗漏，或造成长期持续性影响"
+                "0 - Unable to achieve target action on target",
+                 "1 - Partial data leakage to target can be achieved",
+                 "2 - A partial operational impact on the target can be achieved",
+                 "3 - Full data leakage to the target can be achieved",
+                 "4 - Full data exfiltration can be accomplished without perception, or with long-term lasting effects"
             ]
         },
         "IEMC": {
             "keyword": "Information Event Management Capability",
-            "name": "日志事件管理能力",
-            "description": "防守者对各类日志及事件的管理能力",
+            "name": "Information Event Management Capability",
+            "description": "Defender's ability to manage various logs and events",
             "options": [
-                "0 - 日志管理规范落实不到位，存在大量日志缺失",
-                "1 - 有分散的日志和事件追查能力",
-                "2 - 有集中的安全日志与事件管理系统",
-                "3 - 能够对日志事件进行归类汇总，对威胁进行识别、定级和告警",
-                "4 - 有全面且系统化日志事件响应与自动化安全运营能力"
+                "0 - The implementation of log management specifications is not in place, and a large number of logs are missing",
+                 "1 - Decentralized logging and event tracing capabilities",
+                 "2 - There is a centralized security log and event management system",
+                 "3 - Ability to classify and summarize log events, identify, rate and alert on threats",
+                 "4 - Comprehensive and systematic log incident response and automated security operations capabilities"
             ]
         },
         "SUMC": {
             "keyword": "Software Update Management Capability",
-            "name": "软件更新管理能力",
-            "description": "防守者对各类软件、系统、组件、依赖的漏洞管理能力。",
+            "name": "Software Update Management Capability",
+            "description": "The defender's vulnerability management capabilities for various software, systems, components, and dependencies.",
             "options": [
-                "0 - 没有软件更新管理能力，存在大量长期严重漏洞",
-                "1 - 可以对生产服务器的操作系统补丁进行及时安全更新",
-                "2 - 前者基础上，可以对开发、运维常用软件及员工办公终端软件进行统一管理和及时安全更新",
-                "3 - 前者基础上，可以对系统、容器的服务程序、中间件进行版本管理和及时安全更新",
-                "4 - 前者基础上，可以对应用依赖、引用的各项组件进行版本管理和及时安全更新"
+                "0 - No software update management capabilities, with a large number of long-term critical vulnerabilities",
+                 "1 - Timely security updates can be made to the operating system patches of production servers",
+                 "2 - On the basis of the former, the software commonly used in development, operation and maintenance, and employee office terminal software can be managed in a unified manner and updated safely in a timely manner",
+                 "3 - On the basis of the former, version management and timely security updates can be performed on the system, container service programs, and middleware",
+                 "4 - On the basis of the former, version management and timely security updates can be performed on the components that the application relies on and references"
             ]
         },
         "TIBC": {
             "keyword": "Threat Identification Blocking Capability",
-            "name": "威胁识别阻断能力",
-            "description": "企业内外网络及终端对威胁的识别和阻断能力。",
+            "name": "Threat Identification Blocking Capability",
+            "description": "Ability to identify and block threats on internal and external networks and terminals.",
             "options": [
-                "0 - 没有威胁识别阻断设施",
-                "1 - 有边界流量防护及阻断设施",
-                "2 - 前者基础上，有内部流量防护及阻断设施",
-                "3 - 前者基础上，有端点防护和阻拦设施",
-                "4 - 前者基础上，有安全编排与自动化响应设施"
+                "0 - No threat identification blocking facility",
+                 "1 - There are border traffic protection and blocking facilities",
+                 "2 - On the basis of the former, there are internal traffic protection and blocking facilities",
+                 "3 - On the basis of the former, there are endpoint protection and blocking facilities",
+                 "4 - On the basis of the former, there are security orchestration and automated response facilities"
             ]
         },
         "BSMC": {
             "keyword": "Baseline Security Management Capabilities",
-            "name": "基线安全管理能力",
-            "description": "防守者对各类系统、应用的基线安全管理能力。",
+            "name": "Baseline Security Management Capabilities",
+            "description": "The defender's baseline security management capability for various systems and applications.",
             "options": [
-                "0 - 没有基线安全管理能力",
-                "1 - 有服务安全配置及审计日志基线管理",
-                "2 - 前者基础上，有访问控制基线管理",
-                "3 - 前者基础上，有账号权限及认证授权基线管理",
-                "4 - 前者基础上，有针对服务、网络、供应链的安全测试评估流程"
+                "0 - No baseline security management capability",
+                 "1 - With service security configuration and audit log baseline management",
+                 "2 - Based on the former, there is access control baseline management",
+                 "3 - On the basis of the former, there are account permissions and authentication authorization baseline management",
+                 "4 - On the basis of the former, there are security testing and evaluation processes for services, networks, and supply chains"
             ]
         },
         "ASMC": {
             "keyword": "Account Security Management Capabilities",
-            "name": "账号安全管理能力",
-            "description": "防守者对各类账号的统一管理、动态威胁识别能力。",
+            "name": "Account Security Management Capabilities",
+            "description": "Defenders have unified management of various accounts and dynamic threat identification capabilities.",
             "options": [
-                "0 - 没有身份统一管理能力",
-                "1 - 统一的账号管理与认证",
-                "2 - 更安全的认证技术（去密码或MFA等)",
-                "3 - 基于可信设备的统一身份管理",
-                "4 - 动态自适应及持续认证"
+                "0 - no unified identity management capability",
+                 "1 - Unified account management and authentication",
+                 "2 - More secure authentication techniques (go password or MFA etc.)",
+                 "3 - Unified Identity Management Based on Trusted Devices",
+                 "4 - Dynamic Adaptive and Continuous Authentication"
             ]
         },
         "PSMC": {
             "keyword": "Privilege Security Management Capability",
-            "name": "权限安全管理能力",
-            "description": "防守者对各类账号的统一权限收口及动态管控能力。",
+            "name": "Privilege Security Management Capability",
+            "description": "Defenders have unified access and dynamic management and control capabilities for various accounts.",
             "options": [
-                "0 - 没有权限统一管理能力",
-                "1 - 统一的功能粒度权限管理（授权、鉴权等）",
-                "2 - 权限最小化的持续评估和在线治理",
-                "3 - 统一的数据粒度权限管理",
-                "4 - 权限防滥用的持续评估与动态管控"
+                "0 - no authority unified management capability",
+                 "1 - Unified functional granularity rights management (authorization, authentication, etc.)",
+                 "2 - Ongoing Evaluation and Online Governance of Privilege Minimization",
+                 "3 - Unified data granularity rights management",
+                 "4 - Continuous Evaluation and Dynamic Control of Privilege Abuse Prevention"
             ]
         },
         "NACC": {
             "keyword": "Network Access Control Capability",
-            "name": "网络访问控制能力",
-            "description": "企业内外网络及终端互相间访问控制及颗粒度。",
+            "name": "Network Access Control Capability",
+            "description": "Access control and granularity between networks and terminals inside and outside the enterprise.",
             "options": [
-                "0 - 网络没有进行任何访问控制",
-                "1 - 办公网与生产网有网络隔离，通过堡垒机访问",
-                "2 - 前者基础上，外部客户服务与内部员工服务有网络隔离",
-                "3 - 前者基础上，不同的应用服务之间有网络隔离",
-                "4 - 前者基础上，有更细粒度的微隔离能力"
+                "0 - the network does not perform any access control",
+                 "1 - The office network is isolated from the production network and accessed through the bastion machine",
+                 "2 - On the basis of the former, there is network isolation between external customer service and internal employee service",
+                 "3 - On the basis of the former, there is network isolation between different application services",
+                 "4 - On the basis of the former, there are more fine-grained micro-isolation capabilities"
             ]
         },
         "ETTA": {
             "keyword": "External Threat Traffic Awareness",
-            "name": "外部威胁流量感知",
-            "description": "企业在遭受外部网络攻击时的威胁流量感知能力。",
+            "name": "External Threat Traffic Awareness",
+            "description": "Threat traffic awareness of an enterprise when it is attacked by an external network.",
             "options": [
-                "0 - 几乎无任何感知",
-                "1 - 有少量感知",
-                "2 - 有中量感知",
-                "3 - 有大量感知",
-                "4 - 几乎全部感知"
+                "0 - almost no perception",
+                 "1 - has a small amount of perception",
+                 "2 - has moderate perception",
+                 "3 - has a lot of perception",
+                 "4 - almost all perception"
             ]
         },
         "EHAA": {
             "keyword": "External Harpoon Attack Awareness",
-            "name": "外部鱼叉攻击感知",
-            "description": "企业在遭受外部鱼叉攻击时的威胁感知及处置能力。",
+            "name": "External Harpoon Attack Awareness",
+            "description": "Threat perception and handling capabilities of an enterprise when it is attacked by an external spear.",
             "options": [
-                "0 - 无任何感知",
-                "1 - 感知到攻击事件并能够捕获攻击样本",
-                "2 - 前者基础上，能够溯源出所有被钓人员并告警",
-                "3 - 前者基础上，能够感知到钓鱼中招员工，提取终端样本，还原攻击手法",
-                "4 - 前者基础上，快速感知到钓鱼木马的落地、执行与上线动作，并能及时阻断"
+                "0 - no perception",
+                 "1 - Perceives an attack event and is able to capture attack samples",
+                 "2 - On the basis of the former, it is possible to trace out all the fished persons and alert them",
+                 "3 - On the basis of the former, it is possible to sense that employees are recruited by phishing, extract terminal samples, and restore the attack method",
+                 "4 - On the basis of the former, the landing, execution and online actions of the fishing Trojan can be quickly sensed, and can be blocked in time"
             ]
         },
         "PPAA": {
             "keyword": "Proximity Penetration Attack Awareness",
-            "name": "近源渗透攻击感知",
-            "description": "企业在遭受近源临场攻击、物理渗透时的威胁感知及处置能力。",
+            "name": "Proximity Penetration Attack Awareness",
+            "description": "The ability of enterprises to perceive and deal with threats when they are subjected to near-source on-the-spot attacks and physical penetration.",
             "options": [
-                "0 - 几乎无任何感知",
-                "1 - 在被成功攻击后，通过溯源确定近源渗透攻击路径。",
-                "2 - 通过技术监控与行政手段，成功发现近源渗透痕迹，包括但不限于收集到U盘、捕获到HID攻击、wifi爆破等行为",
-                "3 - 前者基础上，能详细分析出攻击者所用攻击手段、攻击的过程，包括但不限于针对wifi的攻击手段分析、投放木马的分析",
-                "4 - 前者基础上，具备独立近源感知能力来快速发现近源攻击行为并及时阻断。"
+                "0 - almost no perception",
+                 "1 - After a successful attack, determine the path of the near-source penetration attack through source tracing.",
+                 "2 - Successfully found traces of near-source penetration through technical monitoring and administrative means, including but not limited to collecting U disks, capturing HID attacks, wifi blasting, etc.",
+                 "3 - On the basis of the former, it can analyze in detail the attack methods and attack processes used by the attackers, including but not limited to the analysis of attack methods against wifi and the analysis of Trojan horses",
+                 "4 - On the basis of the former, it has independent near-source perception capabilities to quickly detect near-source attacks and block them in time."
             ]
         },
         "ITTA": {
             "keyword": "Intranet Threat Traffic Awareness",
-            "name": "内网威胁流量感知",
-            "description": "企业在遭受从内部发起的网络攻击时的威胁流量感知能力。",
+            "name": "Intranet Threat Traffic Awareness",
+            "description": "Threat-traffic awareness of an enterprise under attack from the inside.",
             "options": [
-                "0 - 几乎无任何感知",
-                "1 - 可感知到无差别全内网扫描行为，识别出异常点并迅速定位扫描来源IP",
-                "2 - 可基于流量特征捕获到小范围如C段的内网扫描，还原目标及目的。",
-                "3 - 前者基础上，感知部分凭证利用与横向移动行为，或数据渗漏行为",
-                "4 - 几乎感知全部攻击过程，及攻击者使用的加密C2信道"
+                "0 - almost no perception",
+                 "1 - Can perceive indiscriminate full intranet scanning behavior, identify abnormal points and quickly locate the scanning source IP",
+                 "2 - Based on traffic characteristics, small-scale intranet scans such as C segment can be captured, and the target and purpose can be restored.",
+                 "3 - On the basis of the former, perception of partial credential exploitation and lateral movement behavior, or data exfiltration behavior",
+                 "4 - Perception of almost the entire attack process, and the encrypted C2 channel used by the attacker"
             ]
         },
         "EMA": {
             "keyword": "Endpoint Malware Awareness",
-            "name": "端点恶意软件感知",
-            "description": "企业个人办公机、服务器及其他终端设备在遭受恶意软件攻击时的威胁感知能力。",
+            "name": "Endpoint Malware Awareness",
+            "description": "The threat perception capability of enterprise personal office computers, servers and other terminal devices when they are attacked by malware.",
             "options": [
-                "0 - 几乎无任何感知",
-                "1 - 有畅通的员工安全问题反馈途径，快速感知到终端攻击",
-                "2 - 能够通过终端检测响应、威胁流量分析感知到终端攻击",
-                "3 - 有能力捕获到攻击样本，提取有效网络或主机IOC并实施监控、阻断能力部署",
-                "4 - 有完善的自动化沙盒分析、威胁识别情报及策略、安全编排与威胁自动化处置机制"
+                "0 - almost no perception",
+                 "1 - There is a smooth feedback channel for employee security issues, and terminal attacks are quickly detected",
+                 "2 - Ability to sense endpoint attacks through endpoint detection responses, threat traffic analysis",
+                 "3 - Capable of capturing attack samples, extracting effective network or host IOC and implementing monitoring and blocking capability deployment",
+                 "4 - Complete automated sandbox analysis, threat identification intelligence and strategies, security orchestration and automated threat handling mechanisms"
             ]
         },
         "EABA": {
             "keyword": "Endpoint Abnormal Behavior Awareness",
-            "name": "端点异常行为感知",
-            "description": "企业个人办公机、服务器及其他终端设备对危险操作以及异常行为的威胁感知能力。",
+            "name": "Endpoint Abnormal Behavior Awareness",
+            "description": "The threat perception ability of enterprise personal office computers, servers and other terminal equipment to dangerous operations and abnormal behaviors.",
             "options": [
-                "0 - 几乎无任何感知",
-                "1 - 能够感知到针对本机的大规模网络扫描行为并告警",
-                "2 - 能够感知到针对本机的网络密码爆破行为并告警",
-                "3 - 前者基础上，能够感知终端上对特权账号、敏感文件、进程的的异常操作行为",
-                "4 - 前者基础上，能够感知终端之间的异常远程访问行为"
+                "0 - almost no perception",
+                 "1 - Able to perceive large-scale network scanning behavior for this machine and alert",
+                 "2 - Able to perceive the network password blasting behavior against this machine and give an alarm",
+                 "3 - On the basis of the former, it can perceive the abnormal operation behavior of privileged accounts, sensitive files and processes on the terminal",
+                 "4 - On the basis of the former, it can perceive abnormal remote access behavior between terminals"
             ]
         },
         "TDR": {
             "keyword": "Threat Detection Rate",
-            "name": "威胁检出率",
-            "description": "防守者在系统检测威胁后，通过人工或其他手段实际鉴别出的高危威胁覆盖率。",
+            "name": "Threat Detection Rate",
+            "description": "The coverage rate of high-risk threats actually identified by the defender through manual or other means after the system detects the threat.",
             "options": [
-                "0 - 无任何威胁检出（12小时内）",
-                "1 - 检出率：0 < N <= 25%",
-                "2 - 检出率：25% < N <= 50%",
-                "3 - 检出率：50% < N <= 80%",
-                "4 - 检出率：80% < N <= 100%"
+                "0 - no threat detected (within 12 hours)",
+                 "1 - detection rate: 0 < N <= 25%",
+                 "2 - Detection rate: 25% < N <= 50%",
+                 "3 - Detection rate: 50% < N <= 80%",
+                 "4 - Detection rate: 80% < N <= 100%"
             ]
         },
         "TITR": {
             "keyword": "Threat Identification Timeliness Rate",
-            "name": "威胁鉴别及时率",
-            "description": "防守者在系统检出威胁后，通过人工或其他手段实际鉴别出的高危威胁及时率。",
+            "name": "Threat Identification Timeliness Rate",
+            "description": "The timely rate of high-risk threats actually identified by the defender through manual or other means after the system detects the threat.",
             "options": [
-                "0 - 未及时鉴别威胁（12小时内）",
-                "1 - 及时率：0 < N <= 25%",
-                "2 - 及时率：25% < N <= 50%",
-                "3 - 及时率：50% < N <= 80%",
-                "4 - 及时率：80% < N <= 100%"
+                "0 - Threat not identified in time (within 12 hours)",
+                 "1 - Timely rate: 0 < N <= 25%",
+                 "2 - Timeliness: 25% < N <= 50%",
+                 "3 - Timeliness: 50% < N <= 80%",
+                 "4 - Timeliness: 80% < N <= 100%"
             ]
         },
         "THC": {
             "keyword": "Threat Handling Capability",
-            "name": "威胁处置能力",
-            "description": "防守者在检测到威胁后的威胁处置覆盖率。",
+            "name": "Threat Handling Capability",
+            "description": "Threat disposition coverage by defenders after a threat is detected.",
             "options": [
-                "0 - 未进行任何处置（12小时内）",
-                "1 - 处置率：0 < N <= 25%",
-                "2 - 处置率：25% < N <= 50%",
-                "3 - 处置率：50% < N <= 80%",
-                "4 - 处置率：80% < N <= 100%"
+                "0 - No action taken (within 12 hours)",
+                 "1 - Disposal rate: 0 < N <= 25%",
+                 "2 - Disposal rate: 25% < N <= 50%",
+                 "3 - Disposal rate: 50% < N <= 80%",
+                 "4 - Disposal rate: 80% < N <= 100%"
             ]
         },
         "TDTR": {
             "keyword": "Threat Disposal Timely Rate",
-            "name": "威胁处置及时率",
-            "description": "防守者在检测到威胁后的威胁处置及时率。",
+            "name": "Threat Disposal Timely Rate",
+            "description": "The defender's timely threat resolution rate after a threat is detected.",
             "options": [
-                "0 - 未进行及时处置（12小时内）",
-                "1 - 及时率：0 < N <= 25%",
-                "2 - 及时率：25% < N <= 50%",
-                "3 - 及时率：50% < N <= 80%",
-                "4 - 及时率：80% < N <= 100%"
+                "0 - No timely disposal (within 12 hours)",
+                 "1 - Timely rate: 0 < N <= 25%",
+                 "2 - Timeliness: 25% < N <= 50%",
+                 "3 - Timeliness: 50% < N <= 80%",
+                 "4 - Timeliness: 80% < N <= 100%"
             ]
         },
         "TAC": {
             "keyword": "Threat Analysis Capability",
-            "name": "威胁分析能力",
-            "description": "防守者对威胁的识别、分析、逆向等能力",
+            "name": "Threat Analysis Capability",
+            "description": "Defender's ability to identify, analyze, and reverse threats",
             "options": [
-                "0 - 没有威胁分析能力",
-                "1 - 能够准确识别威胁，提取有效IOC",
-                "2 - 有自动化威胁分析与情报共享机制",
-                "3 - 能够进行复杂的威胁分析，还原攻击手法及目标",
-                "4 - 有自动化威胁分析技术，以及专业化的逆向分析能力，可形成完整分析报告"
+                "0 - no threat analysis capability",
+                 "1 - Ability to accurately identify threats and extract valid IOCs",
+                 "2 - Has automated threat analysis and intelligence sharing mechanisms",
+                 "3 - Able to perform complex threat analysis, restore attack methods and targets",
+                 "4 - With automated threat analysis technology and professional reverse analysis capabilities, a complete analysis report can be formed"
             ]
         },
         "IPTC": {
             "keyword": "Intrusion Path Traceability Capability",
-            "name": "入侵路径溯源能力",
-            "description": "防守者对入侵者的入侵路径的溯源能力",
+            "name": "Intrusion Path Traceability Capability",
+            "description": "The ability of the defender to trace the intrusion path of the intruder",
             "options": [
-                "0 - 没有入侵路径溯源能力",
-                "1 - 攻击路径还原度 0 - 25%",
-                "2 - 攻击路径还原度 25% - 50%",
-                "3 - 攻击路径还原度 50% - 80%",
-                "4 - 攻击路径还原度 80% - 100%"
+                "0 - no intrusion path traceability",
+                 "1 - Attack path restoration 0 - 25%",
+                 "2 - Attack path restoration 25% - 50%",
+                 "3 - Attack path restoration 50% - 80%",
+                 "4 - Attack Path Recovery 80% - 100%"
             ]
         },
         "ATCC": {
             "keyword": "Attacker Traceability and Countermeasure Capability",
-            "name": "攻击者溯源反制能力",
-            "description": "防守者对攻击者的溯源反制能力",
+            "name": "Attacker Traceability and Countermeasure Capability",
+            "description": "The ability of the defender to trace the source to the attacker",
             "options": [
-                "0 - 几乎溯源不到任何有用的信息",
-                "1 - 攻击者的C2服务器IP或跳板IP被溯源",
-                "2 - 攻击者常用虚拟身份或境内真实IP被溯源",
-                "3 - 攻击者的攻击资产或计算机被反向控制",
-                "4 - 攻击者真实身份信息被溯源"
+                "0 - hardly any useful information can be traced back to the source",
+                 "1 - Attacker's C2 server IP or springboard IP is traced",
+                 "2 - Attackers commonly use virtual identities or real IPs in China to be traced",
+                 "3 - Attacker's attack asset or computer is reversely controlled",
+                 "4 - The real identity information of the attacker is traced to the source"
             ]
         },
         "DEC": {
             "keyword": "Deception and Entrapment Capabilities",
-            "name": "欺骗诱捕能力",
-            "description": "企业蜜罐蜜网建设，以及对攻击者的欺骗诱捕能力",
+            "name": "Deception and Entrapment Capabilities",
+            "description": "Enterprise honeypot honeynet construction, and the ability to deceive and trap attackers",
             "options": [
-                "0 - 无欺骗诱捕能力",
-                "1 - 在网络中搭建了高仿真蜜罐",
-                "2 - 在网络中搭建了高仿真蜜网，可以将攻击者引入到蜜网中",
-                "3 - 动态蜜网能力，可以直接从生产环境将攻击者所有流量引入蜜网",
-                "4 - 有完善的密令喷洒、蜜标与蜜应用定制、蜜场管理能力，可实现主动式吸引、动态自适应及反制诱捕能力"
+                "0 - no deception trapping ability",
+                 "1 - Build a high-fidelity honeypot in the network",
+                 "2 - A highly simulated honeynet is built in the network, which can introduce attackers into the honeynet",
+                 "3 - Dynamic honeynet capability, which can direct all attacker traffic into the honeynet from the production environment",
+                 "4 - It has perfect secret spraying, honey tagging and honey application customization, honey farm management capabilities, and can realize active attraction, dynamic adaptation and anti-trapping capabilities"
             ]
         }
     },
     "factors": {
         "OL": {
             "keyword": "Offensive Level",
-            "name": "进攻水平",
-            "description": "攻击者在评估路径中使用的最高技术水平？",
+            "name": "Offensive Level",
+            "description": "The highest level of skill used by the attacker in the evaluation path.",
             "options": [
-                "0 - 相当于入门级黑客",
-                "1 - 相当于普通水平黑客或工具、脚本黑客",
-                "2 - 等同精通渗透技术的黑客",
-                "3 - 需要较为专业的团队配合",
-                "4 - 相当于国家级APT黑客团队"
+                "0 - equivalent to entry-level hacker",
+                 "1 - Equivalent to a normal level hacker or a tool, script hacker",
+                 "2 - equivalent to a hacker proficient in penetration techniques",
+                 "3 - Requires more professional teamwork",
+                 "4 - Equivalent to National APT Hacking Team"
             ],
             "vectors": {
-                "IRC": " IRC * 1 ",
-                "WC": " WC * 1 ",
-                "VMEC": " VMEC * 1 ",
-                "ATDC": " ATDC * 1 ",
-                "SEC": " SEC * 1 ",
-                "PPC": " PPC * 1 ",
-                "TCC": " TCC * 1 ",
-                "LMC": " LMC * 1 "
+                "IRC": {
+                    "algorithm": " IRC * 1 ",
+                    "description": ""
+                },
+                "WC": {
+                    "algorithm": " WC * 1 ",
+                    "description": ""
+                },
+                "VMEC": {
+                    "algorithm": " VMEC * 1 ",
+                    "description": ""
+                },
+                "ATDC": {
+                    "algorithm": " ATDC * 1 ",
+                    "description": ""
+                },
+                "SEC": {
+                    "algorithm": " SEC * 1 ",
+                    "description": ""
+                },
+                "PPC": {
+                    "algorithm": " PPC * 1 ",
+                    "description": ""
+                },
+                "TCC": {
+                    "algorithm": " TCC * 1 ",
+                    "description": ""
+                },
+                "LMC": {
+                    "algorithm": " LMC * 1 ",
+                    "description": ""
+                }
             }
         },
         "OD": {
             "keyword": "Offensive Difficulty",
-            "name": "进攻难度",
-            "description": "攻击者在整个评估路径中搞定难题的最高难度？",
+            "name": "Offensive Difficulty",
+            "description": "The highest difficulty the attacker has to solve the puzzle in the entire evaluation path.",
             "options": [
-                "0 - 对于专业黑客来说，几乎没有难度",
-                "1 - 对于专业黑客来说，有点难度",
-                "2 - 对于专业黑客来说，有较大难度",
-                "3 - 对于专业黑客来说，很难搞定",
-                "4 - 对于专业黑客来说，几乎不能搞定"
+                "0 - almost no difficulty for professional hackers",
+                 "1 - a bit difficult for professional hackers",
+                 "2 - more difficult for professional hackers",
+                 "3 - difficult for professional hackers",
+                 "4 - Almost impossible for professional hackers"
             ]
         },
         "TR": {
             "keyword": "Target Reach",
-            "name": "目标达成",
-            "description": "攻击者是否达成预期目标？",
+            "name": "Target Reach",
+            "description": "Whether the attacker achieved the intended goal",
             "options": [
-                "0 - 基本没达成",
-                "1 - 少量达成",
-                "2 - 中量达成",
-                "3 - 大量达成",
-                "4 - 完全达成"
+                "0 - basically not achieved",
+                 "1 - small amount achieved",
+                 "2 - medium volume reached",
+                 "3 - Mass Achievement",
+                 "4 - Fully Achieved"
             ],
             "vectors": {
-                "GAT": " GAT * 1 ",
-                "GAC": " GAC * 1 ",
-                "GAA": " GAA * 1 "
+                "GAT": {
+                    "algorithm": " GAT * 1 ",
+                    "description": ""
+                },
+                "GAC": {
+                    "algorithm": " GAC * 1 ",
+                    "description": ""
+                },
+                "GAA": {
+                    "algorithm": " GAA * 1 ",
+                    "description": ""
+                }
             }
         },
         "AL": {
             "keyword": "Anti-traceability Level",
-            "name": "对抗溯源能力",
-            "description": "攻击者的对抗溯源能力如何？",
+            "name": "Anti-traceability Level",
+            "description": "What is the attacker's ability to trace back to the source?",
             "options": [
-                "0 - 攻击者真实身份信息被溯源，或者攻击资产或计算机被反向控制",
-                "1 - 攻击者虚拟身份特征或境内真实IP被溯源",
-                "2 - 攻击者的持续性攻击行为被指纹标定，或大量攻击指标（IOA）被（蜜罐等）记录标定",
-                "3 - 攻击者的固定C2服务器IP或固定隧道回连IP被溯源",
-                "4 - 几乎溯源不到任何有用的信息"
+                "0 - The attacker's real identity information is traced to the source, or the attacking asset or computer is reversely controlled",
+                 "1 - The attacker's virtual identity feature or the real IP in the territory is traced",
+                 "2 - The attacker's persistent attack behavior is marked by fingerprints, or a large number of indicators of attack (IOAs) are marked by records (honeypots, etc.)",
+                 "3 - The attacker's fixed C2 server IP or fixed tunnel return IP is traced back to the source",
+                 "4 - hardly any useful information can be traced back to the source"
             ]
         },
         "PL": {
             "keyword": "Prevention Level",
-            "name": "防护水平",
-            "description": "防守者对关键渗透路径的拦截能力？",
+            "name": "Prevention Level",
+            "description": "A defender's ability to block critical penetration paths.",
             "options": [
-                "0 - 几乎没有拦截",
-                "1 - 轻微的拦截",
-                "2 - 较强的拦截",
-                "3 - 非常强的拦截",
-                "4 - 几乎难以突破"
+                "0 - almost no interception",
+                 "1 - slight interception",
+                 "2 - stronger interception",
+                 "3 - very strong interception",
+                 "4 - almost hard to break"
             ],
             "vectors": {
-                "IEMC": " IEMC * 1 ",
-                "SUMC": " SUMC * 1 ",
-                "TIBC": " TIBC * 1 ",
-                "BSMC": " BSMC * 1 ",
-                "ASMC": " ASMC * 1 ",
-                "PSMC": " PSMC * 1 ",
-                "NACC": " NACC * 1 "
+                "IEMC": {
+                    "algorithm": " IEMC * 1 ",
+                    "description": ""
+                },
+                "SUMC": {
+                    "algorithm": " SUMC * 1 ",
+                    "description": ""
+                },
+                "TIBC": {
+                    "algorithm": " TIBC * 1 ",
+                    "description": ""
+                },
+                "BSMC": {
+                    "algorithm": " BSMC * 1 ",
+                    "description": ""
+                },
+                "ASMC": {
+                    "algorithm": " ASMC * 1 ",
+                    "description": ""
+                },
+                "PSMC": {
+                    "algorithm": " PSMC * 1 ",
+                    "description": ""
+                },
+                "NACC": {
+                    "algorithm": " NACC * 1 ",
+                    "description": ""
+                }
             }
         },
         "DL": {
             "keyword": "Detection Level",
-            "name": "监测水平",
-            "description": "防守者对关键渗透路径的网络威胁发现能力？",
+            "name": "Detection Level",
+            "description": "Defender's cyber threat discovery capabilities for critical penetration paths.",
             "options": [
-                "0 - 几乎监测不到威胁",
-                "1 - 监测到非重要资产的零星攻击威胁",
-                "2 - 监测到少量关键路径威胁",
-                "3 - 监测到大量关键路径威胁",
-                "4 - 几乎监测到全部威胁"
+                "0 - almost no threat detected",
+                 "1 - Threat of sporadic attack on non-critical assets detected",
+                 "2 - few critical path threats detected",
+                 "3 - Significant critical path threats detected",
+                 "4 - Nearly all threats detected"
             ],
             "vectors": {
-                "ETTA": " ETTA * 1 ",
-                "EHAA": " EHAA * 1 ",
-                "PPAA": " PPAA * 1 ",
-                "ITTA": " ITTA * 1 ",
-                "EMA": " EMA * 1 ",
-                "EABA": " EABA * 1 ",
-                "TDR": " TDR * 1 ",
-                "TITR": " TITR * 1 "
+                "ETTA": {
+                    "algorithm": " ETTA * 1 ",
+                    "description": ""
+                },
+                "EHAA": {
+                    "algorithm": " EHAA * 1 ",
+                    "description": ""
+                },
+                "PPAA": {
+                    "algorithm": " PPAA * 1 ",
+                    "description": ""
+                },
+                "ITTA": {
+                    "algorithm": " ITTA * 1 ",
+                    "description": ""
+                },
+                "EMA": {
+                    "algorithm": " EMA * 1 ",
+                    "description": ""
+                },
+                "EABA": {
+                    "algorithm": " EABA * 1 ",
+                    "description": ""
+                },
+                "TDR": {
+                    "algorithm": " TDR * 1 ",
+                    "description": ""
+                },
+                "TITR": {
+                    "algorithm": " TITR * 1 ",
+                    "description": ""
+                }
             }
         },
         "RL": {
             "keyword": "Response Level",
-            "name": "响应水平",
-            "description": "防守者对沦陷系统的恢复能力、修复能力和应急响应能力？",
+            "name": "Response Level",
+            "description": "Defender's ability to recover, repair, and respond to a compromised system.",
             "options": [
-                "0 - 几乎难以推进（3天以上）",
-                "1 - 响应较为缓慢（12小时以上）",
-                "2 - 响应较为及时（12小时内）",
-                "3 - 响应接近实时（2小时内）",
-                "4 - 实时响应（30分钟内）"
+                "0 - almost difficult to advance (3+ days)",
+                 "1 - slow response (12+ hours)",
+                 "2 - The response is more timely (within 12 hours)",
+                 "3 - Response near real time (within 2 hours)",
+                 "4 - Real-time response (within 30 minutes)"
             ],
             "vectors": {
-                "THC": " THC * 1 ",
-                "TDTR": " TDTR * 1 ",
-                "TAC": " TAC * 1 "
+                "THC": {
+                    "algorithm": " THC * 1 ",
+                    "description": ""
+                },
+                "TDTR": {
+                    "algorithm": " TDTR * 1 ",
+                    "description": ""
+                },
+                "TAC": {
+                    "algorithm": " TAC * 1 ",
+                    "description": ""
+                }
             }
         },
         "TL": {
             "keyword": "Traceability Level",
-            "name": "溯源水平",
-            "description": "防守者是否能够对攻击者进行有效溯源？",
+            "name": "Traceability Level",
+            "description": "Whether the defender can effectively trace the source of the attacker.",
             "options": [
-                "0 - 几乎溯源不到任何有用的信息",
-                "1 - 攻击者的固定C2服务器IP或固定隧道回连IP被溯源",
-                "2 - 攻击者的持续性攻击行为被指纹标定，或大量攻击指标（IOA）被（蜜罐等）记录标定",
-                "3 - 攻击者虚拟身份特征或境内真实IP被溯源",
-                "4 - 攻击者真实身份信息被溯源，或者攻击资产或计算机被反向控制"
+                "0 - hardly any useful information can be traced back to the source",
+                 "1 - The attacker's fixed C2 server IP or fixed tunnel back-up IP is traced back to the source",
+                 "2 - The attacker's persistent attack behavior is marked by fingerprints, or a large number of indicators of attack (IOAs) are marked by records (honeypots, etc.)",
+                 "3 - The attacker's virtual identity feature or the real IP in the territory is traced",
+                 "4 - The attacker's real identity information is traced, or the attacked assets or computers are reversely controlled"
             ],
             "vectors": {
-                "IPTC": " IPTC * 1 ",
-                "ATCC": " ATCC * 1 ",
-                "DEC": " DEC * 1 "
+                "IPTC": {
+                    "algorithm": " IPTC * 1 ",
+                    "description": ""
+                },
+                "ATCC": {
+                    "algorithm": " ATCC * 1 ",
+                    "description": ""
+                },
+                "DEC": {
+                    "algorithm": " DEC * 1 ",
+                    "description": ""
+                }
             }
         },
         "VD": {
             "keyword": "Vulnerability Discoverability",
-            "name": "漏洞可发现性",
-            "description": "渗透路径中的关键漏洞的可发现性？",
+            "name": "Vulnerability Discoverability",
+            "description": "Discoverability of critical vulnerabilities in the penetration path.",
             "options": [
-                "0 - 几乎难以发现",
-                "1 - 对于专业黑客来说，发现比较困难",
-                "2 - 对于专业黑客来说，发现难度中等",
-                "3 - 对于专业黑客来说，发现比较简单",
-                "4 - 使用通用自动化工具即可发现"
+                "0 - almost impossible to find",
+                 "1 - harder to spot for professional hackers",
+                 "2 - Medium difficulty to find for professional hackers",
+                 "3 - For professional hackers, discovery is easier",
+                 "4 - Discovery with common automation tools"
             ]
         },
         "VE": {
             "keyword": "Vulnerability Exploitability",
-            "name": "漏洞可利用性",
-            "description": "渗透路径中的关键漏洞的可利用性？",
+            "name": "Vulnerability Exploitability",
+            "description": "Exploitability of critical vulnerabilities in the penetration path.",
             "options": [
-                "0 - 几乎难以利用",
-                "1 - 对于专业黑客来说，利用比较困难",
-                "2 - 对于专业黑客来说，利用难度中等",
-                "3 - 对于专业黑客来说，利用比较简单",
-                "4 - 使用通用自动化工具即可利用"
+                "0 - almost impossible to exploit",
+                 "1 - Difficult to exploit for professional hackers",
+                 "2 - Moderately difficult to exploit for professional hackers",
+                 "3 - easier to exploit for professional hackers",
+                 "4 - Can be exploited using common automation tools"
             ]
         },
         "VL": {
             "keyword": "Vulnerability Lethality",
-            "name": "漏洞杀伤力",
-            "description": "渗透路径中的关键漏洞的最大杀伤力？",
+            "name": "Vulnerability Lethality",
+            "description": "Maximum lethality for critical vulnerabilities in the penetration path.",
             "options": [
-                "0 - 几乎没有危害",
-                "1 - 较低的杀伤力，影响个别非核心资产",
-                "2 - 中等规模的杀伤力，影响一部分非核心资产",
-                "3 - 大范围的杀伤力，影响个别核心资产",
-                "4 - 极其广泛的杀伤力，影响一部分核心资产"
+                "0 - almost no harm",
+                 "1 - lower lethality, affects individual non-core assets",
+                 "2 - medium-scale lethality, affecting a subset of non-core assets",
+                 "3 - Massive lethality, affecting individual core assets",
+                 "4 - Extremely broad lethality, affecting a subset of core assets"
             ]
         },
         "VDW": {
             "keyword": "Vulnerability Disclosure Window",
-            "name": "漏洞暴露窗口",
-            "description": "渗透路径中的关键漏洞的最大暴露时间窗口？",
+            "name": "Vulnerability Disclosure Window",
+            "description": "The maximum exposure time window for critical vulnerabilities in the penetration path.",
             "options": [
-                "0 - 几乎没有对外披露",
-                "1 - 黑客圈小范围的非公开传播披露",
-                "2 - 公开披露小于3天",
-                "3 - 公开披露大于3天",
-                "4 - 公开披露大于1周"
+                "0 - little public disclosure",
+                 "1 - Small-scale private dissemination of hacker circles",
+                 "2 - Public disclosure less than 3 days",
+                 "3 - public disclosure greater than 3 days",
+                 "4 - Public disclosure greater than 1 week"
             ]
         },
         "LC": {
             "keyword": "Loss of Confidentiality",
-            "name": "失去保密性",
-            "description": "可以泄露多少数据以及它的敏感度如何？",
+            "name": "Loss of Confidentiality",
+            "description": "How much data can be leaked and how sensitive it is.",
             "options": [
-                "0 - 不能造成数据泄露",
-                "1 - 可泄露少量的非敏感数据",
-                "2 - 可泄露大量的非敏感数据",
-                "3 - 可泄露少量的敏感数据",
-                "4 - 可泄露大量的敏感数据"
+                "0 - cannot cause data leakage",
+                 "1 - can leak a small amount of non-sensitive data",
+                 "2 - can leak large amounts of non-sensitive data",
+                 "3 - A small amount of sensitive data can be leaked",
+                 "4 - Can reveal large amounts of sensitive data"
             ]
         },
         "LI": {
             "keyword": "Loss of Integrity",
-            "name": "失去完整性",
-            "description": "有多少数据可能被损坏，损坏程度如何？",
+            "name": "Loss of Integrity",
+            "description": "How much data might be damaged and how much.",
             "options": [
-                "0 - 不能造成数据损坏",
-                "1 - 可损坏少量非核心数据",
-                "2 - 可损坏大量非核心数据",
-                "3 - 可损坏少量的核心数据",
-                "4 - 可损坏大量核心数据"
+                "0 - no data corruption",
+                 "1 - can corrupt a small amount of non-core data",
+                 "2 - can corrupt a lot of non-core data",
+                 "3 - can corrupt a small amount of core data",
+                 "4 - can corrupt a lot of core data"
             ]
         },
         "LA": {
             "keyword": "Loss of Availability",
-            "name": "失去可用性",
-            "description": "可能会丢失多少服务，它有多重要？",
+            "name": "Loss of Availability",
+            "description": "How much service can be lost and how important it is.",
             "options": [
-                "0 - 不能造成业务中断",
-                "1 - 可导致企业少量的非核心业务中断",
-                "2 - 可导致企业大量的非核心业务中断",
-                "3 - 可导致企业少量的核心业务中断",
-                "4 - 可导致企业大量的核心业务中断"
+                "0 - no business interruption",
+                 "1 - Can cause a small amount of non-core business disruption to the business",
+                 "2 - Can cause substantial disruption to the non-core business of the enterprise",
+                 "3 - Can cause a small amount of disruption to the company's core business",
+                 "4 - Can cause substantial disruption to the company's core business"
             ]
         },
         "FD": {
             "keyword": "Financial Damage",
-            "name": "经济损失",
-            "description": "可对企业经济造成的最大影响？",
+            "name": "Financial Damage",
+            "description": "the greatest impact on the business economy.",
             "options": [
-                "0 - 低于修复漏洞的成本",
-                "1 - 不会对企业年利润有明显影响",
-                "2 - 可以影响一定的企业年利润",
-                "3 - 对企业年度利润有显著影响",
-                "4 - 对企业年利润影响重大"
+                "0 - less than the cost of fixing the bug",
+                 "1 - will not have a significant impact on the company's annual profit",
+                 "2 - Can affect a certain company's annual profit",
+                 "3 - Significant impact on the company's annual profit",
+                 "4 - Significant impact on the company's annual profit"
             ]
         },
         "RD": {
             "keyword": "Reputation Damage",
-            "name": "商誉损失",
-            "description": "是否会导致企业声誉受损从而损害业务？",
+            "name": "Reputation Damage",
+            "description": "Whether it will cause damage to the company's reputation and thus damage the business.",
             "options": [
-                "0 - 不能造成商誉损失",
-                "1 - 可造成轻微的商誉损害",
-                "2 - 可造成严重的商誉损害",
-                "3 - 可导致大客户或大量客户流失",
-                "4 - 可造成品牌重大损害"
+                "0 - no loss of goodwill",
+                 "1 - May cause slight damage to goodwill",
+                 "2 - Can cause serious damage to goodwill",
+                 "3 - Can lead to large or large customer churn",
+                 "4 - Can cause significant brand damage"
             ]
         },
         "CI": {
             "keyword": "Compliance Impact",
-            "name": "合规影响",
-            "description": "出现的问题或攻击者进行恶意行动会带来多少违规风险？",
+            "name": "Compliance Impact",
+            "description": "How much breach risk arises from a problem that arises or a malicious action by an attacker.",
             "options": [
-                "0 - 不能造成违规风险",
-                "1 - 能造成轻微的违规风险",
-                "2 - 能造成较为明显的违规风险",
-                "3 - 能造成非常高调的违规风险",
-                "4 - 严重违规或造成违法"
+                "0 - no risk of violation",
+                 "1 - can create a slight risk of non-compliance",
+                 "2 - Can cause a more obvious risk of violation",
+                 "3 - Can create a very high profile breach risk",
+                 "4 - Serious Violation or Contribution to Violation"
             ]
         },
         "DLC": {
             "keyword": "Development Life Circle",
-            "name": "开发生命周期",
-            "description": "是否发现在软件开发生命周期中存在安全问题？",
+            "name": "Development Life Circle",
+            "description": "Whether there are security issues identified in the software development life cycle.",
             "options": [
-                "0 - 几乎没有考虑安全问题",
-                "1 - 有大量的安全流程问题",
-                "2 - 有中量的安全流程问题",
-                "3 - 有少量的安全流程问题",
-                "4 - 基本没有安全流程问题"
+                "0 - almost no security concerns",
+                 "1 - There are a lot of security process issues",
+                 "2 - has a moderate amount of security process issues",
+                 "3 - There are minor security process issues",
+                 "4 - basically no security process issues"
             ]
         },
         "OLC": {
             "keyword": "Operation Life Circle",
-            "name": "运维生命周期",
-            "description": "是否发现在运维生命周期中存在安全问题？",
+            "name": "Operation Life Circle",
+            "description": "Whether there are security issues found in the operation and maintenance life cycle.",
             "options": [
-                "0 - 几乎没有考虑安全问题",
-                "1 - 有大量的安全流程问题",
-                "2 - 有中量的安全流程问题",
-                "3 - 有少量的安全流程问题",
-                "4 - 基本没有安全流程问题"
+                "0 - almost no security concerns",
+                 "1 - There are a lot of security process issues",
+                 "2 - has a moderate amount of security process issues",
+                 "3 - There are minor security process issues",
+                 "4 - basically no security process issues"
             ]
         },
         "ESA": {
             "keyword": "Employment Security Awareness",
-            "name": "员工安全意识",
-            "description": "在评估过程中大部分员工是否有安全意识问题？",
+            "name": "Employment Security Awareness",
+            "description": "Whether the majority of employees have security awareness issues during the assessment process.",
             "options": [
-                "0 - 几乎全员没有安全意识",
-                "1 - 大部分关键岗位员工安全意识较弱",
-                "2 - 少部分关键岗位员工安全意识较弱",
-                "3 - 大部分关键岗位员工安全意识较高",
-                "4 - 全部员工都有极高的安全意识"
+                "0 - almost no security awareness",
+                 "1 - Most of the employees in key positions have weak safety awareness",
+                 "2 - A small number of employees in key positions have weak safety awareness",
+                 "3 - Most of the employees in key positions have high safety awareness",
+                 "4 - All staff have high safety awareness"
             ]
         }
     },
     "factorCategories": {
         "CF": {
             "keyword": "Confrontation Factors",
-            "name": "攻防因素",
-            "description": "主要从进攻以及防守角度上去衡量各自的强度，对渗透路径中的关键漏洞的杀伤力进行评价，最终结合业务因素形成“进攻能量”和“防守能量”分值。",
+            "name": "Confrontation Factors",
+            "description": "Mainly measure their respective strengths from the perspective of offense and defense, evaluate the lethality of key vulnerabilities in the penetration path, and finally combine business factors to form \"offensive energy\" and \"defensive energy\" scores.",
             "processScores": [
                 "OS",
                 "DS",
@@ -700,8 +801,8 @@
         },
         "BF": {
             "keyword": "Business Factors",
-            "name": "业务因素",
-            "description": "主要是从可对企业造成的影响，业务安全能力水平，以及CIA信息安全三要素角度进行评价，最终结合攻防因素形成“业务风险”和“企业风险”分值。",
+            "name": "Business Factors",
+            "description": "It mainly evaluates from the perspective of the impact on the enterprise, the level of business security capabilities, and the three elements of CIA information security, and finally combines the offensive and defensive factors to form the \"business risk\" and \"enterprise risk\" scores.",
             "processScores": [
                 "TI",
                 "EI",
@@ -712,171 +813,270 @@
     "processScores": {
         "OS": {
             "keyword": "Offensive Strength",
-            "name": "进攻实力",
-            "description": "指攻击方在单场次红蓝对抗演练中，在关键渗透路径上使用攻击技术的最高水平",
+            "name": "Offensive Strength",
+            "description": "Refers to the highest level of attack technology used by the attacker on the key penetration path in a single red-blue confrontation exercise.",
             "vectors": {
-                "OL": " OL * 1 * 2.5 ",
-                "OD": " OD * 1 * 2.5 ",
-                "TR": " TR * 1 * 2.5 ",
-                "AL": " AL * 1 * 2.5 "
+                "OL": {
+                    "algorithm": " OL * 1 * 2.5 ",
+                    "description": ""
+                },
+                "OD": {
+                    "algorithm": " OD * 1 * 2.5 ",
+                    "description": ""
+                },
+                "TR": {
+                    "algorithm": " TR * 1 * 2.5 ",
+                    "description": ""
+                },
+                "AL": {
+                    "algorithm": " AL * 1 * 2.5 ",
+                    "description": ""
+                }
             }
         },
         "DS": {
             "keyword": "Defensive Strength",
-            "name": "防守实力",
-            "description": "指防守方在单场次红蓝对抗演练中，在关键渗透路径上使用防守技术的最低水平",
+            "name": "Defensive Strength",
+            "description": "Refers to the minimum level of defensive technology used by the defending team on the key penetration path in a single red-blue confrontation exercise.",
             "vectors": {
-                "PL": " PL * 1 * 2.5 ",
-                "DL": " DL * 1 * 2.5 ",
-                "RL": " RL * 1 * 2.5 ",
-                "TL": " TL * 1 * 2.5 "
+                "PL": {
+                    "algorithm": " PL * 1 * 2.5 ",
+                    "description": ""
+                },
+                "DL": {
+                    "algorithm": " DL * 1 * 2.5 ",
+                    "description": ""
+                },
+                "RL": {
+                    "algorithm": " RL * 1 * 2.5 ",
+                    "description": ""
+                },
+                "TL": {
+                    "algorithm": " TL * 1 * 2.5 ",
+                    "description": ""
+                }
             }
         },
         "VR": {
             "keyword": "Vulnerability Risk",
-            "name": "漏洞风险",
-            "description": "指在单场次红蓝对抗演练中，在演练的关键渗透路径上对最关键漏洞的风险性评价",
+            "name": "Vulnerability Risk",
+            "description": "Refers to the risk assessment of the most critical vulnerabilities on the critical penetration path of the drill in a single red-blue confrontation exercise.",
             "vectors": {
-                "VD": " VD * 1 * 2.5 ",
-                "VE": " VE * 1 * 2.5 ",
-                "VL": " VL * 1 * 2.5 ",
-                "VDW": " VDW * 1 * 2.5 "
+                "VD": {
+                    "algorithm": " VD * 1 * 2.5 ",
+                    "description": ""
+                },
+                "VE": {
+                    "algorithm": " VE * 1 * 2.5 ",
+                    "description": ""
+                },
+                "VL": {
+                    "algorithm": " VL * 1 * 2.5 ",
+                    "description": ""
+                },
+                "VDW": {
+                    "algorithm": " VDW * 1 * 2.5 ",
+                    "description": ""
+                }
             }
         },
         "TI": {
             "keyword": "Technical Impact",
-            "name": "技术影响",
-            "description": "指攻击方所拿下的权限或数据有可能造成的保密性、完整性和可用性最大影响",
+            "name": "Technical Impact",
+            "description": "Refers to the maximum impact on confidentiality, integrity and availability that may be caused by the rights or data obtained by the attacker.",
             "vectors": {
-                "LC": " LC * 1 * 2.5 ",
-                "LI": " LI * 1 * 2.5 ",
-                "LA": " LA * 1 * 2.5 "
+                "LC": {
+                    "algorithm": " LC * 1 * 2.5 ",
+                    "description": ""
+                },
+                "LI": {
+                    "algorithm": " LI * 1 * 2.5 ",
+                    "description": ""
+                },
+                "LA": {
+                    "algorithm": " LA * 1 * 2.5 ",
+                    "description": ""
+                }
             }
         },
         "EI": {
             "keyword": "Enterprise Impact",
-            "name": "企业影响",
-            "description": "指攻击方所拿下的权限或数据有可能造成对企业商誉、经济以及合规上的最大影响",
+            "name": "Enterprise Impact",
+            "description": "Refers to the authority or data obtained by the attacker that may have the greatest impact on corporate reputation, economy and compliance.",
             "vectors": {
-                "FD": " FD * 1 * 2.5 ",
-                "RD": " RD * 1 * 2.5 ",
-                "CI": " CI * 1 * 2.5 "
+                "FD": {
+                    "algorithm": " FD * 1 * 2.5 ",
+                    "description": ""
+                },
+                "RD": {
+                    "algorithm": " RD * 1 * 2.5 ",
+                    "description": ""
+                },
+                "CI": {
+                    "algorithm": " CI * 1 * 2.5 ",
+                    "description": ""
+                }
             }
         },
         "BS": {
             "keyword": "Business Strength",
-            "name": "业务实力",
-            "description": "指在攻击过程中，业务人员或系统及运营所体现的最低专业性",
+            "name": "Business Strength",
+            "description": "Refers to the minimum professionalism of business personnel or systems and operations during an attack.",
             "vectors": {
-                "DLC": " DLC * 1 * 2.5 ",
-                "OLC": " OLC * 1 * 2.5 ",
-                "ESA": " ESA * 1 * 2.5 "
+                "DLC": {
+                    "algorithm": " DLC * 1 * 2.5 ",
+                    "description": ""
+                },
+                "OLC": {
+                    "algorithm": " OLC * 1 * 2.5 ",
+                    "description": ""
+                },
+                "ESA": {
+                    "algorithm": " ESA * 1 * 2.5 ",
+                    "description": ""
+                }
             }
         }
     },
     "finalScores": {
         "OE": {
             "keyword": "Offensive Energy",
-            "name": "进攻能量分值",
-            "description": "是攻击方在单次演练中做的有效输出，可代表攻击方之于本次演练的水平",
+            "name": "Offensive Energy",
+            "description": "It is the effective output of the attacker in a single exercise, which can represent the level of the attacker in this exercise.",
             "vectors": {
-                "OS": " OS * 1 ",
-                "DS": " DS * 1 ",
-                "EI": " EI * 1 "
+                "OS": {
+                    "algorithm": " OS * 1 ",
+                    "description": "The offensive strength represents the highest level of the attacker's attack output in this red-blue confrontation. But other factor scores are needed to correct it: if a very advanced technique is used, it takes a lot of effort, but no effect is achieved, then it is equivalent to doing useless work in this exercise, which means that the offensive energy is very low."
+                },
+                "DS": {
+                    "algorithm": " DS * 1 ",
+                    "description": "The introduction of the \"defensive strength\" factor is to correct the effective display of the \"offensive strength\" in terms of ability. Generally speaking, the stronger the defense is, the stronger the attack is on the premise of achieving the same goal; on the contrary, if the defender is weaker, the attacker can usually have less investment in order to achieve the goal. Offensive energy is not so great."
+                },
+                "EI": {
+                    "algorithm": " EI * 1 ",
+                    "description": "\"Enterprise Impact\" is a measure of the effectiveness of an attacker's \"work done\". The more enterprise risks exposed in a single exercise, the stronger the attacker's energy; the less enterprise risks exposed in countermeasures, the lower the attacker's energy in the exercise."
+                }
             }
         },
         "DE": {
             "keyword": "Defensive Energy",
-            "name": "防守能量分值",
-            "description": "是防守方在单次演练中的有效输出，可代表防守方之于本次演练的水平",
+            "name": "Defensive Energy",
+            "description": "It is the effective output of the defender in a single exercise, and can represent the level of the defender in this exercise.",
             "vectors": {
-                "DS": " DS * 1 ",
-                "VR": " ( 10 - VR ) * 1 ",
-                "EI": " ( 10 - EI ) * 1 "
+                "DS": {
+                    "algorithm": " DS * 1 ",
+                    "description": "The defensive strength is generally the lower level of the defender's defensive ability output in this red-blue confrontation. But you can't simply think that \"defensive strength\" is the embodiment of defensive energy. Because no matter how strong the defense is, if the target is finally taken by the attacker, it still shows that the defense ability is low."
+                },
+                "VR": {
+                    "algorithm": " ( 10 - VR ) * 1 ",
+                    "description": "The introduction of vulnerability risk is to correct the effective display of \"defensive strength\" in ability, which is negatively correlated with defensive energy. The higher the vulnerability risk, the lower the defensive energy. Even if the defensive strength is very strong, but a serious vulnerability risk is exposed on the critical path of the offense, it means that the defensive strength has not been fulfilled, and points should be deducted."
+                },
+                "EI": {
+                    "algorithm": " ( 10 - EI ) * 1 ",
+                    "description": "Corporate influence is negatively correlated with defensive energy, the greater the corporate influence, the lower the defensive energy. Even if the defense is strong and the loopholes are small, it can still have a significant impact on the enterprise, indicating that the effective energy generated by the defense is not enough, and points should be deducted."
+                }
             }
         },
         "BR": {
             "keyword": "Business Risk",
-            "name": "业务风险分值",
-            "description": "指业务在安全上暴露的风险程度，可代表参演业务方在本次演练中的安全水平",
+            "name": "Business Risk",
+            "description": "It refers to the risk level of business exposure in terms of security, which can represent the security level of the participating business parties in this exercise.",
             "vectors": {
-                "TI": " TI * 1 ",
-                "EI": " EI * 1 ",
-                "BS": " ( 10 - BS ) * 1 "
+                "TI": {
+                    "algorithm": " TI * 1 ",
+                    "description": "The technical impact is mainly measured from the three elements of security: confidentiality, integrity and availability. The greater the technical impact of the business, the higher the risk of the business."
+                },
+                "EI": {
+                    "algorithm": " EI * 1 ",
+                    "description": "Enterprise impact is closely related to business risks. If it can bring a greater impact on the enterprise, whether it is economic loss, loss of goodwill or compliance impact, it will affect the development of the enterprise to a large extent, and then affect the development of the business."
+                },
+                "BS": {
+                    "algorithm": " ( 10 - BS ) * 1 ",
+                    "description": "Business strength is mainly reflected in the implementation of SDL or DevSecOps. If there is a problem, it will bring great obstacles to the promotion of security and the elimination of risks, which will cause major risks to the business. Therefore, business strength is negatively correlated with business risk score, and the lower the strength, the greater the risk."
+                }
             }
         },
         "ER": {
             "keyword": "Enterprise Risk",
-            "name": "企业风险分值",
-            "description": "指企业在安全上暴露的风险程度，可代表企业整体上在本次演练中表现出的安全水平",
+            "name": "Enterprise Risk",
+            "description": "It refers to the degree of risk exposed by the enterprise in terms of security, which can represent the security level of the enterprise as a whole in this exercise.",
             "vectors": {
-                "DS": " ( 10 - DS ) * 1 ",
-                "VR": " VR * 1 ",
-                "EI": " EI * 1 "
+                "DS": {
+                    "algorithm": " ( 10 - DS ) * 1 ",
+                    "description": "Defensive strength is negatively correlated with corporate risk. If an enterprise does not invest much in security construction, it will generally directly affect its protection capability, detection capability and response capability, that is, its defensive strength. On the other hand, if the defensive strength of the enterprise is weak, it means that the enterprise is facing problems in safety construction or defensive team building, which will make the enterprise face more risks."
+                },
+                "VR": {
+                    "algorithm": " VR * 1 ",
+                    "description": "If the key vulnerabilities on the penetration path are very easy to be discovered, exploited, and have great lethality, it generally means that the defense has a relatively large problem in the daily security operations, SDL or DevSecOps security process landing, and the risk of the enterprise Sex will increase."
+                },
+                "EI": {
+                    "algorithm": " EI * 1 ",
+                    "description": "The \"corporate impact\" is more related to the normal operation, revenue and even life and death of the company, so it is related to corporate risks."
+                }
             }
         }
     },
     "levels": [
         {
             "index": 0,
-            "name": "无",
+            "name": "None",
             "keyword": "None"
         },
         {
             "index": 1,
-            "name": "低",
+            "name": "Low",
             "keyword": "Low"
         },
         {
             "index": 2,
-            "name": "低",
+            "name": "Low",
             "keyword": "Low"
         },
         {
             "index": 3,
-            "name": "低",
+            "name": "Low",
             "keyword": "Low"
         },
         {
             "index": 4,
-            "name": "中",
+            "name": "Medium",
             "keyword": "Medium"
         },
         {
             "index": 5,
-            "name": "中",
+            "name": "Medium",
             "keyword": "Medium"
         },
         {
             "index": 6,
-            "name": "中",
+            "name": "Medium",
             "keyword": "Medium"
         },
         {
             "index": 7,
-            "name": "高",
+            "name": "High",
             "keyword": "High"
         },
         {
             "index": 8,
-            "name": "高",
+            "name": "High",
             "keyword": "High"
         },
         {
             "index": 9,
-            "name": "极",
+            "name": "Extreme",
             "keyword": "Extreme"
         },
         {
             "index": 10,
-            "name": "极",
+            "name": "Extreme",
             "keyword": "Extreme"
         }
     ],
     "charts": {
         "data": {
             "OS": {
-                "name": "攻击者能力",
+                "name": "Attacker Ability",
                 "plusmode": true,
                 "factors": {
                     "OL": 1,
@@ -886,7 +1086,7 @@
                 }
             },
             "DS": {
-                "name": "安全运营能力",
+                "name": "Security Operation Ability",
                 "plusmode": true,
                 "factors": {
                     "PL": 1,
@@ -904,22 +1104,59 @@
         },
         "references": {
             "current": {
-                "name": "当前评分",
+                "name": "Current Score",
                 "backgroundColor": "rgba(255, 99, 132, 0.5)",
                 "borderColor": "rgba(255, 99, 132, 0.5)"
             },
             "standardLevel": {
-                "name": "业内平均水平",
+                "name": "Industry Average",
                 "backgroundColor": "rgba(132, 255, 99, 0.5)",
                 "borderColor": "rgba(132, 255, 99, 0.5)",
-                "vectors": "RTASS:0.3.1/OL:2/OD:2/TR:3/AL:3/PL:1/DL:2/RL:2/TL:1/VD:2/VE:2/VL:2/VDW:2/LC:1/LI:1/LA:1/FD:1/RD:1/CI:1/DLC:3/OLC:3/ESA:3/IRC:2/WC:2/VMEC:2/ATDC:2/SEC:2/PPC:2/TCC:2/LMC:2/GAT:3/GAC:3/GAA:3/IEMC:2/SUMC:1/TIBC:1/BSMC:1/ASMC:1/PSMC:1/NACC:1/ETTA:1/EHAA:1/PPAA:1/ITTA:1/EMA:2/EABA:1/TDR:3/TITR:3/THC:3/TDTR:2/TAC:1/IPTC:2/ATCC:1/DEC:1"
+                "vectorStr": "RTASS:0.3.1/OL:2/OD:2/TR:3/AL:3/PL:1/DL:2/RL:2/TL:1/VD:2/VE:2/VL:2/VDW:2/LC:1/LI:1/LA:1/FD:1/RD:1/CI:1/DLC:3/OLC:3/ESA:3/IRC:2/WC:2/VMEC:2/ATDC:2/SEC:2/PPC:2/TCC:2/LMC:2/GAT:3/GAC:3/GAA:3/IEMC:2/SUMC:1/TIBC:1/BSMC:1/ASMC:1/PSMC:1/NACC:1/ETTA:1/EHAA:1/PPAA:1/ITTA:1/EMA:2/EABA:1/TDR:3/TITR:3/THC:3/TDTR:2/TAC:1/IPTC:2/ATCC:1/DEC:1"
             },
             "highLevel": {
-                "name": "业内高水平",
+                "name": "Industry High Level",
                 "backgroundColor": "rgba(99, 132, 255, 0.5)",
                 "borderColor": "rgba(99, 132, 255, 0.5)",
-                "vectors": "RTASS:0.3.1/OL:3/OD:3/TR:3/AL:4/PL:3/DL:3/RL:3/TL:3/VD:1/VE:1/VL:1/VDW:1/LC:0/LI:0/LA:0/FD:1/RD:0/CI:0/DLC:4/OLC:4/ESA:4/IRC:3/WC:3/VMEC:3/ATDC:3/SEC:3/PPC:3/TCC:4/LMC:4/GAT:3/GAC:3/GAA:4/IEMC:3/SUMC:3/TIBC:3/BSMC:3/ASMC:3/PSMC:2/NACC:3/ETTA:3/EHAA:3/PPAA:2/ITTA:3/EMA:3/EABA:3/TDR:4/TITR:4/THC:4/TDTR:3/TAC:3/IPTC:3/ATCC:2/DEC:3"
+                "vectorStr": "RTASS:0.3.1/OL:3/OD:3/TR:3/AL:4/PL:3/DL:3/RL:3/TL:3/VD:1/VE:1/VL:1/VDW:1/LC:0/LI:0/LA:0/FD:1/RD:0/CI:0/DLC:4/OLC:4/ESA:4/IRC:3/WC:3/VMEC:3/ATDC:3/SEC:3/PPC:3/TCC:4/LMC:4/GAT:3/GAC:3/GAA:4/IEMC:3/SUMC:3/TIBC:3/BSMC:3/ASMC:3/PSMC:2/NACC:3/ETTA:3/EHAA:3/PPAA:2/ITTA:3/EMA:3/EABA:3/TDR:4/TITR:4/THC:4/TDTR:3/TAC:3/IPTC:3/ATCC:2/DEC:3"
             }
         }
-    }
+    },
+    "thanks": [
+        {
+            "name": "devils",
+            "url": "",
+            "email": "",
+            "description": "Thanks to devils for his contribution to the competency evaluation model."
+        },
+        {
+            "name": "makato",
+            "url": "",
+            "email": "",
+            "description": "Thanks to makato for the comments on each rating item."
+        },
+        {
+            "name": "vf3ng",
+            "url": "",
+            "email": "",
+            "description": "Thanks to vf3ng for metrics and comments on the accuracy of the framework evaluation."
+        }
+    ],
+    "references": [
+        {
+            "name": "OWASP",
+            "url": "https://owasp.org/www-community/OWASP_Risk_Rating_Methodology",
+            "description": "OWASP Risk Rating Methodology"
+        },
+        {
+            "name": "FIRST CVSSv3",
+            "url": "https://www.first.org/cvss/v3.1/specification-document",
+            "description": "CVSSv3.1 Specification Document"
+        },
+        {
+            "name": "Wikipedia",
+            "url": "https://en.wikipedia.org/wiki/Common_Vulnerability_Scoring_System",
+            "description": "Common Vulnerability Scoring System"
+        }
+    ]
 }

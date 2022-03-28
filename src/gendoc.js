@@ -1,14 +1,16 @@
 const fs = require("fs");
 const path = require("path");
 const vm = require("vm");
+const {i18n, languages} = require("./i18n/index.js");
+
+
 const RTASS = require("./RTASS.json");
-// let RTASS = require("./i18n/en/RTASS.json");
 const LANG = require("./i18n/cn/doc.json");
 ///////////////////////////////////////////////////////////////////////////////
 const readmePath = path.resolve(__dirname+"/../README.md");
-// const changelog = require("../changelog.md");
 
-let doc = `
+function genDoc(RTASS, LANG, docPath){
+  let doc = `
 # **${RTASS.title} ${RTASS.version}**
 
 > ${RTASS.keyword}
@@ -17,13 +19,9 @@ let doc = `
 >
 > ${LANG.license}: ${RTASS.license}
 >
-> ${LANG.contributors}: ${RTASS.maintainer}, ${LANG.collaborators}: ${Object.values(RTASS.thanks).map(t => t.name).join(", ")}
+> ${LANG.maintainer}: ${RTASS.maintainer}, ${LANG.collaborators}: ${Object.values(RTASS.thanks).map(t => t.name).join(", ")}
 >
 > ${LANG.onlineCalculator} <${RTASS.calculator}>
-
-## **${LANG.changelog}**
-
-
 
 ## **${LANG.introduction}**
 
@@ -54,7 +52,7 @@ ${
     let doc = "";
     let fs = RTASS.finalScores[fsKey];
     //最终分值介绍
-    doc += "### "+fs.name+"["+fsKey+", "+fs.keyword+"]\n\n";
+    doc += "### **"+fs.name+"["+fsKey+", "+fs.keyword+"]**\n\n";
     doc += vm.runInNewContext(LANG.finalScoresDesc, {RTASS,fs,fsKey})+"\n\n";
     //最终分值算法公式
     doc += "> "+fs.name+": "+fsKey+" = (";
@@ -212,9 +210,28 @@ ${Object.values(RTASS.references).map(r=>"- "+r.url+", "+r.name+", "+r.descripti
 
 ${LANG.onlineCalculator}: <${RTASS.calculator}>
 
-`;
+  `;
+  
+  fs.writeFile(docPath, doc, (err) => {
+    if (err) throw err;
+    console.log('The file has been saved to '+docPath+'!');
+  });
 
-fs.writeFile(readmePath, doc, (err) => {
-  if (err) throw err;
-  console.log('The file has been saved to '+readmePath+'!');
-});
+}
+
+function genDoc4Lang(lang, docPath) {
+  genDoc(i18n.messages[lang].RTASS, i18n.messages[lang].doc, docPath);
+}
+
+(()=>{
+  Object.keys(languages).map(lang=>{
+    let docPath = path.join(__dirname, "../docs", "README_"+lang+".md");
+    if(lang=="cn"){
+      docPath = path.join(__dirname, "../README.md");
+    }
+    if(lang=="en"){
+      docPath = path.join(__dirname, "../README_en.md");
+    }
+    genDoc4Lang(lang, docPath);
+  });
+})();
