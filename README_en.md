@@ -793,10 +793,10 @@ With reference to the CVSS scoring framework, RTASS also uses "vector strings" t
 | Deception and Entrapment Capabilities[DEC]    | 0-4     |
 
 RTASS Base Mode ector string Example:
-RTASS:0.3.1/OL:4/OD:3/TR:1/AL:3/PL:4/DL:4/RL:0/TL:3/VD:4/VE:2/VL:4/VDW:4/LC:0/LI:1/LA:3/FD:3/RD:0/CI:3/DLC:1/OLC:4/ESA:2
+RTASS:0.3.1/OL:3/OD:3/TR:3/AL:4/PL:2/DL:1/RL:4/TL:3/VD:3/VE:2/VL:2/VDW:0/LC:1/LI:1/LA:0/FD:0/RD:2/CI:1/DLC:4/OLC:1/ESA:4
 
 RTASS Plus Mode ector string Example:
-RTASS:0.3.1/OL:3/OD:2/TR:3/AL:1/PL:0/DL:1/RL:2/TL:3/VD:3/VE:4/VL:3/VDW:4/LC:2/LI:3/LA:2/FD:1/RD:2/CI:3/DLC:3/OLC:4/ESA:0/IRC:3/WC:4/VMEC:1/ATDC:1/SEC:2/PPC:3/TCC:0/LMC:1/GAT:2/GAC:1/GAA:0/IEMC:3/SUMC:0/TIBC:3/BSMC:2/ASMC:3/PSMC:2/NACC:4/ETTA:2/EHAA:1/PPAA:4/ITTA:2/EMA:1/EABA:2/TDR:1/TITR:3/THC:1/TDTR:4/TAC:3/IPTC:3/ATCC:2/DEC:0
+RTASS:0.3.1/OL:3/OD:4/TR:1/AL:2/PL:1/DL:3/RL:3/TL:1/VD:1/VE:0/VL:1/VDW:0/LC:3/LI:3/LA:3/FD:2/RD:4/CI:3/DLC:0/OLC:1/ESA:2/IRC:3/WC:4/VMEC:0/ATDC:0/SEC:2/PPC:3/TCC:1/LMC:4/GAT:4/GAC:4/GAA:0/IEMC:3/SUMC:1/TIBC:0/BSMC:4/ASMC:1/PSMC:4/NACC:1/ETTA:0/EHAA:2/PPAA:1/ITTA:4/EMA:4/EABA:1/TDR:3/TITR:1/THC:1/TDTR:2/TAC:1/IPTC:2/ATCC:3/DEC:2
 
 The vector string should contain all the indicators shown in the table above, accepting any order of measurement. If the vector string contains the same metric multiple times, the last metric shall prevail.
 

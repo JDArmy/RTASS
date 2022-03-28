@@ -7,7 +7,7 @@
     "rights": "RTASS由JD.Army创建、拥有和进行管理。JD.Army是专注于挖掘和解决企业安全运行风险隐患的专业型红队。JD.Army保留自行决定定期更新RTASS和本文档的权利。虽然JD.Army拥有RTASS的所有权利和利益，但它许可公众自由使用，遵循相关开源协议。",
     "calculator": "https://jd.army/RTASS/",
     "github": "https://github.com/JDArmy/RTASS",
-    "version": "0.3.1",
+    "version": "0.3.2",
     "abilities": {
         "IRC": {
             "keyword": "Intelligence Reconnaissance Capability",

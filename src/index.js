@@ -151,7 +151,7 @@ var AppOptions = {
         let datasets = [];
         Object.keys(chartDatas).map((key) => {
           datasets.push({
-            label: references[key].name,
+            label: i18n.t(`RTASS.charts.references.${key}.name`) ,
             // spanGaps: true,
             backgroundColor: references[key].backgroundColor,
             borderColor: references[key].borderColor,

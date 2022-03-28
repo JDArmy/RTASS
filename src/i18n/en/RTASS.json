@@ -7,7 +7,7 @@
     "rights": "RTASS is founded, owned, and managed by the JD.Army team. JD.Army is a professional red team which focuses on excavating and solving the hidden security risks of enterprise safe operation. JD.Army reserves the right to update RTASS and this document regularly at its sole discretion. Although JD.Army owns all the rights and interests in RTASS, it permits the public to use it freely and follows the Apache open source agreement.",
     "calculator": "https://jd.army/RTASS/",
     "github": "https://github.com/JDArmy/RTASS",
-    "version": "0.3.1",
+    "version": "0.3.2",
     "abilities": {
         "IRC": {
             "keyword": "Intelligence Reconnaissance Capability",
