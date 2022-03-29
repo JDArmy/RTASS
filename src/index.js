@@ -16,6 +16,7 @@ var AppOptions = {
       scores: {},
       levels: {},
       scoreVector: "",
+      scoreVectorUrl: "",
       charts: {},
     };
   },
@@ -29,6 +30,7 @@ var AppOptions = {
       this.calcScores(RTASS.finalScores, this.scores);
       //根据因子分数生成矢量URL
       this.genVectorUri();
+      history.replaceState(null,null,this.scoreVectorUrl);
       //生成雷达图
       this.initCharts();
       //刷新界面
@@ -97,6 +99,7 @@ var AppOptions = {
         });
       }
       this.scoreVector = vectorStr;
+      this.scoreVectorUrl = '?lang='+this.lang+'&plusmode='+this.plusmode+'&vector='+this.scoreVector;
     },
     parseVectorUri: function (vectorStr) {
       let vectorVal = {};
