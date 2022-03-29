@@ -4,7 +4,10 @@
     <title>Red Team Assessment Scoring System</title>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link href="https://cdn.bootcdn.net/ajax/libs/twitter-bootstrap/4.6.1/css/bootstrap.min.css" rel="stylesheet">
+    <link
+      href="https://cdn.bootcdn.net/ajax/libs/twitter-bootstrap/4.6.1/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
   </head>
 
   <body>
@@ -53,7 +56,9 @@
           v-for="(factorTypeVal, factorTypeKey) in RTASS.factorCategories"
           :key="factorTypeKey"
         >
-          <h3 class="text-center">{{$t(`RTASS.factorCategories.${factorTypeKey}.name`)}}</h3>
+          <h3 class="text-center">
+            {{$t(`RTASS.factorCategories.${factorTypeKey}.name`)}}
+          </h3>
           <div class="row factorType">
             <!-- process scoring start -->
             <div
@@ -161,9 +166,7 @@
         <!-- final score end -->
         <!-- vector uri start -->
         <div class="col-md-12 score-vector">
-          <a :href="scoreVectorUrl"
-            >{{scoreVector}}</a
-          >
+          <a :href="scoreVectorUrl">{{scoreVector}}</a>
         </div>
         <!-- vector uri end -->
         <!-- ription start -->
@@ -173,9 +176,7 @@
             v-for="(scoringItem, scoringKey) in RTASS.finalScores"
             :key="scoringKey"
           >
-            <strong>
-              {{$t(`RTASS.finalScores.${scoringKey}.name`)}}
-            </strong>
+            <strong> {{$t(`RTASS.finalScores.${scoringKey}.name`)}} </strong>
             <span>
               :
               "{{$t(`RTASS.levels.${levels[scoringKey]}.name`)}}"({{scores[scoringKey]}});&nbsp;
@@ -187,7 +188,8 @@
             :key="factorGroupKey"
           >
             <strong>
-              {{$t(`RTASS.processScores.${factorGroupKey}.name`)}}</strong>
+              {{$t(`RTASS.processScores.${factorGroupKey}.name`)}}</strong
+            >
             <span>
               :
               "{{$t(`RTASS.levels.${levels[factorGroupKey]}.name`)}}"({{scores[factorGroupKey]}});&nbsp;
@@ -198,9 +200,8 @@
               v-for="factorKey in Object.keys(RTASS.processScores[factorGroupKey].vectors)"
               :key="factorKey"
             >
-              <strong>
-                {{$t(`RTASS.factors.${factorKey}.name`)}}
-              </strong>:&nbsp;
+              <strong> {{$t(`RTASS.factors.${factorKey}.name`)}} </strong
+              >:&nbsp;
               {{$t(`RTASS.factors.${factorKey}.options[${vectorVal[factorKey]}]`).replace(/\d+\s?\-?\s?/,'')}};&nbsp;
             </span>
           </div>
