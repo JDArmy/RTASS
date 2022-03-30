@@ -1,5 +1,5 @@
 
-# **Red Team Assessment Scoring System (RTASS) 0.3.1**
+# **Red Team Assessment Scoring System (RTASS) 0.3.2**
 
 > Red Team Assessment Scoring System
 >
@@ -793,10 +793,10 @@ With reference to the CVSS scoring framework, RTASS also uses "vector strings" t
 | Deception and Entrapment Capabilities[DEC]    | 0-4     |
 
 RTASS Base Mode ector string Example:
-RTASS:0.3.1/OL:3/OD:3/TR:3/AL:4/PL:2/DL:1/RL:4/TL:3/VD:3/VE:2/VL:2/VDW:0/LC:1/LI:1/LA:0/FD:0/RD:2/CI:1/DLC:4/OLC:1/ESA:4
+RTASS:0.3.2/OL:4/OD:0/TR:4/AL:3/PL:1/DL:4/RL:4/TL:1/VD:3/VE:2/VL:4/VDW:4/LC:0/LI:2/LA:2/FD:2/RD:3/CI:1/DLC:2/OLC:2/ESA:3
 
 RTASS Plus Mode ector string Example:
-RTASS:0.3.1/OL:3/OD:4/TR:1/AL:2/PL:1/DL:3/RL:3/TL:1/VD:1/VE:0/VL:1/VDW:0/LC:3/LI:3/LA:3/FD:2/RD:4/CI:3/DLC:0/OLC:1/ESA:2/IRC:3/WC:4/VMEC:0/ATDC:0/SEC:2/PPC:3/TCC:1/LMC:4/GAT:4/GAC:4/GAA:0/IEMC:3/SUMC:1/TIBC:0/BSMC:4/ASMC:1/PSMC:4/NACC:1/ETTA:0/EHAA:2/PPAA:1/ITTA:4/EMA:4/EABA:1/TDR:3/TITR:1/THC:1/TDTR:2/TAC:1/IPTC:2/ATCC:3/DEC:2
+RTASS:0.3.2/OL:1/OD:4/TR:0/AL:3/PL:1/DL:2/RL:4/TL:3/VD:4/VE:4/VL:4/VDW:2/LC:4/LI:1/LA:3/FD:4/RD:1/CI:2/DLC:1/OLC:3/ESA:2/IRC:2/WC:1/VMEC:0/ATDC:1/SEC:1/PPC:2/TCC:1/LMC:0/GAT:3/GAC:2/GAA:4/IEMC:2/SUMC:1/TIBC:3/BSMC:0/ASMC:1/PSMC:0/NACC:0/ETTA:1/EHAA:4/PPAA:0/ITTA:0/EMA:4/EABA:0/TDR:0/TITR:2/THC:0/TDTR:1/TAC:3/IPTC:1/ATCC:0/DEC:4
 
 The vector string should contain all the indicators shown in the table above, accepting any order of measurement. If the vector string contains the same metric multiple times, the last metric shall prevail.
 
