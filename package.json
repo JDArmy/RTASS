@@ -22,7 +22,7 @@
   "dependencies": {
     "chart.js": "^3.7.1",
     "vm-browserify": "^1.1.2",
-    "vue": "^3.2.31",
+    "vue": "^3.2.37",
     "vue3-i18n": "^1.1.5"
   },
   "main": "webpack.config.js",
