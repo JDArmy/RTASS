@@ -1,1162 +1,1162 @@
 {
-    "title": "Red Team Assessment Scoring System (RTASS)",
-    "keyword": "Red Team Assessment Scoring System",
-    "description": "The Red Team Assessment Scoring System (RTASS) is an open framework used to assess the capability investment of both offensive and defensive sides in a single cyber red-blue confrontation or actual combat exercise, as well as the degree of risk faced by the business and the enterprise involved. Through RTASS, it is possible to quantify the risk status of attackers, defenders, business parties and enterprises in the red-blue adversarial network attack and defense drills. This framework is suitable for security assessment scenarios that conduct real network attacks on enterprises by simulating hacker APT methods, such as network red-blue confrontation drills, network actual offensive and defensive exercises, red team assessments, and blue army assessments.",
-    "maintainer": "Monyer",
-    "license": "Apache",
-    "rights": "RTASS is founded, owned, and managed by the JD.Army team. JD.Army is a professional red team which focuses on excavating and solving the hidden security risks of enterprise safe operation. JD.Army reserves the right to update RTASS and this document regularly at its sole discretion. Although JD.Army owns all the rights and interests in RTASS, it permits the public to use it freely and follows the Apache open source agreement.",
-    "calculator": "https://jd.army/RTASS/",
-    "github": "https://github.com/JDArmy/RTASS",
-    "version": "0.3.2",
-    "abilities": {
+  "title": "Red Team Assessment Scoring System (RTASS)",
+  "keyword": "Red Team Assessment Scoring System",
+  "description": "The Red Team Assessment Scoring System (RTASS) is an open framework used to assess the capability investment of both offensive and defensive sides in a single cyber red-blue confrontation or actual combat exercise, as well as the degree of risk faced by the business and the enterprise involved. Through RTASS, it is possible to quantify the risk status of attackers, defenders, business parties and enterprises in the red-blue adversarial network attack and defense drills. This framework is suitable for security assessment scenarios that conduct real network attacks on enterprises by simulating hacker APT methods, such as network red-blue confrontation drills, network actual offensive and defensive exercises, red team assessments, and blue army assessments.",
+  "maintainer": "Monyer",
+  "license": "Apache",
+  "rights": "RTASS is founded, owned, and managed by the JD.Army team. JD.Army is a professional red team which focuses on excavating and solving the hidden security risks of enterprise safe operation. JD.Army reserves the right to update RTASS and this document regularly at its sole discretion. Although JD.Army owns all the rights and interests in RTASS, it permits the public to use it freely and follows the Apache open source agreement.",
+  "calculator": "https://rtass.jd.army",
+  "github": "https://github.com/JDArmy/RTASS",
+  "version": "0.3.2",
+  "abilities": {
+    "IRC": {
+      "keyword": "Intelligence Reconnaissance Capability",
+      "name": "Intelligence Reconnaissance Capability",
+      "description": "The attacker's capabilities in the information gathering, intelligence reconnaissance phase",
+      "options": [
+        "0 - Could not obtain valid intelligence information",
+        "1 - Basic IT asset and network information collection capabilities",
+        "2 - Strong asset collection ability, able to find remote and vulnerable assets; strong organizational personnel reconnaissance ability, able to find key social work targets",
+        "3 - Ability to fully grasp the intelligence of the target organization, operations, collaboration, personnel, assets, security, network architecture, etc. through active and passive means, and formulate targeted attack plans",
+        "4 - Under the premise that the target is not aware of the target, it can grasp the overall picture of the online and offline operations of the target enterprise and the details of the target, accurately draw the attack path, and quickly and accurately find the stronghold establishment plan"
+      ]
+    },
+    "WC": {
+      "keyword": "Weaponization Capability",
+      "name": "Weaponization Capability",
+      "description": "Attacker capabilities during the weaponization, resource development phase",
+      "options": [
+        "0 - no programming or programming ability",
+        "1 - Ability to write simple script EXP",
+        "2 - Ability to write more complex penetration tools",
+        "3 - Able to develop C2, automated penetration platform",
+        "4 - Ability to design and implement advanced complex nuclear bomb-level weapons (eg Stuxnet, Bvp47, Wannacry, etc.)"
+      ]
+    },
+    "VMEC": {
+      "keyword": "Vulnerability Mining and Exploitation Capability",
+      "name": "Vulnerability Mining and Exploitation Capability",
+      "description": "Attacker's black and white box vulnerability mining ability and actual combat vulnerability exploitation ability",
+      "options": [
+        "0 - Unable to find valuable exploits or exploited exploits successfully",
+        "1 - Able to exploit general vulnerabilities in applications and exploit them successfully",
+        "2 - Ability to mine and exploit highly complex vulnerabilities in applications",
+        "3 - Ability to mine common component or middleware vulnerabilities and exploit them successfully",
+        "4 - Ability to mine operating system and common system component-level vulnerabilities and exploit them successfully"
+      ]
+    },
+    "ATDC": {
+      "keyword": "Anti Threat Detection Capability",
+      "name": "Anti Threat Detection Capability",
+      "description": "Attacker's ability to bypass WAFs, firewalls, antivirus, and threat detection devices",
+      "options": [
+        "0 - Little means or ability to counter threat detection systems",
+        "1 - Able to bypass WAF, NGFW and other defenses to achieve vulnerability exploitation",
+        "2 - It can bypass anti-virus, HIDPS and other defense methods to achieve C2 online without alarm",
+        "3 - Low threat perception during RBI and intranet lateral movement",
+        "4 - In the case of extremely strong defensive strength, non-perceptual, long-term, and stable target action can be achieved after target breakthrough"
+      ]
+    },
+    "SEC": {
+      "keyword": "Social Engineering Capability",
+      "name": "Social Engineering Capability",
+      "description": "The attacker's social engineering capabilities on the network or on the ground and the success rate",
+      "options": [
+        "0 - cannot implement successful social work",
+        "1 - Successful social worker with access to general staff",
+        "2 - Successful social work and access to security awareness trained non-security practitioners",
+        "3 - Successful social work and authorization for those who are engaged in security positions",
+        "4 - Able to successfully social work and gain access to the most professional security engineers"
+      ]
+    },
+    "PPC": {
+      "keyword": "Permission Persistence Capability",
+      "name": "Permission Persistence Capability",
+      "description": "The attacker's ability to maintain permissions on the foothold after gaining initial access",
+      "options": [
+        "0 - Unable to maintain stability and continuity of stronghold authority",
+        "1 - Enables long-term stable execution of basic orders at the base",
+        "2 - Invisible permission maintenance in case of reboot",
+        "3 - Ability to execute more commands without perceptually elevating the base's privileges",
+        "4 - Privilege Sustainability After Emergency Response"
+      ]
+    },
+    "TCC": {
+      "keyword": "Tunnel Construction Capability",
+      "name": "Tunnel Construction Capability",
+      "description": "Attacker's ability to build tunnels after gaining initial access",
+      "options": [
+        "0 - Unable to build a smooth and stable tunnel",
+        "1 - Able to build a simple springboard to achieve C2 online and intranet roaming",
+        "2 - Ability to build multi-level springboard tunnels according to the needs of the environment",
+        "3 - Ability to hide springboard traffic into normal network traffic to achieve threat insensitivity",
+        "4 - On the basis of the former, it can penetrate the target multi-layer intranet and use a variety of different protocols to build long-term and stable tunnel links"
+      ]
+    },
+    "LMC": {
+      "keyword": "Lateral Movement Capability",
+      "name": "Lateral Movement Capability",
+      "description": "After gaining initial access, the attacker gains more permissions and expands the network expansion capabilities of the results",
+      "options": [
+        "0 - The base is the end point, no continuous network expansion capability",
+        "1 - The identity and location of the base can be confirmed through information collection, and useful intelligence information can be obtained",
+        "2 - On the basis of the former, it can conduct non-perceptual intranet spying, find a lateral movement path or target to move",
+        "3 - On the basis of the former, access credentials can be obtained and the credentials can be successfully used for lateral movement",
+        "4 - On the basis of the former, non-perceptual lateral movement is realized through various complex technical means such as puddles, social work, and supply chains."
+      ]
+    },
+    "GAT": {
+      "keyword": "Goal Achievement Time",
+      "name": "Goal Achievement Time",
+      "description": "The minimum time to achieve breakthrough control of the target by an attacker.",
+      "options": [
+        "0 - The breakout control of the target system has not been completed within the set time",
+        "1 - The target breakthrough was not completed within the set time, but the breakthrough control of multiple core systems",
+        "2 - Complete the breakthrough control of some targets within the set time",
+        "3 - Complete the main core target breakthrough control within 1-3 weeks",
+        "4 - Complete the main core target breakthrough control within 1-3 days"
+      ]
+    },
+    "GAC": {
+      "keyword": "Goal Achievement Cost",
+      "name": "Goal Achievement Cost",
+      "description": "The work cost of weapons, manpower, vulnerabilities, etc. that the attacker needs to pay in order to achieve the goal",
+      "options": [
+        "0 - Severely making ends meet",
+        "1 - great cost (nuclear 0day, etc.)",
+        "2 - Larger cost (generic 0day, etc.)",
+        "3 - lower cost",
+        "4 - almost no cost"
+      ]
+    },
+    "GAA": {
+      "keyword": "Goal Action Ability",
+      "name": "Goal Action Ability",
+      "description": "The attacker's ability to maximize the ability to achieve the ultimate goal after gaining access to the target",
+      "options": [
+        "0 - Unable to achieve target action on target",
+        "1 - Partial data leakage to target can be achieved",
+        "2 - A partial operational impact on the target can be achieved",
+        "3 - Full data leakage to the target can be achieved",
+        "4 - Full data exfiltration can be accomplished without perception, or with long-term lasting effects"
+      ]
+    },
+    "IEMC": {
+      "keyword": "Information Event Management Capability",
+      "name": "Information Event Management Capability",
+      "description": "Defender's ability to manage various logs and events",
+      "options": [
+        "0 - The implementation of log management specifications is not in place, and a large number of logs are missing",
+        "1 - Decentralized logging and event tracing capabilities",
+        "2 - There is a centralized security log and event management system",
+        "3 - Ability to classify and summarize log events, identify, rate and alert on threats",
+        "4 - Comprehensive and systematic log incident response and automated security operations capabilities"
+      ]
+    },
+    "SUMC": {
+      "keyword": "Software Update Management Capability",
+      "name": "Software Update Management Capability",
+      "description": "The defender's vulnerability management capabilities for various software, systems, components, and dependencies.",
+      "options": [
+        "0 - No software update management capabilities, with a large number of long-term critical vulnerabilities",
+        "1 - Timely security updates can be made to the operating system patches of production servers",
+        "2 - On the basis of the former, the software commonly used in development, operation and maintenance, and employee office terminal software can be managed in a unified manner and updated safely in a timely manner",
+        "3 - On the basis of the former, version management and timely security updates can be performed on the system, container service programs, and middleware",
+        "4 - On the basis of the former, version management and timely security updates can be performed on the components that the application relies on and references"
+      ]
+    },
+    "TIBC": {
+      "keyword": "Threat Identification Blocking Capability",
+      "name": "Threat Identification Blocking Capability",
+      "description": "Ability to identify and block threats on internal and external networks and terminals.",
+      "options": [
+        "0 - No threat identification blocking facility",
+        "1 - There are border traffic protection and blocking facilities",
+        "2 - On the basis of the former, there are internal traffic protection and blocking facilities",
+        "3 - On the basis of the former, there are endpoint protection and blocking facilities",
+        "4 - On the basis of the former, there are security orchestration and automated response facilities"
+      ]
+    },
+    "BSMC": {
+      "keyword": "Baseline Security Management Capabilities",
+      "name": "Baseline Security Management Capabilities",
+      "description": "The defender's baseline security management capability for various systems and applications.",
+      "options": [
+        "0 - No baseline security management capability",
+        "1 - With service security configuration and audit log baseline management",
+        "2 - Based on the former, there is access control baseline management",
+        "3 - On the basis of the former, there are account permissions and authentication authorization baseline management",
+        "4 - On the basis of the former, there are security testing and evaluation processes for services, networks, and supply chains"
+      ]
+    },
+    "ASMC": {
+      "keyword": "Account Security Management Capabilities",
+      "name": "Account Security Management Capabilities",
+      "description": "Defenders have unified management of various accounts and dynamic threat identification capabilities.",
+      "options": [
+        "0 - no unified identity management capability",
+        "1 - Unified account management and authentication",
+        "2 - More secure authentication techniques (go password or MFA etc.)",
+        "3 - Unified Identity Management Based on Trusted Devices",
+        "4 - Dynamic Adaptive and Continuous Authentication"
+      ]
+    },
+    "PSMC": {
+      "keyword": "Privilege Security Management Capability",
+      "name": "Privilege Security Management Capability",
+      "description": "Defenders have unified access and dynamic management and control capabilities for various accounts.",
+      "options": [
+        "0 - no authority unified management capability",
+        "1 - Unified functional granularity rights management (authorization, authentication, etc.)",
+        "2 - Ongoing Evaluation and Online Governance of Privilege Minimization",
+        "3 - Unified data granularity rights management",
+        "4 - Continuous Evaluation and Dynamic Control of Privilege Abuse Prevention"
+      ]
+    },
+    "NACC": {
+      "keyword": "Network Access Control Capability",
+      "name": "Network Access Control Capability",
+      "description": "Access control and granularity between networks and terminals inside and outside the enterprise.",
+      "options": [
+        "0 - the network does not perform any access control",
+        "1 - The office network is isolated from the production network and accessed through the bastion machine",
+        "2 - On the basis of the former, there is network isolation between external customer service and internal employee service",
+        "3 - On the basis of the former, there is network isolation between different application services",
+        "4 - On the basis of the former, there are more fine-grained micro-isolation capabilities"
+      ]
+    },
+    "ETTA": {
+      "keyword": "External Threat Traffic Awareness",
+      "name": "External Threat Traffic Awareness",
+      "description": "Threat traffic awareness of an enterprise when it is attacked by an external network.",
+      "options": [
+        "0 - almost no perception",
+        "1 - has a small amount of perception",
+        "2 - has moderate perception",
+        "3 - has a lot of perception",
+        "4 - almost all perception"
+      ]
+    },
+    "EHAA": {
+      "keyword": "External Harpoon Attack Awareness",
+      "name": "External Harpoon Attack Awareness",
+      "description": "Threat perception and handling capabilities of an enterprise when it is attacked by an external spear.",
+      "options": [
+        "0 - no perception",
+        "1 - Perceives an attack event and is able to capture attack samples",
+        "2 - On the basis of the former, it is possible to trace out all the fished persons and alert them",
+        "3 - On the basis of the former, it is possible to sense that employees are recruited by phishing, extract terminal samples, and restore the attack method",
+        "4 - On the basis of the former, the landing, execution and online actions of the fishing Trojan can be quickly sensed, and can be blocked in time"
+      ]
+    },
+    "PPAA": {
+      "keyword": "Proximity Penetration Attack Awareness",
+      "name": "Proximity Penetration Attack Awareness",
+      "description": "The ability of enterprises to perceive and deal with threats when they are subjected to near-source on-the-spot attacks and physical penetration.",
+      "options": [
+        "0 - almost no perception",
+        "1 - After a successful attack, determine the path of the near-source penetration attack through source tracing.",
+        "2 - Successfully found traces of near-source penetration through technical monitoring and administrative means, including but not limited to collecting U disks, capturing HID attacks, wifi blasting, etc.",
+        "3 - On the basis of the former, it can analyze in detail the attack methods and attack processes used by the attackers, including but not limited to the analysis of attack methods against wifi and the analysis of Trojan horses",
+        "4 - On the basis of the former, it has independent near-source perception capabilities to quickly detect near-source attacks and block them in time."
+      ]
+    },
+    "ITTA": {
+      "keyword": "Intranet Threat Traffic Awareness",
+      "name": "Intranet Threat Traffic Awareness",
+      "description": "Threat-traffic awareness of an enterprise under attack from the inside.",
+      "options": [
+        "0 - almost no perception",
+        "1 - Can perceive indiscriminate full intranet scanning behavior, identify abnormal points and quickly locate the scanning source IP",
+        "2 - Based on traffic characteristics, small-scale intranet scans such as C segment can be captured, and the target and purpose can be restored.",
+        "3 - On the basis of the former, perception of partial credential exploitation and lateral movement behavior, or data exfiltration behavior",
+        "4 - Perception of almost the entire attack process, and the encrypted C2 channel used by the attacker"
+      ]
+    },
+    "EMA": {
+      "keyword": "Endpoint Malware Awareness",
+      "name": "Endpoint Malware Awareness",
+      "description": "The threat perception capability of enterprise personal office computers, servers and other terminal devices when they are attacked by malware.",
+      "options": [
+        "0 - almost no perception",
+        "1 - There is a smooth feedback channel for employee security issues, and terminal attacks are quickly detected",
+        "2 - Ability to sense endpoint attacks through endpoint detection responses, threat traffic analysis",
+        "3 - Capable of capturing attack samples, extracting effective network or host IOC and implementing monitoring and blocking capability deployment",
+        "4 - Complete automated sandbox analysis, threat identification intelligence and strategies, security orchestration and automated threat handling mechanisms"
+      ]
+    },
+    "EABA": {
+      "keyword": "Endpoint Abnormal Behavior Awareness",
+      "name": "Endpoint Abnormal Behavior Awareness",
+      "description": "The threat perception ability of enterprise personal office computers, servers and other terminal equipment to dangerous operations and abnormal behaviors.",
+      "options": [
+        "0 - almost no perception",
+        "1 - Able to perceive large-scale network scanning behavior for this machine and alert",
+        "2 - Able to perceive the network password blasting behavior against this machine and give an alarm",
+        "3 - On the basis of the former, it can perceive the abnormal operation behavior of privileged accounts, sensitive files and processes on the terminal",
+        "4 - On the basis of the former, it can perceive abnormal remote access behavior between terminals"
+      ]
+    },
+    "TDR": {
+      "keyword": "Threat Detection Rate",
+      "name": "Threat Detection Rate",
+      "description": "The coverage rate of high-risk threats actually identified by the defender through manual or other means after the system detects the threat.",
+      "options": [
+        "0 - no threat detected (within 12 hours)",
+        "1 - detection rate: 0 < N <= 25%",
+        "2 - Detection rate: 25% < N <= 50%",
+        "3 - Detection rate: 50% < N <= 80%",
+        "4 - Detection rate: 80% < N <= 100%"
+      ]
+    },
+    "TITR": {
+      "keyword": "Threat Identification Timeliness Rate",
+      "name": "Threat Identification Timeliness Rate",
+      "description": "The timely rate of high-risk threats actually identified by the defender through manual or other means after the system detects the threat.",
+      "options": [
+        "0 - Threat not identified in time (within 12 hours)",
+        "1 - Timely rate: 0 < N <= 25%",
+        "2 - Timeliness: 25% < N <= 50%",
+        "3 - Timeliness: 50% < N <= 80%",
+        "4 - Timeliness: 80% < N <= 100%"
+      ]
+    },
+    "THC": {
+      "keyword": "Threat Handling Capability",
+      "name": "Threat Handling Capability",
+      "description": "Threat disposition coverage by defenders after a threat is detected.",
+      "options": [
+        "0 - No action taken (within 12 hours)",
+        "1 - Disposal rate: 0 < N <= 25%",
+        "2 - Disposal rate: 25% < N <= 50%",
+        "3 - Disposal rate: 50% < N <= 80%",
+        "4 - Disposal rate: 80% < N <= 100%"
+      ]
+    },
+    "TDTR": {
+      "keyword": "Threat Disposal Timely Rate",
+      "name": "Threat Disposal Timely Rate",
+      "description": "The defender's timely threat resolution rate after a threat is detected.",
+      "options": [
+        "0 - No timely disposal (within 12 hours)",
+        "1 - Timely rate: 0 < N <= 25%",
+        "2 - Timeliness: 25% < N <= 50%",
+        "3 - Timeliness: 50% < N <= 80%",
+        "4 - Timeliness: 80% < N <= 100%"
+      ]
+    },
+    "TAC": {
+      "keyword": "Threat Analysis Capability",
+      "name": "Threat Analysis Capability",
+      "description": "Defender's ability to identify, analyze, and reverse threats",
+      "options": [
+        "0 - no threat analysis capability",
+        "1 - Ability to accurately identify threats and extract valid IOCs",
+        "2 - Has automated threat analysis and intelligence sharing mechanisms",
+        "3 - Able to perform complex threat analysis, restore attack methods and targets",
+        "4 - With automated threat analysis technology and professional reverse analysis capabilities, a complete analysis report can be formed"
+      ]
+    },
+    "IPTC": {
+      "keyword": "Intrusion Path Traceability Capability",
+      "name": "Intrusion Path Traceability Capability",
+      "description": "The ability of the defender to trace the intrusion path of the intruder",
+      "options": [
+        "0 - no intrusion path traceability",
+        "1 - Attack path restoration 0 - 25%",
+        "2 - Attack path restoration 25% - 50%",
+        "3 - Attack path restoration 50% - 80%",
+        "4 - Attack Path Recovery 80% - 100%"
+      ]
+    },
+    "ATCC": {
+      "keyword": "Attacker Traceability and Countermeasure Capability",
+      "name": "Attacker Traceability and Countermeasure Capability",
+      "description": "The ability of the defender to trace the source to the attacker",
+      "options": [
+        "0 - hardly any useful information can be traced back to the source",
+        "1 - Attacker's C2 server IP or springboard IP is traced",
+        "2 - Attackers commonly use virtual identities or real IPs in China to be traced",
+        "3 - Attacker's attack asset or computer is reversely controlled",
+        "4 - The real identity information of the attacker is traced to the source"
+      ]
+    },
+    "DEC": {
+      "keyword": "Deception and Entrapment Capabilities",
+      "name": "Deception and Entrapment Capabilities",
+      "description": "Enterprise honeypot honeynet construction, and the ability to deceive and trap attackers",
+      "options": [
+        "0 - no deception trapping ability",
+        "1 - Build a high-fidelity honeypot in the network",
+        "2 - A highly simulated honeynet is built in the network, which can introduce attackers into the honeynet",
+        "3 - Dynamic honeynet capability, which can direct all attacker traffic into the honeynet from the production environment",
+        "4 - It has perfect secret spraying, honey tagging and honey application customization, honey farm management capabilities, and can realize active attraction, dynamic adaptation and anti-trapping capabilities"
+      ]
+    }
+  },
+  "factors": {
+    "OL": {
+      "keyword": "Offensive Level",
+      "name": "Offensive Level",
+      "description": "The highest level of skill used by the attacker in the evaluation path.",
+      "options": [
+        "0 - equivalent to entry-level hacker",
+        "1 - Equivalent to a normal level hacker or a tool, script hacker",
+        "2 - equivalent to a hacker proficient in penetration techniques",
+        "3 - Requires more professional teamwork",
+        "4 - Equivalent to National APT Hacking Team"
+      ],
+      "vectors": {
         "IRC": {
-            "keyword": "Intelligence Reconnaissance Capability",
-            "name": "Intelligence Reconnaissance Capability",
-            "description": "The attacker's capabilities in the information gathering, intelligence reconnaissance phase",
-            "options": [
-                "0 - Could not obtain valid intelligence information",
-                 "1 - Basic IT asset and network information collection capabilities",
-                 "2 - Strong asset collection ability, able to find remote and vulnerable assets; strong organizational personnel reconnaissance ability, able to find key social work targets",
-                 "3 - Ability to fully grasp the intelligence of the target organization, operations, collaboration, personnel, assets, security, network architecture, etc. through active and passive means, and formulate targeted attack plans",
-                 "4 - Under the premise that the target is not aware of the target, it can grasp the overall picture of the online and offline operations of the target enterprise and the details of the target, accurately draw the attack path, and quickly and accurately find the stronghold establishment plan"
-            ]
+          "algorithm": " IRC * 1 ",
+          "description": ""
         },
         "WC": {
-            "keyword": "Weaponization Capability",
-            "name": "Weaponization Capability",
-            "description": "Attacker capabilities during the weaponization, resource development phase",
-            "options": [
-                "0 - no programming or programming ability",
-                 "1 - Ability to write simple script EXP",
-                 "2 - Ability to write more complex penetration tools",
-                 "3 - Able to develop C2, automated penetration platform",
-                 "4 - Ability to design and implement advanced complex nuclear bomb-level weapons (eg Stuxnet, Bvp47, Wannacry, etc.)"
-            ]
+          "algorithm": " WC * 1 ",
+          "description": ""
         },
         "VMEC": {
-            "keyword": "Vulnerability Mining and Exploitation Capability",
-            "name": "Vulnerability Mining and Exploitation Capability",
-            "description": "Attacker's black and white box vulnerability mining ability and actual combat vulnerability exploitation ability",
-            "options": [
-                "0 - Unable to find valuable exploits or exploited exploits successfully",
-                 "1 - Able to exploit general vulnerabilities in applications and exploit them successfully",
-                 "2 - Ability to mine and exploit highly complex vulnerabilities in applications",
-                 "3 - Ability to mine common component or middleware vulnerabilities and exploit them successfully",
-                 "4 - Ability to mine operating system and common system component-level vulnerabilities and exploit them successfully"
-            ]
+          "algorithm": " VMEC * 1 ",
+          "description": ""
         },
         "ATDC": {
-            "keyword": "Anti Threat Detection Capability",
-            "name": "Anti Threat Detection Capability",
-            "description": "Attacker's ability to bypass WAFs, firewalls, antivirus, and threat detection devices",
-            "options": [
-                "0 - Little means or ability to counter threat detection systems",
-                 "1 - Able to bypass WAF, NGFW and other defenses to achieve vulnerability exploitation",
-                 "2 - It can bypass anti-virus, HIDPS and other defense methods to achieve C2 online without alarm",
-                 "3 - Low threat perception during RBI and intranet lateral movement",
-                 "4 - In the case of extremely strong defensive strength, non-perceptual, long-term, and stable target action can be achieved after target breakthrough"
-            ]
+          "algorithm": " ATDC * 1 ",
+          "description": ""
         },
         "SEC": {
-            "keyword": "Social Engineering Capability",
-            "name": "Social Engineering Capability",
-            "description": "The attacker's social engineering capabilities on the network or on the ground and the success rate",
-            "options": [
-                "0 - cannot implement successful social work",
-                 "1 - Successful social worker with access to general staff",
-                 "2 - Successful social work and access to security awareness trained non-security practitioners",
-                 "3 - Successful social work and authorization for those who are engaged in security positions",
-                 "4 - Able to successfully social work and gain access to the most professional security engineers"
-            ]
+          "algorithm": " SEC * 1 ",
+          "description": ""
         },
         "PPC": {
-            "keyword": "Permission Persistence Capability",
-            "name": "Permission Persistence Capability",
-            "description": "The attacker's ability to maintain permissions on the foothold after gaining initial access",
-            "options": [
-                "0 - Unable to maintain stability and continuity of stronghold authority",
-                 "1 - Enables long-term stable execution of basic orders at the base",
-                 "2 - Invisible permission maintenance in case of reboot",
-                 "3 - Ability to execute more commands without perceptually elevating the base's privileges",
-                 "4 - Privilege Sustainability After Emergency Response"
-            ]
+          "algorithm": " PPC * 1 ",
+          "description": ""
         },
         "TCC": {
-            "keyword": "Tunnel Construction Capability",
-            "name": "Tunnel Construction Capability",
-            "description": "Attacker's ability to build tunnels after gaining initial access",
-            "options": [
-                "0 - Unable to build a smooth and stable tunnel",
-                 "1 - Able to build a simple springboard to achieve C2 online and intranet roaming",
-                 "2 - Ability to build multi-level springboard tunnels according to the needs of the environment",
-                 "3 - Ability to hide springboard traffic into normal network traffic to achieve threat insensitivity",
-                 "4 - On the basis of the former, it can penetrate the target multi-layer intranet and use a variety of different protocols to build long-term and stable tunnel links"
-            ]
+          "algorithm": " TCC * 1 ",
+          "description": ""
         },
         "LMC": {
-            "keyword": "Lateral Movement Capability",
-            "name": "Lateral Movement Capability",
-            "description": "After gaining initial access, the attacker gains more permissions and expands the network expansion capabilities of the results",
-            "options": [
-                "0 - The base is the end point, no continuous network expansion capability",
-                 "1 - The identity and location of the base can be confirmed through information collection, and useful intelligence information can be obtained",
-                 "2 - On the basis of the former, it can conduct non-perceptual intranet spying, find a lateral movement path or target to move",
-                 "3 - On the basis of the former, access credentials can be obtained and the credentials can be successfully used for lateral movement",
-                 "4 - On the basis of the former, non-perceptual lateral movement is realized through various complex technical means such as puddles, social work, and supply chains."
-            ]
-        },
+          "algorithm": " LMC * 1 ",
+          "description": ""
+        }
+      }
+    },
+    "OD": {
+      "keyword": "Offensive Difficulty",
+      "name": "Offensive Difficulty",
+      "description": "The highest difficulty the attacker has to solve the puzzle in the entire evaluation path.",
+      "options": [
+        "0 - almost no difficulty for professional hackers",
+        "1 - a bit difficult for professional hackers",
+        "2 - more difficult for professional hackers",
+        "3 - difficult for professional hackers",
+        "4 - Almost impossible for professional hackers"
+      ]
+    },
+    "TR": {
+      "keyword": "Target Reach",
+      "name": "Target Reach",
+      "description": "Whether the attacker achieved the intended goal",
+      "options": [
+        "0 - basically not achieved",
+        "1 - small amount achieved",
+        "2 - medium volume reached",
+        "3 - Mass Achievement",
+        "4 - Fully Achieved"
+      ],
+      "vectors": {
         "GAT": {
-            "keyword": "Goal Achievement Time",
-            "name": "Goal Achievement Time",
-            "description": "The minimum time to achieve breakthrough control of the target by an attacker.",
-            "options": [
-                "0 - The breakout control of the target system has not been completed within the set time",
-                 "1 - The target breakthrough was not completed within the set time, but the breakthrough control of multiple core systems",
-                 "2 - Complete the breakthrough control of some targets within the set time",
-                 "3 - Complete the main core target breakthrough control within 1-3 weeks",
-                 "4 - Complete the main core target breakthrough control within 1-3 days"
-            ]
+          "algorithm": " GAT * 1 ",
+          "description": ""
         },
         "GAC": {
-            "keyword": "Goal Achievement Cost",
-            "name": "Goal Achievement Cost",
-            "description": "The work cost of weapons, manpower, vulnerabilities, etc. that the attacker needs to pay in order to achieve the goal",
-            "options": [
-                "0 - Severely making ends meet",
-                 "1 - great cost (nuclear 0day, etc.)",
-                 "2 - Larger cost (generic 0day, etc.)",
-                 "3 - lower cost",
-                 "4 - almost no cost"
-            ]
+          "algorithm": " GAC * 1 ",
+          "description": ""
         },
         "GAA": {
-            "keyword": "Goal Action Ability",
-            "name": "Goal Action Ability",
-            "description": "The attacker's ability to maximize the ability to achieve the ultimate goal after gaining access to the target",
-            "options": [
-                "0 - Unable to achieve target action on target",
-                 "1 - Partial data leakage to target can be achieved",
-                 "2 - A partial operational impact on the target can be achieved",
-                 "3 - Full data leakage to the target can be achieved",
-                 "4 - Full data exfiltration can be accomplished without perception, or with long-term lasting effects"
-            ]
-        },
+          "algorithm": " GAA * 1 ",
+          "description": ""
+        }
+      }
+    },
+    "AL": {
+      "keyword": "Anti-traceability Level",
+      "name": "Anti-traceability Level",
+      "description": "What is the attacker's ability to trace back to the source?",
+      "options": [
+        "0 - The attacker's real identity information is traced to the source, or the attacking asset or computer is reversely controlled",
+        "1 - The attacker's virtual identity feature or the real IP in the territory is traced",
+        "2 - The attacker's persistent attack behavior is marked by fingerprints, or a large number of indicators of attack (IOAs) are marked by records (honeypots, etc.)",
+        "3 - The attacker's fixed C2 server IP or fixed tunnel return IP is traced back to the source",
+        "4 - hardly any useful information can be traced back to the source"
+      ]
+    },
+    "PL": {
+      "keyword": "Prevention Level",
+      "name": "Prevention Level",
+      "description": "A defender's ability to block critical penetration paths.",
+      "options": [
+        "0 - almost no interception",
+        "1 - slight interception",
+        "2 - stronger interception",
+        "3 - very strong interception",
+        "4 - almost hard to break"
+      ],
+      "vectors": {
         "IEMC": {
-            "keyword": "Information Event Management Capability",
-            "name": "Information Event Management Capability",
-            "description": "Defender's ability to manage various logs and events",
-            "options": [
-                "0 - The implementation of log management specifications is not in place, and a large number of logs are missing",
-                 "1 - Decentralized logging and event tracing capabilities",
-                 "2 - There is a centralized security log and event management system",
-                 "3 - Ability to classify and summarize log events, identify, rate and alert on threats",
-                 "4 - Comprehensive and systematic log incident response and automated security operations capabilities"
-            ]
+          "algorithm": " IEMC * 1 ",
+          "description": ""
         },
         "SUMC": {
-            "keyword": "Software Update Management Capability",
-            "name": "Software Update Management Capability",
-            "description": "The defender's vulnerability management capabilities for various software, systems, components, and dependencies.",
-            "options": [
-                "0 - No software update management capabilities, with a large number of long-term critical vulnerabilities",
-                 "1 - Timely security updates can be made to the operating system patches of production servers",
-                 "2 - On the basis of the former, the software commonly used in development, operation and maintenance, and employee office terminal software can be managed in a unified manner and updated safely in a timely manner",
-                 "3 - On the basis of the former, version management and timely security updates can be performed on the system, container service programs, and middleware",
-                 "4 - On the basis of the former, version management and timely security updates can be performed on the components that the application relies on and references"
-            ]
+          "algorithm": " SUMC * 1 ",
+          "description": ""
         },
         "TIBC": {
-            "keyword": "Threat Identification Blocking Capability",
-            "name": "Threat Identification Blocking Capability",
-            "description": "Ability to identify and block threats on internal and external networks and terminals.",
-            "options": [
-                "0 - No threat identification blocking facility",
-                 "1 - There are border traffic protection and blocking facilities",
-                 "2 - On the basis of the former, there are internal traffic protection and blocking facilities",
-                 "3 - On the basis of the former, there are endpoint protection and blocking facilities",
-                 "4 - On the basis of the former, there are security orchestration and automated response facilities"
-            ]
+          "algorithm": " TIBC * 1 ",
+          "description": ""
         },
         "BSMC": {
-            "keyword": "Baseline Security Management Capabilities",
-            "name": "Baseline Security Management Capabilities",
-            "description": "The defender's baseline security management capability for various systems and applications.",
-            "options": [
-                "0 - No baseline security management capability",
-                 "1 - With service security configuration and audit log baseline management",
-                 "2 - Based on the former, there is access control baseline management",
-                 "3 - On the basis of the former, there are account permissions and authentication authorization baseline management",
-                 "4 - On the basis of the former, there are security testing and evaluation processes for services, networks, and supply chains"
-            ]
+          "algorithm": " BSMC * 1 ",
+          "description": ""
         },
         "ASMC": {
-            "keyword": "Account Security Management Capabilities",
-            "name": "Account Security Management Capabilities",
-            "description": "Defenders have unified management of various accounts and dynamic threat identification capabilities.",
-            "options": [
-                "0 - no unified identity management capability",
-                 "1 - Unified account management and authentication",
-                 "2 - More secure authentication techniques (go password or MFA etc.)",
-                 "3 - Unified Identity Management Based on Trusted Devices",
-                 "4 - Dynamic Adaptive and Continuous Authentication"
-            ]
+          "algorithm": " ASMC * 1 ",
+          "description": ""
         },
         "PSMC": {
-            "keyword": "Privilege Security Management Capability",
-            "name": "Privilege Security Management Capability",
-            "description": "Defenders have unified access and dynamic management and control capabilities for various accounts.",
-            "options": [
-                "0 - no authority unified management capability",
-                 "1 - Unified functional granularity rights management (authorization, authentication, etc.)",
-                 "2 - Ongoing Evaluation and Online Governance of Privilege Minimization",
-                 "3 - Unified data granularity rights management",
-                 "4 - Continuous Evaluation and Dynamic Control of Privilege Abuse Prevention"
-            ]
+          "algorithm": " PSMC * 1 ",
+          "description": ""
         },
         "NACC": {
-            "keyword": "Network Access Control Capability",
-            "name": "Network Access Control Capability",
-            "description": "Access control and granularity between networks and terminals inside and outside the enterprise.",
-            "options": [
-                "0 - the network does not perform any access control",
-                 "1 - The office network is isolated from the production network and accessed through the bastion machine",
-                 "2 - On the basis of the former, there is network isolation between external customer service and internal employee service",
-                 "3 - On the basis of the former, there is network isolation between different application services",
-                 "4 - On the basis of the former, there are more fine-grained micro-isolation capabilities"
-            ]
-        },
+          "algorithm": " NACC * 1 ",
+          "description": ""
+        }
+      }
+    },
+    "DL": {
+      "keyword": "Detection Level",
+      "name": "Detection Level",
+      "description": "Defender's cyber threat discovery capabilities for critical penetration paths.",
+      "options": [
+        "0 - almost no threat detected",
+        "1 - Threat of sporadic attack on non-critical assets detected",
+        "2 - few critical path threats detected",
+        "3 - Significant critical path threats detected",
+        "4 - Nearly all threats detected"
+      ],
+      "vectors": {
         "ETTA": {
-            "keyword": "External Threat Traffic Awareness",
-            "name": "External Threat Traffic Awareness",
-            "description": "Threat traffic awareness of an enterprise when it is attacked by an external network.",
-            "options": [
-                "0 - almost no perception",
-                 "1 - has a small amount of perception",
-                 "2 - has moderate perception",
-                 "3 - has a lot of perception",
-                 "4 - almost all perception"
-            ]
+          "algorithm": " ETTA * 1 ",
+          "description": ""
         },
         "EHAA": {
-            "keyword": "External Harpoon Attack Awareness",
-            "name": "External Harpoon Attack Awareness",
-            "description": "Threat perception and handling capabilities of an enterprise when it is attacked by an external spear.",
-            "options": [
-                "0 - no perception",
-                 "1 - Perceives an attack event and is able to capture attack samples",
-                 "2 - On the basis of the former, it is possible to trace out all the fished persons and alert them",
-                 "3 - On the basis of the former, it is possible to sense that employees are recruited by phishing, extract terminal samples, and restore the attack method",
-                 "4 - On the basis of the former, the landing, execution and online actions of the fishing Trojan can be quickly sensed, and can be blocked in time"
-            ]
+          "algorithm": " EHAA * 1 ",
+          "description": ""
         },
         "PPAA": {
-            "keyword": "Proximity Penetration Attack Awareness",
-            "name": "Proximity Penetration Attack Awareness",
-            "description": "The ability of enterprises to perceive and deal with threats when they are subjected to near-source on-the-spot attacks and physical penetration.",
-            "options": [
-                "0 - almost no perception",
-                 "1 - After a successful attack, determine the path of the near-source penetration attack through source tracing.",
-                 "2 - Successfully found traces of near-source penetration through technical monitoring and administrative means, including but not limited to collecting U disks, capturing HID attacks, wifi blasting, etc.",
-                 "3 - On the basis of the former, it can analyze in detail the attack methods and attack processes used by the attackers, including but not limited to the analysis of attack methods against wifi and the analysis of Trojan horses",
-                 "4 - On the basis of the former, it has independent near-source perception capabilities to quickly detect near-source attacks and block them in time."
-            ]
+          "algorithm": " PPAA * 1 ",
+          "description": ""
         },
         "ITTA": {
-            "keyword": "Intranet Threat Traffic Awareness",
-            "name": "Intranet Threat Traffic Awareness",
-            "description": "Threat-traffic awareness of an enterprise under attack from the inside.",
-            "options": [
-                "0 - almost no perception",
-                 "1 - Can perceive indiscriminate full intranet scanning behavior, identify abnormal points and quickly locate the scanning source IP",
-                 "2 - Based on traffic characteristics, small-scale intranet scans such as C segment can be captured, and the target and purpose can be restored.",
-                 "3 - On the basis of the former, perception of partial credential exploitation and lateral movement behavior, or data exfiltration behavior",
-                 "4 - Perception of almost the entire attack process, and the encrypted C2 channel used by the attacker"
-            ]
+          "algorithm": " ITTA * 1 ",
+          "description": ""
         },
         "EMA": {
-            "keyword": "Endpoint Malware Awareness",
-            "name": "Endpoint Malware Awareness",
-            "description": "The threat perception capability of enterprise personal office computers, servers and other terminal devices when they are attacked by malware.",
-            "options": [
-                "0 - almost no perception",
-                 "1 - There is a smooth feedback channel for employee security issues, and terminal attacks are quickly detected",
-                 "2 - Ability to sense endpoint attacks through endpoint detection responses, threat traffic analysis",
-                 "3 - Capable of capturing attack samples, extracting effective network or host IOC and implementing monitoring and blocking capability deployment",
-                 "4 - Complete automated sandbox analysis, threat identification intelligence and strategies, security orchestration and automated threat handling mechanisms"
-            ]
+          "algorithm": " EMA * 1 ",
+          "description": ""
         },
         "EABA": {
-            "keyword": "Endpoint Abnormal Behavior Awareness",
-            "name": "Endpoint Abnormal Behavior Awareness",
-            "description": "The threat perception ability of enterprise personal office computers, servers and other terminal equipment to dangerous operations and abnormal behaviors.",
-            "options": [
-                "0 - almost no perception",
-                 "1 - Able to perceive large-scale network scanning behavior for this machine and alert",
-                 "2 - Able to perceive the network password blasting behavior against this machine and give an alarm",
-                 "3 - On the basis of the former, it can perceive the abnormal operation behavior of privileged accounts, sensitive files and processes on the terminal",
-                 "4 - On the basis of the former, it can perceive abnormal remote access behavior between terminals"
-            ]
+          "algorithm": " EABA * 1 ",
+          "description": ""
         },
         "TDR": {
-            "keyword": "Threat Detection Rate",
-            "name": "Threat Detection Rate",
-            "description": "The coverage rate of high-risk threats actually identified by the defender through manual or other means after the system detects the threat.",
-            "options": [
-                "0 - no threat detected (within 12 hours)",
-                 "1 - detection rate: 0 < N <= 25%",
-                 "2 - Detection rate: 25% < N <= 50%",
-                 "3 - Detection rate: 50% < N <= 80%",
-                 "4 - Detection rate: 80% < N <= 100%"
-            ]
+          "algorithm": " TDR * 1 ",
+          "description": ""
         },
         "TITR": {
-            "keyword": "Threat Identification Timeliness Rate",
-            "name": "Threat Identification Timeliness Rate",
-            "description": "The timely rate of high-risk threats actually identified by the defender through manual or other means after the system detects the threat.",
-            "options": [
-                "0 - Threat not identified in time (within 12 hours)",
-                 "1 - Timely rate: 0 < N <= 25%",
-                 "2 - Timeliness: 25% < N <= 50%",
-                 "3 - Timeliness: 50% < N <= 80%",
-                 "4 - Timeliness: 80% < N <= 100%"
-            ]
-        },
+          "algorithm": " TITR * 1 ",
+          "description": ""
+        }
+      }
+    },
+    "RL": {
+      "keyword": "Response Level",
+      "name": "Response Level",
+      "description": "Defender's ability to recover, repair, and respond to a compromised system.",
+      "options": [
+        "0 - almost difficult to advance (3+ days)",
+        "1 - slow response (12+ hours)",
+        "2 - The response is more timely (within 12 hours)",
+        "3 - Response near real time (within 2 hours)",
+        "4 - Real-time response (within 30 minutes)"
+      ],
+      "vectors": {
         "THC": {
-            "keyword": "Threat Handling Capability",
-            "name": "Threat Handling Capability",
-            "description": "Threat disposition coverage by defenders after a threat is detected.",
-            "options": [
-                "0 - No action taken (within 12 hours)",
-                 "1 - Disposal rate: 0 < N <= 25%",
-                 "2 - Disposal rate: 25% < N <= 50%",
-                 "3 - Disposal rate: 50% < N <= 80%",
-                 "4 - Disposal rate: 80% < N <= 100%"
-            ]
+          "algorithm": " THC * 1 ",
+          "description": ""
         },
         "TDTR": {
-            "keyword": "Threat Disposal Timely Rate",
-            "name": "Threat Disposal Timely Rate",
-            "description": "The defender's timely threat resolution rate after a threat is detected.",
-            "options": [
-                "0 - No timely disposal (within 12 hours)",
-                 "1 - Timely rate: 0 < N <= 25%",
-                 "2 - Timeliness: 25% < N <= 50%",
-                 "3 - Timeliness: 50% < N <= 80%",
-                 "4 - Timeliness: 80% < N <= 100%"
-            ]
+          "algorithm": " TDTR * 1 ",
+          "description": ""
         },
         "TAC": {
-            "keyword": "Threat Analysis Capability",
-            "name": "Threat Analysis Capability",
-            "description": "Defender's ability to identify, analyze, and reverse threats",
-            "options": [
-                "0 - no threat analysis capability",
-                 "1 - Ability to accurately identify threats and extract valid IOCs",
-                 "2 - Has automated threat analysis and intelligence sharing mechanisms",
-                 "3 - Able to perform complex threat analysis, restore attack methods and targets",
-                 "4 - With automated threat analysis technology and professional reverse analysis capabilities, a complete analysis report can be formed"
-            ]
-        },
+          "algorithm": " TAC * 1 ",
+          "description": ""
+        }
+      }
+    },
+    "TL": {
+      "keyword": "Traceability Level",
+      "name": "Traceability Level",
+      "description": "Whether the defender can effectively trace the source of the attacker.",
+      "options": [
+        "0 - hardly any useful information can be traced back to the source",
+        "1 - The attacker's fixed C2 server IP or fixed tunnel back-up IP is traced back to the source",
+        "2 - The attacker's persistent attack behavior is marked by fingerprints, or a large number of indicators of attack (IOAs) are marked by records (honeypots, etc.)",
+        "3 - The attacker's virtual identity feature or the real IP in the territory is traced",
+        "4 - The attacker's real identity information is traced, or the attacked assets or computers are reversely controlled"
+      ],
+      "vectors": {
         "IPTC": {
-            "keyword": "Intrusion Path Traceability Capability",
-            "name": "Intrusion Path Traceability Capability",
-            "description": "The ability of the defender to trace the intrusion path of the intruder",
-            "options": [
-                "0 - no intrusion path traceability",
-                 "1 - Attack path restoration 0 - 25%",
-                 "2 - Attack path restoration 25% - 50%",
-                 "3 - Attack path restoration 50% - 80%",
-                 "4 - Attack Path Recovery 80% - 100%"
-            ]
+          "algorithm": " IPTC * 1 ",
+          "description": ""
         },
         "ATCC": {
-            "keyword": "Attacker Traceability and Countermeasure Capability",
-            "name": "Attacker Traceability and Countermeasure Capability",
-            "description": "The ability of the defender to trace the source to the attacker",
-            "options": [
-                "0 - hardly any useful information can be traced back to the source",
-                 "1 - Attacker's C2 server IP or springboard IP is traced",
-                 "2 - Attackers commonly use virtual identities or real IPs in China to be traced",
-                 "3 - Attacker's attack asset or computer is reversely controlled",
-                 "4 - The real identity information of the attacker is traced to the source"
-            ]
+          "algorithm": " ATCC * 1 ",
+          "description": ""
         },
         "DEC": {
-            "keyword": "Deception and Entrapment Capabilities",
-            "name": "Deception and Entrapment Capabilities",
-            "description": "Enterprise honeypot honeynet construction, and the ability to deceive and trap attackers",
-            "options": [
-                "0 - no deception trapping ability",
-                 "1 - Build a high-fidelity honeypot in the network",
-                 "2 - A highly simulated honeynet is built in the network, which can introduce attackers into the honeynet",
-                 "3 - Dynamic honeynet capability, which can direct all attacker traffic into the honeynet from the production environment",
-                 "4 - It has perfect secret spraying, honey tagging and honey application customization, honey farm management capabilities, and can realize active attraction, dynamic adaptation and anti-trapping capabilities"
-            ]
+          "algorithm": " DEC * 1 ",
+          "description": ""
         }
+      }
     },
-    "factors": {
+    "VD": {
+      "keyword": "Vulnerability Discoverability",
+      "name": "Vulnerability Discoverability",
+      "description": "Discoverability of critical vulnerabilities in the penetration path.",
+      "options": [
+        "0 - almost impossible to find",
+        "1 - harder to spot for professional hackers",
+        "2 - Medium difficulty to find for professional hackers",
+        "3 - For professional hackers, discovery is easier",
+        "4 - Discovery with common automation tools"
+      ]
+    },
+    "VE": {
+      "keyword": "Vulnerability Exploitability",
+      "name": "Vulnerability Exploitability",
+      "description": "Exploitability of critical vulnerabilities in the penetration path.",
+      "options": [
+        "0 - almost impossible to exploit",
+        "1 - Difficult to exploit for professional hackers",
+        "2 - Moderately difficult to exploit for professional hackers",
+        "3 - easier to exploit for professional hackers",
+        "4 - Can be exploited using common automation tools"
+      ]
+    },
+    "VL": {
+      "keyword": "Vulnerability Lethality",
+      "name": "Vulnerability Lethality",
+      "description": "Maximum lethality for critical vulnerabilities in the penetration path.",
+      "options": [
+        "0 - almost no harm",
+        "1 - lower lethality, affects individual non-core assets",
+        "2 - medium-scale lethality, affecting a subset of non-core assets",
+        "3 - Massive lethality, affecting individual core assets",
+        "4 - Extremely broad lethality, affecting a subset of core assets"
+      ]
+    },
+    "VDW": {
+      "keyword": "Vulnerability Disclosure Window",
+      "name": "Vulnerability Disclosure Window",
+      "description": "The maximum exposure time window for critical vulnerabilities in the penetration path.",
+      "options": [
+        "0 - little public disclosure",
+        "1 - Small-scale private dissemination of hacker circles",
+        "2 - Public disclosure less than 3 days",
+        "3 - public disclosure greater than 3 days",
+        "4 - Public disclosure greater than 1 week"
+      ]
+    },
+    "LC": {
+      "keyword": "Loss of Confidentiality",
+      "name": "Loss of Confidentiality",
+      "description": "How much data can be leaked and how sensitive it is.",
+      "options": [
+        "0 - cannot cause data leakage",
+        "1 - can leak a small amount of non-sensitive data",
+        "2 - can leak large amounts of non-sensitive data",
+        "3 - A small amount of sensitive data can be leaked",
+        "4 - Can reveal large amounts of sensitive data"
+      ]
+    },
+    "LI": {
+      "keyword": "Loss of Integrity",
+      "name": "Loss of Integrity",
+      "description": "How much data might be damaged and how much.",
+      "options": [
+        "0 - no data corruption",
+        "1 - can corrupt a small amount of non-core data",
+        "2 - can corrupt a lot of non-core data",
+        "3 - can corrupt a small amount of core data",
+        "4 - can corrupt a lot of core data"
+      ]
+    },
+    "LA": {
+      "keyword": "Loss of Availability",
+      "name": "Loss of Availability",
+      "description": "How much service can be lost and how important it is.",
+      "options": [
+        "0 - no business interruption",
+        "1 - Can cause a small amount of non-core business disruption to the business",
+        "2 - Can cause substantial disruption to the non-core business of the enterprise",
+        "3 - Can cause a small amount of disruption to the company's core business",
+        "4 - Can cause substantial disruption to the company's core business"
+      ]
+    },
+    "FD": {
+      "keyword": "Financial Damage",
+      "name": "Financial Damage",
+      "description": "the greatest impact on the business economy.",
+      "options": [
+        "0 - less than the cost of fixing the bug",
+        "1 - will not have a significant impact on the company's annual profit",
+        "2 - Can affect a certain company's annual profit",
+        "3 - Significant impact on the company's annual profit",
+        "4 - Significant impact on the company's annual profit"
+      ]
+    },
+    "RD": {
+      "keyword": "Reputation Damage",
+      "name": "Reputation Damage",
+      "description": "Whether it will cause damage to the company's reputation and thus damage the business.",
+      "options": [
+        "0 - no loss of goodwill",
+        "1 - May cause slight damage to goodwill",
+        "2 - Can cause serious damage to goodwill",
+        "3 - Can lead to large or large customer churn",
+        "4 - Can cause significant brand damage"
+      ]
+    },
+    "CI": {
+      "keyword": "Compliance Impact",
+      "name": "Compliance Impact",
+      "description": "How much breach risk arises from a problem that arises or a malicious action by an attacker.",
+      "options": [
+        "0 - no risk of violation",
+        "1 - can create a slight risk of non-compliance",
+        "2 - Can cause a more obvious risk of violation",
+        "3 - Can create a very high profile breach risk",
+        "4 - Serious Violation or Contribution to Violation"
+      ]
+    },
+    "DLC": {
+      "keyword": "Development Life Circle",
+      "name": "Development Life Circle",
+      "description": "Whether there are security issues identified in the software development life cycle.",
+      "options": [
+        "0 - almost no security concerns",
+        "1 - There are a lot of security process issues",
+        "2 - has a moderate amount of security process issues",
+        "3 - There are minor security process issues",
+        "4 - basically no security process issues"
+      ]
+    },
+    "OLC": {
+      "keyword": "Operation Life Circle",
+      "name": "Operation Life Circle",
+      "description": "Whether there are security issues found in the operation and maintenance life cycle.",
+      "options": [
+        "0 - almost no security concerns",
+        "1 - There are a lot of security process issues",
+        "2 - has a moderate amount of security process issues",
+        "3 - There are minor security process issues",
+        "4 - basically no security process issues"
+      ]
+    },
+    "ESA": {
+      "keyword": "Employment Security Awareness",
+      "name": "Employment Security Awareness",
+      "description": "Whether the majority of employees have security awareness issues during the assessment process.",
+      "options": [
+        "0 - almost no security awareness",
+        "1 - Most of the employees in key positions have weak safety awareness",
+        "2 - A small number of employees in key positions have weak safety awareness",
+        "3 - Most of the employees in key positions have high safety awareness",
+        "4 - All staff have high safety awareness"
+      ]
+    }
+  },
+  "factorCategories": {
+    "CF": {
+      "keyword": "Confrontation Factors",
+      "name": "Confrontation Factors",
+      "description": "Mainly measure their respective strengths from the perspective of offense and defense, evaluate the lethality of key vulnerabilities in the penetration path, and finally combine business factors to form \"offensive energy\" and \"defensive energy\" scores.",
+      "processScores": [
+        "OS",
+        "DS",
+        "VR"
+      ]
+    },
+    "BF": {
+      "keyword": "Business Factors",
+      "name": "Business Factors",
+      "description": "It mainly evaluates from the perspective of the impact on the enterprise, the level of business security capabilities, and the three elements of CIA information security, and finally combines the offensive and defensive factors to form the \"business risk\" and \"enterprise risk\" scores.",
+      "processScores": [
+        "TI",
+        "EI",
+        "BS"
+      ]
+    }
+  },
+  "processScores": {
+    "OS": {
+      "keyword": "Offensive Strength",
+      "name": "Offensive Strength",
+      "description": "Refers to the highest level of attack technology used by the attacker on the key penetration path in a single red-blue confrontation exercise.",
+      "vectors": {
         "OL": {
-            "keyword": "Offensive Level",
-            "name": "Offensive Level",
-            "description": "The highest level of skill used by the attacker in the evaluation path.",
-            "options": [
-                "0 - equivalent to entry-level hacker",
-                 "1 - Equivalent to a normal level hacker or a tool, script hacker",
-                 "2 - equivalent to a hacker proficient in penetration techniques",
-                 "3 - Requires more professional teamwork",
-                 "4 - Equivalent to National APT Hacking Team"
-            ],
-            "vectors": {
-                "IRC": {
-                    "algorithm": " IRC * 1 ",
-                    "description": ""
-                },
-                "WC": {
-                    "algorithm": " WC * 1 ",
-                    "description": ""
-                },
-                "VMEC": {
-                    "algorithm": " VMEC * 1 ",
-                    "description": ""
-                },
-                "ATDC": {
-                    "algorithm": " ATDC * 1 ",
-                    "description": ""
-                },
-                "SEC": {
-                    "algorithm": " SEC * 1 ",
-                    "description": ""
-                },
-                "PPC": {
-                    "algorithm": " PPC * 1 ",
-                    "description": ""
-                },
-                "TCC": {
-                    "algorithm": " TCC * 1 ",
-                    "description": ""
-                },
-                "LMC": {
-                    "algorithm": " LMC * 1 ",
-                    "description": ""
-                }
-            }
+          "algorithm": " OL * 1 * 2.5 ",
+          "description": ""
         },
         "OD": {
-            "keyword": "Offensive Difficulty",
-            "name": "Offensive Difficulty",
-            "description": "The highest difficulty the attacker has to solve the puzzle in the entire evaluation path.",
-            "options": [
-                "0 - almost no difficulty for professional hackers",
-                 "1 - a bit difficult for professional hackers",
-                 "2 - more difficult for professional hackers",
-                 "3 - difficult for professional hackers",
-                 "4 - Almost impossible for professional hackers"
-            ]
+          "algorithm": " OD * 1 * 2.5 ",
+          "description": ""
         },
         "TR": {
-            "keyword": "Target Reach",
-            "name": "Target Reach",
-            "description": "Whether the attacker achieved the intended goal",
-            "options": [
-                "0 - basically not achieved",
-                 "1 - small amount achieved",
-                 "2 - medium volume reached",
-                 "3 - Mass Achievement",
-                 "4 - Fully Achieved"
-            ],
-            "vectors": {
-                "GAT": {
-                    "algorithm": " GAT * 1 ",
-                    "description": ""
-                },
-                "GAC": {
-                    "algorithm": " GAC * 1 ",
-                    "description": ""
-                },
-                "GAA": {
-                    "algorithm": " GAA * 1 ",
-                    "description": ""
-                }
-            }
+          "algorithm": " TR * 1 * 2.5 ",
+          "description": ""
         },
         "AL": {
-            "keyword": "Anti-traceability Level",
-            "name": "Anti-traceability Level",
-            "description": "What is the attacker's ability to trace back to the source?",
-            "options": [
-                "0 - The attacker's real identity information is traced to the source, or the attacking asset or computer is reversely controlled",
-                 "1 - The attacker's virtual identity feature or the real IP in the territory is traced",
-                 "2 - The attacker's persistent attack behavior is marked by fingerprints, or a large number of indicators of attack (IOAs) are marked by records (honeypots, etc.)",
-                 "3 - The attacker's fixed C2 server IP or fixed tunnel return IP is traced back to the source",
-                 "4 - hardly any useful information can be traced back to the source"
-            ]
-        },
+          "algorithm": " AL * 1 * 2.5 ",
+          "description": ""
+        }
+      }
+    },
+    "DS": {
+      "keyword": "Defensive Strength",
+      "name": "Defensive Strength",
+      "description": "Refers to the minimum level of defensive technology used by the defending team on the key penetration path in a single red-blue confrontation exercise.",
+      "vectors": {
         "PL": {
-            "keyword": "Prevention Level",
-            "name": "Prevention Level",
-            "description": "A defender's ability to block critical penetration paths.",
-            "options": [
-                "0 - almost no interception",
-                 "1 - slight interception",
-                 "2 - stronger interception",
-                 "3 - very strong interception",
-                 "4 - almost hard to break"
-            ],
-            "vectors": {
-                "IEMC": {
-                    "algorithm": " IEMC * 1 ",
-                    "description": ""
-                },
-                "SUMC": {
-                    "algorithm": " SUMC * 1 ",
-                    "description": ""
-                },
-                "TIBC": {
-                    "algorithm": " TIBC * 1 ",
-                    "description": ""
-                },
-                "BSMC": {
-                    "algorithm": " BSMC * 1 ",
-                    "description": ""
-                },
-                "ASMC": {
-                    "algorithm": " ASMC * 1 ",
-                    "description": ""
-                },
-                "PSMC": {
-                    "algorithm": " PSMC * 1 ",
-                    "description": ""
-                },
-                "NACC": {
-                    "algorithm": " NACC * 1 ",
-                    "description": ""
-                }
-            }
+          "algorithm": " PL * 1 * 2.5 ",
+          "description": ""
         },
         "DL": {
-            "keyword": "Detection Level",
-            "name": "Detection Level",
-            "description": "Defender's cyber threat discovery capabilities for critical penetration paths.",
-            "options": [
-                "0 - almost no threat detected",
-                 "1 - Threat of sporadic attack on non-critical assets detected",
-                 "2 - few critical path threats detected",
-                 "3 - Significant critical path threats detected",
-                 "4 - Nearly all threats detected"
-            ],
-            "vectors": {
-                "ETTA": {
-                    "algorithm": " ETTA * 1 ",
-                    "description": ""
-                },
-                "EHAA": {
-                    "algorithm": " EHAA * 1 ",
-                    "description": ""
-                },
-                "PPAA": {
-                    "algorithm": " PPAA * 1 ",
-                    "description": ""
-                },
-                "ITTA": {
-                    "algorithm": " ITTA * 1 ",
-                    "description": ""
-                },
-                "EMA": {
-                    "algorithm": " EMA * 1 ",
-                    "description": ""
-                },
-                "EABA": {
-                    "algorithm": " EABA * 1 ",
-                    "description": ""
-                },
-                "TDR": {
-                    "algorithm": " TDR * 1 ",
-                    "description": ""
-                },
-                "TITR": {
-                    "algorithm": " TITR * 1 ",
-                    "description": ""
-                }
-            }
+          "algorithm": " DL * 1 * 2.5 ",
+          "description": ""
         },
         "RL": {
-            "keyword": "Response Level",
-            "name": "Response Level",
-            "description": "Defender's ability to recover, repair, and respond to a compromised system.",
-            "options": [
-                "0 - almost difficult to advance (3+ days)",
-                 "1 - slow response (12+ hours)",
-                 "2 - The response is more timely (within 12 hours)",
-                 "3 - Response near real time (within 2 hours)",
-                 "4 - Real-time response (within 30 minutes)"
-            ],
-            "vectors": {
-                "THC": {
-                    "algorithm": " THC * 1 ",
-                    "description": ""
-                },
-                "TDTR": {
-                    "algorithm": " TDTR * 1 ",
-                    "description": ""
-                },
-                "TAC": {
-                    "algorithm": " TAC * 1 ",
-                    "description": ""
-                }
-            }
+          "algorithm": " RL * 1 * 2.5 ",
+          "description": ""
         },
         "TL": {
-            "keyword": "Traceability Level",
-            "name": "Traceability Level",
-            "description": "Whether the defender can effectively trace the source of the attacker.",
-            "options": [
-                "0 - hardly any useful information can be traced back to the source",
-                 "1 - The attacker's fixed C2 server IP or fixed tunnel back-up IP is traced back to the source",
-                 "2 - The attacker's persistent attack behavior is marked by fingerprints, or a large number of indicators of attack (IOAs) are marked by records (honeypots, etc.)",
-                 "3 - The attacker's virtual identity feature or the real IP in the territory is traced",
-                 "4 - The attacker's real identity information is traced, or the attacked assets or computers are reversely controlled"
-            ],
-            "vectors": {
-                "IPTC": {
-                    "algorithm": " IPTC * 1 ",
-                    "description": ""
-                },
-                "ATCC": {
-                    "algorithm": " ATCC * 1 ",
-                    "description": ""
-                },
-                "DEC": {
-                    "algorithm": " DEC * 1 ",
-                    "description": ""
-                }
-            }
-        },
+          "algorithm": " TL * 1 * 2.5 ",
+          "description": ""
+        }
+      }
+    },
+    "VR": {
+      "keyword": "Vulnerability Risk",
+      "name": "Vulnerability Risk",
+      "description": "Refers to the risk assessment of the most critical vulnerabilities on the critical penetration path of the drill in a single red-blue confrontation exercise.",
+      "vectors": {
         "VD": {
-            "keyword": "Vulnerability Discoverability",
-            "name": "Vulnerability Discoverability",
-            "description": "Discoverability of critical vulnerabilities in the penetration path.",
-            "options": [
-                "0 - almost impossible to find",
-                 "1 - harder to spot for professional hackers",
-                 "2 - Medium difficulty to find for professional hackers",
-                 "3 - For professional hackers, discovery is easier",
-                 "4 - Discovery with common automation tools"
-            ]
+          "algorithm": " VD * 1 * 2.5 ",
+          "description": ""
         },
         "VE": {
-            "keyword": "Vulnerability Exploitability",
-            "name": "Vulnerability Exploitability",
-            "description": "Exploitability of critical vulnerabilities in the penetration path.",
-            "options": [
-                "0 - almost impossible to exploit",
-                 "1 - Difficult to exploit for professional hackers",
-                 "2 - Moderately difficult to exploit for professional hackers",
-                 "3 - easier to exploit for professional hackers",
-                 "4 - Can be exploited using common automation tools"
-            ]
+          "algorithm": " VE * 1 * 2.5 ",
+          "description": ""
         },
         "VL": {
-            "keyword": "Vulnerability Lethality",
-            "name": "Vulnerability Lethality",
-            "description": "Maximum lethality for critical vulnerabilities in the penetration path.",
-            "options": [
-                "0 - almost no harm",
-                 "1 - lower lethality, affects individual non-core assets",
-                 "2 - medium-scale lethality, affecting a subset of non-core assets",
-                 "3 - Massive lethality, affecting individual core assets",
-                 "4 - Extremely broad lethality, affecting a subset of core assets"
-            ]
+          "algorithm": " VL * 1 * 2.5 ",
+          "description": ""
         },
         "VDW": {
-            "keyword": "Vulnerability Disclosure Window",
-            "name": "Vulnerability Disclosure Window",
-            "description": "The maximum exposure time window for critical vulnerabilities in the penetration path.",
-            "options": [
-                "0 - little public disclosure",
-                 "1 - Small-scale private dissemination of hacker circles",
-                 "2 - Public disclosure less than 3 days",
-                 "3 - public disclosure greater than 3 days",
-                 "4 - Public disclosure greater than 1 week"
-            ]
-        },
+          "algorithm": " VDW * 1 * 2.5 ",
+          "description": ""
+        }
+      }
+    },
+    "TI": {
+      "keyword": "Technical Impact",
+      "name": "Technical Impact",
+      "description": "Refers to the maximum impact on confidentiality, integrity and availability that may be caused by the rights or data obtained by the attacker.",
+      "vectors": {
         "LC": {
-            "keyword": "Loss of Confidentiality",
-            "name": "Loss of Confidentiality",
-            "description": "How much data can be leaked and how sensitive it is.",
-            "options": [
-                "0 - cannot cause data leakage",
-                 "1 - can leak a small amount of non-sensitive data",
-                 "2 - can leak large amounts of non-sensitive data",
-                 "3 - A small amount of sensitive data can be leaked",
-                 "4 - Can reveal large amounts of sensitive data"
-            ]
+          "algorithm": " LC * 1 * 2.5 ",
+          "description": ""
         },
         "LI": {
-            "keyword": "Loss of Integrity",
-            "name": "Loss of Integrity",
-            "description": "How much data might be damaged and how much.",
-            "options": [
-                "0 - no data corruption",
-                 "1 - can corrupt a small amount of non-core data",
-                 "2 - can corrupt a lot of non-core data",
-                 "3 - can corrupt a small amount of core data",
-                 "4 - can corrupt a lot of core data"
-            ]
+          "algorithm": " LI * 1 * 2.5 ",
+          "description": ""
         },
         "LA": {
-            "keyword": "Loss of Availability",
-            "name": "Loss of Availability",
-            "description": "How much service can be lost and how important it is.",
-            "options": [
-                "0 - no business interruption",
-                 "1 - Can cause a small amount of non-core business disruption to the business",
-                 "2 - Can cause substantial disruption to the non-core business of the enterprise",
-                 "3 - Can cause a small amount of disruption to the company's core business",
-                 "4 - Can cause substantial disruption to the company's core business"
-            ]
-        },
+          "algorithm": " LA * 1 * 2.5 ",
+          "description": ""
+        }
+      }
+    },
+    "EI": {
+      "keyword": "Enterprise Impact",
+      "name": "Enterprise Impact",
+      "description": "Refers to the authority or data obtained by the attacker that may have the greatest impact on corporate reputation, economy and compliance.",
+      "vectors": {
         "FD": {
-            "keyword": "Financial Damage",
-            "name": "Financial Damage",
-            "description": "the greatest impact on the business economy.",
-            "options": [
-                "0 - less than the cost of fixing the bug",
-                 "1 - will not have a significant impact on the company's annual profit",
-                 "2 - Can affect a certain company's annual profit",
-                 "3 - Significant impact on the company's annual profit",
-                 "4 - Significant impact on the company's annual profit"
-            ]
+          "algorithm": " FD * 1 * 2.5 ",
+          "description": ""
         },
         "RD": {
-            "keyword": "Reputation Damage",
-            "name": "Reputation Damage",
-            "description": "Whether it will cause damage to the company's reputation and thus damage the business.",
-            "options": [
-                "0 - no loss of goodwill",
-                 "1 - May cause slight damage to goodwill",
-                 "2 - Can cause serious damage to goodwill",
-                 "3 - Can lead to large or large customer churn",
-                 "4 - Can cause significant brand damage"
-            ]
+          "algorithm": " RD * 1 * 2.5 ",
+          "description": ""
         },
         "CI": {
-            "keyword": "Compliance Impact",
-            "name": "Compliance Impact",
-            "description": "How much breach risk arises from a problem that arises or a malicious action by an attacker.",
-            "options": [
-                "0 - no risk of violation",
-                 "1 - can create a slight risk of non-compliance",
-                 "2 - Can cause a more obvious risk of violation",
-                 "3 - Can create a very high profile breach risk",
-                 "4 - Serious Violation or Contribution to Violation"
-            ]
-        },
+          "algorithm": " CI * 1 * 2.5 ",
+          "description": ""
+        }
+      }
+    },
+    "BS": {
+      "keyword": "Business Strength",
+      "name": "Business Strength",
+      "description": "Refers to the minimum professionalism of business personnel or systems and operations during an attack.",
+      "vectors": {
         "DLC": {
-            "keyword": "Development Life Circle",
-            "name": "Development Life Circle",
-            "description": "Whether there are security issues identified in the software development life cycle.",
-            "options": [
-                "0 - almost no security concerns",
-                 "1 - There are a lot of security process issues",
-                 "2 - has a moderate amount of security process issues",
-                 "3 - There are minor security process issues",
-                 "4 - basically no security process issues"
-            ]
+          "algorithm": " DLC * 1 * 2.5 ",
+          "description": ""
         },
         "OLC": {
-            "keyword": "Operation Life Circle",
-            "name": "Operation Life Circle",
-            "description": "Whether there are security issues found in the operation and maintenance life cycle.",
-            "options": [
-                "0 - almost no security concerns",
-                 "1 - There are a lot of security process issues",
-                 "2 - has a moderate amount of security process issues",
-                 "3 - There are minor security process issues",
-                 "4 - basically no security process issues"
-            ]
+          "algorithm": " OLC * 1 * 2.5 ",
+          "description": ""
         },
         "ESA": {
-            "keyword": "Employment Security Awareness",
-            "name": "Employment Security Awareness",
-            "description": "Whether the majority of employees have security awareness issues during the assessment process.",
-            "options": [
-                "0 - almost no security awareness",
-                 "1 - Most of the employees in key positions have weak safety awareness",
-                 "2 - A small number of employees in key positions have weak safety awareness",
-                 "3 - Most of the employees in key positions have high safety awareness",
-                 "4 - All staff have high safety awareness"
-            ]
+          "algorithm": " ESA * 1 * 2.5 ",
+          "description": ""
         }
-    },
-    "factorCategories": {
-        "CF": {
-            "keyword": "Confrontation Factors",
-            "name": "Confrontation Factors",
-            "description": "Mainly measure their respective strengths from the perspective of offense and defense, evaluate the lethality of key vulnerabilities in the penetration path, and finally combine business factors to form \"offensive energy\" and \"defensive energy\" scores.",
-            "processScores": [
-                "OS",
-                "DS",
-                "VR"
-            ]
-        },
-        "BF": {
-            "keyword": "Business Factors",
-            "name": "Business Factors",
-            "description": "It mainly evaluates from the perspective of the impact on the enterprise, the level of business security capabilities, and the three elements of CIA information security, and finally combines the offensive and defensive factors to form the \"business risk\" and \"enterprise risk\" scores.",
-            "processScores": [
-                "TI",
-                "EI",
-                "BS"
-            ]
-        }
-    },
-    "processScores": {
+      }
+    }
+  },
+  "finalScores": {
+    "OE": {
+      "keyword": "Offensive Energy",
+      "name": "Offensive Energy",
+      "description": "It is the effective output of the attacker in a single exercise, which can represent the level of the attacker in this exercise.",
+      "vectors": {
         "OS": {
-            "keyword": "Offensive Strength",
-            "name": "Offensive Strength",
-            "description": "Refers to the highest level of attack technology used by the attacker on the key penetration path in a single red-blue confrontation exercise.",
-            "vectors": {
-                "OL": {
-                    "algorithm": " OL * 1 * 2.5 ",
-                    "description": ""
-                },
-                "OD": {
-                    "algorithm": " OD * 1 * 2.5 ",
-                    "description": ""
-                },
-                "TR": {
-                    "algorithm": " TR * 1 * 2.5 ",
-                    "description": ""
-                },
-                "AL": {
-                    "algorithm": " AL * 1 * 2.5 ",
-                    "description": ""
-                }
-            }
+          "algorithm": " OS * 1 ",
+          "description": "The offensive strength represents the highest level of the attacker's attack output in this red-blue confrontation. But other factor scores are needed to correct it: if a very advanced technique is used, it takes a lot of effort, but no effect is achieved, then it is equivalent to doing useless work in this exercise, which means that the offensive energy is very low."
         },
         "DS": {
-            "keyword": "Defensive Strength",
-            "name": "Defensive Strength",
-            "description": "Refers to the minimum level of defensive technology used by the defending team on the key penetration path in a single red-blue confrontation exercise.",
-            "vectors": {
-                "PL": {
-                    "algorithm": " PL * 1 * 2.5 ",
-                    "description": ""
-                },
-                "DL": {
-                    "algorithm": " DL * 1 * 2.5 ",
-                    "description": ""
-                },
-                "RL": {
-                    "algorithm": " RL * 1 * 2.5 ",
-                    "description": ""
-                },
-                "TL": {
-                    "algorithm": " TL * 1 * 2.5 ",
-                    "description": ""
-                }
-            }
-        },
-        "VR": {
-            "keyword": "Vulnerability Risk",
-            "name": "Vulnerability Risk",
-            "description": "Refers to the risk assessment of the most critical vulnerabilities on the critical penetration path of the drill in a single red-blue confrontation exercise.",
-            "vectors": {
-                "VD": {
-                    "algorithm": " VD * 1 * 2.5 ",
-                    "description": ""
-                },
-                "VE": {
-                    "algorithm": " VE * 1 * 2.5 ",
-                    "description": ""
-                },
-                "VL": {
-                    "algorithm": " VL * 1 * 2.5 ",
-                    "description": ""
-                },
-                "VDW": {
-                    "algorithm": " VDW * 1 * 2.5 ",
-                    "description": ""
-                }
-            }
-        },
-        "TI": {
-            "keyword": "Technical Impact",
-            "name": "Technical Impact",
-            "description": "Refers to the maximum impact on confidentiality, integrity and availability that may be caused by the rights or data obtained by the attacker.",
-            "vectors": {
-                "LC": {
-                    "algorithm": " LC * 1 * 2.5 ",
-                    "description": ""
-                },
-                "LI": {
-                    "algorithm": " LI * 1 * 2.5 ",
-                    "description": ""
-                },
-                "LA": {
-                    "algorithm": " LA * 1 * 2.5 ",
-                    "description": ""
-                }
-            }
+          "algorithm": " DS * 1 ",
+          "description": "The introduction of the \"defensive strength\" factor is to correct the effective display of the \"offensive strength\" in terms of ability. Generally speaking, the stronger the defense is, the stronger the attack is on the premise of achieving the same goal; on the contrary, if the defender is weaker, the attacker can usually have less investment in order to achieve the goal. Offensive energy is not so great."
         },
         "EI": {
-            "keyword": "Enterprise Impact",
-            "name": "Enterprise Impact",
-            "description": "Refers to the authority or data obtained by the attacker that may have the greatest impact on corporate reputation, economy and compliance.",
-            "vectors": {
-                "FD": {
-                    "algorithm": " FD * 1 * 2.5 ",
-                    "description": ""
-                },
-                "RD": {
-                    "algorithm": " RD * 1 * 2.5 ",
-                    "description": ""
-                },
-                "CI": {
-                    "algorithm": " CI * 1 * 2.5 ",
-                    "description": ""
-                }
-            }
+          "algorithm": " EI * 1 ",
+          "description": "\"Enterprise Impact\" is a measure of the effectiveness of an attacker's \"work done\". The more enterprise risks exposed in a single exercise, the stronger the attacker's energy; the less enterprise risks exposed in countermeasures, the lower the attacker's energy in the exercise."
+        }
+      }
+    },
+    "DE": {
+      "keyword": "Defensive Energy",
+      "name": "Defensive Energy",
+      "description": "It is the effective output of the defender in a single exercise, and can represent the level of the defender in this exercise.",
+      "vectors": {
+        "DS": {
+          "algorithm": " DS * 1 ",
+          "description": "The defensive strength is generally the lower level of the defender's defensive ability output in this red-blue confrontation. But you can't simply think that \"defensive strength\" is the embodiment of defensive energy. Because no matter how strong the defense is, if the target is finally taken by the attacker, it still shows that the defense ability is low."
+        },
+        "VR": {
+          "algorithm": " ( 10 - VR ) * 1 ",
+          "description": "The introduction of vulnerability risk is to correct the effective display of \"defensive strength\" in ability, which is negatively correlated with defensive energy. The higher the vulnerability risk, the lower the defensive energy. Even if the defensive strength is very strong, but a serious vulnerability risk is exposed on the critical path of the offense, it means that the defensive strength has not been fulfilled, and points should be deducted."
+        },
+        "EI": {
+          "algorithm": " ( 10 - EI ) * 1 ",
+          "description": "Corporate influence is negatively correlated with defensive energy, the greater the corporate influence, the lower the defensive energy. Even if the defense is strong and the loopholes are small, it can still have a significant impact on the enterprise, indicating that the effective energy generated by the defense is not enough, and points should be deducted."
+        }
+      }
+    },
+    "BR": {
+      "keyword": "Business Risk",
+      "name": "Business Risk",
+      "description": "It refers to the risk level of business exposure in terms of security, which can represent the security level of the participating business parties in this exercise.",
+      "vectors": {
+        "TI": {
+          "algorithm": " TI * 1 ",
+          "description": "The technical impact is mainly measured from the three elements of security: confidentiality, integrity and availability. The greater the technical impact of the business, the higher the risk of the business."
+        },
+        "EI": {
+          "algorithm": " EI * 1 ",
+          "description": "Enterprise impact is closely related to business risks. If it can bring a greater impact on the enterprise, whether it is economic loss, loss of goodwill or compliance impact, it will affect the development of the enterprise to a large extent, and then affect the development of the business."
         },
         "BS": {
-            "keyword": "Business Strength",
-            "name": "Business Strength",
-            "description": "Refers to the minimum professionalism of business personnel or systems and operations during an attack.",
-            "vectors": {
-                "DLC": {
-                    "algorithm": " DLC * 1 * 2.5 ",
-                    "description": ""
-                },
-                "OLC": {
-                    "algorithm": " OLC * 1 * 2.5 ",
-                    "description": ""
-                },
-                "ESA": {
-                    "algorithm": " ESA * 1 * 2.5 ",
-                    "description": ""
-                }
-            }
+          "algorithm": " ( 10 - BS ) * 1 ",
+          "description": "Business strength is mainly reflected in the implementation of SDL or DevSecOps. If there is a problem, it will bring great obstacles to the promotion of security and the elimination of risks, which will cause major risks to the business. Therefore, business strength is negatively correlated with business risk score, and the lower the strength, the greater the risk."
         }
+      }
     },
-    "finalScores": {
-        "OE": {
-            "keyword": "Offensive Energy",
-            "name": "Offensive Energy",
-            "description": "It is the effective output of the attacker in a single exercise, which can represent the level of the attacker in this exercise.",
-            "vectors": {
-                "OS": {
-                    "algorithm": " OS * 1 ",
-                    "description": "The offensive strength represents the highest level of the attacker's attack output in this red-blue confrontation. But other factor scores are needed to correct it: if a very advanced technique is used, it takes a lot of effort, but no effect is achieved, then it is equivalent to doing useless work in this exercise, which means that the offensive energy is very low."
-                },
-                "DS": {
-                    "algorithm": " DS * 1 ",
-                    "description": "The introduction of the \"defensive strength\" factor is to correct the effective display of the \"offensive strength\" in terms of ability. Generally speaking, the stronger the defense is, the stronger the attack is on the premise of achieving the same goal; on the contrary, if the defender is weaker, the attacker can usually have less investment in order to achieve the goal. Offensive energy is not so great."
-                },
-                "EI": {
-                    "algorithm": " EI * 1 ",
-                    "description": "\"Enterprise Impact\" is a measure of the effectiveness of an attacker's \"work done\". The more enterprise risks exposed in a single exercise, the stronger the attacker's energy; the less enterprise risks exposed in countermeasures, the lower the attacker's energy in the exercise."
-                }
-            }
+    "ER": {
+      "keyword": "Enterprise Risk",
+      "name": "Enterprise Risk",
+      "description": "It refers to the degree of risk exposed by the enterprise in terms of security, which can represent the security level of the enterprise as a whole in this exercise.",
+      "vectors": {
+        "DS": {
+          "algorithm": " ( 10 - DS ) * 1 ",
+          "description": "Defensive strength is negatively correlated with corporate risk. If an enterprise does not invest much in security construction, it will generally directly affect its protection capability, detection capability and response capability, that is, its defensive strength. On the other hand, if the defensive strength of the enterprise is weak, it means that the enterprise is facing problems in safety construction or defensive team building, which will make the enterprise face more risks."
         },
-        "DE": {
-            "keyword": "Defensive Energy",
-            "name": "Defensive Energy",
-            "description": "It is the effective output of the defender in a single exercise, and can represent the level of the defender in this exercise.",
-            "vectors": {
-                "DS": {
-                    "algorithm": " DS * 1 ",
-                    "description": "The defensive strength is generally the lower level of the defender's defensive ability output in this red-blue confrontation. But you can't simply think that \"defensive strength\" is the embodiment of defensive energy. Because no matter how strong the defense is, if the target is finally taken by the attacker, it still shows that the defense ability is low."
-                },
-                "VR": {
-                    "algorithm": " ( 10 - VR ) * 1 ",
-                    "description": "The introduction of vulnerability risk is to correct the effective display of \"defensive strength\" in ability, which is negatively correlated with defensive energy. The higher the vulnerability risk, the lower the defensive energy. Even if the defensive strength is very strong, but a serious vulnerability risk is exposed on the critical path of the offense, it means that the defensive strength has not been fulfilled, and points should be deducted."
-                },
-                "EI": {
-                    "algorithm": " ( 10 - EI ) * 1 ",
-                    "description": "Corporate influence is negatively correlated with defensive energy, the greater the corporate influence, the lower the defensive energy. Even if the defense is strong and the loopholes are small, it can still have a significant impact on the enterprise, indicating that the effective energy generated by the defense is not enough, and points should be deducted."
-                }
-            }
+        "VR": {
+          "algorithm": " VR * 1 ",
+          "description": "If the key vulnerabilities on the penetration path are very easy to be discovered, exploited, and have great lethality, it generally means that the defense has a relatively large problem in the daily security operations, SDL or DevSecOps security process landing, and the risk of the enterprise Sex will increase."
         },
-        "BR": {
-            "keyword": "Business Risk",
-            "name": "Business Risk",
-            "description": "It refers to the risk level of business exposure in terms of security, which can represent the security level of the participating business parties in this exercise.",
-            "vectors": {
-                "TI": {
-                    "algorithm": " TI * 1 ",
-                    "description": "The technical impact is mainly measured from the three elements of security: confidentiality, integrity and availability. The greater the technical impact of the business, the higher the risk of the business."
-                },
-                "EI": {
-                    "algorithm": " EI * 1 ",
-                    "description": "Enterprise impact is closely related to business risks. If it can bring a greater impact on the enterprise, whether it is economic loss, loss of goodwill or compliance impact, it will affect the development of the enterprise to a large extent, and then affect the development of the business."
-                },
-                "BS": {
-                    "algorithm": " ( 10 - BS ) * 1 ",
-                    "description": "Business strength is mainly reflected in the implementation of SDL or DevSecOps. If there is a problem, it will bring great obstacles to the promotion of security and the elimination of risks, which will cause major risks to the business. Therefore, business strength is negatively correlated with business risk score, and the lower the strength, the greater the risk."
-                }
-            }
-        },
-        "ER": {
-            "keyword": "Enterprise Risk",
-            "name": "Enterprise Risk",
-            "description": "It refers to the degree of risk exposed by the enterprise in terms of security, which can represent the security level of the enterprise as a whole in this exercise.",
-            "vectors": {
-                "DS": {
-                    "algorithm": " ( 10 - DS ) * 1 ",
-                    "description": "Defensive strength is negatively correlated with corporate risk. If an enterprise does not invest much in security construction, it will generally directly affect its protection capability, detection capability and response capability, that is, its defensive strength. On the other hand, if the defensive strength of the enterprise is weak, it means that the enterprise is facing problems in safety construction or defensive team building, which will make the enterprise face more risks."
-                },
-                "VR": {
-                    "algorithm": " VR * 1 ",
-                    "description": "If the key vulnerabilities on the penetration path are very easy to be discovered, exploited, and have great lethality, it generally means that the defense has a relatively large problem in the daily security operations, SDL or DevSecOps security process landing, and the risk of the enterprise Sex will increase."
-                },
-                "EI": {
-                    "algorithm": " EI * 1 ",
-                    "description": "The \"corporate impact\" is more related to the normal operation, revenue and even life and death of the company, so it is related to corporate risks."
-                }
-            }
+        "EI": {
+          "algorithm": " EI * 1 ",
+          "description": "The \"corporate impact\" is more related to the normal operation, revenue and even life and death of the company, so it is related to corporate risks."
         }
+      }
+    }
+  },
+  "levels": [
+    {
+      "index": 0,
+      "name": "None",
+      "keyword": "None"
     },
-    "levels": [
-        {
-            "index": 0,
-            "name": "None",
-            "keyword": "None"
-        },
-        {
-            "index": 1,
-            "name": "Low",
-            "keyword": "Low"
-        },
-        {
-            "index": 2,
-            "name": "Low",
-            "keyword": "Low"
-        },
-        {
-            "index": 3,
-            "name": "Low",
-            "keyword": "Low"
-        },
-        {
-            "index": 4,
-            "name": "Medium",
-            "keyword": "Medium"
-        },
-        {
-            "index": 5,
-            "name": "Medium",
-            "keyword": "Medium"
-        },
-        {
-            "index": 6,
-            "name": "Medium",
-            "keyword": "Medium"
-        },
-        {
-            "index": 7,
-            "name": "High",
-            "keyword": "High"
-        },
-        {
-            "index": 8,
-            "name": "High",
-            "keyword": "High"
-        },
-        {
-            "index": 9,
-            "name": "Extreme",
-            "keyword": "Extreme"
-        },
-        {
-            "index": 10,
-            "name": "Extreme",
-            "keyword": "Extreme"
-        }
-    ],
-    "charts": {
-        "data": {
-            "OS": {
-                "name": "Attacker Ability",
-                "plusmode": true,
-                "factors": {
-                    "OL": 1,
-                    "OD": 1,
-                    "TR": 1,
-                    "AL": 1
-                }
-            },
-            "DS": {
-                "name": "Security Operation Ability",
-                "plusmode": true,
-                "factors": {
-                    "PL": 1,
-                    "DL": 1,
-                    "RL": 1,
-                    "TL": 1,
-                    "ESA": 1,
-                    "DLC": 1,
-                    "OLC": 1,
-                    "VD": -1,
-                    "VDW": -1,
-                    "CI": -1
-                }
-            }
-        },
-        "references": {
-            "current": {
-                "name": "Current Score",
-                "backgroundColor": "rgba(255, 99, 132, 0.5)",
-                "borderColor": "rgba(255, 99, 132, 0.5)"
-            },
-            "standardLevel": {
-                "name": "Industry Average",
-                "backgroundColor": "rgba(132, 255, 99, 0.5)",
-                "borderColor": "rgba(132, 255, 99, 0.5)",
-                "vectorStr": "RTASS:0.3.2/OL:2/OD:2/TR:2/AL:2/PL:2/DL:2/RL:2/TL:2/VD:2/VE:3/VL:3/VDW:2/LC:3/LI:3/LA:3/FD:2/RD:2/CI:2/DLC:3/OLC:2/ESA:2/IRC:2/WC:2/VMEC:2/ATDC:2/SEC:2/PPC:2/TCC:2/LMC:2/GAT:2/GAC:2/GAA:2/IEMC:2/SUMC:2/TIBC:2/BSMC:2/ASMC:2/PSMC:2/NACC:2/ETTA:2/EHAA:2/PPAA:2/ITTA:2/EMA:2/EABA:2/TDR:2/TITR:2/THC:2/TDTR:2/TAC:2/IPTC:2/ATCC:2/DEC:2"
-            },
-            "highLevel": {
-                "name": "Industry High Level",
-                "backgroundColor": "rgba(99, 132, 255, 0.5)",
-                "borderColor": "rgba(99, 132, 255, 0.5)",
-                "vectorStr": "RTASS:0.3.2/OL:3/OD:3/TR:3/AL:4/PL:3/DL:3/RL:3/TL:3/VD:1/VE:1/VL:1/VDW:1/LC:0/LI:0/LA:0/FD:0/RD:0/CI:0/DLC:4/OLC:4/ESA:4/IRC:3/WC:3/VMEC:3/ATDC:3/SEC:3/PPC:3/TCC:4/LMC:4/GAT:3/GAC:3/GAA:4/IEMC:3/SUMC:3/TIBC:3/BSMC:3/ASMC:3/PSMC:2/NACC:3/ETTA:3/EHAA:3/PPAA:2/ITTA:3/EMA:3/EABA:3/TDR:4/TITR:4/THC:4/TDTR:3/TAC:3/IPTC:3/ATCC:2/DEC:3"
-            }
-        }
+    {
+      "index": 1,
+      "name": "Low",
+      "keyword": "Low"
     },
-    "thanks": [
-        {
-            "name": "devils",
-            "url": "",
-            "email": "",
-            "description": "Thanks to devils for his contribution to the competency evaluation model."
-        },
-        {
-            "name": "makato",
-            "url": "",
-            "email": "",
-            "description": "Thanks to makato for the comments on each rating item."
-        },
-        {
-            "name": "vf3ng",
-            "url": "",
-            "email": "",
-            "description": "Thanks to vf3ng for metrics and comments on the accuracy of the framework evaluation."
+    {
+      "index": 2,
+      "name": "Low",
+      "keyword": "Low"
+    },
+    {
+      "index": 3,
+      "name": "Low",
+      "keyword": "Low"
+    },
+    {
+      "index": 4,
+      "name": "Medium",
+      "keyword": "Medium"
+    },
+    {
+      "index": 5,
+      "name": "Medium",
+      "keyword": "Medium"
+    },
+    {
+      "index": 6,
+      "name": "Medium",
+      "keyword": "Medium"
+    },
+    {
+      "index": 7,
+      "name": "High",
+      "keyword": "High"
+    },
+    {
+      "index": 8,
+      "name": "High",
+      "keyword": "High"
+    },
+    {
+      "index": 9,
+      "name": "Extreme",
+      "keyword": "Extreme"
+    },
+    {
+      "index": 10,
+      "name": "Extreme",
+      "keyword": "Extreme"
+    }
+  ],
+  "charts": {
+    "data": {
+      "OS": {
+        "name": "Attacker Ability",
+        "plusmode": true,
+        "factors": {
+          "OL": 1,
+          "OD": 1,
+          "TR": 1,
+          "AL": 1
         }
-    ],
-    "references": [
-        {
-            "name": "OWASP",
-            "url": "https://owasp.org/www-community/OWASP_Risk_Rating_Methodology",
-            "description": "OWASP Risk Rating Methodology"
-        },
-        {
-            "name": "FIRST CVSSv3",
-            "url": "https://www.first.org/cvss/v3.1/specification-document",
-            "description": "CVSSv3.1 Specification Document"
-        },
-        {
-            "name": "Wikipedia",
-            "url": "https://en.wikipedia.org/wiki/Common_Vulnerability_Scoring_System",
-            "description": "Common Vulnerability Scoring System"
+      },
+      "DS": {
+        "name": "Security Operation Ability",
+        "plusmode": true,
+        "factors": {
+          "PL": 1,
+          "DL": 1,
+          "RL": 1,
+          "TL": 1,
+          "ESA": 1,
+          "DLC": 1,
+          "OLC": 1,
+          "VD": -1,
+          "VDW": -1,
+          "CI": -1
         }
-    ]
+      }
+    },
+    "references": {
+      "current": {
+        "name": "Current Score",
+        "backgroundColor": "rgba(255, 99, 132, 0.5)",
+        "borderColor": "rgba(255, 99, 132, 0.5)"
+      },
+      "standardLevel": {
+        "name": "Industry Average",
+        "backgroundColor": "rgba(132, 255, 99, 0.5)",
+        "borderColor": "rgba(132, 255, 99, 0.5)",
+        "vectorStr": "RTASS:0.3.2/OL:2/OD:2/TR:2/AL:2/PL:2/DL:2/RL:2/TL:2/VD:2/VE:3/VL:3/VDW:2/LC:3/LI:3/LA:3/FD:2/RD:2/CI:2/DLC:3/OLC:2/ESA:2/IRC:2/WC:2/VMEC:2/ATDC:2/SEC:2/PPC:2/TCC:2/LMC:2/GAT:2/GAC:2/GAA:2/IEMC:2/SUMC:2/TIBC:2/BSMC:2/ASMC:2/PSMC:2/NACC:2/ETTA:2/EHAA:2/PPAA:2/ITTA:2/EMA:2/EABA:2/TDR:2/TITR:2/THC:2/TDTR:2/TAC:2/IPTC:2/ATCC:2/DEC:2"
+      },
+      "highLevel": {
+        "name": "Industry High Level",
+        "backgroundColor": "rgba(99, 132, 255, 0.5)",
+        "borderColor": "rgba(99, 132, 255, 0.5)",
+        "vectorStr": "RTASS:0.3.2/OL:3/OD:3/TR:3/AL:4/PL:3/DL:3/RL:3/TL:3/VD:1/VE:1/VL:1/VDW:1/LC:0/LI:0/LA:0/FD:0/RD:0/CI:0/DLC:4/OLC:4/ESA:4/IRC:3/WC:3/VMEC:3/ATDC:3/SEC:3/PPC:3/TCC:4/LMC:4/GAT:3/GAC:3/GAA:4/IEMC:3/SUMC:3/TIBC:3/BSMC:3/ASMC:3/PSMC:2/NACC:3/ETTA:3/EHAA:3/PPAA:2/ITTA:3/EMA:3/EABA:3/TDR:4/TITR:4/THC:4/TDTR:3/TAC:3/IPTC:3/ATCC:2/DEC:3"
+      }
+    }
+  },
+  "thanks": [
+    {
+      "name": "devils",
+      "url": "",
+      "email": "",
+      "description": "Thanks to devils for his contribution to the competency evaluation model."
+    },
+    {
+      "name": "makato",
+      "url": "",
+      "email": "",
+      "description": "Thanks to makato for the comments on each rating item."
+    },
+    {
+      "name": "vf3ng",
+      "url": "",
+      "email": "",
+      "description": "Thanks to vf3ng for metrics and comments on the accuracy of the framework evaluation."
+    }
+  ],
+  "references": [
+    {
+      "name": "OWASP",
+      "url": "https://owasp.org/www-community/OWASP_Risk_Rating_Methodology",
+      "description": "OWASP Risk Rating Methodology"
+    },
+    {
+      "name": "FIRST CVSSv3",
+      "url": "https://www.first.org/cvss/v3.1/specification-document",
+      "description": "CVSSv3.1 Specification Document"
+    },
+    {
+      "name": "Wikipedia",
+      "url": "https://en.wikipedia.org/wiki/Common_Vulnerability_Scoring_System",
+      "description": "Common Vulnerability Scoring System"
+    }
+  ]
 }

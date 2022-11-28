@@ -9,7 +9,7 @@
 >
 > Maintainer: Monyer, Collaborators: devils, makato, vf3ng
 >
-> Online Calculator <https://jd.army/RTASS/>
+> Online Calculator <https://rtass.jd.army>
 
 ## **Introduction**
 
@@ -83,13 +83,13 @@ The above associations may change with the evolution of RTASS.
 
 In this scoring framework, each scoring factor has a total of 5 scoring items from 0 to 4. The process score and final score: the lowest score is 0 points, and the highest score is 10 points. Among them, the distribution of the corresponding grades for each score is as follows:
 
-| Score  | Level |
-| ------------ | ---- |
-| 0.00         | None   |
-| 0.01 - 3.99  | Low   |
-| 4.00 - 6.99  | Medium   |
-| 7.00 - 8.99  | High   |
-| 9.00 - 10.00 | Extreme   |
+| Score        | Level   |
+| ------------ | ------- |
+| 0.00         | None    |
+| 0.01 - 3.99  | Low     |
+| 4.00 - 6.99  | Medium  |
+| 7.00 - 8.99  | High    |
+| 9.00 - 10.00 | Extreme |
 
 > Note: Some scoring factors in this framework, such as "vulnerability risk" and "enterprise impact", refer to the relevant factors in the OWASP risk rating method.
 
@@ -729,68 +729,68 @@ With reference to the CVSS scoring framework, RTASS also uses "vector strings" t
 
 ### **Factor**
 
-| Factor Name  | Possible Value |
-| ---------------- | ------- |
-| Offensive Level[OL]    | 0-4     |
-| Offensive Difficulty[OD]    | 0-4     |
-| Target Reach[TR]    | 0-4     |
-| Anti-traceability Level[AL]    | 0-4     |
-| Prevention Level[PL]    | 0-4     |
-| Detection Level[DL]    | 0-4     |
-| Response Level[RL]    | 0-4     |
-| Traceability Level[TL]    | 0-4     |
-| Vulnerability Discoverability[VD]    | 0-4     |
-| Vulnerability Exploitability[VE]    | 0-4     |
-| Vulnerability Lethality[VL]    | 0-4     |
-| Vulnerability Disclosure Window[VDW]    | 0-4     |
-| Loss of Confidentiality[LC]    | 0-4     |
-| Loss of Integrity[LI]    | 0-4     |
-| Loss of Availability[LA]    | 0-4     |
-| Financial Damage[FD]    | 0-4     |
-| Reputation Damage[RD]    | 0-4     |
-| Compliance Impact[CI]    | 0-4     |
-| Development Life Circle[DLC]    | 0-4     |
-| Operation Life Circle[OLC]    | 0-4     |
-| Employment Security Awareness[ESA]    | 0-4     |
+| Factor Name                          | Possible Value |
+| ------------------------------------ | -------------- |
+| Offensive Level[OL]                  | 0-4            |
+| Offensive Difficulty[OD]             | 0-4            |
+| Target Reach[TR]                     | 0-4            |
+| Anti-traceability Level[AL]          | 0-4            |
+| Prevention Level[PL]                 | 0-4            |
+| Detection Level[DL]                  | 0-4            |
+| Response Level[RL]                   | 0-4            |
+| Traceability Level[TL]               | 0-4            |
+| Vulnerability Discoverability[VD]    | 0-4            |
+| Vulnerability Exploitability[VE]     | 0-4            |
+| Vulnerability Lethality[VL]          | 0-4            |
+| Vulnerability Disclosure Window[VDW] | 0-4            |
+| Loss of Confidentiality[LC]          | 0-4            |
+| Loss of Integrity[LI]                | 0-4            |
+| Loss of Availability[LA]             | 0-4            |
+| Financial Damage[FD]                 | 0-4            |
+| Reputation Damage[RD]                | 0-4            |
+| Compliance Impact[CI]                | 0-4            |
+| Development Life Circle[DLC]         | 0-4            |
+| Operation Life Circle[OLC]           | 0-4            |
+| Employment Security Awareness[ESA]   | 0-4            |
 
 ### **Ability**
 
 > Note: In the RTASS Base scoring mode, the ability factor is not required; in the RTASS Plus scoring mode, the ability factor is required.
 
-| Ability Name | Possible Value |
-| ---------------- | ------- |
-| Intelligence Reconnaissance Capability[IRC]    | 0-4     |
-| Weaponization Capability[WC]    | 0-4     |
-| Vulnerability Mining and Exploitation Capability[VMEC]    | 0-4     |
-| Anti Threat Detection Capability[ATDC]    | 0-4     |
-| Social Engineering Capability[SEC]    | 0-4     |
-| Permission Persistence Capability[PPC]    | 0-4     |
-| Tunnel Construction Capability[TCC]    | 0-4     |
-| Lateral Movement Capability[LMC]    | 0-4     |
-| Goal Achievement Time[GAT]    | 0-4     |
-| Goal Achievement Cost[GAC]    | 0-4     |
-| Goal Action Ability[GAA]    | 0-4     |
-| Information Event Management Capability[IEMC]    | 0-4     |
-| Software Update Management Capability[SUMC]    | 0-4     |
-| Threat Identification Blocking Capability[TIBC]    | 0-4     |
-| Baseline Security Management Capabilities[BSMC]    | 0-4     |
-| Account Security Management Capabilities[ASMC]    | 0-4     |
-| Privilege Security Management Capability[PSMC]    | 0-4     |
-| Network Access Control Capability[NACC]    | 0-4     |
-| External Threat Traffic Awareness[ETTA]    | 0-4     |
-| External Harpoon Attack Awareness[EHAA]    | 0-4     |
-| Proximity Penetration Attack Awareness[PPAA]    | 0-4     |
-| Intranet Threat Traffic Awareness[ITTA]    | 0-4     |
-| Endpoint Malware Awareness[EMA]    | 0-4     |
-| Endpoint Abnormal Behavior Awareness[EABA]    | 0-4     |
-| Threat Detection Rate[TDR]    | 0-4     |
-| Threat Identification Timeliness Rate[TITR]    | 0-4     |
-| Threat Handling Capability[THC]    | 0-4     |
-| Threat Disposal Timely Rate[TDTR]    | 0-4     |
-| Threat Analysis Capability[TAC]    | 0-4     |
-| Intrusion Path Traceability Capability[IPTC]    | 0-4     |
-| Attacker Traceability and Countermeasure Capability[ATCC]    | 0-4     |
-| Deception and Entrapment Capabilities[DEC]    | 0-4     |
+| Ability Name                                              | Possible Value |
+| --------------------------------------------------------- | -------------- |
+| Intelligence Reconnaissance Capability[IRC]               | 0-4            |
+| Weaponization Capability[WC]                              | 0-4            |
+| Vulnerability Mining and Exploitation Capability[VMEC]    | 0-4            |
+| Anti Threat Detection Capability[ATDC]                    | 0-4            |
+| Social Engineering Capability[SEC]                        | 0-4            |
+| Permission Persistence Capability[PPC]                    | 0-4            |
+| Tunnel Construction Capability[TCC]                       | 0-4            |
+| Lateral Movement Capability[LMC]                          | 0-4            |
+| Goal Achievement Time[GAT]                                | 0-4            |
+| Goal Achievement Cost[GAC]                                | 0-4            |
+| Goal Action Ability[GAA]                                  | 0-4            |
+| Information Event Management Capability[IEMC]             | 0-4            |
+| Software Update Management Capability[SUMC]               | 0-4            |
+| Threat Identification Blocking Capability[TIBC]           | 0-4            |
+| Baseline Security Management Capabilities[BSMC]           | 0-4            |
+| Account Security Management Capabilities[ASMC]            | 0-4            |
+| Privilege Security Management Capability[PSMC]            | 0-4            |
+| Network Access Control Capability[NACC]                   | 0-4            |
+| External Threat Traffic Awareness[ETTA]                   | 0-4            |
+| External Harpoon Attack Awareness[EHAA]                   | 0-4            |
+| Proximity Penetration Attack Awareness[PPAA]              | 0-4            |
+| Intranet Threat Traffic Awareness[ITTA]                   | 0-4            |
+| Endpoint Malware Awareness[EMA]                           | 0-4            |
+| Endpoint Abnormal Behavior Awareness[EABA]                | 0-4            |
+| Threat Detection Rate[TDR]                                | 0-4            |
+| Threat Identification Timeliness Rate[TITR]               | 0-4            |
+| Threat Handling Capability[THC]                           | 0-4            |
+| Threat Disposal Timely Rate[TDTR]                         | 0-4            |
+| Threat Analysis Capability[TAC]                           | 0-4            |
+| Intrusion Path Traceability Capability[IPTC]              | 0-4            |
+| Attacker Traceability and Countermeasure Capability[ATCC] | 0-4            |
+| Deception and Entrapment Capabilities[DEC]                | 0-4            |
 
 RTASS Base Mode ector string Example:
 RTASS:0.3.2/OL:4/OD:0/TR:4/AL:3/PL:1/DL:4/RL:4/TL:1/VD:3/VE:2/VL:4/VDW:4/LC:0/LI:2/LA:2/FD:2/RD:3/CI:1/DLC:2/OLC:2/ESA:3
@@ -837,6 +837,6 @@ Collaborators can cooperate with us to develop the system framework by modifying
 
 ![calculator-cn](./docs/img/calculator-cn.jpg)
 
-Online Calculator: <https://jd.army/RTASS/>
+Online Calculator: <https://rtass.jd.army>
 
   
