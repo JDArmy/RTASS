@@ -1,6 +1,7 @@
 import RTASS from "@/RTASS";
 import vm from "vm-browserify";
 import Chart from "chart.js/auto";
+import { i18n } from "@/i18n";
 
 export default {
   data() {
@@ -133,14 +134,16 @@ export default {
           if (RTASS.factors[factorKey]["vectors"] !== undefined) {
             let abilityVectors = RTASS.factors[factorKey]["vectors"];
             Object.keys(abilityVectors).map((abilityKey) => {
-              radarLabels.push(RTASS.abilities[abilityKey].name);
+              radarLabels.push(
+                i18n.global.t(`RTASS.abilities.${abilityKey}.name`)
+              );
               Object.keys(chartVals).map((key) => {
                 chartDatas[key].push(chartVals[key][abilityKey]);
               });
             });
           } else {
             //没有abilitiy的因子时
-            radarLabels.push(RTASS.factors[factorKey].name);
+            radarLabels.push(i18n.global.t(`RTASS.factors.${factorKey}.name`));
             if (RTASS.charts.data[chartKey].factors[factorKey] == -1) {
               Object.keys(chartVals).map((key) => {
                 chartDatas[key].push(4 - chartVals[key][factorKey]);
@@ -156,7 +159,7 @@ export default {
         let datasets = [];
         Object.keys(chartDatas).map((key) => {
           datasets.push({
-            label: RTASS.charts.references[key].name,
+            label: i18n.global.t(`RTASS.charts.references.${key}.name`),
             // spanGaps: true,
             backgroundColor: references[key].backgroundColor,
             borderColor: references[key].borderColor,
