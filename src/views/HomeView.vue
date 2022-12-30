@@ -66,7 +66,7 @@
                   "
                 >
                   <el-option
-                    v-for="(factorLabel, vectorVal) in RTASS.factors[factorKey][
+                    v-for="(_, vectorVal) in RTASS.factors[factorKey][
                       'options'
                     ]"
                     :label="
@@ -74,7 +74,9 @@
                     "
                     :key="vectorVal"
                     :value="vectorVal"
-                    :title="factorLabel"
+                    :title="
+                      $t(`RTASS.factors.${factorKey}.options[${vectorVal}]`)
+                    "
                   />
                 </el-select>
                 <!-- 选择评分项 end -->
@@ -107,16 +109,20 @@
                       placeholder="Select"
                     >
                       <el-option
-                        v-for="(abilityLabel, abilityVal) in RTASS.abilities[
-                          abilityKey
-                        ]['options']"
+                        v-for="(_, abilityVal) in RTASS.abilities[abilityKey][
+                          'options'
+                        ]"
                         :key="abilityVal"
                         :title="
                           $t(
                             `RTASS.abilities.${abilityKey}.options[${abilityVal}]`
                           )
                         "
-                        :label="abilityLabel"
+                        :label="
+                          $t(
+                            `RTASS.abilities.${abilityKey}.options[${abilityVal}]`
+                          )
+                        "
                         :value="abilityVal"
                       />
                     </el-select>
