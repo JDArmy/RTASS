@@ -9,8 +9,11 @@ import "element-plus/theme-chalk/display.css";
 import iconTranslate from "@/components/icons/iconTranslate.vue";
 import iconGithub from "@/components/icons/iconGithub.vue";
 
+import { ArrowDown } from "@element-plus/icons-vue";
+
 import {
   ElMenu,
+  ElIcon,
   ElMenuItem,
   ElDropdown,
   ElDropdownMenu,
@@ -94,12 +97,44 @@ if (Object.keys(languages).includes(urlLang)) {
     <el-menu-item class="" index="/">{{ $t("menu.home") }}</el-menu-item>
     <!-- <el-menu-item class="" index="/risks">{{ $t("menu.risks") }}</el-menu-item> -->
 
-    <div class="github">
-      <a href="https://github.com/JDArmy/RTASS" target="_blank">
-        <icon-github />
-      </a>
-    </div>
-    <el-dropdown class="" @command="changeLanguage">
+    <el-dropdown class="outside-link">
+      <span class="el-dropdown-link"
+        >JDArmy<el-icon>
+          <arrow-down />
+        </el-icon>
+      </span>
+      <template #dropdown>
+        <el-dropdown-menu class="outside-link-menu">
+          <el-dropdown-item
+            ><a target="_blank" href="https://jd.army"
+              >Webpage</a
+            ></el-dropdown-item
+          >
+          <el-dropdown-item
+            ><a target="_blank" href="https://blog.jd.army"
+              >Blog</a
+            ></el-dropdown-item
+          >
+          <el-dropdown-item divided
+            ><a target="_blank" href="https://rtass.jd.army"
+              >RTASS</a
+            ></el-dropdown-item
+          >
+          <el-dropdown-item
+            ><a target="_blank" href="https://break.jd.army"
+              >BREAK</a
+            ></el-dropdown-item
+          >
+          <el-dropdown-item
+            ><a target="_blank" href="https://dsre.jd.army"
+              >DSRE</a
+            ></el-dropdown-item
+          >
+        </el-dropdown-menu>
+      </template>
+    </el-dropdown>
+
+    <el-dropdown class="translate" @command="changeLanguage">
       <span class="el-dropdown-link">
         <icon-translate />
       </span>
@@ -116,10 +151,15 @@ if (Object.keys(languages).includes(urlLang)) {
         </el-dropdown-menu>
       </template>
     </el-dropdown>
+    <div class="github">
+      <a href="https://github.com/JDArmy/RTASS" target="_blank">
+        <icon-github />
+      </a>
+    </div>
   </el-menu>
 </template>
 
-<style>
+<style scoped>
 .logo {
   background: #b0afaf;
   border-radius: 20px;
@@ -154,10 +194,26 @@ if (Object.keys(languages).includes(urlLang)) {
   padding: 0 0 0 10px;
 }
 
-.el-dropdown-link,
+.translate,
 .github {
-  color: rgb(218, 216, 216);
+  color: var(--el-menu-text-color);
   margin: auto 10px;
   cursor: pointer;
+}
+
+.outside-link {
+  line-height: var(--el-menu-item-height);
+  color: var(--el-menu-text-color);
+  padding: 0 var(--el-menu-base-level-padding);
+  cursor: pointer;
+}
+
+.outside-link-menu a {
+  display: inline-block;
+  width: 100%;
+  height: 100%;
+  text-align: center;
+  color: #000;
+  text-decoration: none;
 }
 </style>
