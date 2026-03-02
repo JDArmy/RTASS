@@ -1,6 +1,6 @@
 {
   "name": "JDARMY RTASS",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "title": "红蓝对抗评分系统",
   "keyword": "Red Team Assessment Scoring System",
   "description": "红蓝对抗评分系统（RTASS，Red Team Assessment Scoring System）是一个开放式框架，用来评估单次网络红蓝对抗或实战演习中的攻防双方能力投入情况，以及涉及业务及所在企业所面临的风险程度。通过RTASS可以对红蓝对抗式网络实战攻防演练中，攻击方、防守方、业务方以及企业风险状况进行量化评分。本框架适用于网络红蓝对抗演练、网络实战攻防演习、红队评估、蓝军评估等通过模拟黑客APT手段对企业开展实网攻击的安全评估场景。",

@@ -116,8 +116,10 @@
   border: 1px solid rgba(64, 158, 255, 0.2);
 }
 
-.finalScores h4 {
+.finalScores h4,
+.process-score-result h5 {
   margin-bottom: 0.5em;
+  color: inherit;
 }
 
 /* ************************* */
@@ -148,7 +150,16 @@ h5 {
   margin-top: 10px;
   margin-bottom: 5px;
   font-weight: 500;
+}
+
+.process-score h5,
+.category h5 {
   color: #606266;
+}
+
+.process-score-result h5,
+.finalScores h5 {
+  color: inherit;
 }
 
 h6 {
@@ -173,7 +184,6 @@ h6 {
 }
 
 .el-input__inner {
-  color: #ffffff;
   font-weight: 500;
 }
 
@@ -184,11 +194,21 @@ h6 {
   border: none;
 }
 
+.text-0 .el-input__inner,
+.text-None .el-input__inner {
+  color: #1a4d7a !important;
+}
+
 .text-1 .el-input__wrapper,
 .text-Low {
   background: linear-gradient(135deg, #3178bf 0%, #4a8fd4 100%);
   box-shadow: 0 2px 8px rgba(49, 120, 191, 0.3);
   border: none;
+}
+
+.text-1 .el-input__inner,
+.text-Low .el-input__inner {
+  color: #ffffff !important;
 }
 
 .text-2 .el-input__wrapper,
@@ -198,6 +218,11 @@ h6 {
   border: none;
 }
 
+.text-2 .el-input__inner,
+.text-Medium .el-input__inner {
+  color: #664400 !important;
+}
+
 .text-3 .el-input__wrapper,
 .text-High {
   background: linear-gradient(135deg, #f09426 0%, #f5a742 100%);
@@ -205,9 +230,19 @@ h6 {
   border: none;
 }
 
+.text-3 .el-input__inner,
+.text-High .el-input__inner {
+  color: #ffffff !important;
+}
+
 .text-4 .el-input__wrapper,
 .text-Extreme {
   background: linear-gradient(135deg, #d63e34 0%, #e35a51 100%);
   box-shadow: 0 2px 8px rgba(214, 62, 52, 0.3);
   border: none;
+}
+
+.text-4 .el-input__inner,
+.text-Extreme .el-input__inner {
+  color: #ffffff !important;
 }
