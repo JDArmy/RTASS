@@ -23,7 +23,7 @@ import {
 import { i18n, languages } from "@/i18n";
 
 const changeLanguage = (command: keyof typeof languages) => {
-  i18n.global.locale = command;
+  i18n.global.locale.value = command;
   localStorage.setItem("locale", command);
 };
 
@@ -43,12 +43,12 @@ if (Object.keys(languages).includes(urlLang)) {
   const language = localStorage.getItem("locale");
   if (
     language &&
-    language !== i18n.global.locale &&
+    language !== i18n.global.locale.value &&
     Object.keys(languages).includes(language)
   ) {
-    i18n.global.locale = language as keyof typeof languages;
+    i18n.global.locale.value = language as keyof typeof languages;
   } else {
-    localStorage.setItem("locale", i18n.global.locale);
+    localStorage.setItem("locale", i18n.global.locale.value);
   }
 }
 </script>
@@ -144,7 +144,7 @@ if (Object.keys(languages).includes(urlLang)) {
             v-for="(langName, langKey) in languages"
             :key="langKey"
             :command="langKey"
-            :disabled="i18n.global.locale == langKey"
+            :disabled="i18n.global.locale.value == langKey"
           >
             {{ langName }}
           </el-dropdown-item>

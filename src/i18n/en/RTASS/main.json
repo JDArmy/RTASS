@@ -1,6 +1,6 @@
 {
   "name": "JDARMY RTASS",
-  "version": "0.4.0",
+  "version": "1.0.0",
   "title": "Red Team Assessment Scoring System",
   "keyword": "Red Team Assessment Scoring System",
   "description": "The Red Team Assessment Scoring System (RTASS) is an open framework used to assess the capability investment of both offensive and defensive sides in a single cyber red-blue confrontation or actual combat exercise, as well as the degree of risk faced by the business and the enterprise involved. Through RTASS, it is possible to quantify the risk status of attackers, defenders, business parties and enterprises in the red-blue adversarial network attack and defense drills. This framework is suitable for security assessment scenarios that conduct real network attacks on enterprises by simulating hacker APT methods, such as network red-blue confrontation drills, network actual offensive and defensive exercises, red team assessments, and blue army assessments.",
@@ -392,6 +392,102 @@
         "2 - A highly simulated honeynet is built in the network, which can introduce attackers into the honeynet",
         "3 - Dynamic honeynet capability, which can direct all attacker traffic into the honeynet from the production environment",
         "4 - It has perfect secret spraying, honey tagging and honey application customization, honey farm management capabilities, and can realize active attraction, dynamic adaptation and anti-trapping capabilities"
+      ]
+    },
+    "AIOC": {
+      "keyword": "AI-Assisted Offensive Capability",
+      "name": "AI-Assisted Offensive Capability",
+      "description": "Attacker's capability to leverage AI/LLM technology to assist in attacks, including automated vulnerability discovery, intelligent social engineering, code generation, and attack strategy optimization",
+      "options": [
+        "0 - No use of AI-assisted attack methods",
+        "1 - Use basic AI tools for information gathering and target analysis",
+        "2 - Use AI to generate phishing content, malicious code, or automate simple attack processes",
+        "3 - Use AI for intelligent vulnerability mining, adaptive attack strategy adjustment, and automated penetration testing",
+        "4 - Deeply integrate AI into the entire attack chain, achieving autonomous attack decision-making, real-time strategy optimization, and intelligent evasion of defense systems"
+      ]
+    },
+    "SCAC": {
+      "keyword": "Supply Chain Attack Capability",
+      "name": "Supply Chain Attack Capability",
+      "description": "Attacker's capability to compromise targets through supply chain, including software supply chain, hardware supply chain, service supply chain, and open-source component supply chain attacks",
+      "options": [
+        "0 - No supply chain attack capability",
+        "1 - Ability to identify and exploit known vulnerable components in the target's supply chain",
+        "2 - Ability to inject malicious code into third-party dependencies or open-source projects",
+        "3 - Ability to compromise upstream suppliers or service providers to indirectly attack targets",
+        "4 - Ability to execute complex multi-stage supply chain attacks, including compromising development tools, build systems, or distribution channels"
+      ]
+    },
+    "CNAC": {
+      "keyword": "Cloud-Native Attack Capability",
+      "name": "Cloud-Native Attack Capability",
+      "description": "Attacker's capability to attack cloud-native environments, including container escape, Kubernetes cluster penetration, serverless function exploitation, and cloud service misconfiguration exploitation",
+      "options": [
+        "0 - No cloud-native attack capability",
+        "1 - Ability to identify and exploit basic cloud service misconfigurations",
+        "2 - Ability to perform container escape and exploit Docker/Kubernetes vulnerabilities",
+        "3 - Ability to conduct lateral movement in cloud-native environments and exploit service mesh vulnerabilities",
+        "4 - Ability to execute advanced cloud-native attacks, including multi-cloud environment penetration, serverless backdoors, and cloud control plane compromise"
+      ]
+    },
+    "ZTAC": {
+      "keyword": "Zero Trust Architecture Capability",
+      "name": "Zero Trust Architecture Capability",
+      "description": "Defender's capability to implement zero trust architecture, including identity-centric access control, micro-segmentation, continuous verification, and least privilege principles",
+      "options": [
+        "0 - No zero trust architecture implementation",
+        "1 - Basic identity verification and access control mechanisms",
+        "2 - Implement network micro-segmentation and application-level access control",
+        "3 - Continuous authentication and authorization, dynamic trust evaluation",
+        "4 - Comprehensive zero trust architecture with device trust, user behavior analysis, and adaptive policy enforcement"
+      ]
+    },
+    "XDRC": {
+      "keyword": "Extended Detection and Response Capability",
+      "name": "Extended Detection and Response Capability",
+      "description": "Defender's capability for extended detection and response (XDR), integrating endpoint, network, cloud, and application security data for unified threat detection and automated response",
+      "options": [
+        "0 - No XDR capability, isolated security tools",
+        "1 - Basic security data aggregation and correlation analysis",
+        "2 - Cross-domain threat detection with limited automated response",
+        "3 - Comprehensive XDR platform with advanced threat hunting and orchestrated response",
+        "4 - AI-driven XDR with predictive threat detection, autonomous response, and full attack chain visibility"
+      ]
+    },
+    "TIPC": {
+      "keyword": "Threat Intelligence Platform Capability",
+      "name": "Threat Intelligence Platform Capability",
+      "description": "Defender's capability to collect, analyze, and operationalize threat intelligence, including IOC management, threat actor tracking, and intelligence-driven defense",
+      "options": [
+        "0 - No threat intelligence capability",
+        "1 - Basic IOC collection and manual threat intelligence consumption",
+        "2 - Automated threat intelligence integration with security tools",
+        "3 - Comprehensive threat intelligence platform with enrichment, correlation, and sharing capabilities",
+        "4 - Advanced threat intelligence operations with predictive analysis, attribution, and proactive threat hunting"
+      ]
+    },
+    "CSMC": {
+      "keyword": "Cloud Security Management Capability",
+      "name": "Cloud Security Management Capability",
+      "description": "Defender's capability for cloud security posture management (CSPM), including cloud asset visibility, configuration compliance, vulnerability management, and cloud workload protection",
+      "options": [
+        "0 - No cloud security management capability",
+        "1 - Basic cloud asset inventory and manual configuration review",
+        "2 - Automated cloud configuration compliance scanning and alerting",
+        "3 - Comprehensive CSPM with continuous compliance monitoring, remediation workflows, and multi-cloud support",
+        "4 - Advanced cloud security management with runtime protection, cloud threat detection, and integrated CWPP/CSPM/CIEM capabilities"
+      ]
+    },
+    "APSC": {
+      "keyword": "API Security Capability",
+      "name": "API Security Capability",
+      "description": "Defender's capability to secure APIs, including API discovery, authentication/authorization, rate limiting, input validation, and API threat detection",
+      "options": [
+        "0 - No API security measures",
+        "1 - Basic API authentication and rate limiting",
+        "2 - API gateway with authentication, authorization, and basic threat detection",
+        "3 - Comprehensive API security with discovery, inventory, vulnerability scanning, and runtime protection",
+        "4 - Advanced API security platform with behavioral analysis, automated threat response, and full API lifecycle security"
       ]
     }
   },

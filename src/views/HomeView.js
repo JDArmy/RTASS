@@ -1,5 +1,4 @@
 import RTASS from "@/RTASS";
-import vm from "vm-browserify";
 import Chart from "chart.js/auto";
 import { i18n } from "@/i18n";
 
@@ -39,12 +38,9 @@ export default {
           let expression = Object.values(vectors)
             .map((v) => "(" + v.algorithm + ")")
             .join("+");
-          let score = vm
-            .runInNewContext(
-              `(${expression})/${Object.keys(vectors).length}`,
-              this.vectorVal
-            )
-            .toFixed(0);
+          const params = Object.keys(this.vectorVal);
+          const values = Object.values(this.vectorVal);
+          let score = new Function(...params, `return (${expression})/${Object.keys(vectors).length}`)(...values).toFixed(0);
           this.vectorVal[factorKey] = parseInt(score);
         }
       });
@@ -55,12 +51,9 @@ export default {
         let expression = Object.values(vectors)
           .map((v) => "(" + v.algorithm + ")")
           .join("+");
-        let score = vm
-          .runInNewContext(
-            `(${expression})/${Object.keys(vectors).length}`,
-            Scores
-          )
-          .toFixed(2);
+        const params = Object.keys(Scores);
+        const values = Object.values(Scores);
+        let score = new Function(...params, `return (${expression})/${Object.keys(vectors).length}`)(...values).toFixed(2);
 
         this.scores[key] = parseFloat(score);
         let levelScore = score > 0 && score < 1 ? 1 : score;

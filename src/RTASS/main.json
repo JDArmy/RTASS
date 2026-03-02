@@ -1,6 +1,6 @@
 {
   "name": "JDARMY RTASS",
-  "version": "0.4.0",
+  "version": "1.0.0",
   "title": "红蓝对抗评分系统",
   "keyword": "Red Team Assessment Scoring System",
   "description": "红蓝对抗评分系统（RTASS，Red Team Assessment Scoring System）是一个开放式框架，用来评估单次网络红蓝对抗或实战演习中的攻防双方能力投入情况，以及涉及业务及所在企业所面临的风险程度。通过RTASS可以对红蓝对抗式网络实战攻防演练中，攻击方、防守方、业务方以及企业风险状况进行量化评分。本框架适用于网络红蓝对抗演练、网络实战攻防演习、红队评估、蓝军评估等通过模拟黑客APT手段对企业开展实网攻击的安全评估场景。",
@@ -9,6 +9,7 @@
   "rights": "RTASS由JD.Army创建、拥有和进行管理。JD.Army是专注于挖掘和解决企业安全运行风险隐患的专业型红队。JD.Army保留自行决定定期更新RTASS和本文档的权利。虽然JD.Army拥有RTASS的所有权利和利益，但它许可公众自由使用，遵循相关开源协议。",
   "calculator": "https://jd.army/RTASS/",
   "github": "https://github.com/JDArmy/RTASS",
+  "updated": "2026-03-02",
   "abilities": {
     "IRC": {
       "keyword": "Intelligence Reconnaissance Capability",
@@ -393,6 +394,102 @@
         "3 - 动态蜜网能力，可以直接从生产环境将攻击者所有流量引入蜜网",
         "4 - 有完善的密令喷洒、蜜标与蜜应用定制、蜜场管理能力，可实现主动式吸引、动态自适应及反制诱捕能力"
       ]
+    },
+    "AIOC": {
+      "keyword": "AI-Assisted Offensive Capability",
+      "name": "AI辅助攻击能力",
+      "description": "攻击者利用AI/LLM技术辅助攻击的能力，包括AI生成钓鱼内容、漏洞挖掘、自动化渗透等",
+      "options": [
+        "0 - 不使用AI辅助攻击手段",
+        "1 - 使用AI工具辅助生成钓鱼内容或简单攻击脚本",
+        "2 - 使用AI辅助漏洞分析、代码生成或自动化渗透测试",
+        "3 - 使用AI进行深度伪造社工、智能化漏洞挖掘或自适应攻击规避",
+        "4 - 能够开发或使用AI驱动的自主攻击系统，实现高度自动化的APT行动"
+      ]
+    },
+    "SCAC": {
+      "keyword": "Supply Chain Attack Capability",
+      "name": "供应链攻击能力",
+      "description": "攻击者通过软件供应链、第三方组件或开发工具链实施攻击的能力",
+      "options": [
+        "0 - 无供应链攻击能力",
+        "1 - 能够识别目标的软件供应链依赖关系并发现已知漏洞",
+        "2 - 能够利用已知的开源组件或第三方库漏洞实施供应链攻击",
+        "3 - 能够污染第三方软件包、开发工具链或CI/CD流水线实施攻击",
+        "4 - 能够渗透目标核心供应商或开发环境，实施高级持久性供应链攻击（如SolarWinds级别）"
+      ]
+    },
+    "CNAC": {
+      "keyword": "Cloud-Native Attack Capability",
+      "name": "云原生攻击能力",
+      "description": "攻击者针对云基础设施、容器、K8s及云服务配置错误的攻击能力",
+      "options": [
+        "0 - 无云原生攻击能力",
+        "1 - 能够利用云服务配置错误（如S3公开桶、开放安全组）获取初始访问",
+        "2 - 能够进行容器逃逸、K8s权限提升或云凭证窃取",
+        "3 - 能够横向移动至云控制平面，获取云账号高权限或跨账号攻击",
+        "4 - 能够在多云环境中实现持久化，对云基础设施造成重大影响或数据大规模泄露"
+      ]
+    },
+    "ZTAC": {
+      "keyword": "Zero Trust Architecture Capability",
+      "name": "零信任架构能力",
+      "description": "企业零信任安全架构的建设与落地水平，包括身份验证、最小权限、持续验证等",
+      "options": [
+        "0 - 无零信任架构建设，依赖传统边界安全",
+        "1 - 有基本的身份验证强化和最小权限原则落地",
+        "2 - 实现了网络微隔离和基于身份的持续验证机制",
+        "3 - 建立了覆盖用户、设备和应用的完整零信任访问控制体系",
+        "4 - 实现了动态自适应的零信任架构，具备持续风险评估和自动化策略调整能力"
+      ]
+    },
+    "XDRC": {
+      "keyword": "Extended Detection and Response Capability",
+      "name": "扩展检测响应能力",
+      "description": "企业XDR/SOAR平台的建设水平，实现跨端点、网络、云的统一检测与自动化响应",
+      "options": [
+        "0 - 无XDR/SOAR能力，安全工具孤立运行",
+        "1 - 有基础的SIEM日志聚合与规则告警能力",
+        "2 - 有EDR与网络流量分析联动的检测能力",
+        "3 - 有跨端点、网络、云的统一XDR检测与响应能力",
+        "4 - 有完善的SOAR自动化编排响应能力，实现威胁的自动化处置闭环"
+      ]
+    },
+    "TIPC": {
+      "keyword": "Threat Intelligence Platform Capability",
+      "name": "威胁情报平台能力",
+      "description": "企业威胁情报的生产、消费与运营能力，包括情报源接入、IOC联动和攻击者画像",
+      "options": [
+        "0 - 无威胁情报能力",
+        "1 - 订阅了基础的商业或开源威胁情报源（如MISP、OpenCTI）",
+        "2 - 能够将威胁情报与安全设备联动，实现IOC自动封堵",
+        "3 - 有内部威胁情报生产能力，能够对攻击者进行TTP画像分析",
+        "4 - 有完善的威胁情报平台，实现情报的生产、消费、共享与反馈闭环"
+      ]
+    },
+    "CSMC": {
+      "keyword": "Cloud Security Management Capability",
+      "name": "云安全管理能力",
+      "description": "企业云安全态势管理（CSPM）、云工作负载保护（CWPP）及云原生应用保护（CNAPP）能力",
+      "options": [
+        "0 - 无云安全管理能力，云资产缺乏安全管控",
+        "1 - 有基础的云资产梳理和访问控制配置",
+        "2 - 有云安全态势管理（CSPM）能力，能够发现和修复云配置错误",
+        "3 - 有云工作负载保护（CWPP）能力，覆盖容器和无服务器安全",
+        "4 - 有完整的云原生应用保护平台（CNAPP）能力，实现云安全全生命周期管理"
+      ]
+    },
+    "APSC": {
+      "keyword": "API Security Capability",
+      "name": "API安全能力",
+      "description": "企业API资产发现、风险评估、运行时防护及全生命周期安全管理能力",
+      "options": [
+        "0 - 无API安全管理能力，API暴露面不清晰",
+        "1 - 有基础的API认证鉴权机制（如OAuth2.0、API Key）",
+        "2 - 有API网关和基础的API安全防护能力（限流、WAF）",
+        "3 - 有API资产发现、风险评估和运行时异常行为检测能力",
+        "4 - 有完善的API安全全生命周期管理能力，覆盖设计规范、安全测试、运行时防护和监控"
+      ]
     }
   },
   "factors": {
@@ -438,6 +535,18 @@
         },
         "LMC": {
           "algorithm": " LMC * 1 ",
+          "description": ""
+        },
+        "AIOC": {
+          "algorithm": " AIOC * 1 ",
+          "description": ""
+        },
+        "SCAC": {
+          "algorithm": " SCAC * 1 ",
+          "description": ""
+        },
+        "CNAC": {
+          "algorithm": " CNAC * 1 ",
           "description": ""
         }
       }
@@ -531,6 +640,18 @@
         "NACC": {
           "algorithm": " NACC * 1 ",
           "description": ""
+        },
+        "ZTAC": {
+          "algorithm": " ZTAC * 1 ",
+          "description": ""
+        },
+        "CSMC": {
+          "algorithm": " CSMC * 1 ",
+          "description": ""
+        },
+        "APSC": {
+          "algorithm": " APSC * 1 ",
+          "description": ""
         }
       }
     },
@@ -576,6 +697,14 @@
         },
         "TITR": {
           "algorithm": " TITR * 1 ",
+          "description": ""
+        },
+        "XDRC": {
+          "algorithm": " XDRC * 1 ",
+          "description": ""
+        },
+        "TIPC": {
+          "algorithm": " TIPC * 1 ",
           "description": ""
         }
       }
@@ -1113,13 +1242,13 @@
         "name": "业内平均水平",
         "backgroundColor": "rgba(132, 255, 99, 0.5)",
         "borderColor": "rgba(132, 255, 99, 0.5)",
-        "vectorStr": "RTASS:0.3.2/OL:2/OD:2/TR:2/AL:2/PL:2/DL:2/RL:2/TL:2/VD:2/VE:3/VL:3/VDW:2/LC:3/LI:3/LA:3/FD:2/RD:2/CI:2/DLC:3/OLC:2/ESA:2/IRC:2/WC:2/VMEC:2/ATDC:2/SEC:2/PPC:2/TCC:2/LMC:2/GAT:2/GAC:2/GAA:2/IEMC:2/SUMC:2/TIBC:2/BSMC:2/ASMC:2/PSMC:2/NACC:2/ETTA:2/EHAA:2/PPAA:2/ITTA:2/EMA:2/EABA:2/TDR:2/TITR:2/THC:2/TDTR:2/TAC:2/IPTC:2/ATCC:2/DEC:2"
+        "vectorStr": "RTASS:1.0.0/OL:2/OD:2/TR:2/AL:2/PL:2/DL:2/RL:2/TL:2/VD:2/VE:3/VL:3/VDW:2/LC:3/LI:3/LA:3/FD:2/RD:2/CI:2/DLC:3/OLC:2/ESA:2/IRC:2/WC:2/VMEC:2/ATDC:2/SEC:2/PPC:2/TCC:2/LMC:2/AIOC:1/SCAC:1/CNAC:1/GAT:2/GAC:2/GAA:2/IEMC:2/SUMC:2/TIBC:2/BSMC:2/ASMC:2/PSMC:2/NACC:2/ZTAC:1/CSMC:1/APSC:1/ETTA:2/EHAA:2/PPAA:2/ITTA:2/EMA:2/EABA:2/TDR:2/TITR:2/XDRC:1/TIPC:1/THC:2/TDTR:2/TAC:2/IPTC:2/ATCC:2/DEC:2"
       },
       "highLevel": {
         "name": "业内高水平",
         "backgroundColor": "rgba(99, 132, 255, 0.5)",
         "borderColor": "rgba(99, 132, 255, 0.5)",
-        "vectorStr": "RTASS:0.3.2/OL:3/OD:3/TR:3/AL:4/PL:3/DL:3/RL:3/TL:3/VD:1/VE:1/VL:1/VDW:1/LC:0/LI:0/LA:0/FD:0/RD:0/CI:0/DLC:4/OLC:4/ESA:4/IRC:3/WC:3/VMEC:3/ATDC:3/SEC:3/PPC:3/TCC:4/LMC:4/GAT:3/GAC:3/GAA:4/IEMC:3/SUMC:3/TIBC:3/BSMC:3/ASMC:3/PSMC:2/NACC:3/ETTA:3/EHAA:3/PPAA:2/ITTA:3/EMA:3/EABA:3/TDR:4/TITR:4/THC:4/TDTR:3/TAC:3/IPTC:3/ATCC:2/DEC:3"
+        "vectorStr": "RTASS:1.0.0/OL:3/OD:3/TR:3/AL:4/PL:3/DL:3/RL:3/TL:3/VD:1/VE:1/VL:1/VDW:1/LC:0/LI:0/LA:0/FD:0/RD:0/CI:0/DLC:4/OLC:4/ESA:4/IRC:3/WC:3/VMEC:3/ATDC:3/SEC:3/PPC:3/TCC:4/LMC:4/AIOC:2/SCAC:2/CNAC:2/GAT:3/GAC:3/GAA:4/IEMC:3/SUMC:3/TIBC:3/BSMC:3/ASMC:3/PSMC:2/NACC:3/ZTAC:3/CSMC:3/APSC:2/ETTA:3/EHAA:3/PPAA:2/ITTA:3/EMA:3/EABA:3/TDR:4/TITR:4/XDRC:3/TIPC:3/THC:4/TDTR:3/TAC:3/IPTC:3/ATCC:2/DEC:3"
       }
     }
   },
@@ -1150,9 +1279,24 @@
       "description": "OWASP风险评级理论"
     },
     {
-      "name": "FIRST CVSSv3",
-      "url": "https://www.first.org/cvss/v3.1/specification-document",
-      "description": "CVSSv3规范文档"
+      "name": "FIRST CVSSv4",
+      "url": "https://www.first.org/cvss/v4.0/specification-document",
+      "description": "CVSSv4.0规范文档（2023年发布）"
+    },
+    {
+      "name": "MITRE ATT&CK",
+      "url": "https://attack.mitre.org/",
+      "description": "MITRE ATT&CK企业级攻击战术与技术知识库"
+    },
+    {
+      "name": "OWASP API Security Top 10",
+      "url": "https://owasp.org/www-project-api-security/",
+      "description": "OWASP API安全Top 10（2023版）"
+    },
+    {
+      "name": "NIST Zero Trust Architecture",
+      "url": "https://www.nist.gov/publications/zero-trust-architecture",
+      "description": "NIST SP 800-207 零信任架构标准"
     },
     {
       "name": "维基百科",

@@ -27,3 +27,5 @@ coverage
 *.sln
 *.sw?
 stats.html
+CLAUDE.md
+code.command
