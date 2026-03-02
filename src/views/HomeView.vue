@@ -193,8 +193,17 @@
     <!-- vector uri start -->
     <el-row>
       <el-col :span="24" class="score-vector" :offset="0">
-        <a :href="scoreVectorUrl">{{ scoreVector }}</a></el-col
-      >
+        <a :href="scoreVectorUrl">{{ scoreVector }}</a>
+        <el-button
+          type="primary"
+          size="small"
+          @click="copyVector"
+          style="margin-left: 12px;"
+        >
+          <el-icon><CopyDocument /></el-icon>
+          {{ $t("copy") }}
+        </el-button>
+      </el-col>
     </el-row>
     <!-- vector uri end -->
 
