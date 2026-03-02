@@ -101,7 +101,16 @@
   background: white;
   border-radius: 12px;
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
-  margin: 10px;
+  margin: 25px 0;
+  text-align: left !important;
+}
+
+.score-ription > * {
+  text-align: left !important;
+}
+
+.score-ription div,
+.score-ription span {
   text-align: left !important;
 }
 
