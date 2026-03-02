@@ -1,0 +1,54 @@
+<script lang="ts" setup>
+import axios from "axios";
+import iconGithub from "@/components/icons/iconGithub.vue";
+import iconStar from "@/components/icons/iconStar.vue";
+import iconFork from "@/components/icons/iconFork.vue";
+import { ref } from "vue";
+
+const stargazersCount = ref(0);
+const forksCount = ref(0);
+
+const githubApi = axios.create();
+githubApi.interceptors.response.use(
+  (response) => response,
+  (error) => {
+    if (error.response && error.response.status === 403) {
+      return { data: { stargazers_count: 0, forks_count: 0 }, status: 403 };
+    }
+    return Promise.reject(error);
+  }
+);
+
+try {
+  const res = await githubApi.get("https://api.github.com/repos/JDArmy/RTASS");
+  stargazersCount.value = res.data.stargazers_count;
+  forksCount.value = res.data.forks_count;
+} catch {}
+</script>
+
+<template>
+  <div>
+    <a href="https://github.com/JDArmy/RTASS" target="_blank" rel="noopener noreferrer">
+      <icon-github />
+      <span class="description">
+        <icon-star />{{ stargazersCount }} <icon-fork />{{ forksCount }}
+      </span>
+    </a>
+  </div>
+</template>
+
+<style scoped>
+a {
+  text-decoration: none;
+  color: #fff;
+  display: flex;
+  align-items: center;
+}
+.description {
+  font-size: 0.8em;
+  margin-left: 0.5em;
+  display: flex;
+  align-items: center;
+  gap: 2px;
+}
+</style>

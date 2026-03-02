@@ -26,6 +26,9 @@ import iconGithub from "@/components/icons/iconGithub.vue";
                 RTASS.version
               }}
             </h3>
+            <div style="color: grey; font-size: 75%">
+              {{ RTASS.keyword }} | Updated: {{ RTASS.updated }}
+            </div>
           </el-col>
         </el-row>
         <RouterView />

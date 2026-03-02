@@ -7,7 +7,7 @@ import "element-plus/es/components/dropdown-item/style/css";
 import "element-plus/theme-chalk/display.css";
 
 import iconTranslate from "@/components/icons/iconTranslate.vue";
-import iconGithub from "@/components/icons/iconGithub.vue";
+import GithubPane from "@/components/GithubPane.vue";
 
 import { ArrowDown } from "@element-plus/icons-vue";
 
@@ -71,6 +71,19 @@ if (Object.keys(languages).includes(urlLang)) {
     <h3 class="banner" style="text-align: center; width: 100%; height: 100%">
       {{ $t("RTASS.name") }}
     </h3>
+    <el-dropdown class="translate" style="position: absolute; right: 10px; top: 0; height: 100%; display: flex; align-items: center;" @command="changeLanguage">
+      <span class="el-dropdown-link"><icon-translate /></span>
+      <template #dropdown>
+        <el-dropdown-menu>
+          <el-dropdown-item
+            v-for="(langName, langKey) in languages"
+            :key="langKey"
+            :command="langKey"
+            :disabled="i18n.global.locale.value == langKey"
+          >{{ langName }}</el-dropdown-item>
+        </el-dropdown-menu>
+      </template>
+    </el-dropdown>
   </el-menu>
 
   <el-menu
@@ -137,6 +150,7 @@ if (Object.keys(languages).includes(urlLang)) {
     <el-dropdown class="translate" @command="changeLanguage">
       <span class="el-dropdown-link">
         <icon-translate />
+        <el-icon><arrow-down /></el-icon>
       </span>
       <template #dropdown>
         <el-dropdown-menu>
@@ -152,9 +166,7 @@ if (Object.keys(languages).includes(urlLang)) {
       </template>
     </el-dropdown>
     <div class="github">
-      <a href="https://github.com/JDArmy/RTASS" target="_blank">
-        <icon-github />
-      </a>
+      <GithubPane />
     </div>
   </el-menu>
 </template>
@@ -199,6 +211,13 @@ if (Object.keys(languages).includes(urlLang)) {
   color: var(--el-menu-text-color);
   margin: auto 10px;
   cursor: pointer;
+}
+
+.translate .el-dropdown-link {
+  display: flex;
+  align-items: center;
+  gap: 2px;
+  height: var(--el-menu-item-height);
 }
 
 .outside-link {
