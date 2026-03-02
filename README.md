@@ -1,6 +1,6 @@
 [中文](./README_zh.md) | **English**
 
-# **Red Team Assessment Scoring System (RTASS) 1.0.0**
+# **Red Team Assessment Scoring System (RTASS) 1.0.5**
 
 > Red Team Assessment Scoring System
 >
@@ -356,9 +356,9 @@ In order to be able to measure the scoring factor in more detail, RTASS develope
 
 ### **Offensive Level[OL]**
 
-Offensive Level consists of 8 parts, such as Intelligence Reconnaissance Capability[IRC], Weaponization Capability[WC], Vulnerability Mining and Exploitation Capability[VMEC], Anti Threat Detection Capability[ATDC], Social Engineering Capability[SEC], Permission Persistence Capability[PPC], Tunnel Construction Capability[TCC], Lateral Movement Capability[LMC]. The calculation algorithm is: 
+Offensive Level consists of 11 parts, such as Intelligence Reconnaissance Capability[IRC], Weaponization Capability[WC], Vulnerability Mining and Exploitation Capability[VMEC], Anti Threat Detection Capability[ATDC], Social Engineering Capability[SEC], Permission Persistence Capability[PPC], Tunnel Construction Capability[TCC], Lateral Movement Capability[LMC], AI-Assisted Offensive Capability[AIOC], Supply Chain Attack Capability[SCAC], Cloud Native Attack Capability[CNAC]. The calculation algorithm is:
 
-> Offensive Level[OL] = ( IRC * 1 + WC * 1 + VMEC * 1 + ATDC * 1 + SEC * 1 + PPC * 1 + TCC * 1 + LMC * 1 )/8
+> Offensive Level[OL] = ( IRC * 1 + WC * 1 + VMEC * 1 + ATDC * 1 + SEC * 1 + PPC * 1 + TCC * 1 + LMC * 1 + AIOC * 1 + SCAC * 1 + CNAC * 1 )/11
 
 
 
@@ -442,6 +442,36 @@ Lateral Movement Capability mainly used for evaluate when After gaining initial 
 - 3 - On the basis of the former, access credentials can be obtained and the credentials can be successfully used for lateral movement
 - 4 - On the basis of the former, non-perceptual lateral movement is realized through various complex technical means such as puddles, social work, and supply chains.
 
+##### **AI-Assisted Offensive Capability[AIOC]**
+
+AI-Assisted Offensive Capability mainly evaluates the attacker's ability to leverage AI/LLM technology to assist attacks, including AI-generated phishing content, vulnerability mining, automated penetration, etc.
+
+- 0 - No use of AI technology to assist attacks
+- 1 - Use basic AI tools (such as ChatGPT) to generate phishing emails or simple attack scripts
+- 2 - Use AI for vulnerability analysis, code review, or generate complex attack payloads
+- 3 - Use AI for automated penetration testing, intelligent evasion of security detection
+- 4 - Able to develop or use AI-driven autonomous attack systems to achieve highly automated APT operations
+
+##### **Supply Chain Attack Capability[SCAC]**
+
+Supply Chain Attack Capability mainly evaluates the attacker's ability to carry out attacks through software supply chains, third-party components, or development tool chains
+
+- 0 - No supply chain attack capability
+- 1 - Able to exploit known vulnerabilities in third-party components or open source libraries
+- 2 - Able to tamper with public software packages or inject malicious code into open source projects
+- 3 - Able to infiltrate target suppliers or partners to carry out targeted supply chain attacks
+- 4 - Able to infiltrate target core suppliers or development environments to implement advanced persistent supply chain attacks (such as SolarWinds level)
+
+##### **Cloud Native Attack Capability[CNAC]**
+
+Cloud Native Attack Capability mainly evaluates the attacker's attack capability against cloud infrastructure, containers, K8s, and cloud service misconfigurations
+
+- 0 - No cloud native attack capability
+- 1 - Able to exploit basic cloud service misconfigurations (such as S3 bucket permissions, exposed cloud databases)
+- 2 - Able to attack container escape, Docker/K8s misconfigurations
+- 3 - Able to exploit cloud platform IAM permission escalation, cross-tenant attacks
+- 4 - Able to carry out advanced cloud native attacks, including cloud control plane attacks, service mesh hijacking, etc.
+
 ### **Target Reach[TR]**
 
 Target Reach consists of 3 parts, such as Goal Achievement Time[GAT], Goal Achievement Cost[GAC], Goal Action Ability[GAA]. The calculation algorithm is: 
@@ -482,9 +512,9 @@ Goal Action Ability mainly used for evaluate when The attacker's ability to maxi
 
 ### **Prevention Level[PL]**
 
-Prevention Level consists of 7 parts, such as Information Event Management Capability[IEMC], Software Update Management Capability[SUMC], Threat Identification Blocking Capability[TIBC], Baseline Security Management Capabilities[BSMC], Account Security Management Capabilities[ASMC], Privilege Security Management Capability[PSMC], Network Access Control Capability[NACC]. The calculation algorithm is: 
+Prevention Level consists of 10 parts, such as Information Event Management Capability[IEMC], Software Update Management Capability[SUMC], Threat Identification Blocking Capability[TIBC], Baseline Security Management Capabilities[BSMC], Account Security Management Capabilities[ASMC], Privilege Security Management Capability[PSMC], Network Access Control Capability[NACC], Zero Trust Architecture Capability[ZTAC], Cloud Security Management Capability[CSMC], API Security Capability[APSC]. The calculation algorithm is:
 
-> Prevention Level[PL] = ( IEMC * 1 + SUMC * 1 + TIBC * 1 + BSMC * 1 + ASMC * 1 + PSMC * 1 + NACC * 1 )/7
+> Prevention Level[PL] = ( IEMC * 1 + SUMC * 1 + TIBC * 1 + BSMC * 1 + ASMC * 1 + PSMC * 1 + NACC * 1 + ZTAC * 1 + CSMC * 1 + APSC * 1 )/10
 
 
 
@@ -558,11 +588,41 @@ Network Access Control Capability mainly used for evaluate when Access control a
 - 3 - On the basis of the former, there is network isolation between different application services
 - 4 - On the basis of the former, there are more fine-grained micro-isolation capabilities
 
+##### **Zero Trust Architecture Capability[ZTAC]**
+
+Zero Trust Architecture Capability mainly evaluates the enterprise's zero trust security architecture construction and implementation level, including identity verification, least privilege, continuous verification, etc.
+
+- 0 - No zero trust architecture construction
+- 1 - Has basic identity authentication and access control capabilities (such as MFA, VPN)
+- 2 - Has implemented zero trust network access (ZTNA) for some core systems
+- 3 - Has built a relatively complete zero trust architecture covering identity, device, network, and application layers
+- 4 - Has implemented a dynamic adaptive zero trust architecture with continuous risk assessment and automated policy adjustment capabilities
+
+##### **Cloud Security Management Capability[CSMC]**
+
+Cloud Security Management Capability mainly evaluates the enterprise's cloud security posture management (CSPM), cloud workload protection (CWPP), and cloud native application protection (CNAPP) capabilities
+
+- 0 - No cloud security management capability
+- 1 - Has basic cloud resource inventory and configuration compliance checking capabilities
+- 2 - Has cloud security posture management (CSPM) capabilities, able to discover and fix cloud misconfigurations
+- 3 - Has cloud workload protection (CWPP) capabilities, able to protect containers and virtual machines
+- 4 - Has complete cloud native application protection platform (CNAPP) capabilities, achieving full lifecycle cloud security management
+
+##### **API Security Capability[APSC]**
+
+API Security Capability mainly evaluates the enterprise's API asset discovery, risk assessment, runtime protection, and full lifecycle security management capabilities
+
+- 0 - No API security management capability
+- 1 - Has basic API inventory and documentation management
+- 2 - Has API security testing and vulnerability scanning capabilities
+- 3 - Has API runtime protection capabilities (such as API Gateway, rate limiting, authentication)
+- 4 - Has complete API security lifecycle management, including discovery, testing, monitoring, and threat protection
+
 ### **Detection Level[DL]**
 
-Detection Level consists of 8 parts, such as External Threat Traffic Awareness[ETTA], External Harpoon Attack Awareness[EHAA], Proximity Penetration Attack Awareness[PPAA], Intranet Threat Traffic Awareness[ITTA], Endpoint Malware Awareness[EMA], Endpoint Abnormal Behavior Awareness[EABA], Threat Detection Rate[TDR], Threat Identification Timeliness Rate[TITR]. The calculation algorithm is: 
+Detection Level consists of 10 parts, such as External Threat Traffic Awareness[ETTA], External Harpoon Attack Awareness[EHAA], Proximity Penetration Attack Awareness[PPAA], Intranet Threat Traffic Awareness[ITTA], Endpoint Malware Awareness[EMA], Endpoint Abnormal Behavior Awareness[EABA], Threat Detection Rate[TDR], Threat Identification Timeliness Rate[TITR], Extended Detection and Response Capability[XDRC], Threat Intelligence Platform Capability[TIPC]. The calculation algorithm is:
 
-> Detection Level[DL] = ( ETTA * 1 + EHAA * 1 + PPAA * 1 + ITTA * 1 + EMA * 1 + EABA * 1 + TDR * 1 + TITR * 1 )/8
+> Detection Level[DL] = ( ETTA * 1 + EHAA * 1 + PPAA * 1 + ITTA * 1 + EMA * 1 + EABA * 1 + TDR * 1 + TITR * 1 + XDRC * 1 + TIPC * 1 )/10
 
 
 
@@ -646,6 +706,26 @@ Threat Identification Timeliness Rate mainly used for evaluate when The timely r
 - 3 - Timeliness: 50% < N <= 80%
 - 4 - Timeliness: 80% < N <= 100%
 
+##### **Extended Detection and Response Capability[XDRC]**
+
+Extended Detection and Response Capability mainly evaluates the enterprise's XDR/SOAR platform construction level, achieving unified detection and automated response across endpoints, networks, and cloud
+
+- 0 - No XDR or SOAR capability
+- 1 - Has basic security event aggregation and correlation analysis capabilities
+- 2 - Has XDR capabilities, able to correlate and analyze threats across endpoints, networks, and cloud
+- 3 - Has SOAR orchestration capabilities, able to automate some response processes
+- 4 - Has complete SOAR automated orchestration and response capabilities, achieving automated threat handling closed loop
+
+##### **Threat Intelligence Platform Capability[TIPC]**
+
+Threat Intelligence Platform Capability mainly evaluates the enterprise's threat intelligence production, consumption, and operation capabilities, including intelligence source access, IOC linkage, and attacker profiling
+
+- 0 - No threat intelligence capability
+- 1 - Has basic external threat intelligence source subscription and consumption capabilities
+- 2 - Has threat intelligence platform, able to aggregate multiple intelligence sources and perform IOC matching
+- 3 - Has threat intelligence production capabilities, able to extract and share internal threat intelligence
+- 4 - Has complete threat intelligence operation capabilities, including attacker profiling, TTPs analysis, and threat hunting
+
 ### **Response Level[RL]**
 
 Response Level consists of 3 parts, such as Threat Handling Capability[THC], Threat Disposal Timely Rate[TDTR], Threat Analysis Capability[TAC]. The calculation algorithm is: 
@@ -726,7 +806,7 @@ Deception and Entrapment Capabilities mainly used for evaluate when Enterprise h
 
 ## **Vector String**
 
-With reference to the CVSS scoring framework, RTASS also uses "vector strings" to record the scoring process and to transmit RTASS indicator information. The RTASS vector string starts with the label "RTASS:" and the digital representation of the current version (for example 1.0.0). The indicator information appears in the form of a set of indicators, each indicator is preceded by a forward slash "/" as a separator. Each indicator is composed of an abbreviated indicator name, colon, and indicator value. The abbreviations are defined earlier in this specification (in parentheses after each factor name) and are summarized in the table below.
+With reference to the CVSS scoring framework, RTASS also uses "vector strings" to record the scoring process and to transmit RTASS indicator information. The RTASS vector string starts with the label "RTASS:" and the digital representation of the current version (for example 1.0.5). The indicator information appears in the form of a set of indicators, each indicator is preceded by a forward slash "/" as a separator. Each indicator is composed of an abbreviated indicator name, colon, and indicator value. The abbreviations are defined earlier in this specification (in parentheses after each factor name) and are summarized in the table below.
 
 ### **Factor**
 
@@ -768,6 +848,9 @@ With reference to the CVSS scoring framework, RTASS also uses "vector strings" t
 | Permission Persistence Capability[PPC]                    | 0-4            |
 | Tunnel Construction Capability[TCC]                       | 0-4            |
 | Lateral Movement Capability[LMC]                          | 0-4            |
+| AI-Assisted Offensive Capability[AIOC]                    | 0-4            |
+| Supply Chain Attack Capability[SCAC]                      | 0-4            |
+| Cloud Native Attack Capability[CNAC]                      | 0-4            |
 | Goal Achievement Time[GAT]                                | 0-4            |
 | Goal Achievement Cost[GAC]                                | 0-4            |
 | Goal Action Ability[GAA]                                  | 0-4            |
@@ -778,6 +861,9 @@ With reference to the CVSS scoring framework, RTASS also uses "vector strings" t
 | Account Security Management Capabilities[ASMC]            | 0-4            |
 | Privilege Security Management Capability[PSMC]            | 0-4            |
 | Network Access Control Capability[NACC]                   | 0-4            |
+| Zero Trust Architecture Capability[ZTAC]                  | 0-4            |
+| Cloud Security Management Capability[CSMC]                | 0-4            |
+| API Security Capability[APSC]                             | 0-4            |
 | External Threat Traffic Awareness[ETTA]                   | 0-4            |
 | External Harpoon Attack Awareness[EHAA]                   | 0-4            |
 | Proximity Penetration Attack Awareness[PPAA]              | 0-4            |
@@ -786,6 +872,8 @@ With reference to the CVSS scoring framework, RTASS also uses "vector strings" t
 | Endpoint Abnormal Behavior Awareness[EABA]                | 0-4            |
 | Threat Detection Rate[TDR]                                | 0-4            |
 | Threat Identification Timeliness Rate[TITR]               | 0-4            |
+| Extended Detection and Response Capability[XDRC]          | 0-4            |
+| Threat Intelligence Platform Capability[TIPC]             | 0-4            |
 | Threat Handling Capability[THC]                           | 0-4            |
 | Threat Disposal Timely Rate[TDTR]                         | 0-4            |
 | Threat Analysis Capability[TAC]                           | 0-4            |
@@ -794,10 +882,10 @@ With reference to the CVSS scoring framework, RTASS also uses "vector strings" t
 | Deception and Entrapment Capabilities[DEC]                | 0-4            |
 
 RTASS Base Mode ector string Example:
-RTASS:0.3.2/OL:4/OD:0/TR:4/AL:3/PL:1/DL:4/RL:4/TL:1/VD:3/VE:2/VL:4/VDW:4/LC:0/LI:2/LA:2/FD:2/RD:3/CI:1/DLC:2/OLC:2/ESA:3
+RTASS:1.0.5/OL:4/OD:0/TR:4/AL:3/PL:1/DL:4/RL:4/TL:1/VD:3/VE:2/VL:4/VDW:4/LC:0/LI:2/LA:2/FD:2/RD:3/CI:1/DLC:2/OLC:2/ESA:3
 
 RTASS Plus Mode ector string Example:
-RTASS:0.3.2/OL:1/OD:4/TR:0/AL:3/PL:1/DL:2/RL:4/TL:3/VD:4/VE:4/VL:4/VDW:2/LC:4/LI:1/LA:3/FD:4/RD:1/CI:2/DLC:1/OLC:3/ESA:2/IRC:2/WC:1/VMEC:0/ATDC:1/SEC:1/PPC:2/TCC:1/LMC:0/GAT:3/GAC:2/GAA:4/IEMC:2/SUMC:1/TIBC:3/BSMC:0/ASMC:1/PSMC:0/NACC:0/ETTA:1/EHAA:4/PPAA:0/ITTA:0/EMA:4/EABA:0/TDR:0/TITR:2/THC:0/TDTR:1/TAC:3/IPTC:1/ATCC:0/DEC:4
+RTASS:1.0.5/OL:1/OD:4/TR:0/AL:3/PL:1/DL:2/RL:4/TL:3/VD:4/VE:4/VL:4/VDW:2/LC:4/LI:1/LA:3/FD:4/RD:1/CI:2/DLC:1/OLC:3/ESA:2/IRC:2/WC:1/VMEC:0/ATDC:1/SEC:1/PPC:2/TCC:1/LMC:0/AIOC:1/SCAC:1/CNAC:1/GAT:3/GAC:2/GAA:4/IEMC:2/SUMC:1/TIBC:3/BSMC:0/ASMC:1/PSMC:0/NACC:0/ZTAC:2/CSMC:2/APSC:1/ETTA:1/EHAA:4/PPAA:0/ITTA:0/EMA:4/EABA:0/TDR:0/TITR:2/XDRC:2/TIPC:1/THC:0/TDTR:1/TAC:3/IPTC:1/ATCC:0/DEC:4
 
 The vector string should contain all the indicators shown in the table above, accepting any order of measurement. If the vector string contains the same metric multiple times, the last metric shall prevail.
 
