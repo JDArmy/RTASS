@@ -19,11 +19,14 @@ githubApi.interceptors.response.use(
   }
 );
 
-try {
-  const res = await githubApi.get("https://api.github.com/repos/JDArmy/RTASS");
-  stargazersCount.value = res.data.stargazers_count;
-  forksCount.value = res.data.forks_count;
-} catch {}
+const getGithubData = async () => {
+  try {
+    const res = await githubApi.get("https://api.github.com/repos/JDArmy/RTASS");
+    stargazersCount.value = res.data.stargazers_count;
+    forksCount.value = res.data.forks_count;
+  } catch {}
+};
+getGithubData();
 </script>
 
 <template>
