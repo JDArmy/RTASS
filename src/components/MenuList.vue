@@ -111,8 +111,9 @@ if (Object.keys(languages).includes(urlLang)) {
     <!-- <el-menu-item class="" index="/risks">{{ $t("menu.risks") }}</el-menu-item> -->
 
     <el-dropdown class="outside-link">
-      <span class="el-dropdown-link"
-        >JDArmy<el-icon>
+      <span class="el-dropdown-link">
+        JDArmy
+        <el-icon>
           <arrow-down />
         </el-icon>
       </span>
@@ -225,6 +226,12 @@ if (Object.keys(languages).includes(urlLang)) {
   color: var(--el-menu-text-color);
   padding: 0 var(--el-menu-base-level-padding);
   cursor: pointer;
+}
+
+.outside-link .el-dropdown-link {
+  display: flex;
+  align-items: center;
+  gap: 2px;
 }
 
 .outside-link-menu a {
