@@ -1,6 +1,6 @@
 {
   "name": "rtass",
-  "version": "1.0.4",
+  "version": "1.0.5",
   "scripts": {
     "dev": "vite",
     "build": "run-p type-check build-only",

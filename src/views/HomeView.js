@@ -1,12 +1,14 @@
 import RTASS from "@/RTASS";
 import Chart from "chart.js/auto";
 import { i18n } from "@/i18n";
-import { CopyDocument } from "@element-plus/icons-vue";
+import { CopyDocument, Select, Close } from "@element-plus/icons-vue";
 import { ElMessage } from "element-plus";
 
 export default {
   components: {
-    CopyDocument
+    CopyDocument,
+    Select,
+    Close
   },
   data() {
     return {
@@ -18,6 +20,7 @@ export default {
       scoreVector: "",
       scoreVectorUrl: "",
       charts: {},
+      copyStatus: "default", // default, success, error
     };
   },
   methods: {
@@ -85,17 +88,25 @@ export default {
     copyVector: function () {
       const fullUrl = window.location.origin + window.location.pathname + this.scoreVectorUrl;
       navigator.clipboard.writeText(fullUrl).then(() => {
+        this.copyStatus = "success";
         ElMessage({
           message: this.$t("copySuccess"),
           type: "success",
           duration: 2000
         });
+        setTimeout(() => {
+          this.copyStatus = "default";
+        }, 3000);
       }).catch(() => {
+        this.copyStatus = "error";
         ElMessage({
           message: this.$t("copyFailed"),
           type: "error",
           duration: 2000
         });
+        setTimeout(() => {
+          this.copyStatus = "default";
+        }, 3000);
       });
     },
     genVectorUri: function () {

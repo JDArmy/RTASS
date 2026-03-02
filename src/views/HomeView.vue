@@ -200,7 +200,9 @@
           @click="copyVector"
           style="margin-left: 12px;"
         >
-          <el-icon><CopyDocument /></el-icon>
+          <el-icon v-if="copyStatus === 'default'"><CopyDocument /></el-icon>
+          <el-icon v-else-if="copyStatus === 'success'"><Select /></el-icon>
+          <el-icon v-else><Close /></el-icon>
           {{ $t("copy") }}
         </el-button>
       </el-col>
