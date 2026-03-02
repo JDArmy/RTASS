@@ -1,21 +1,39 @@
 .category {
-  background-color: var(--el-color-primary-light-9);
-  border: 5px solid #fff;
-  border-radius: 10px;
+  background: linear-gradient(135deg, #ffffff 0%, #f0f7ff 100%);
+  border: none;
+  border-radius: 16px;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.08);
+  padding: 16px;
+  transition: all 0.3s ease;
+  height: 100%;
+}
+
+.category:hover {
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12);
+  transform: translateY(-2px);
 }
 
 .process-score {
-  background-color: var(--el-color-primary-light-8);
-  border: 5px solid var(--el-color-primary-light-9);
-  border-radius: 10px;
+  background: linear-gradient(135deg, #ffffff 0%, #fafcff 100%);
+  border: none;
+  border-radius: 12px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
+  padding: 12px;
+  transition: all 0.3s ease;
+  height: 100%;
+}
+
+.process-score:hover {
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
 }
 
 .abilities-container {
   margin-bottom: 10px;
-  background-color: var(--el-color-primary-light-7);
-  border: 5px solid var(--el-color-primary-light-8);
+  background: linear-gradient(135deg, #f8fbff 0%, #e8f4ff 100%);
+  border: 1px solid rgba(64, 158, 255, 0.2);
   border-radius: 10px;
-  padding: 5px 0;
+  padding: 12px 8px;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.04);
 }
 
 .el-select .el-input .el-select__caret.el-icon {
@@ -27,38 +45,75 @@
 }
 
 .process-score-result {
-  border-radius: 10px;
-  padding: 5px 0;
+  border-radius: 12px;
+  padding: 16px;
   margin: 20px 10px 10px 10px;
   color: #fff;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  transition: all 0.3s ease;
+}
+
+.process-score-result:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.2);
 }
 
 .finalScores {
-  border: 10px solid #fff;
-  border-radius: 20px;
-  padding: 5px 0;
+  border: none;
+  border-radius: 12px;
+  padding: 20px 12px;
   text-align: center;
   color: #fff;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.15);
+  transition: all 0.3s ease;
+  height: 100%;
+}
+
+.finalScores:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.2);
 }
 
 .chart-pane {
   margin-top: 50px;
+  margin-bottom: 16px;
+  background: white;
+  border-radius: 12px;
+  padding: 20px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+  transition: all 0.3s ease;
+}
+
+.chart-pane:hover {
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.12);
 }
 
 .chart-pane h5 {
   text-align: center;
+  font-weight: 600;
+  color: #409eff;
+  margin-bottom: 16px;
 }
 
 .score-ription {
   padding: 20px;
   font-size: 90%;
+  background: white;
+  border-radius: 12px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
+  margin: 10px;
 }
 
 .score-vector {
   word-wrap: break-word;
   word-break: break-all;
-  padding: 10px;
+  padding: 12px 16px;
   margin-top: 10px;
+  background: rgba(255, 255, 255, 0.9);
+  border-radius: 8px;
+  font-family: 'Monaco', 'Menlo', 'Courier New', monospace;
+  font-size: 0.85em;
+  border: 1px solid rgba(64, 158, 255, 0.2);
 }
 
 .finalScores h4 {
@@ -70,32 +125,47 @@
 h2 {
   font-size: 1.5em;
   margin-top: 5px;
+  font-weight: 600;
+  color: #303133;
 }
 
 h3 {
   font-size: 1.2em;
   margin-top: 30px;
+  font-weight: 600;
+  color: #409eff;
 }
 
 h4 {
   font-size: 1.1em;
   margin-top: 20px;
+  font-weight: 600;
+  color: #606266;
 }
 
 h5 {
   font-size: 0.9em;
   margin-top: 10px;
   margin-bottom: 5px;
+  font-weight: 500;
+  color: #606266;
 }
 
 h6 {
   font-size: 0.6em;
   margin-top: 5px;
   margin-bottom: 0px;
+  font-weight: 500;
+  color: #909399;
 }
 
 .vector-seleter {
-  margin-bottom: 0px;
+  margin-bottom: 8px;
+  transition: all 0.3s ease;
+}
+
+.vector-seleter:hover {
+  transform: scale(1.02);
 }
 
 .el-select {
@@ -104,29 +174,40 @@ h6 {
 
 .el-input__inner {
   color: #ffffff;
+  font-weight: 500;
 }
 
 .text-0 .el-input__wrapper,
 .text-None {
-  background-color: #9cc2e5;
+  background: linear-gradient(135deg, #9cc2e5 0%, #b8d4ed 100%);
+  box-shadow: 0 2px 8px rgba(156, 194, 229, 0.3);
+  border: none;
 }
 
 .text-1 .el-input__wrapper,
 .text-Low {
-  background-color: #3178bf;
+  background: linear-gradient(135deg, #3178bf 0%, #4a8fd4 100%);
+  box-shadow: 0 2px 8px rgba(49, 120, 191, 0.3);
+  border: none;
 }
 
 .text-2 .el-input__wrapper,
 .text-Medium {
-  background-color: #fec50d;
+  background: linear-gradient(135deg, #fec50d 0%, #ffd43b 100%);
+  box-shadow: 0 2px 8px rgba(254, 197, 13, 0.3);
+  border: none;
 }
 
 .text-3 .el-input__wrapper,
 .text-High {
-  background-color: #f09426;
+  background: linear-gradient(135deg, #f09426 0%, #f5a742 100%);
+  box-shadow: 0 2px 8px rgba(240, 148, 38, 0.3);
+  border: none;
 }
 
 .text-4 .el-input__wrapper,
 .text-Extreme {
-  background-color: #d63e34;
+  background: linear-gradient(135deg, #d63e34 0%, #e35a51 100%);
+  box-shadow: 0 2px 8px rgba(214, 62, 52, 0.3);
+  border: none;
 }

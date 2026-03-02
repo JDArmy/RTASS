@@ -1,41 +1,43 @@
 <template>
   <div>
     <!-- RTASS Plus开关 -->
-    <div style="text-align: right; margin: 10px">
+    <div style="text-align: right; margin: 10px 10px 20px 10px; display: flex; justify-content: flex-end; align-items: center; gap: 12px;">
       <el-switch
         v-model="plusmode"
         size="large"
         active-text="RTASS+"
         inactive-text="RTASS"
         @change="calcFinally"
+        style="--el-switch-on-color: #67c23a; --el-switch-off-color: #409eff;"
       />
-      &nbsp;&nbsp;
-      <el-button type="primary" size="default" @click="resetVector">{{
+      <el-button type="primary" size="default" @click="resetVector" style="border-radius: 8px; font-weight: 500;">{{
         $t("reset")
       }}</el-button>
     </div>
     <!-- RTASS Plus开关 end -->
 
     <!-- scoring pane start -->
-    <el-row style="text-align: center">
+    <el-row style="text-align: center; margin: 0 -10px;">
       <!-- 分类 -->
       <el-col
         v-for="(factorTypeVal, factorTypeKey) in RTASS.factorCategories"
         :key="factorTypeKey"
-        class="category"
         :sm="12"
         :xs="24"
+        style="padding: 0 10px; margin-bottom: 20px;"
       >
+        <div class="category">
         <h3>{{ $t(`RTASS.factorCategories.${factorTypeKey}.name`) }}</h3>
-        <el-row class="factorType">
+        <el-row class="factorType" style="margin: 0 -8px;">
           <!-- process score start -->
           <el-col
             v-for="factorGroupKey in factorTypeVal.processScores"
             :key="factorGroupKey"
-            class="process-score"
             :md="8"
             :sm="24"
+            style="padding: 0 8px; margin-bottom: 16px;"
           >
+            <div class="process-score">
             <h4>{{ $t(`RTASS.processScores.${factorGroupKey}.name`) }}</h4>
             <el-row class="factorGroup">
               <!-- 评分因子 -->
@@ -154,26 +156,28 @@
               </el-col>
             </el-row>
             <!-- process score result end -->
+            </div>
           </el-col>
           <!-- process score end -->
         </el-row>
+        </div>
       </el-col>
       <!-- 分类结束 -->
     </el-row>
     <!-- scoring pane end -->
 
     <!-- final score start -->
-    <el-row>
+    <el-row style="margin: 20px -8px; gap: 0;">
       <el-col
-        class="finalScores"
-        :class="'text-' + RTASS.levels[levels[scoringKey]]['keyword']"
         :md="6"
         :sm="12"
         :xs="24"
         :offset="0"
         v-for="(_, scoringKey) in RTASS.finalScores"
         :key="scoringKey"
+        style="padding: 0 8px; margin-bottom: 16px;"
       >
+        <div class="finalScores" :class="'text-' + RTASS.levels[levels[scoringKey]]['keyword']">
         <h4>
           {{ $t(`RTASS.finalScores.${scoringKey}.name`) }}[{{
             scoringKey
@@ -181,6 +185,7 @@
           {{ $t(`RTASS.levels.${levels[scoringKey]}.name`) }}<br />
           {{ scores[scoringKey] }}
         </h4>
+        </div>
       </el-col>
     </el-row>
     <!-- final score end -->
@@ -242,17 +247,20 @@
     <!-- description end -->
 
     <!-- charts start -->
-    <el-row v-show="plusmode">
+    <el-row v-show="plusmode" style="margin: 0 -8px;">
       <el-col
         :md="12"
         :sm="24"
-        class="chart-pane"
         :offset="0"
         v-for="(_, chartKey) in RTASS.charts.data"
         :key="chartKey"
-        ><h5>{{ $t(`RTASS.charts.data.${chartKey}.name`) }}</h5>
-        <canvas :id="'chart-' + chartKey"></canvas
-      ></el-col>
+        style="padding: 0 8px;"
+      >
+        <div class="chart-pane">
+        <h5>{{ $t(`RTASS.charts.data.${chartKey}.name`) }}</h5>
+        <canvas :id="'chart-' + chartKey"></canvas>
+        </div>
+      </el-col>
     </el-row>
     <!-- charts end -->
   </div>

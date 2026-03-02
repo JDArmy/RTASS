@@ -1,12 +1,13 @@
 {
   "name": "JDARMY RTASS",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "title": "Red Team Assessment Scoring System",
   "keyword": "Red Team Assessment Scoring System",
   "description": "The Red Team Assessment Scoring System (RTASS) is an open framework used to assess the capability investment of both offensive and defensive sides in a single cyber red-blue confrontation or actual combat exercise, as well as the degree of risk faced by the business and the enterprise involved. Through RTASS, it is possible to quantify the risk status of attackers, defenders, business parties and enterprises in the red-blue adversarial network attack and defense drills. This framework is suitable for security assessment scenarios that conduct real network attacks on enterprises by simulating hacker APT methods, such as network red-blue confrontation drills, network actual offensive and defensive exercises, red team assessments, and blue army assessments.",
   "maintainer": "Monyer",
   "license": "Apache",
   "rights": "RTASS is founded, owned, and managed by the JD.Army team. JD.Army is a professional red team which focuses on excavating and solving the hidden security risks of enterprise safe operation. JD.Army reserves the right to update RTASS and this document regularly at its sole discretion. Although JD.Army owns all the rights and interests in RTASS, it permits the public to use it freely and follows the Apache open source agreement.",
+  "updated": "2026-03-02",
   "calculator": "https://jd.army/RTASS/",
   "github": "https://github.com/JDArmy/RTASS",
   "abilities": {
@@ -54,7 +55,7 @@
         "0 - Little means or ability to counter threat detection systems",
         "1 - Able to bypass WAF, NGFW and other defenses to achieve vulnerability exploitation",
         "2 - It can bypass anti-virus, HIDPS and other defense methods to achieve C2 online without alarm",
-        "3 - Low threat perception during RBI and intranet lateral movement",
+        "3 - Low threat detection during initial access and lateral movement in the internal network",
         "4 - In the case of extremely strong defensive strength, non-perceptual, long-term, and stable target action can be achieved after target breakthrough"
       ]
     },

@@ -191,6 +191,14 @@ export default {
       this.charts[id] = new Chart(id, config);
     },
   },
+  watch: {
+    plusmode(val) {
+      if (val) this.$nextTick(() => this.initCharts());
+    },
+    '$i18n.locale'() {
+      if (this.plusmode) this.$nextTick(() => this.initCharts());
+    },
+  },
   mounted() {
     this.calcFinally();
   },

@@ -60,14 +60,24 @@ import iconGithub from "@/components/icons/iconGithub.vue";
   padding: 0;
   margin: 0;
   width: 100%;
+  background: linear-gradient(135deg, #f5f7fa 0%, #e8eef5 100%);
+  min-height: 100vh;
 }
 .el-header {
   padding: 0;
   margin: 0;
   width: 100%;
+  box-shadow: 0 2px 12px 0 rgba(0, 0, 0, 0.1);
+  position: sticky;
+  top: 0;
+  z-index: 1000;
 }
 .el-main {
   margin-bottom: 50px;
+  padding: 20px;
+  max-width: 1400px;
+  margin-left: auto;
+  margin-right: auto;
 }
 .el-footer {
   position: fixed;
@@ -77,14 +87,31 @@ import iconGithub from "@/components/icons/iconGithub.vue";
   height: auto;
   left: 0px;
   bottom: 0px;
-  background-color: white;
-  color: gray;
+  background: linear-gradient(to top, rgba(255, 255, 255, 0.98), rgba(255, 255, 255, 0.95));
+  backdrop-filter: blur(10px);
+  color: #606266;
   font-size: 50%;
-  padding: 5px 0 10px 0;
-  border-top: 1px solid rgb(213, 213, 213);
+  padding: 8px 0 12px 0;
+  border-top: 1px solid rgba(213, 213, 213, 0.5);
+  box-shadow: 0 -2px 8px rgba(0, 0, 0, 0.05);
 }
 
 .github {
   font-size: 150%;
+  transition: transform 0.2s ease;
+  display: inline-block;
+}
+
+.github:hover {
+  transform: scale(1.1);
+}
+
+.header h3 {
+  background: linear-gradient(135deg, #409eff 0%, #67c23a 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  font-weight: 600;
+  margin-bottom: 8px;
 }
 </style>
